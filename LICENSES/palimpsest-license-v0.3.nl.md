@@ -1,11 +1,15 @@
 Palimpsest Licentie v0.3
+
 Geldig recht: Koninkrijk der Nederlanden (Boek 6 van het Burgerlijk Wetboek)
 Uitoefeningsplaats: Schotland (via het Verdrag van Den Haag inzake keuze van rechtbank, 2005)
+
 Bindende talen:
 
 Engels (hoofdtaal)
+
 Nederlands (officiële vertaling, juridisch bindend in Nederland)
 Andere vertalingen moeten worden afgestemd op docs/bilingual-map.md
+
 🔍 Definities
 Origineel Werk: Een creatief werk dat emotionele, culturele of symbolische lagen bevat.
 Symbolische Attribution: Erkenning die de culturele of emotionele context van het werk respecteert (zie docs/attribution-guide.md).
