@@ -141,6 +141,21 @@ Open a GitHub issue, start a discussion, or fork the repo to begin.
 
 ---
 
+## 🧵 Contributor Roles
+
+| Role            | Description                                      |
+|------------------|--------------------------------------------------|
+| 🌍 Translator     | Localizes license into new languages             |
+| 🎨 Designer       | Creates ambient attribution systems              |
+| ✍️ Storyteller     | Submits symbolic vignettes or remix examples     |
+| ⚖️ Legal Analyst  | Explores symbolic law and remix ethics           |
+| ♿ Accessibility Advocate | Reviews inclusive language and formats |
+
+Open a GitHub issue or discussion to begin.
+
+
+---
+
 ## 🌀 Closing Note
 
 Palimpsest is more than a license. It is a stitched promise:  
