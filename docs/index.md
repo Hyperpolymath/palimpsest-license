@@ -149,3 +149,13 @@ To protect invisible legacies, remixed lineages, and emotional truths.
 If your work whispers from the fog, dances between cultures, or refuses flattening—this license is yours.
 
 ---
+
+---
+
+## ♿ Accessibility Commitment
+
+This site is optimized for screen readers, semantic clarity, and cognitive ease.  
+We welcome feedback from disabled creators, neurodivergent readers, and remixers of all formats.
+
+Palimpsest protects not just copyright—but care.
+
