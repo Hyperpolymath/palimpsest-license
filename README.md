@@ -56,6 +56,8 @@ While anchored in **Dutch law** and enforced via **Scottish courts**, Palimpsest
 Palimpsest v0.2 is more than a version—it’s a commitment.  
 To symbolic integrity. To remix dignity. To storytelling that stitches, not strips.
 
+[![Accessibility Badge](assets/accessibility-badge.png)](docs/explainme-accessible.md)
+
 Protect your narratives. Offer your layers.  
 License the invisible. Defend the fog.
 
