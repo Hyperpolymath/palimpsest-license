@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/style.css">
 ---
 title: Palimpsest License v0.2
 layout: default
