@@ -164,3 +164,5 @@ To protect invisible legacies, remixed lineages, and emotional truths.
 If your work whispers from the fog, dances between cultures, or refuses flattening—this license is yours.
 
 ---
+
+[![Accessibility Badge](assets/accessibility-badge.png)](docs/explainme-accessible.md)
