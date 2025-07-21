@@ -18,6 +18,7 @@ Ze stelt hergebruik en hersamenstelling mogelijk, terwijl ze waarborgt:
 💔 Emotionele resonantie
 🧬 Culturele context
 🧵 Symbolische diepgang
+
 Clause 1 — Attribution
 1.1 De erkenning moet de symbolische aard en culturele oorsprong van het werk weerspiegelen. Geldige vormen zijn:
 
