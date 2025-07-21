@@ -1,1 +1,1 @@
-Letter to Creative Commons
+Palimpsest extends CC ethics into symbolic attribution.

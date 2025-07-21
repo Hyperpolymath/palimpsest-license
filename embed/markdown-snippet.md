@@ -1,1 +1,1 @@
-Markdown Embed Block
+[![Badge](assets/badge.png)](...)

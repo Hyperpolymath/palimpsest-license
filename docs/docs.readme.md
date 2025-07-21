@@ -1,1 +1,1 @@
-What’s in the docs folder.
+Jurisdiction, ethics, changelog, bilingual comparison.

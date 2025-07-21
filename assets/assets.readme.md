@@ -1,1 +1,1 @@
-Using badge, QR code, and summary images.
+Visuals: badge, QR, summary card.

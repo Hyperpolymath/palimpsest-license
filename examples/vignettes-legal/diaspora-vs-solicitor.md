@@ -1,1 +1,1 @@
-Legal vignette: Diaspora Poet vs Solicitor
+Indirect sourcing vs legal demand.

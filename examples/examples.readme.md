@@ -1,1 +1,1 @@
-Guide to creative and legal examples.
+Illustrative use cases.

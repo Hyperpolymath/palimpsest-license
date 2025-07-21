@@ -1,1 +1,8 @@
-{ JSON-LD License Metadata }
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Palimpsest License v0.2",
+  "jurisdiction": ["NL", "GB"],
+  "license": "LICENSES/Palimpsest-v0.2.en.txt",
+  "keywords": ["symbolic attribution", "synthetic narratives"]
+}

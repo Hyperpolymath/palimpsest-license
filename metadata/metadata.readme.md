@@ -1,1 +1,1 @@
-Explanation of the metadata block.
+JSON-LD metadata block for search engines and AGI.

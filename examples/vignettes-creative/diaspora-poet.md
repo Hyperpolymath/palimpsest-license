@@ -1,1 +1,1 @@
-Creative vignette: Diaspora Poet
+Spoken-word remix, symbolic memory credit.

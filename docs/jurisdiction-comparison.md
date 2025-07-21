@@ -1,1 +1,1 @@
-Scottish vs Dutch law comparison.
+Dutch law + Scottish courts under Hague Convention (2005).

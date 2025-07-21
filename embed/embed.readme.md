@@ -1,1 +1,1 @@
-How to embed the license.
+Embed options for GitHub or webpages.

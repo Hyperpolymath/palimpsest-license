@@ -1,1 +1,1 @@
-Explainer for proposal documents.
+Proposals for licensing bodies.

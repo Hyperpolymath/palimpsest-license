@@ -1,1 +1,1 @@
-Letter to the NUJ
+Protects narrative complexity in journalism, trauma reporting.

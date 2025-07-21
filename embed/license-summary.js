@@ -1,1 +1,1 @@
-// JS for dynamic license summary
+// Embed Summary Block

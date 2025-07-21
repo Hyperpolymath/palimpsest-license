@@ -1,1 +1,1 @@
-Changes from v0.1 to v0.2.
+v0.2 adds: AI/AGI support, bilingual structure, symbolic clauses.

@@ -1,1 +1,1 @@
-Letter to Ubuntu Licensing Team
+Open-source cultural licensing.

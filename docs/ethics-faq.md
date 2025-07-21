@@ -1,1 +1,1 @@
-FAQ: Ethical licensing situations and guidance.
+Symbolic credit, remixing grief, ambient attribution, narrative ethics.
