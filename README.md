@@ -1,107 +1,62 @@
-# Palimpsest License v0.2
+# 🌀 Palimpsest License v0.2 — Release Manifest
 
-> “There are moments we cross from what was to what might be. This license is built for that moment.”
-
-Protects emotionally complex, culturally layered, and symbolically rich creative works.
-
-See: explainme.md
-
-> “There are moments we cross from what was to what might be. This license is built for that moment.”  
-> — *Palimpsest Core, Clause 0*
+**Release Date:** July 21, 2025  
+**Tag:** `v0.2`  
+**Jurisdiction:** Dutch law (interpretation), Scottish courts (enforcement)  
+**Languages:** English (primary), Dutch (binding translation)
 
 ---
 
-## 🪶 What is the Palimpsest License?
+## ✨ What's New in v0.2
 
-The Palimpsest License is a symbolic, layered licensing framework built for:
-
-- Storytellers who remix trauma, myth, or displacement
-- Coders who embed emotion in synthetic environments
-- Journalists stitching composite truths
-- Designers shaping identity through atmospheric interfaces
-
-It protects not just your creative work—but the emotional, cultural, and thematic integrity within it. Remixing is welcomed. Exploitation is not.
-
----
-
-## 🔑 Key Concepts
-
-| Concept                  | Summary                                                                |
-| ------------------------ | ---------------------------------------------------------------------- |
-| 🎭 Symbolic Attribution   | Credit can be direct, indirect, thematic, or environmental             |
-| 🧠 AI / AGI Compatibility | Protects narrative outputs in synthetic realities                      |
-| ⚖️ Jurisdiction           | Governed by Dutch law, enforced in Scottish courts                     |
-| ♿ Accessibility Ethos    | Encourages inclusive formats and ethical design                        |
-| 🔄 Thematic Integrity     | Requires remixing to preserve or deepen emotional and symbolic texture |
+- 🎭 Symbolic Attribution: Direct, thematic, environmental crediting  
+- 🧠 AI / AGI Compatibility: Protects narrative outputs in synthetic environments  
+- ♿ Accessibility Ethos: Encourages ethical, inclusive formats  
+- 📜 Bilingual Structure: English + Dutch with clause comparison  
+- 🧩 Mail-Merge Outreach Kit: Templates for CC, NUJ, Ubuntu, academia  
+- 🗂️ Press & Lobby Toolkit: Manifesto, press release, social snippets, briefing sheets  
+- 🧬 Metadata Block: JSON-LD for AGI and semantic indexing  
+- 🧵 Creative & Legal Vignettes: Diaspora remix and attribution defense scenarios  
+- 🖼️ Visual Assets: Badge, QR code, summary card, and embeddable snippets
 
 ---
 
-## 📁 Repository Structure
+## 💌 Contributor Invitation
 
-| Folder     | Contents                                                           |
-| ---------- | ------------------------------------------------------------------ |
-| LICENSES/  | Legal texts in English and Dutch, plus license overview            |
-| docs/      | Ethics FAQ, jurisdiction analysis, changelog, bilingual clause map |
-| assets/    | Badge, QR code, license summary card                               |
-| metadata/  | JSON-LD machine-readable block                                     |
-| examples/  | Creative and legal vignettes illustrating license use              |
-| proposals/ | Outreach letters to CC, NUJ, Ubuntu and cultural licensing orgs    |
-| embed/     | HTML, Markdown, and JS snippets for seamless platform integration  |
+Palimpsest is open for expansion. We welcome:
 
----
+- 🌍 Translators for new dialects and cultural narratives  
+- ⚖️ Legal scholars to explore symbolic defense and remix ethics  
+- ✍️ Poets, journalists, coders, designers submitting vignettes or remix scenarios  
+- ♿ Accessibility reviewers to refine inclusive language  
+- 🧠 Technologists embedding symbolic attribution in ambient environments
 
-## 🗺️ Language & Legal Context
-
-This license is bilingual:  
-- ✅ English version: authoritative  
-- ✅ Dutch version: legally binding in NL  
-- 📜 Clause map in `docs/bilingual-map.md` ensures clarity across both versions
-
-Legal reach:
-- 🧭 Governing Law: **Netherlands**  
-- 🏛 Enforcement Venue: **Scotland**, via Hague Convention (2005)  
-- 🌐 AGI-ready and UNCITRAL-arbitration compatible
+Use GitHub Issues or Discussions to start the thread.
 
 ---
 
-## 📖 For Newcomers
+## 🧭 Legal Reach
 
-> Never used a symbolic license before? Unsure what “toeschrijvingsmogelijkheden” means?  
-Start with `explainme.md` — your poetic primer on remix ethics, emotional lineage, and the logic of this framework.
-
----
-
-## 🧬 Embedding Palimpsest
-
-Embed the license visually or semantically in your own project:
-
-- Use the badge from `assets/badge.svg`
-- Add summary card from `assets/license-summary-card.png`
-- Link to `LICENSES/Palimpsest-v0.2.en.txt` directly
-- Use HTML/Markdown snippets in `embed/`
+While anchored in **Dutch law** and enforced via **Scottish courts**, Palimpsest is designed for creators everywhere—especially those whose work resists flattening and demands narrative protection.
 
 ---
 
-## 💌 Want to Contribute?
+## 📖 Begin Here
 
-Palimpsest is an open call. We welcome:
-
-- Translators for other cultures and dialects
-- Legal analysts exploring symbolic defense
-- Storytellers submitting new vignettes
-- Designers adding ambient attribution frameworks
-
-Open an issue. Stitch something new.
+- [`README.md`](README.md): License overview, folder structure, contribution paths  
+- [`explainme.md`](explainme.md): Primer on symbolic ethics, remix lineage, attribution logic  
+- [`LICENSES/`](LICENSES/): Legal texts in English and Dutch  
+- [`docs/bilingual-map.md`](docs/bilingual-map.md): Side-by-side clause comparison  
+- [`press-lobby-kit/`](press-lobby-kit/): Templates, manifesto, mail-merge guides
 
 ---
 
 ## 🌀 In Closing
 
-This is a license born not just of copyright, but of care.  
-Of narrative debt. Of cultural refusal. Of emotional fidelity.
+Palimpsest v0.2 is more than a version—it’s a commitment.  
+To symbolic integrity. To remix dignity. To storytelling that stitches, not strips.
 
-We protect symbols, lineages, and layered truth.  
-If you’re crafting work that whispers from the fog—Palimpsest is yours.
+Protect your narratives. Offer your layers.  
+License the invisible. Defend the fog.
 
 ---
-64a36bb0df69215d4aa23046573d552a609f9016
