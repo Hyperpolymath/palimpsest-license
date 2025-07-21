@@ -1,0 +1,8 @@
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Palimpsest License v0.2",
+  "license": "https://github.com/Hyperpolymath/palimpsest-license/blob/main/LICENSES/Palimpsest-v0.2.en.txt",
+  "jurisdiction": ["NL", "GB"],
+  "keywords": ["symbolic attribution", "synthetic realities", "transformative storytelling"]
+}
