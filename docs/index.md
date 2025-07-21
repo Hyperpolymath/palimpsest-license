@@ -3,12 +3,14 @@ title: Palimpsest License v0.2
 layout: default
 ---
 
+<link rel="stylesheet" href="/style.css">
+
 # 🌀 Welcome to Palimpsest License v0.2
 
 > “There are moments we cross from what was to what might be. This license is built for that moment.”  
 > — *Palimpsest Core, Clause 0*
 
-A symbolic, bilingual license built for emotionally complex, culturally layered, and synthetic creative works.
+A symbolic, bilingual license for emotionally complex, culturally layered, and synthetic creative works.
 
 ---
 
@@ -20,20 +22,21 @@ A symbolic, bilingual license built for emotionally complex, culturally layered,
 Palimpsest protects creative works that carry emotional meaning, cultural memory, and symbolic depth.  
 It encourages remixing with care, and asks users to honor the spirit behind a work—not just its surface.
 
-- You may remix, reuse, and share.  
-- You must give credit in symbolic or thematic ways.  
-- You must protect the emotional and cultural integrity of the work.
+- You may remix, reuse, and share  
+- You must give credit in symbolic or thematic ways  
+- You must protect the emotional and cultural integrity of the work
 
 </details>
 
 ---
 
-## 🗂 Contents
+## 🗂️ Table of Contents
 
 - [What is Palimpsest?](#what-is-palimpsest)
 - [Key Features](#key-features)
 - [Legal Reach & Language](#legal-reach--language)
 - [Repository Navigation](#repository-navigation)
+- [Language Toggle](#language-toggle)
 - [Contributing](#contributing)
 - [Closing Note](#closing-note)
 
@@ -72,11 +75,11 @@ All visual assets contain descriptive alt text for screen readers.
 
 ---
 
-## 🗺 Legal Reach & Language
+## 🗺️ Legal Reach & Language
 
 - 🗣️ English version: authoritative  
 - 🇳🇱 Dutch version: binding in the Netherlands  
-- 📑 Clause comparison available in `docs/bilingual-map.md`
+- 📑 Clause comparison available in [`docs/bilingual-map.md`](bilingual-map.md)
 
 Legal framework:
 
@@ -87,7 +90,7 @@ Legal framework:
 
 ---
 
-## 🧭 Repository Navigation
+## 📁 Repository Navigation
 
 | Folder             | Description                                                              |
 |--------------------|--------------------------------------------------------------------------|
@@ -100,6 +103,27 @@ Legal framework:
 | `press-lobby-kit/` | Press release, manifesto, social snippets, and mail-merge templates      |
 
 Accessible formats are encouraged in all outreach materials.
+
+---
+
+## 🌍 Language Toggle
+
+<details>
+<summary>🇬🇧 English Version</summary>
+
+- [Full English license text](../LICENSES/Palimpsest-v0.2.en.txt)  
+- [Clause map](bilingual-map.md)  
+- [Explainme primer](../explainme.md)
+
+</details>
+
+<details>
+<summary>🇳🇱 Dutch Version</summary>
+
+- [Volledige Nederlandse licentietekst](../LICENSES/Palimpsest-v0.2.nl.txt)  
+- [Vergelijkende clausulekaart](bilingual-map.md)
+
+</details>
 
 ---
 
