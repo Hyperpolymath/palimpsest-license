@@ -48,7 +48,9 @@ Legal reach:
 🏛 Enforcement Venue: Scotland (via Hague Convention, 2005)
 🌐 Compatibility: AGI-ready and UNCITRAL arbitration-compliant
 📖 For Newcomers
+
 Never used a symbolic license before? Unsure what “toeschrijvingsmogelijkheden” means?
+
 Start with explainme.md — your poetic primer on remix ethics, emotional lineage, and the logic of this framework.
 
 🧬 Embedding Palimpsest
