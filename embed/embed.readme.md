@@ -1,0 +1,1 @@
+How to embed the license.

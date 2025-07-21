@@ -1,0 +1,1 @@
+FAQ: Ethical licensing situations and guidance.

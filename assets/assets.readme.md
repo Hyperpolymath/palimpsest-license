@@ -1,0 +1,1 @@
+Using badge, QR code, and summary images.
