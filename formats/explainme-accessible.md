@@ -42,6 +42,18 @@ Palimpsest is a symbolic license. It protects creative works that carry emotiona
 
 ---
 
+## 🧵 Contributor Roles
+
+| Role            | Description                                      |
+|------------------|--------------------------------------------------|
+| 🌍 Translator     | Localizes license into new languages             |
+| 🎨 Designer       | Creates ambient attribution systems              |
+| ✍️ Storyteller     | Submits symbolic vignettes or remix examples     |
+| ⚖️ Legal Analyst  | Explores symbolic law and remix ethics           |
+| ♿ Accessibility Advocate | Reviews inclusive language and formats |
+
+Open a GitHub issue or discussion to begin.
+
 ## Accessibility Notes
 
 This version is optimized for screen readers:
@@ -52,6 +64,8 @@ This version is optimized for screen readers:
 - Descriptive alt text for all images  
 - High contrast support via CSS
 
+[![Accessibility Badge](assets/accessibility-badge.png)](docs/explainme-accessible.md)
+
 ---
 
 ## Closing
@@ -61,3 +75,4 @@ To protect invisible legacies, remixed lineages, and emotional truths.
 
 If your work whispers from the fog—Palimpsest is yours.
 
+📘 Accessible formats coming soon: EPUB, audio narration, and dyslexia-friendly layout.
