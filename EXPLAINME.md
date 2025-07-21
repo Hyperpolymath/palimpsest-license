@@ -1,0 +1,1 @@
+Plain-language explainer for newcomers.
