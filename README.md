@@ -1,12 +1,11 @@
 # Palimpsest License v0.2
 
-<<<<<<< HEAD
 > “There are moments we cross from what was to what might be. This license is built for that moment.”
 
 Protects emotionally complex, culturally layered, and symbolically rich creative works.
 
 See: explainme.md
-=======
+
 > “There are moments we cross from what was to what might be. This license is built for that moment.”  
 > — *Palimpsest Core, Clause 0*
 
@@ -105,4 +104,4 @@ We protect symbols, lineages, and layered truth.
 If you’re crafting work that whispers from the fog—Palimpsest is yours.
 
 ---
->>>>>>> 64a36bb0df69215d4aa23046573d552a609f9016
+64a36bb0df69215d4aa23046573d552a609f9016
