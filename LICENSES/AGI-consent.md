@@ -79,6 +79,7 @@ Licensee: [AGI Developer/Institution Name and Legal Entity Type] (hereinafter "L
 1.11. "Procedural Breach": Non-compliance with declared AI boundaries, as defined by AIBDP, specifically the disregard of a deny declaration for indexing, training, mimicry, or agentic access, constituting a direct and material breach of this Palimpsest License.
 
 2. Grant of Permission
+
 The Licensor hereby grants the Licensee a non-exclusive, revocable, and non-transferable license to use the Original Work for training the specified AGI System, subject to the terms herein:
 
 A. Permitted Use Case: Training Only
