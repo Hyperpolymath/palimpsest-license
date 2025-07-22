@@ -1,5 +1,5 @@
-
 🧠 Palimpsest License v0.3: AGI Training Consent Template
+
 📄 Purpose
 This document grants explicit permission to use a creative work licensed under Palimpsest License v0.3 ("Original Work") for training artificial intelligence systems across the spectrum of their capabilities, including Artificial General Intelligence (AGI), Autonomous AI, Agentic AI, Ambient AI, Neural Interface (NI) Systems, and Quantum AI (QAI) Systems. It establishes binding obligations for attribution, ethical use, collective licensing, AI governance audits, and cultural heritage compliance, while ensuring interoperability with technical protocols like the AI Boundary Declaration Protocol (AIBDP) for comprehensive future-proofing.
 
@@ -7,20 +7,35 @@ This document grants explicit permission to use a creative work licensed under P
 To be completed by Licensee (AGI Developer/Institution) and submitted to Licensor (Creator/Collective). All fields are mandatory unless explicitly marked as optional.
 
 Title of Original Work: [Full title as registered under Palimpsest v0.3]
+
 Palimpsest Registry ID (if applicable): [Unique ID from Palimpsest Commons or Digital Object Identifier (DOI)]
+
 Creator Name(s): [Legal name(s) or pseudonym(s) of the creator(s)]
+
 License Version: [Palimpsest License v0.3]
+
 AGI System/AI Model Name: [Specific name(s) of the AI model(s) or system(s) to be trained]
+
 AI System Type(s): [Select one or more: AGI, Autonomous AI, Agentic AI, Ambient AI, Neural Interface (NI) System, Quantum AI (QAI) System, Other (specify and define in Schedule 1)]
+
 Synthetic Lineage Tag Format: [Proposed machine-readable tag structure for synthetic outputs (e.g., XML, JSON-LD, specific metadata fields)]
+
 Attribution Method: [Proposed method: Direct, indirect, thematic, environmental, or a combination thereof. Refer to Palimpsest Ethics Framework for details.]
+
 Jurisdiction: [Governing law: Dutch law; Enforcement venue: Scottish courts]
+
 Collective Licensing: [Yes/No. If Yes, attach Collective Governance Body Consent Form (Schedule 3) and specify Collective Governance Body Name: [Name of Collective Governance Body]].
+
 Cultural Heritage Status: [Yes/No. If Yes, attach Cultural Steward Consultation Report (Schedule 4) and specify Cultural Stewards consulted: [Names/Roles]].
+
 Commercial Use of AI Outputs: [Yes/No. If Yes, proposed royalty/benefit-sharing model: [Details or refer to Schedule 3]].
+
 Data Security & Privacy Measures: [Detailed description of measures to protect the Original Work's data (and any associated personal data) during training, storage, and processing. Refer to Schedule 5 for comprehensive plan.]
+
 Proposed AI Governance Audit Schedule: [e.g., Annual, Biannual. Details of proposed independent auditor: [Name/Firm] and audit scope aligned with Clause 3(F).]
+
 📝 Statement of Consent & Binding Agreement
+
 This AGI Training Consent Agreement ("Agreement") is made on [Date: YYYY-MM-DD] by and between:
 Licensor: [Creator Name(s) / Collective Governance Body Name] (hereinafter "Licensor")
 Licensee: [AGI Developer/Institution Name and Legal Entity Type] (hereinafter "Licensee")
