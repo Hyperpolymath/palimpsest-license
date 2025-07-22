@@ -1,0 +1,23 @@
+# 🌐 Normalize line endings
+* text=auto
+
+# 📜 Enforce LF endings for structured and source formats
+*.md     text eol=lf
+*.json   text eol=lf
+*.jsonld text eol=lf
+*.xml    text eol=lf
+*.html   text eol=lf
+*.py     text eol=lf
+*.ex     text eol=lf
+*.exs    text eol=lf
+*.sh     text eol=lf
+*.mmd    text eol=lf
+*.mermaid text eol=lf
+
+# 📦 Binary file handling
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.zip    binary
+*.ico    binary

@@ -1,0 +1,59 @@
+# 🐍 Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# 🧪 Test and coverage tools
+.tox/
+.nox/
+.pytest_cache/
+.coverage
+.hypothesis/
+.mypy_cache/
+
+# 🧠 Elixir / Livebook
+/_build/
+/deps/
+/erl_crash.dump
+.mix/
+/cover/
+.elixir_ls/
+.livebook/
+
+# 🌍 Jupyter & Notebook tooling
+.ipynb_checkpoints/
+
+# 🧵 Environment folders
+.env
+.venv
+env/
+venv/
+ENV/
+ENV.bak/
+venv.bak/
+
+# 📚 Documentation and build output
+*.log
+*.pot
+htmlcov/
+docs/_site/
+docs/dist/
+*.html
+
+# 🎞 Mermaid diagrams
+*.mmd
+*.mermaid
+
+# 💻 IDEs and editors
+.vscode/
+.idea/
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# 💾 OS-generated files
+.DS_Store
+Thumbs.db
