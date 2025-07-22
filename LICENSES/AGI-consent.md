@@ -166,6 +166,8 @@ Signature: [Digital or physical signature]
 
 XML
 
+---
+
 <synthetic-lineage xmlns="http://palimpsest.license/ns/synthetictag/v0.3">  
   <original-work title="[Original Work Title]" creator="[Creator Name]" license="Palimpsest-v0.3" registry-id="[Optional: Palimpsest Registry ID]" />  
   <agi-model name="[AGI Model Name]" version="[Model Version]" type="[Autonomous/Agentic/Ambient/NI/QAI/General]" />  
@@ -176,47 +178,66 @@ XML
   <output-integrity-status>Verified</output-integrity-status> <!-- Added for auditability -->
 </synthetic-lineage>  
 💡 Guidance Notes for Use (English)
+
+---
+
 This section provides context and guidance on the expanded clauses within the AGI Training Consent Template.
 
 I. New Definitions Explained
+
 These definitions are crucial for legally binding the nuances of advanced AI interactions and collective rights.
 
 Autonomous AI, Agentic AI, Ambient AI, Neural Interface (NI) Systems, Quantum AI (QAI) Systems: These explicitly define the types of AI being addressed, requiring specific obligations based on their unique operational characteristics (e.g., self-modification, delegation, pervasive integration, brain interaction, quantum processing).
+
 Collective Licensing & Collective Governance Body: This formalizes the process for works owned by communities or groups (e.g., Indigenous knowledge, open-source cooperatives, DAOs). It ensures that consent isn't just from an individual but from the legitimate collective body, with provisions for benefit-sharing.
+
 AI Governance Audit: A vital accountability mechanism. Licensees agree to regular, independent scrutiny of their AI's ethical compliance, lineage integrity, and bias mitigation.
+
 Cultural Heritage Compliance: This addresses the sensitivity required when dealing with works tied to specific cultural heritage, mandating consultation with "Cultural Stewards" and adherence to "Cultural Protocols" to prevent appropriation or misuse.
+
 AIBDP & Procedural Breach: This is the technical bridge. AIBDP is the machine-readable way to declare your Palimpsest boundaries (deny/allow for training, generation, etc.) on the web. A "Procedural Breach" (ignoring an AIBDP deny declaration) is explicitly defined as a direct material breach of the Palimpsest License itself, making enforcement via Scottish courts immediate and clear.
+
 II. Core Protections Addendum (as reflected in Clauses)
+
 A. Collective Licensing Framework (Clause 3.D)
+
 For works by collectives (e.g., artist cooperatives, indigenous knowledge trusts, DAOs):
 
 The Collective Governance Body (DSE in original notes) formally manages Palimpsest rights.
 Licensees must gain explicit consent from this Body.
 Mandates transparency and auditable benefit-sharing (e.g., royalties, resource allocation) for commercial uses of Synthetic Outputs.
+
 B. Cultural Heritage Safeguards (Clause 3.E)
 For works tied to cultural heritage:
 
 Mandatory Cultural Consultation: Licensees must engage with identified Cultural Stewards before and during training/deployment. This goes beyond mere notification; it implies active dialogue and respect for traditional knowledge systems.
-Adherence to Protocols: Respect for specific community protocols (e.g., restrictions on sacred content, appropriate visual representations).
-III. AI Governance & Compliance (as reflected in Clauses)
+
+Adherence to Protocols: Respect for specific community protocols (e.g., restrictions on sacred content, appropriate visual representations).III. AI Governance & Compliance (as reflected in Clauses)
+
 A. AI Training Consent Tiers (Clause 2.A)
+
 The template now differentiates AI types and their respective obligations:
 
 Autonomous AI: Requires human oversight and auditable decision-making.
+
 Agentic AI: Requires disclosure of delegated tasks and full accountability for sub-agent behavior.
+
 Ambient AI: Emphasizes preserving atmospheric/contextual meaning.
 Neural Interface (NI) Systems: Strict informed consent and privacy protocols for any neural data derived.
+
 Quantum AI (QAI) Systems: Transparency on quantum processing and auditable data lineage.
+
 B. Mandatory AI Governance Audits (Clause 3.F)
 Trigger: Any AI system processing Palimpsest-licensed works.
 Scope: Covers data ethics, lineage tag integrity, emotional/cultural integrity, and compliance with all Agreement clauses.
-Consequences: Non-compliance leads to a remediation period, and failure to remedy results in sanctions by the Palimpsest Stewardship Council (refer to Compliance Toolkit).
-C. AIBDP Compliance (Clause 3.G)
+Consequences: Non-compliance leads to a remediation period, and failure to remedy results in sanctions by the Palimpsest Stewardship Council (refer to Compliance Toolkit).C. AIBDP Compliance (Clause 3.G)
 This clause makes it legally binding for Licensees to deploy AIBDP declarations that match the Palimpsest terms for web-hosted content.
 Crucially: A "Procedural Breach" of AIBDP (e.g., an AI ignoring a deny declaration) is a direct material breach of this Palimpsest License, simplifying enforcement.
+
 IV. Enforcement Updates (as reflected in Clauses)
 Remediation & Escalation (Clause 5): Revocation triggers include failure to remedy AIBDP procedural breaches, cultural heritage non-compliance, and AI governance audit failures.
 Liability (Clause 6): Licensee indemnifies Licensor for breaches and misuse by the AGI System, including for Collective Licensing.
+
 V. Dynamic Updates & Future AI Paradigms (Clause 9)
 This clause is now more robust, ensuring the license remains relevant:
 
@@ -228,11 +249,17 @@ The AI Boundary Declaration Protocol (AIBDP) (draft-jewell-aibdp-00.txt) serves 
 AIBDP is NOT a substitute for the Palimpsest License; it is a declaration of the Palimpsest License's boundaries for specific web content.
 
 Simultaneous Operation & Interoperability:
+
 Both protocols are designed to work concurrently and seamlessly:
 
 Palimpsest Defines: The creator (Licensor) specifies their terms for AI interaction within the Palimpsest License v0.3 and this AGI Training Consent Template. These terms cover all forms of AI interaction, whether on the web or offline.
+
 AIBDP Declares (for web content): For any Original Work (or its web-hosted derivatives) under Palimpsest License v0.3 that is accessible via the Internet, the Licensee (or content host) must deploy AIBDP declarations that accurately reflect the Palimpsest terms.
+
 Example: If the Palimpsest License or this Agreement specifies training: "deny", the AIBDP manifest for the hosted content must include "training": "deny".
+
 Procedural Breach: Any AGI system that bypasses or disregards AIBDP declarations (e.g., attempts to train on content explicitly marked "training": "deny") commits a Procedural Breach of AIBDP, which automatically constitutes a direct material breach of the underlying Palimpsest License v0.3, triggering its enforcement mechanisms.
+
 Conclusion on "Ahead":
+
 The Palimpsest License is conceptually and legally "ahead" as the foundational document defining the intent and scope of permissions/denials. AIBDP is technically "ahead" in providing a machine-readable, actionable protocol for these declarations on the web. They are symbiotic, forming a layered defense: Palimpsest is the law, AIBDP is the digital frontier guard.
