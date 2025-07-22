@@ -1,70 +1,131 @@
-📘 explainme.md — What Is the Palimpsest License?
-🪶 A License for Stories with Soul
-Palimpsest License v0.2 is designed for creators who work with emotional complexity, symbolic lineage, and cultural texture—whether through poetry, journalism, immersive code, or synthetic memory. It protects your right to remix grief, myth, displacement, or invention—ethically and respectfully.
+# 🌀 Palimpsest License Explained
 
-If your work feels more like stitching emotion than slinging code, this license is for you.
+## What Is the Palimpsest License?
 
-🧠 Why Palimpsest?
-Traditional licenses demand direct attribution, rigid crediting, and technical transformation. Palimpsest supports:
+The Palimpsest License is a **symbolic, layered licensing framework** designed for creative works that resist simplification, flattening, or reduction. It's particularly suited for:
 
-🌀 Symbolic Attribution: Credit through theme, gesture, or embedded cues
+- **Multilayered narratives** (literature, film, games)
+- **Emotionally complex works** (art about trauma, displacement)
+- **Synthetic environments** (AI-generated content, virtual worlds)
+- **Cultural remixes** (works that build on myth, folklore, or collective memory)
 
-🧠 AI & AGI Compatibility: Protect narrative outputs in synthetic environments
+Unlike traditional licenses that focus solely on legal protection, Palimpsest acknowledges that some works carry **emotional, cultural, and symbolic weight** that shouldn't be stripped away through remixing or adaptation.
 
-♿ Accessibility Built-In: Ethical design and inclusive formats are encouraged
+## 🌀 Core Principles
 
-🎭 Cultural Remixing: Preserve nuance without commodifying identity
+### 1. Symbolic Attribution (🎭)
+**Not just "credit where credit's due" - but credit that preserves meaning.**
 
-🌍 Bilingual Reach & Jurisdiction
-Palimpsest is enforceable across borders:
+- **Direct attribution**: Traditional name/title credit
+- **Indirect attribution**: Thematic references, homages, or echoes
+- **Environmental attribution**: Contextual placement that honors the original
+- **Emotional attribution**: Acknowledging the emotional lineage of the work
 
-⚖️ Dutch Law governs interpretation
+*Example*: A filmmaker adapting a novel might credit the author but also acknowledge the cultural myths that inspired the original work.
 
-🏴 Scottish Courts enforce disputes
+### 2. Synthetic/AGI Protection (🧠)
+**Protecting narrative integrity in synthetic realities.**
 
-✍️ The license is legally valid in both English and Dutch
+- **AI Training**: If your work is used to train AI, the license requires:
+  - Disclosure of training use
+  - Protection of narrative "DNA" (themes, emotional arcs)
+  - Prevention of "flattening" (reducing complex works to data points)
 
-📜 Translations are welcome, but only EN/NL versions are binding
+- **AI Generation**: For works created with AI:
+  - Clear labeling of synthetic elements
+  - Protection of human creative input
+  - Preservation of cultural context
 
-A bilingual clause table ensures clarity between the two versions:
+### 3. Accessibility Ethics (♿)
+**Beyond compliance - toward meaningful inclusion.**
 
-Clause No.	English	Dutch
-1	Definitions	Definities
-2	Permissions	Toestemmingen
-3	Conditions	Voorwaarden
-4	Attribution Options	Toeschrijvingsmogelijkheden
-5	Commercial Use	Commercieel Gebruik
-6	AI/AGI/Synthetic Environs	AI/AGI/Synthetische Omgevingen
-7	Termination	Beëindiging
-8	Legal Interpretation	Juridische Interpretatie
-9	Patents & Rights	Octrooien en Andere Rechten
-10	Updates & Versions	Versies en Bijwerkingen
-Even the clause names rhyme across philosophies—British syllables meet Dutch logic.
+- **Multimodal access**: Text alternatives for visual works, audio descriptions
+- **Emotional accessibility**: Content warnings, trigger guidance
+- **Cognitive accessibility**: Clear structure, plain language options
+- **Technical accessibility**: Machine-readable metadata, semantic HTML
 
-🔮 Who Is It For?
-Palimpsest was built for:
+### 4. Jurisdiction (⚖️)
+**Dutch law with Scottish enforcement**
 
-Diaspora poets remixing oral memory
+- **Why Dutch law?**
+  - Strong IP protection
+  - Clear digital rights framework
+  - EU compatibility
+  - Progressive cultural property laws
 
-Textile novelists stitching grief into gown and code
+- **Why Scottish enforcement?**
+  - Common law tradition (familiar to English speakers)
+  - Strong reputation for fair dispute resolution
+  - Lower costs than English courts
+  - Hague Convention compliance for international enforcement
 
-AI architects crafting ambient emotion
+## 📜 How It Works
 
-Journalists using composite narrative ethics
+### For Creators:
+1. **Choose your protection level**:
+   - Basic (symbolic attribution only)
+   - Enhanced (with synthetic/AGI protections)
+   - Full (all protections including accessibility ethics)
 
-Designers inventing synthetic identity tools
+2. **Embed the license** in your work:
+   - Add the badge to your project
+   - Include the license text
+   - Add machine-readable metadata
 
-Anyone who sees the invisible threads and refuses to flatten them
+3. **Document your intentions**:
+   - Explain your symbolic attribution requirements
+   - Define your emotional boundaries
+   - Specify accessibility needs
 
-🗝️ Quick Start Guide
-Add LICENSES/Palimpsest-v0.2.en.txt to your project
+### For Remixers/Adapters:
+1. **Understand the layers**:
+   - What's legally protected?
+   - What's symbolically protected?
+   - What's emotionally protected?
 
-Use symbolic or direct attribution when remixed
+2. **Preserve the integrity**:
+   - Maintain thematic connections
+   - Honor emotional lineage
+   - Respect cultural context
 
-Respect the emotional and thematic depth of the original
+3. **Give proper attribution**:
+   - Direct, indirect, or environmental as appropriate
+   - In the medium that makes sense (text, audio, visual)
 
-Share openly with ethics, accessibility, and empathy
+## 🧩 Common Questions
 
-Commercial use? Seek written permission
+### Q: How is this different from Creative Commons?
+A: While CC licenses focus on legal permissions, Palimpsest adds:
+- Symbolic protection layers
+- Emotional integrity requirements
+- Synthetic/AI-specific protections
+- Cultural context preservation
 
-AI? Embed lineage, protect intention
+### Q: What if I want to use AI to remix a Palimpsest-licensed work?
+A: You must:
+1. Disclose the AI's role in the remix
+2. Preserve the original's thematic core
+3. Maintain emotional fidelity
+4. Provide proper attribution
+
+### Q: How do I know if my work needs this license?
+A: Consider Palimpsest if your work:
+- Carries cultural weight
+- Has emotional depth
+- Builds on collective memory
+- Resists simple categorization
+- Might be used in synthetic environments
+
+## 🌐 Practical Implementation
+
+### For Developers:
+```html
+<!-- Example HTML implementation -->
+<div class="palimpsest-license" aria-label="Palimpsest License v0.2">
+  <a href="LICENSES/Palimpsest-v0.2.en.txt" target="_blank">
+    <img src="assets/badge.svg" alt="Palimpsest License v0.2" width="120">
+  </a>
+  <div class="license-summary">
+    <p>This work is licensed under the Palimpsest License v0.2 - a symbolic license for work that resists flattening.</p>
+  </div>
+</div>
