@@ -1,0 +1,15 @@
+# .github/workflows/post-sync.yml
+name: Post-Sync Check
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  post-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run sync script
+        run: bash scripts/post-sync.sh
