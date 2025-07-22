@@ -4,7 +4,7 @@ layout: default
 ---
 <link rel="stylesheet" href="/style.css">
 
-# 🌀 Welkom bij Palimpsest Licentie v0.2 | Welcome to Palimpsest License v0.2
+# 🌀 Welkom bij Palimpsest Licentie v0.3 | Welcome to Palimpsest License v0.3
 
 > “Er zijn momenten dat we oversteken van wat was naar wat zou kunnen zijn. Deze licentie is gebouwd voor dat moment.”
 > *"There are moments we cross from what was to what might be. This license is built for that moment."*
