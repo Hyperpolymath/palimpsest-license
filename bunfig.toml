@@ -1,0 +1,4 @@
+[scripts]
+dev = "bun --watch index.ts"
+build = "tsc"
+test = "bun test"

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this license, please cite it as below."
+title: "Palimpsest License"
+version: 0.4.0
+date-released: 2024-07-23
+url: "https://github.com/Hyperpolymath/palimpsest-license"
+authors:
+  - family-names: "Hyperpolymath"
+    given-names: ""
+    orcid: ""  # Add if available
+repository-code: "https://github.com/Hyperpolymath/palimpsest-license"
+license: "Palimpsest-0.4 AND AGPL-3.0-only"
+keywords:
+  - license
+  - ai-ethics
+  - cultural-heritage
+  - symbolic-integrity
+  - dutch-law
+  - scottish-courts
