@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -eo pipefail
 
 echo "🔍 Initializing Palimpsest License v0.4 setup..."

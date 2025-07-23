@@ -21,6 +21,7 @@
 - SaaS loophole in AGPL enforcement
 - Metadata stripping vulnerabilities
 - QAI provenance obfuscation risks
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -57,4 +58,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Initial release of the Palimpsest License (v0.1).
+
 - Core principles of symbolic attribution and emotional integrity.
