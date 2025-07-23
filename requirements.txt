@@ -1,4 +1,0 @@
-# Python dependencies for tooling
-# Example:
-# mkdocs
-# beautifulsoup4
