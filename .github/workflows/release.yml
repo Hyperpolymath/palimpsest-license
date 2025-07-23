@@ -1,0 +1,24 @@
+name: Release Drafter
+
+on:
+  push:
+    tags:
+      - 'v*' # Run on tags like v0.3.0
+
+jobs:
+  draft_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for changelog generation
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true # Creates a draft release that you can review and publish manually
+          generate_release_notes: true # Auto-generates release notes from commits
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOK
