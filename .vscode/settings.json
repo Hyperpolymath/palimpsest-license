@@ -1,0 +1,59 @@
+{
+  // === Core Formatting Rules ===
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false, // Disable auto-indent detection
+  "editor.eol": "\n", // Enforce Unix-style line endings (LF)
+  "editor.rulers": [
+    80
+  ], // Visual guide for line length
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  // === Markdown Settings ===
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.wordWrap": "on", // Wrap text for readability
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  // === JSON/JSONC Settings ===
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  // === JavaScript Settings ===
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  // === Python Settings (if using Python scripts) ===
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+      "--line-length",
+      "80"
+    ]
+  },
+  // === Spell Checking (for docs/license text) ===
+  "cSpell.enabled": true,
+  "cSpell.language": "en,en-GB,nl", // Enable English + Dutch
+  "cSpell.words": [
+    "Palimpsest",
+    "AIBDP",
+    "AGI",
+    "QAI",
+    "NI",
+    "toeschrijving",
+    "ethiek",
+    "synthetische"
+  ]
+}

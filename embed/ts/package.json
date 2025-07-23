@@ -1,0 +1,6 @@
+"scripts": {
+  "lint": "eslint .",
+  "format": "prettier --write .",
+  "test": "echo \"No JS tests specified yet\" && exit 0",
+  "build:widget": "tsc --project tsconfig.json"
+},
