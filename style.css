@@ -1,16 +1,37 @@
+/* Palimpsest License v0.4 - Enhanced Stylesheet
+ * Optimized for accessibility, legal documentation, and symbolic integrity
+ */
+
 @import "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.6.1/github-markdown.min.css";
 
-/* Base Accessibility Settings */
+/* ===== Base Variables & Accessibility Settings ===== */
 :root {
+  /* Core Accessibility */
   --text-contrast: 4.5; /* WCAG 2.3 minimum contrast ratio */
   --focus-outline: 3px solid #0366d6;
   --braille-scale: 1.2; /* For Braille display compatibility */
+  
+  /* Palimpsest-Specific Colors */
+  --palimpsest-primary: #2d5986; /* Dutch blue - representing Dutch law */
+  --palimpsest-secondary: #005eb8; /* Scottish blue - representing Scottish courts */
+  --palimpsest-accent: #7851a9; /* Purple - representing symbolic/emotional lineage */
+  --palimpsest-warning: #d14836; /* Red - for restrictions/warnings */
+  --palimpsest-success: #2e7d32; /* Green - for permissions */
+  
+  /* Typography */
+  --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono-font: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  --legal-font: "Noto Serif", Georgia, serif; /* Better for legal text */
+  
+  /* Spacing */
+  --content-width: 980px;
+  --content-padding: 45px;
 }
 
-/* Body with ARIA and semantic improvements */
+/* ===== Base Styles ===== */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: var(--body-font);
   line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -20,49 +41,78 @@ body {
   overflow-x: hidden;
   background-color: #ffffff;
   color: #000000;
-  aria-live: "polite"; /* For dynamic content announcements */
 }
 
-/* Color Scheme with WCAG 2.3 compliance */
+/* ===== Color Schemes ===== */
 @media (prefers-color-scheme: light) {
-  body {
-    background-color: #ffffff;
-    color: #000000;
-    --text-contrast: 21; /* High contrast for light mode */
-  }
-
-  a {
-    color: #0366d6;
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f6f8fa;
+    --bg-tertiary: #eef2f5;
+    --text-primary: #000000;
+    --text-secondary: #24292e;
+    --text-muted: #586069;
+    --border-color: #e1e4e8;
+    --link-color: var(--palimpsest-primary);
+    --link-hover: var(--palimpsest-secondary);
+    --code-bg: #f6f8fa;
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #0d1117;
-    color: #c9d1d9;
-    --text-contrast: 12; /* High contrast for dark mode */
+  :root {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --text-primary: #c9d1d9;
+    --text-secondary: #b1bac4;
+    --text-muted: #8b949e;
+    --border-color: #30363d;
+    --link-color: #58a6ff;
+    --link-hover: #79c0ff;
+    --code-bg: #161b22;
   }
-
-  a {
-    color: #58a6ff;
+  
+  /* Adjust Palimpsest colors for dark mode */
+  :root {
+    --palimpsest-primary: #4d8ac7; /* Lighter Dutch blue */
+    --palimpsest-secondary: #3a8eda; /* Lighter Scottish blue */
+    --palimpsest-accent: #9d74d2; /* Lighter purple */
   }
 }
 
-/* Focus Management for Keyboard Navigation */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover, a:focus {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* ===== Focus Management ===== */
 :focus {
   outline: var(--focus-outline);
   outline-offset: 2px;
 }
 
-/* Braille Display Support */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
+:focus:not(:focus-visible) {
+  outline: none; /* Remove outline for mouse users */
 }
 
-/* Screen Reader Specific Styles */
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* ===== Screen Reader Utilities ===== */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -75,48 +125,183 @@ body {
   border-width: 0;
 }
 
-/* Markdown Body with Enhanced Accessibility */
+/* ===== Markdown Content ===== */
 .markdown-body {
   box-sizing: border-box;
   min-width: 200px;
-  max-width: 980px;
+  max-width: var(--content-width);
   margin: 0 auto;
-  padding: 45px;
+  padding: var(--content-padding);
   font-size: 1rem;
   line-height: 1.6;
   tab-size: 4;
-  hyphens: auto; /* Better readability for long words */
-  text-size-adjust: 100%; /* Prevent font scaling issues */
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -o-text-size-adjust: 100%;
+  hyphens: auto;
+  text-size-adjust: 100%;
   word-break: break-word;
   overflow-wrap: break-word;
-  aria-labelledby: "main-content";
-  role: "main";
 }
 
-/* Responsive Design with Accessibility */
-@media (max-width: 767px) {
-  .markdown-body {
-    padding: 15px;
-    font-size: 0.9rem; /* Slightly larger text for mobile */
-  }
-
-  /* Mobile-specific focus styles */
-  :focus {
-    outline: var(--focus-outline);
-    outline-offset: 4px;
-  }
+/* Headings with Palimpsest styling */
+.markdown-body h1 {
+  font-family: var(--legal-font);
+  color: var(--palimpsest-primary);
+  border-bottom: 2px solid var(--palimpsest-primary);
+  padding-bottom: 0.5rem;
 }
 
-/* Language Switcher Accessibility */
+.markdown-body h2 {
+  font-family: var(--legal-font);
+  color: var(--palimpsest-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.3rem;
+}
+
+/* ===== License-Specific Elements ===== */
+/* Preamble styling */
+.preamble, .markdown-body blockquote:first-of-type {
+  background-color: var(--bg-tertiary);
+  border-left: 4px solid var(--palimpsest-primary);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-family: var(--legal-font);
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* Definition styling */
+.definition, .markdown-body h3 + ul, .markdown-body h2:contains("Definitions") + ul {
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.definition dt, .markdown-body h3 + ul strong, .markdown-body h2:contains("Definitions") + ul strong {
+  color: var(--palimpsest-secondary);
+  font-weight: bold;
+}
+
+/* Permission/Restriction styling */
+.permission, .markdown-body li:contains("✅"), .markdown-body li:contains("You Can") {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.permission::before, .markdown-body li:contains("✅")::before, .markdown-body li:contains("You Can")::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  color: var(--palimpsest-success);
+}
+
+.restriction, .markdown-body li:contains("❌"), .markdown-body li:contains("You Cannot") {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.restriction::before, .markdown-body li:contains("❌")::before, .markdown-body li:contains("You Cannot")::before {
+  content: "❌";
+  position: absolute;
+  left: 0;
+  color: var(--palimpsest-warning);
+}
+
+/* Synthetic Lineage Tag styling */
+.synthetic-lineage-tag, pre:contains("syntheticLineageTag") {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--palimpsest-accent);
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.synthetic-lineage-tag::before, pre:contains("syntheticLineageTag")::before {
+  content: "Synthetic Lineage Tag";
+  position: absolute;
+  top: -0.75rem;
+  left: 1rem;
+  background-color: var(--bg-primary);
+  padding: 0 0.5rem;
+  font-size: 0.8rem;
+  color: var(--palimpsest-accent);
+  font-weight: bold;
+}
+
+/* Jurisdiction styling */
+.jurisdiction, .markdown-body h2:contains("Jurisdiction") + p {
+  background-color: var(--bg-secondary);
+  border-left: 4px solid var(--palimpsest-secondary);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  caption-side: top;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+caption {
+  font-weight: bold;
+  padding: 0.5rem;
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--bg-secondary);
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  color: var(--palimpsest-primary);
+}
+
+tr:nth-child(even) {
+  background-color: var(--bg-secondary);
+}
+
+/* Comparison tables */
+.comparison-table th:first-child {
+  background-color: var(--bg-tertiary);
+}
+
+.comparison-table td:first-child {
+  font-weight: bold;
+}
+
+/* ===== Code Blocks ===== */
+pre {
+  background-color: var(--code-bg);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid var(--border-color);
+}
+
+code {
+  font-family: var(--mono-font);
+  font-size: 0.9em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+/* ===== Language Switcher ===== */
 .language-switcher {
   display: flex;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  aria-label: "Language selection";
 }
 
 .language-switcher a {
@@ -125,57 +310,62 @@ body {
   border-radius: 4px;
   text-decoration: none;
   transition: background-color 0.2s ease;
+  border: 1px solid var(--border-color);
 }
 
 .language-switcher a:hover,
 .language-switcher a:focus {
-  background-color: rgba(3, 102, 214, 0.1);
+  background-color: var(--bg-secondary);
   outline: none;
 }
 
-/* Table Accessibility */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  caption-side: top;
+.language-switcher a.active {
+  background-color: var(--palimpsest-primary);
+  color: white;
+  border-color: var(--palimpsest-primary);
 }
 
-th, td {
-  padding: 0.5rem;
-  text-align: left;
-  border: 1px solid #e1e4e8;
-}
-
-th {
-  background-color: #f6f8fa;
+/* ===== Version Badge ===== */
+.version-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--palimpsest-primary);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
   font-weight: bold;
-  position: sticky;
-  top: 0;
+  margin-left: 0.5rem;
+  vertical-align: middle;
 }
 
-tr:nth-child(even) {
-  background-color: #f6f8fa;
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  :root {
+    --content-padding: 30px;
+  }
 }
 
-/* Code Block Accessibility */
-pre {
-  background-color: #f6f8fa;
-  border-radius: 6px;
-  padding: 1rem;
-  overflow-x: auto;
-  margin: 1rem 0;
+@media (max-width: 767px) {
+  :root {
+    --content-padding: 15px;
+  }
+  
+  .markdown-body {
+    font-size: 0.95rem;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .language-switcher {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
-code {
-  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-  font-size: 0.9em;
-  background-color: #f6f8fa;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-}
-
-/* Print Styles for Accessibility */
+/* ===== Print Styles ===== */
 @media print {
   body {
     background-color: white;
@@ -188,6 +378,7 @@ code {
     box-shadow: none;
     padding: 0;
     max-width: 100%;
+    font-size: 11pt;
   }
 
   a::after {
@@ -195,9 +386,30 @@ code {
     font-size: 0.8em;
     color: #666;
   }
+  
+  /* Add page breaks before major sections */
+  h1, h2 {
+    page-break-before: always;
+  }
+  
+  h1:first-of-type {
+    page-break-before: avoid;
+  }
+  
+  /* Avoid breaking inside important elements */
+  pre, blockquote, .synthetic-lineage-tag, table {
+    page-break-inside: avoid;
+  }
+  
+  /* Print with license-specific colors */
+  .preamble, blockquote:first-of-type {
+    border-left: 4px solid #2d5986 !important;
+    background-color: #f5f5f5 !important;
+  }
 }
 
-/* Reduced Motion Support */
+/* ===== Accessibility Enhancements ===== */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -206,8 +418,14 @@ code {
   }
 }
 
-/* High Contrast Mode Support */
+/* High Contrast Mode */
 @media (forced-colors: active) {
+  :root {
+    --palimpsest-primary: CanvasText;
+    --palimpsest-secondary: CanvasText;
+    --palimpsest-accent: CanvasText;
+  }
+  
   body {
     forced-color-adjust: none;
   }
@@ -220,12 +438,68 @@ code {
     outline: 2px solid Highlight;
     outline-offset: 2px;
   }
+  
+  .synthetic-lineage-tag, pre, code {
+    border: 1px solid CanvasText;
+  }
 }
 
-/* Braille Display Specific Adjustments */
-@media (prefers-reduced-transparency) {
-  body {
-    background-color: #ffffff;
-    color: #000000;
-  }
+/* ===== Palimpsest-Specific Components ===== */
+/* License Header */
+.license-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.license-header img {
+  width: 60px;
+  height: 60px;
+  margin-right: 1rem;
+}
+
+.license-header-text {
+  flex: 1;
+}
+
+.license-header-text h1 {
+  margin: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.license-header-text p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Add hover effect for interactive elements */
+.license-header-text a {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.license-header-text a:hover,
+.license-header-text a:focus {
+  transform: translateY(-2px);
+  text-decoration: underline;
+}
+
+/* Add ARIA roles for screen readers */
+.license-header {
+  role: banner;
+  aria-label: "License header";
+}
+
+.license-header-text h1 {
+  aria-labelledby: "license-title";
+}
+
+/* Add semantic structure */
+.license-header-text p {
+  aria-describedby: "license-description";
 }
