@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -eo pipefail
 
 echo "🔍 Initializing Palimpsest License v0.4 setup..."
@@ -87,3 +88,4 @@ echo ""
 echo "🎉 Setup complete! You're ready to contribute to Palimpsest License v0.4"
 echo "Use 'julia --project=.' to enter the Julia REPL"
 echo "Use 'bun dev' or equivalent if this is a frontend-enabled repo"
+

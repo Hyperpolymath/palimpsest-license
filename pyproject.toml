@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "palimpsest-tools"
+
 version = "0.4.0"
 description = "Compliance and validation tools for the Palimpsest License."
 readme = "README.md"

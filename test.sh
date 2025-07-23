@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+
 # Main test runner script for the Palimpsest License v0.4 project.
 
 set -e  # Exit on any error

@@ -40,16 +40,20 @@
 body {
   margin: 0;
   font-family: var(--body-font);
+
   line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   min-width: 320px;
   /* Minimum viewport width for accessibility */
+
   max-width: 100%;
   overflow-x: hidden;
   background-color: #ffffff;
   color: #000000;
+
 }
 
 /* ===== Color Schemes ===== */
@@ -65,10 +69,12 @@ body {
     --link-color: var(--palimpsest-primary);
     --link-hover: var(--palimpsest-secondary);
     --code-bg: #f6f8fa;
+
   }
 }
 
 @media (prefers-color-scheme: dark) {
+
   :root {
     --bg-primary: #0d1117;
     --bg-secondary: #161b22;
@@ -111,6 +117,7 @@ a:focus {
 }
 
 /* ===== Focus Management ===== */
+
 :focus {
   outline: var(--focus-outline);
   outline-offset: 2px;
@@ -324,6 +331,7 @@ code {
   font-family: var(--mono-font);
   font-size: 0.9em;
   background-color: var(--code-bg);
+
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
@@ -397,6 +405,7 @@ code {
 }
 
 /* ===== Print Styles ===== */
+
 @media print {
   body {
     background-color: white;
@@ -410,6 +419,7 @@ code {
     padding: 0;
     max-width: 100%;
     font-size: 11pt;
+
   }
 
   a::after {
@@ -446,6 +456,7 @@ code {
 
 /* ===== Accessibility Enhancements ===== */
 /* Reduced Motion */
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -540,4 +551,14 @@ code {
 /* Add semantic structure */
 .license-header-text p {
   aria-describedby: "license-description";
+}
+
+}
+
+/* Braille Display Specific Adjustments */
+@media (prefers-reduced-transparency) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
 }
