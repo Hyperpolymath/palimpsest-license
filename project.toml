@@ -1,0 +1,8 @@
+name = "palimpsest-license"
+uuid = "..."  # generate with UUIDs.uuid4()
+authors = ["Your Name <you@example.com>"]
+version = "0.4.0"
+
+[deps]
+# example optional deps
+# Pluto = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
