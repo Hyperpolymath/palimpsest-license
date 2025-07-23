@@ -1,29 +1,89 @@
 #!/bin/bash
-#
-# Simple setup script for the Palimpsest project.
+set -eo pipefail
 
-set -e # Exit immediately if a command exits with a non-zero status.
+echo "🔍 Initializing Palimpsest License v0.4 setup..."
 
-echo "🔎 Checking for dependencies..."
+# -----------------------------------
+# 1. Validate essential tools
+# -----------------------------------
 
-# Check for Node.js and npm
-if ! command -v npm &> /dev/null
-then
-    echo "❌ Node.js/npm could not be found. Please install it to continue."
+# Check for Julia
+if ! command -v julia &> /dev/null; then
+    echo "❌ Julia not found. Please install Julia 1.9+ from https://julialang.org/downloads/"
     exit 1
 fi
 
-# Check for Python and pip
-if ! command -v pip &> /dev/null
-then
-    echo "❌ Python/pip could not be found. Please install it to continue."
+# Check Julia version
+JULIA_VERSION=$(julia -v | awk '{print $2}')
+REQUIRED_JULIA="1.9"
+if [[ "$(printf "%s\n" "$REQUIRED_JULIA" "$JULIA_VERSION" | sort -V | head -n1)" != "$REQUIRED_JULIA" ]]; then
+    echo "❌ Julia $REQUIRED_JULIA+ required, but found $JULIA_VERSION"
     exit 1
 fi
 
-echo "✅ All dependencies found."
-echo "🚀 Installing project packages..."
+# Check for Bun
+if ! command -v bun &> /dev/null; then
+    echo "❌ Bun not found. Please install it from https://bun.sh"
+    echo "On macOS with Homebrew: brew install bun"
+    echo "On Ubuntu/Debian: curl -fsSL https://bun.sh/install | bash"
+    exit 1
+fi
 
-# Use Makefile to install everything
-make install
+BUN_VERSION=$(bun --version)
+echo "   → Bun version $BUN_VERSION detected (ok)"
 
-echo "🎉 Setup is complete! You are ready to contribute."
+# -----------------------------------
+# 2. Validate project structure
+# -----------------------------------
+
+echo "🔧 Validating project files..."
+
+if [ ! -f Project.toml ]; then
+    echo "❌ Project.toml not found"
+    echo "Ensure you're in the correct directory and the Julia project file exists"
+    exit 1
+fi
+
+# Optional: check for src/ or other expected dirs
+#if [ ! -d src ]; then
+#    echo "⚠️  src/ directory not found"
+#fi
+
+# -----------------------------------
+# 3. Install dependencies
+# -----------------------------------
+
+echo "🚀 Installing project dependencies..."
+
+# Install Julia packages
+echo "   → Installing Julia dependencies..."
+julia --project=. -e 'using Pkg; Pkg.instantiate(); Pkg.precompile()'
+
+# If you use Bun for frontend assets or scripts, install them here:
+if [ -f bun.lockb ] || [ -d "frontend" ]; then
+    echo "   → Installing Bun dependencies..."
+    bun install
+else
+    echo "   → No Bun lockfile or frontend dir found — skipping Bun install"
+fi
+
+# -----------------------------------
+# 4. Run validations
+# -----------------------------------
+
+echo "🧪 Validating environment..."
+
+# Test Julia
+julia -e 'println("✅ Julia test passed: ", VERSION)'
+
+# Test Bun
+bun --eval 'console.log("✅ Bun test passed:", Bun.version)'
+
+# -----------------------------------
+# 5. Final message
+# -----------------------------------
+
+echo ""
+echo "🎉 Setup complete! You're ready to contribute to Palimpsest License v0.4"
+echo "Use 'julia --project=.' to enter the Julia REPL"
+echo "Use 'bun dev' or equivalent if this is a frontend-enabled repo"
