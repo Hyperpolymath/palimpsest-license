@@ -1,3 +1,26 @@
+## [0.4.0] - 2024-07-23
+
+### Added
+- Dual licensing structure with Palimpsest v0.4 and AGPL-3.0
+- Dutch substantive law and Scottish procedural jurisdiction
+- Explicit definitions for "Neural Manipulation" and "Quantum-Resistant" technologies
+- Julia-based license parser in TOOLKIT_v0.4
+- Compliance Roadmap with flowchart
+- Red Flag Index for identifying abuse patterns
+- Judicial reasoning using literal, golden, and mischief rules
+
+### Changed
+- Reorganized repository structure with clear v0.3/v0.4 separation
+- Moved legacy parsers to ARCHIVE directory
+- Enhanced attribution requirements with machine-readable formats
+- Strengthened cultural heritage compliance mechanisms
+- Improved DAO governance and collective licensing provisions
+
+### Fixed
+- Jurisdiction ambiguity with explicit Hague Convention references
+- SaaS loophole in AGPL enforcement
+- Metadata stripping vulnerabilities
+- QAI provenance obfuscation risks
 # Changelog
 
 All notable changes to this project will be documented in this file.
