@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: Palimpsest-0.3 AND AGPL-3.0-only
+# SPDX-FileCopyrightText: 2024 Palimpsest Contributors
+
+## Palimpsest License v0.3
+A license for symbolic, emotional, and cultural integrity in AI training.
+
+### Key Features
+- Dual License: Palimpsest v0.3 (symbolic) + AGPL (software).
+- Jurisdiction: Dutch law (substantive) + Scottish courts (procedural).
+- Compliance: Tools, guides, and audits to ensure ethical use.
+
+## Quick Start
+1. Read \LICENSES/v0.3/palimpsest-license-v0.3.en.md\.
+2. Use \TOOLS/COMPLIANCE-TOOLKIT/audit-template.xlsx\ for checks.
+3. Embed \syntheticLineageTag\ (see \xamples/code\).
