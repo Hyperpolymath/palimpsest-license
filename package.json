@@ -15,7 +15,7 @@
     "author": "Palimpsest Stewardship Council",
     "license": "MIT",
     "devDependencies": {
-        "eslint": "^8.0.0",
+        "eslint": "^9.33.0",
         "eslint-config-prettier": "^9.0.0",
         "prettier": "^3.0.0"
     }
