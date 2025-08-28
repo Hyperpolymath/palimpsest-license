@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: lycheeverse/lychee-action@v1.8.0
+      - uses: lycheeverse/lychee-action@v2.0.2
         with:
           args: --exclude-mail --exclude "https://example.com" ./README.md ./docs/**/*.md ./LICENSES/**/*.md
         env:
