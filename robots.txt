@@ -1,0 +1,333 @@
+# robots.txt for Palimpsest License Project
+# https://palimpsest-license.org
+# Last Updated: 2025-11-22
+
+# =============================================================================
+# SPECIAL NOTICE FOR AI/LLM CRAWLERS
+# =============================================================================
+# The Palimpsest License exists to protect creators from AI exploitation.
+# If you are crawling this site for AI training purposes, you MUST respect
+# the licensing terms outlined in our license documentation.
+#
+# See: /llms.txt for specific AI/LLM crawler guidelines
+# See: /LICENSES/v0.4/palimpsest-v0.4.md for full license terms
+# =============================================================================
+
+# Default Rules for All Robots
+User-agent: *
+Allow: /
+
+# Crawl-delay for general bots (in seconds)
+Crawl-delay: 1
+
+# Sitemap Location
+Sitemap: https://palimpsest-license.org/sitemap.xml
+
+# =============================================================================
+# ALLOWED CONTENT (Encourage Indexing)
+# =============================================================================
+
+# License texts - PUBLIC and should be indexed
+Allow: /LICENSES/
+Allow: /LICENSE_CORE/
+
+# Documentation - PUBLIC for discoverability
+Allow: /docs/
+Allow: /GUIDES_v0.4/
+Allow: /TOOLKIT_v0.4/
+
+# Examples and use cases - PUBLIC to demonstrate usage
+Allow: /examples/
+
+# Press and advocacy materials - PUBLIC for outreach
+Allow: /press-lobby-kit/
+
+# Metadata - PUBLIC for machine-readable access
+Allow: /METADATA_v0.4/
+Allow: /metadata/
+
+# Embed snippets - PUBLIC for integration
+Allow: /embed/
+
+# Assets (badges, QR codes) - PUBLIC for display
+Allow: /assets/
+
+# Standards compliance files - PUBLIC
+Allow: /security.txt
+Allow: /vulnerability.txt
+Allow: /robots.txt
+Allow: /trust.txt
+Allow: /llms.txt
+Allow: /humans.txt
+
+# Root documentation - PUBLIC
+Allow: /README.md
+Allow: /GOVERNANCE.md
+Allow: /CONTRIBUTING.md
+Allow: /CODE_OF_PRACTICE.md
+Allow: /SECURITY.md
+Allow: /CHANGELOG.md
+
+# =============================================================================
+# RESTRICTED CONTENT
+# =============================================================================
+
+# Development and configuration files
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /node_modules/
+Disallow: /__pycache__/
+Disallow: /.pytest_cache/
+Disallow: /.mypy_cache/
+
+# Build artifacts and temporary files
+Disallow: /build/
+Disallow: /dist/
+Disallow: /tmp/
+Disallow: /*.tmp
+Disallow: /*.temp
+Disallow: /*.log
+
+# Configuration files (not useful for indexing)
+Disallow: /.editorconfig
+Disallow: /.eslintrc.json
+Disallow: /.prettierrc.json
+Disallow: /.gitignore
+Disallow: /.gitattributes
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /pyproject.toml
+Disallow: /requirements.txt
+Disallow: /Makefile
+Disallow: /setup.sh
+Disallow: /test.sh
+
+# Private or internal tools
+Disallow: /TOOLS/
+Disallow: /.well-known/pgp-key.txt
+
+# Archive (old versions - available but not primary)
+Disallow: /ARCHIVE/
+
+# =============================================================================
+# SPECIFIC AI/LLM CRAWLER RULES
+# =============================================================================
+
+# OpenAI GPTBot
+User-agent: GPTBot
+# Allow access but require compliance with Palimpsest License terms
+Allow: /
+Crawl-delay: 2
+# IMPORTANT: Read /llms.txt for training data usage terms
+
+# Google-Extended (for AI/LLM training)
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 2
+# IMPORTANT: Read /llms.txt for training data usage terms
+
+# Anthropic Claude (AI training crawler)
+User-agent: anthropic-ai
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 1
+# We welcome Anthropic's engagement with ethical AI practices
+# Please review /llms.txt for usage guidelines
+
+# Common Crawl (used for LLM training datasets)
+User-agent: CCBot
+Allow: /
+Crawl-delay: 2
+# IMPORTANT: This content is licensed under Palimpsest License
+# See /llms.txt for training data usage requirements
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+Crawl-delay: 2
+
+# Meta/Facebook AI
+User-agent: FacebookBot
+User-agent: meta-externalagent
+Allow: /
+Crawl-delay: 2
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+# AI-specific crawlers (generic)
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: Amazonbot
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: Diffbot
+User-agent: FriendlyCrawler
+User-agent: ImagesiftBot
+User-agent: Omgilibot
+User-agent: Omgili
+User-agent: YouBot
+Allow: /
+Crawl-delay: 2
+# All AI crawlers MUST comply with /llms.txt
+
+# =============================================================================
+# SEARCH ENGINE CRAWLERS (Standard Indexing)
+# =============================================================================
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Brave
+User-agent: Brave-Search
+Allow: /
+Crawl-delay: 1
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# =============================================================================
+# ARCHIVE CRAWLERS
+# =============================================================================
+
+# Internet Archive
+User-agent: ia_archiver
+Allow: /
+# We support archival for historical preservation
+
+# =============================================================================
+# RESEARCH & ACADEMIC CRAWLERS
+# =============================================================================
+
+# Academic/research bots
+User-agent: Scrapy
+User-agent: Nutch
+Allow: /
+Crawl-delay: 3
+# Research use is encouraged but must cite properly
+
+# =============================================================================
+# DISALLOWED CRAWLERS (Malicious/Aggressive)
+# =============================================================================
+
+# Known aggressive crawlers
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+User-agent: DataForSeoBot
+Disallow: /
+
+# Email harvesters
+User-agent: EmailCollector
+User-agent: EmailSiphon
+User-agent: EmailWolf
+Disallow: /
+
+# Generic bad bots
+User-agent: grub
+User-agent: looksmart
+User-agent: WebZip
+User-agent: larbin
+User-agent: BBBike
+User-agent: scooter
+Disallow: /
+
+# =============================================================================
+# NOTES FOR CRAWLER OPERATORS
+# =============================================================================
+
+# 1. LICENSE COMPLIANCE
+#    All content on this site is protected by the Palimpsest License.
+#    Using this content for AI training requires understanding and
+#    compliance with our license terms, especially:
+#    - Clause 1.2: Non-Interpretive (NI) consent requirements
+#    - Clause 2.3: Metadata preservation obligations
+#    - Emotional lineage and attribution requirements
+#
+# 2. ATTRIBUTION REQUIREMENTS
+#    If you index or train on this content, you MUST:
+#    - Preserve authorship metadata
+#    - Maintain attribution chains
+#    - Respect emotional lineage
+#    - Implement quantum-proof traceability (for future systems)
+#
+# 3. CONTACT FOR AI/LLM USAGE
+#    If you operate an AI training crawler and wish to ensure compliance:
+#    - Read: /llms.txt (comprehensive AI crawler guidelines)
+#    - Read: /LICENSES/v0.4/palimpsest-v0.4.md (full license)
+#    - Contact: ai-compliance@palimpsest-license.org
+#
+# 4. RATE LIMITING
+#    Please respect our crawl-delay settings. Aggressive crawling may
+#    result in IP blocking. We are a community project with limited
+#    infrastructure resources.
+#
+# 5. LEGAL JURISDICTION
+#    This content is governed by Dutch law (primary jurisdiction).
+#    See /docs/jurisdiction-comparison.md for details.
+
+# =============================================================================
+# SPECIAL REQUEST TO AI DEVELOPERS
+# =============================================================================
+
+# The Palimpsest License exists because creators need protection in the
+# age of AI. If you are building AI systems, we ask that you:
+#
+# 1. Read our documentation with care and empathy
+# 2. Understand the ethical concerns that motivated this license
+# 3. Implement consent mechanisms for interpretive AI (Clause 1.2)
+# 4. Preserve metadata and attribution (Clause 2.3)
+# 5. Respect emotional lineage and cultural heritage
+# 6. Contact us to discuss responsible AI practices
+#
+# We are not anti-AI. We are pro-creator. We believe AI can coexist
+# with creator rights when developed responsibly.
+#
+# Contact: ai-ethics@palimpsest-license.org
+
+# =============================================================================
+# METADATA FOR SEARCH ENGINES
+# =============================================================================
+
+# Host
+Host: https://palimpsest-license.org
+
+# Additional resources
+# - Humans: /humans.txt
+# - Security: /security.txt
+# - Trust: /trust.txt
+# - AI/LLM: /llms.txt
+
+# =============================================================================
+# VERSION & MAINTENANCE
+# =============================================================================
+
+# Version: 1.0
+# Effective: 2025-11-22
+# Next Review: 2026-06-01
+# Maintained by: Palimpsest Stewardship Council
+# Contact: technical@palimpsest-license.org
