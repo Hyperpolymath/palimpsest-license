@@ -42,6 +42,8 @@ docs/dist/
 *.html
 # Exception: licence block HTML snippets (intentional documentation)
 !embed/license-blocks/*.html
+# Exception: presentation HTML files (reveal.js presentations)
+!presentations/**/*.html
 
 # 🎞 Mermaid diagrams
 *.mmd
