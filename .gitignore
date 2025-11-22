@@ -40,6 +40,8 @@ htmlcov/
 docs/_site/
 docs/dist/
 *.html
+# Exception: licence block HTML snippets (intentional documentation)
+!embed/license-blocks/*.html
 
 # 🎞 Mermaid diagrams
 *.mmd
