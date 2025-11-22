@@ -1,0 +1,48 @@
+{
+  "name": "@palimpsest/license-client",
+  "version": "0.4.0",
+  "description": "Client-side JavaScript library for Palimpsest License verification and display",
+  "main": "dist/palimpsest.js",
+  "module": "dist/palimpsest.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write src/**/*.js"
+  },
+  "keywords": [
+    "palimpsest",
+    "license",
+    "copyright",
+    "ai-ethics",
+    "client-side",
+    "verification"
+  ],
+  "author": "Palimpsest License Contributors",
+  "license": "Palimpsest-0.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/palimpsest-license/palimpsest-license"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "prettier": "^3.0.0",
+    "rollup": "^4.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ]
+}
