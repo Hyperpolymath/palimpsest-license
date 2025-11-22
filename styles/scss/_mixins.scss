@@ -1,6 +1,7 @@
 // _mixins.scss
 // Reusable mixins and patterns for Palimpsest License styling system
 
+@use 'sass:string';
 @use 'variables' as *;
 
 // ============================================================================
@@ -388,8 +389,6 @@
     @include focus-visible;
   }
 }
-
-@use 'sass:string';
 
 // Helper function to strip units
 @function strip-unit($value) {
