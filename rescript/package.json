@@ -1,0 +1,34 @@
+{
+  "name": "@palimpsest/rescript",
+  "version": "0.4.0",
+  "description": "ReScript/ReasonML implementation of Palimpsest License client-side tools",
+  "main": "lib/js/src/core/PalimpsestLicense.bs.js",
+  "scripts": {
+    "build": "rescript",
+    "clean": "rescript clean",
+    "watch": "rescript build -w",
+    "format": "rescript format -all",
+    "test": "echo \"Tests not yet implemented\" && exit 0"
+  },
+  "keywords": [
+    "palimpsest",
+    "license",
+    "rescript",
+    "reasonml",
+    "ai-ethics",
+    "metadata",
+    "compliance"
+  ],
+  "author": "Palimpsest Stewardship Council",
+  "license": "MIT",
+  "devDependencies": {
+    "rescript": "^11.0.0"
+  },
+  "dependencies": {},
+  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/palimpsest-license.git",
+    "directory": "rescript"
+  }
+}

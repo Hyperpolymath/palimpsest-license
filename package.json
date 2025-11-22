@@ -1,12 +1,20 @@
 {
     "name": "palimpsest-license",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "A future-proof license for creative work in the age of AI.",
     "main": "docs/license-parser.js",
     "scripts": {
         "lint": "eslint .",
         "format": "prettier --write .",
-        "test": "echo \"No JS tests specified yet\" && exit 0"
+        "test": "echo \"No JS tests specified yet\" && exit 0",
+        "scss": "sass styles/scss/main.scss styles/css/main.css --style=expanded --source-map",
+        "scss:watch": "sass styles/scss/main.scss styles/css/main.css --watch --style=expanded --source-map",
+        "scss:build": "sass styles/scss/main.scss styles/css/main.css --style=compressed --no-source-map",
+        "scss:build:dev": "sass styles/scss/main.scss styles/css/main.css --style=expanded --source-map",
+        "build": "npm run scss:build",
+        "build:dev": "npm run scss:build:dev",
+        "watch": "npm run scss:watch",
+        "clean": "rm -rf styles/css/*.css styles/css/*.css.map"
     },
     "repository": {
         "type": "git",
@@ -17,6 +25,7 @@
     "devDependencies": {
         "eslint": "^8.0.0",
         "eslint-config-prettier": "^9.0.0",
-        "prettier": "^3.0.0"
+        "prettier": "^3.0.0",
+        "sass": "^1.69.0"
     }
 }
