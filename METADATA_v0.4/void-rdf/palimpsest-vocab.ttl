@@ -1,0 +1,459 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://www.w3.org/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix palimpsest: <https://palimpsest.license/vocab#> .
+
+# ============================================================================
+# Palimpsest License Vocabulary
+# ============================================================================
+
+<https://palimpsest.license/vocab>
+    a owl:Ontology ;
+    dcterms:title "Palimpsest License Vocabulary"@en ;
+    dcterms:title "Palimpsest Licentie Vocabulaire"@nl ;
+    dcterms:description """
+        An RDF/OWL vocabulary for describing creative works, emotional lineage,
+        AI consent, and quantum-proof traceability under the Palimpsest License.
+        This vocabulary extends Dublin Core, FOAF, and Creative Commons with
+        concepts specific to protecting creative works in the age of AI.
+    """@en ;
+    dcterms:creator <https://palimpsest.license/council> ;
+    dcterms:created "2024-01-15"^^xsd:date ;
+    dcterms:modified "2025-11-22"^^xsd:date ;
+    owl:versionInfo "0.4" ;
+    owl:versionIRI <https://palimpsest.license/vocab/0.4> ;
+    dcterms:license <https://palimpsest.license/v0.4> .
+
+# ============================================================================
+# Core Classes
+# ============================================================================
+
+palimpsest:Work
+    a owl:Class ;
+    rdfs:label "Creative Work"@en ;
+    rdfs:label "Creatief Werk"@nl ;
+    rdfs:comment """
+        A creative work licensed under the Palimpsest License, with layered
+        emotional, cultural, or symbolic meaning. Works carry emotional lineage
+        and specify AI consent requirements.
+    """@en ;
+    rdfs:subClassOf dcterms:BibliographicResource ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:Derivative
+    a owl:Class ;
+    rdfs:label "Derivative Work"@en ;
+    rdfs:label "Afgeleid Werk"@nl ;
+    rdfs:comment """
+        A derivative work based on an original work licensed under the Palimpsest
+        License. Derivatives must include lineage statements and comply with
+        attribution and reciprocity requirements.
+    """@en ;
+    rdfs:subClassOf palimpsest:Work ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:Lineage
+    a owl:Class ;
+    rdfs:label "Lineage Chain"@en ;
+    rdfs:label "Afstammingsketen"@nl ;
+    rdfs:comment """
+        A complete chain-of-custody record tracking the transformation of a work
+        from its original form through all derivative works, with quantum-proof
+        cryptographic signatures.
+    """@en ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:Violation
+    a owl:Class ;
+    rdfs:label "License Violation"@en ;
+    rdfs:label "Licentieovertreding"@nl ;
+    rdfs:comment """
+        A reported violation of the Palimpsest License terms, including
+        attribution failures, metadata stripping, or unauthorised AI training.
+    """@en ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:EmotionalLineage
+    a owl:Class ;
+    rdfs:label "Emotional Lineage"@en ;
+    rdfs:label "Emotionele Afstamming"@nl ;
+    rdfs:comment """
+        The cultural, emotional, and symbolic context of a creative work,
+        including themes, sensitivities, and symbolic elements that must be
+        preserved in derivatives.
+    """@en ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:SymbolicElement
+    a owl:Class ;
+    rdfs:label "Symbolic Element"@en ;
+    rdfs:label "Symbolisch Element"@nl ;
+    rdfs:comment """
+        A symbol within a work that carries specific cultural or emotional meaning,
+        such as recurring motifs, cultural references, or metaphorical elements.
+    """@en ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:AIConsent
+    a owl:Class ;
+    rdfs:label "AI Consent"@en ;
+    rdfs:label "AI-toestemming"@nl ;
+    rdfs:comment """
+        Consent settings for artificial intelligence systems, specifying whether
+        a work may be used for AI training, generation, or other purposes.
+    """@en ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:LineageStatement
+    a owl:Class ;
+    rdfs:label "Lineage Statement"@en ;
+    rdfs:label "Afstammingsverklaring"@nl ;
+    rdfs:comment """
+        A statement documenting the relationship between a derivative work and
+        its original, including attribution, transformations, and reciprocity.
+    """@en ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:QuantumProof
+    a owl:Class ;
+    rdfs:label "Quantum-Proof Signature"@en ;
+    rdfs:label "Quantumbestendige Handtekening"@nl ;
+    rdfs:comment """
+        A cryptographic signature using quantum-resistant algorithms (e.g., SPHINCS+,
+        CRYSTALS-Dilithium) to ensure long-term verifiability of lineage chains.
+    """@en ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+# ============================================================================
+# Properties - Emotional Lineage
+# ============================================================================
+
+palimpsest:emotionalLineage
+    a owl:ObjectProperty ;
+    rdfs:label "emotional lineage"@en ;
+    rdfs:label "emotionele afstamming"@nl ;
+    rdfs:comment "Links a work to its emotional lineage description."@en ;
+    rdfs:domain palimpsest:Work ;
+    rdfs:range palimpsest:EmotionalLineage ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:emotionalContext
+    a owl:DatatypeProperty ;
+    rdfs:label "emotional context"@en ;
+    rdfs:label "emotionele context"@nl ;
+    rdfs:comment "Describes the cultural or emotional context of a work."@en ;
+    rdfs:domain palimpsest:EmotionalLineage ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:theme
+    a owl:DatatypeProperty ;
+    rdfs:label "theme"@en ;
+    rdfs:label "thema"@nl ;
+    rdfs:comment "A thematic element of the work's emotional lineage."@en ;
+    rdfs:domain palimpsest:EmotionalLineage ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:sensitivity
+    a owl:DatatypeProperty ;
+    rdfs:label "sensitivity"@en ;
+    rdfs:label "gevoeligheid"@nl ;
+    rdfs:comment """
+        A sensitivity classification (e.g., trauma, cultural-heritage, sacred,
+        protest, diaspora, indigenous) indicating special care required.
+    """@en ;
+    rdfs:domain palimpsest:EmotionalLineage ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:symbolicElement
+    a owl:ObjectProperty ;
+    rdfs:label "symbolic element"@en ;
+    rdfs:label "symbolisch element"@nl ;
+    rdfs:comment "Links to a symbolic element within the work."@en ;
+    rdfs:domain palimpsest:EmotionalLineage ;
+    rdfs:range palimpsest:SymbolicElement ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:symbol
+    a owl:DatatypeProperty ;
+    rdfs:label "symbol"@en ;
+    rdfs:label "symbool"@nl ;
+    rdfs:comment "The symbol or motif itself."@en ;
+    rdfs:domain palimpsest:SymbolicElement ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:symbolMeaning
+    a owl:DatatypeProperty ;
+    rdfs:label "symbol meaning"@en ;
+    rdfs:label "symbolische betekenis"@nl ;
+    rdfs:comment "The meaning or significance of the symbol."@en ;
+    rdfs:domain palimpsest:SymbolicElement ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:culturalOrigin
+    a owl:DatatypeProperty ;
+    rdfs:label "cultural origin"@en ;
+    rdfs:label "culturele oorsprong"@nl ;
+    rdfs:comment "The cultural tradition or community from which the symbol originates."@en ;
+    rdfs:domain palimpsest:SymbolicElement ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+# ============================================================================
+# Properties - AI Consent
+# ============================================================================
+
+palimpsest:aiConsent
+    a owl:ObjectProperty ;
+    rdfs:label "AI consent"@en ;
+    rdfs:label "AI-toestemming"@nl ;
+    rdfs:comment "Links a work to its AI consent settings."@en ;
+    rdfs:domain palimpsest:Work ;
+    rdfs:range palimpsest:AIConsent ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:trainingAllowed
+    a owl:DatatypeProperty ;
+    rdfs:label "training allowed"@en ;
+    rdfs:label "training toegestaan"@nl ;
+    rdfs:comment "Whether the work may be used for AI training."@en ;
+    rdfs:domain palimpsest:AIConsent ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:generationAllowed
+    a owl:DatatypeProperty ;
+    rdfs:label "generation allowed"@en ;
+    rdfs:label "generatie toegestaan"@nl ;
+    rdfs:comment "Whether AI-generated derivatives are permitted."@en ;
+    rdfs:domain palimpsest:AIConsent ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:aiConsentCondition
+    a owl:DatatypeProperty ;
+    rdfs:label "AI consent condition"@en ;
+    rdfs:label "AI-toestemmingsvoorwaarde"@nl ;
+    rdfs:comment "A specific condition or restriction on AI use."@en ;
+    rdfs:domain palimpsest:AIConsent ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+# ============================================================================
+# Properties - Derivatives and Lineage
+# ============================================================================
+
+palimpsest:derivedFrom
+    a owl:ObjectProperty ;
+    rdfs:label "derived from"@en ;
+    rdfs:label "afgeleid van"@nl ;
+    rdfs:comment "Links a derivative work to its original source work."@en ;
+    rdfs:domain palimpsest:Derivative ;
+    rdfs:range palimpsest:Work ;
+    rdfs:subPropertyOf dcterms:source ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:lineageStatement
+    a owl:ObjectProperty ;
+    rdfs:label "lineage statement"@en ;
+    rdfs:label "afstammingsverklaring"@nl ;
+    rdfs:comment "Links a derivative to its lineage statement."@en ;
+    rdfs:domain palimpsest:Derivative ;
+    rdfs:range palimpsest:LineageStatement ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:preservesContext
+    a owl:DatatypeProperty ;
+    rdfs:label "preserves context"@en ;
+    rdfs:label "behoudt context"@nl ;
+    rdfs:comment "Whether the derivative preserves the emotional and cultural context."@en ;
+    rdfs:domain palimpsest:LineageStatement ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:preservesIntegrity
+    a owl:DatatypeProperty ;
+    rdfs:label "preserves integrity"@en ;
+    rdfs:label "behoudt integriteit"@nl ;
+    rdfs:comment "Whether transformations preserve thematic integrity."@en ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:reciprocityOffered
+    a owl:DatatypeProperty ;
+    rdfs:label "reciprocity offered"@en ;
+    rdfs:label "wederkerigheid aangeboden"@nl ;
+    rdfs:comment "Whether reciprocity (e.g., revenue sharing) is offered."@en ;
+    rdfs:domain palimpsest:LineageStatement ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:lineageChain
+    a owl:ObjectProperty ;
+    rdfs:label "lineage chain"@en ;
+    rdfs:label "afstammingsketen"@nl ;
+    rdfs:comment "Links a work to its complete lineage chain."@en ;
+    rdfs:domain palimpsest:Work ;
+    rdfs:range palimpsest:Lineage ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:generationNumber
+    a owl:DatatypeProperty ;
+    rdfs:label "generation number"@en ;
+    rdfs:label "generatienummer"@nl ;
+    rdfs:comment "The generation number in a lineage chain (0 for original)."@en ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+# ============================================================================
+# Properties - Quantum Proof
+# ============================================================================
+
+palimpsest:quantumProof
+    a owl:ObjectProperty ;
+    rdfs:label "quantum proof"@en ;
+    rdfs:label "quantumbewijs"@nl ;
+    rdfs:comment "Links to a quantum-resistant cryptographic signature."@en ;
+    rdfs:range palimpsest:QuantumProof ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:quantumAlgorithm
+    a owl:DatatypeProperty ;
+    rdfs:label "quantum algorithm"@en ;
+    rdfs:label "quantumalgoritme"@nl ;
+    rdfs:comment "The quantum-resistant algorithm used (e.g., SPHINCS+, CRYSTALS-Dilithium)."@en ;
+    rdfs:domain palimpsest:QuantumProof ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:signature
+    a owl:DatatypeProperty ;
+    rdfs:label "signature"@en ;
+    rdfs:label "handtekening"@nl ;
+    rdfs:comment "The cryptographic signature value."@en ;
+    rdfs:domain palimpsest:QuantumProof ;
+    rdfs:range xsd:base64Binary ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:publicKey
+    a owl:DatatypeProperty ;
+    rdfs:label "public key"@en ;
+    rdfs:label "publieke sleutel"@nl ;
+    rdfs:comment "The public key for signature verification."@en ;
+    rdfs:domain palimpsest:QuantumProof ;
+    rdfs:range xsd:base64Binary ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+# ============================================================================
+# Properties - Violations
+# ============================================================================
+
+palimpsest:violates
+    a owl:ObjectProperty ;
+    rdfs:label "violates"@en ;
+    rdfs:label "schendt"@nl ;
+    rdfs:comment "Links a violation report to the work that was violated."@en ;
+    rdfs:domain palimpsest:Violation ;
+    rdfs:range palimpsest:Work ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:violationType
+    a owl:DatatypeProperty ;
+    rdfs:label "violation type"@en ;
+    rdfs:label "type overtreding"@nl ;
+    rdfs:comment """
+        The type of violation (e.g., attribution-failure, metadata-stripping,
+        unauthorised-ai-training, trivialisation, commodification).
+    """@en ;
+    rdfs:domain palimpsest:Violation ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:reportedBy
+    a owl:ObjectProperty ;
+    rdfs:label "reported by"@en ;
+    rdfs:label "gerapporteerd door"@nl ;
+    rdfs:comment "The person or organisation that reported the violation."@en ;
+    rdfs:domain palimpsest:Violation ;
+    rdfs:range foaf:Agent ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:violationStatus
+    a owl:DatatypeProperty ;
+    rdfs:label "violation status"@en ;
+    rdfs:label "overtredingsstatus"@nl ;
+    rdfs:comment "Status of the violation report (e.g., reported, under-review, resolved)."@en ;
+    rdfs:domain palimpsest:Violation ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+# ============================================================================
+# Properties - Blockchain and Decentralised Storage
+# ============================================================================
+
+palimpsest:blockchainRecord
+    a owl:DatatypeProperty ;
+    rdfs:label "blockchain record"@en ;
+    rdfs:label "blockchain-record"@nl ;
+    rdfs:comment "Transaction hash or identifier on a blockchain/DLT system."@en ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:ipfsHash
+    a owl:DatatypeProperty ;
+    rdfs:label "IPFS hash"@en ;
+    rdfs:label "IPFS-hash"@nl ;
+    rdfs:comment "Content identifier on the InterPlanetary File System."@en ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+palimpsest:arweaveId
+    a owl:DatatypeProperty ;
+    rdfs:label "Arweave ID"@en ;
+    rdfs:label "Arweave-ID"@nl ;
+    rdfs:comment "Transaction identifier on Arweave permanent storage."@en ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://palimpsest.license/vocab> .
+
+# ============================================================================
+# Individuals - Sensitivity Types
+# ============================================================================
+
+palimpsest:TraumaSensitivity
+    a palimpsest:SensitivityType ;
+    rdfs:label "Trauma"@en ;
+    skos:definition "Work dealing with traumatic experiences requiring careful handling."@en .
+
+palimpsest:CulturalHeritageSensitivity
+    a palimpsest:SensitivityType ;
+    rdfs:label "Cultural Heritage"@en ;
+    skos:definition "Work representing significant cultural heritage."@en .
+
+palimpsest:SacredSensitivity
+    a palimpsest:SensitivityType ;
+    rdfs:label "Sacred"@en ;
+    skos:definition "Work with sacred or spiritual significance."@en .
+
+palimpsest:ProtestSensitivity
+    a palimpsest:SensitivityType ;
+    rdfs:label "Protest"@en ;
+    skos:definition "Work created as protest or resistance."@en .
+
+palimpsest:DiasporaSensitivity
+    a palimpsest:SensitivityType ;
+    rdfs:label "Diaspora"@en ;
+    skos:definition "Work representing diaspora experiences and narratives."@en .
+
+palimpsest:IndigenousSensitivity
+    a palimpsest:SensitivityType ;
+    rdfs:label "Indigenous"@en ;
+    skos:definition "Work from indigenous communities and traditions."@en .
