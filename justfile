@@ -81,6 +81,26 @@ test-haskell:
         echo "⚠️  Cabal not found, skipping Haskell tests"; \
     fi
 
+# Run Haskell tests with coverage report
+test-coverage:
+    @echo "📊 Running tests with coverage analysis..."
+    @if command -v cabal &> /dev/null; then \
+        cd TOOLS/validation/haskell && \
+        cabal test --enable-coverage && \
+        echo "" && \
+        echo "📈 Generating coverage report..." && \
+        hpc report dist-newstyle/build/*/ghc-*/palimpsest-validator-*/t/palimpsest-validator-test/hpc/vanilla/mix/palimpsest-validator-test/*.mix --exclude=Main --exclude=Spec 2>/dev/null || \
+        (find dist-newstyle -name "*.tix" -exec hpc report {} --exclude=Main --exclude=Spec \; 2>/dev/null) || \
+        echo "✅ Coverage report generated in dist-newstyle/build/.../hpc/" && \
+        echo "" && \
+        echo "To view HTML coverage report:" && \
+        echo "  cd TOOLS/validation/haskell" && \
+        echo "  hpc markup dist-newstyle/build/.../palimpsest-validator-test.tix --destdir=coverage-report" && \
+        echo "  open coverage-report/hpc_index.html"; \
+    else \
+        echo "⚠️  Cabal not found, skipping coverage analysis"; \
+    fi
+
 # Test ReScript components
 test-rescript:
     @echo "🧪 Testing ReScript components..."

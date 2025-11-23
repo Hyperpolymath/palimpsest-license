@@ -83,11 +83,19 @@ test-suite palimpsest-validator-test
   other-modules:    Palimpsest.Validator.LicenseSpec
                     Palimpsest.Validator.MetadataSpec
                     Palimpsest.Validator.BilingualSpec
+                    Palimpsest.Validator.ReferenceSpec
+                    Palimpsest.Validator.UtilsSpec
+                    Integration.PipelineSpec
   build-depends:    base >= 4.12 && < 5
                   , palimpsest-validator
                   , hspec                >= 2.7
                   , QuickCheck           >= 2.14
                   , text                 >= 1.2
+                  , aeson                >= 2.0
+                  , unordered-containers >= 0.2
+                  , bytestring           >= 0.10
   ghc-options:      -threaded
                     -rtsopts
                     -with-rtsopts=-N
+                    -fhpc
+                    -hpcdir dist/hpc
