@@ -1,0 +1,156 @@
+name: Mark Stale Issues and PRs
+
+# Automatically mark and close stale issues and pull requests
+# Helps maintain repository health by identifying abandoned work
+
+on:
+  schedule:
+    # Run daily at 01:00 UTC
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    name: Mark Stale Items
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mark stale issues and PRs
+        uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+          # Days of inactivity before marking as stale
+          days-before-stale: 90
+
+          # Days of inactivity after marked stale before closing
+          days-before-close: 30
+
+          # Issues configuration
+          stale-issue-message: |
+            👋 Hello! This issue has been automatically marked as stale because it has not had recent activity.
+
+            If this issue is still relevant, please:
+            - Add a comment to keep it open
+            - Provide updates on progress
+            - Add additional context if needed
+
+            If no activity occurs within the next 30 days, this issue will be automatically closed. Thank you for your contributions to the Palimpsest License project!
+
+          close-issue-message: |
+            This issue has been automatically closed due to inactivity. If you believe this issue should remain open or needs to be reopened, please feel free to comment and we'll review it.
+
+            Thank you for your understanding and contributions.
+
+          stale-issue-label: 'stale'
+
+          # Pull requests configuration
+          stale-pr-message: |
+            👋 Hello! This pull request has been automatically marked as stale because it has not had recent activity.
+
+            If this PR is still being worked on, please:
+            - Add a comment to indicate you're still working on it
+            - Update the branch to resolve any conflicts
+            - Request a review if ready for merge
+
+            If no activity occurs within the next 30 days, this PR will be automatically closed. Thank you for your contributions!
+
+          close-pr-message: |
+            This pull request has been automatically closed due to inactivity.
+
+            If you'd like to continue this work:
+            - Feel free to reopen this PR
+            - Submit a new PR with updated changes
+            - Comment here if you need assistance
+
+            Thank you for your contributions to the Palimpsest License project!
+
+          stale-pr-label: 'stale'
+
+          # Labels to exempt from becoming stale
+          exempt-issue-labels: 'governance,security,legal,pinned,roadmap,help-wanted,good-first-issue'
+          exempt-pr-labels: 'governance,security,legal,pinned,work-in-progress'
+
+          # Milestones to exempt from becoming stale
+          exempt-milestones: true
+          exempt-all-milestones: false
+
+          # Assignees to exempt from becoming stale
+          exempt-assignees: true
+          exempt-all-assignees: false
+
+          # Additional configuration
+          operations-per-run: 100
+          remove-stale-when-updated: true
+          ascending: false
+
+          # Enable debug output for troubleshooting
+          debug-only: false
+
+          # Don't close issues/PRs with these labels even if stale
+          exempt-issue-labels: |
+            governance
+            security
+            legal
+            pinned
+            roadmap
+            help-wanted
+            good-first-issue
+            council-review
+            community-discussion
+
+          exempt-pr-labels: |
+            governance
+            security
+            legal
+            pinned
+            work-in-progress
+            council-review
+            breaking-change
+
+  report-stale:
+    name: Report Stale Statistics
+    runs-on: ubuntu-latest
+    needs: stale
+    if: always()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Count stale items
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'stale',
+              state: 'open'
+            });
+
+            const staleIssues = issues.filter(i => !i.pull_request);
+            const stalePRs = issues.filter(i => i.pull_request);
+
+            console.log('========================================');
+            console.log('🗂️  STALE ITEMS REPORT');
+            console.log('========================================');
+            console.log('');
+            console.log(`Stale issues: ${staleIssues.length}`);
+            console.log(`Stale pull requests: ${stalePRs.length}`);
+            console.log(`Total stale items: ${issues.length}`);
+            console.log('');
+            console.log('========================================');
+
+            if (issues.length > 20) {
+              console.log('⚠️  High number of stale items detected');
+              console.log('Consider reviewing and triaging these items');
+            }
+
+            return {
+              staleIssues: staleIssues.length,
+              stalePRs: stalePRs.length,
+              total: issues.length
+            };
