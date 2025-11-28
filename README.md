@@ -1,5 +1,7 @@
 # Palimpsest License
 
+> **Note:** This Markdown version is maintained for backwards compatibility. The canonical version is now [README.adoc](./README.adoc) (AsciiDoc format) for RSR Gold compliance.
+
 ![Palimpsest License Logo](./assets/badges/svg/palimpsest-badge.svg)
 
 **Future-proof licensing for creative work in the age of AI**

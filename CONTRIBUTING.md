@@ -1,6 +1,8 @@
 # How to Contribute to the Palimpsest License
 
-Thank you for your interest in contributing! Your expertise helps us build a more resilient future for creators. Here’s how you can get involved.
+> **Note:** This Markdown version is maintained for backwards compatibility. The canonical version is now [CONTRIBUTING.adoc](./CONTRIBUTING.adoc) (AsciiDoc format) for RSR Gold compliance.
+
+Thank you for your interest in contributing! Your expertise helps us build a more resilient future for creators. Here's how you can get involved.
 
 ## Code of Conduct
 

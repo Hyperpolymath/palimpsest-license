@@ -1,5 +1,7 @@
 # 🏛️ Palimpsest Governance Model
 
+> **Note:** This Markdown version is maintained for backwards compatibility. The canonical version is now [GOVERNANCE.adoc](./GOVERNANCE.adoc) (AsciiDoc format) for RSR Gold compliance.
+
 The Palimpsest License is a living framework, governed by its community of creators, legal experts, and technologists. This document outlines the principles and processes for its stewardship and evolution.
 
 ## 1. The Palimpsest Stewardship Council

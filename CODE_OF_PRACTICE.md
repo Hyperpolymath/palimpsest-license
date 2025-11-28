@@ -1,5 +1,7 @@
 # Contributor Covenant Code of Conduct
 
+> **Note:** This Markdown version is maintained for backwards compatibility. The canonical version is now [CODE_OF_CONDUCT.adoc](./CODE_OF_CONDUCT.adoc) (AsciiDoc format, renamed from CODE_OF_PRACTICE for RSR Gold compliance).
+
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in our
