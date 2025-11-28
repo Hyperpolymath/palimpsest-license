@@ -1,273 +1,42 @@
-name: Release Automation
-
-# Automated release workflow
-# Creates GitHub releases with artefacts, updates security.txt, generates changelog
+name: Release
 
 on:
   push:
+    # OPTION A: Release on every push to master (Your current method)
+    # branches:
+    #   - master
+    #   - main
+    
+    # OPTION B: Release only when you tag a version (Recommended)
+    # This prevents 'fix typo' commits from creating empty releases.
     tags:
       - 'v*'
 
+  # prevent it running on docs updates to save minutes
+  paths-ignore:
+    - '**.adoc'
+    - '**.md'
+
+# CRITICAL: This gives the token permission to create Releases
 permissions:
   contents: write
   packages: write
 
 jobs:
-  validate-release:
-    name: Validate Release
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.get_version.outputs.version }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Get version from tag
-        id: get_version
-        run: |
-          VERSION=${GITHUB_REF#refs/tags/v}
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "Version: $VERSION"
-
-      - name: Validate version format
-        run: |
-          VERSION=${{ steps.get_version.outputs.version }}
-
-          # Check semantic versioning format
-          if ! echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.]+)?$'; then
-            echo "❌ Invalid version format: $VERSION"
-            echo "Expected format: MAJOR.MINOR.PATCH or MAJOR.MINOR.PATCH-prerelease"
-            exit 1
-          fi
-
-          echo "✅ Version format valid: $VERSION"
-
-      - name: Check CHANGELOG.md updated
-        run: |
-          VERSION=${{ steps.get_version.outputs.version }}
-
-          if ! grep -q "$VERSION" CHANGELOG.md; then
-            echo "⚠️  Warning: Version $VERSION not found in CHANGELOG.md"
-            echo "Please ensure CHANGELOG.md is updated before releasing"
-          else
-            echo "✅ Version found in CHANGELOG.md"
-          fi
-
-  build-release-artefacts:
-    name: Build Release Artefacts
-    needs: validate-release
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build CSS
-        run: npm run scss:build
-
-      - name: Setup Haskell
-        if: matrix.os != 'windows-latest'
-        uses: haskell-actions/setup@v2
-        with:
-          ghc-version: '9.6.3'
-          cabal-version: '3.10'
-
-      - name: Build Haskell validators
-        if: matrix.os != 'windows-latest'
-        working-directory: TOOLS/validation/haskell
-        run: |
-          cabal update
-          cabal build --enable-optimization=2
-
-      - name: Create release bundle
-        shell: bash
-        run: |
-          VERSION=${{ needs.validate-release.outputs.version }}
-          mkdir -p release-bundle
-
-          # Copy license texts
-          mkdir -p release-bundle/licenses
-          cp -r LICENSES/* release-bundle/licenses/
-
-          # Copy guides
-          mkdir -p release-bundle/guides
-          cp -r GUIDES_v0.4/* release-bundle/guides/ 2>/dev/null || true
-
-          # Copy metadata
-          mkdir -p release-bundle/metadata
-          cp -r METADATA_v0.4/* release-bundle/metadata/ 2>/dev/null || true
-
-          # Copy compiled CSS
-          mkdir -p release-bundle/styles
-          cp styles/css/*.css release-bundle/styles/ 2>/dev/null || true
-
-          # Copy README and key docs
-          cp README.md release-bundle/ || true
-          cp GOVERNANCE.md release-bundle/ || true
-          cp CONTRIBUTING.md release-bundle/ || true
-          cp CHANGELOG.md release-bundle/ || true
-
-          # Copy Haskell binaries if built
-          if [ -d "TOOLS/validation/haskell/dist-newstyle" ]; then
-            find TOOLS/validation/haskell/dist-newstyle -type f -executable -name "palimpsest-validator*" -exec cp {} release-bundle/ \; 2>/dev/null || true
-          fi
-
-          # Create tarball
-          tar -czf palimpsest-license-v${VERSION}-${{ matrix.os }}.tar.gz release-bundle/
-
-          # Create zip (Windows-friendly)
-          if command -v zip &> /dev/null; then
-            cd release-bundle && zip -r ../palimpsest-license-v${VERSION}-${{ matrix.os }}.zip . && cd ..
-          fi
-
-      - name: Upload release artefacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-bundle-${{ matrix.os }}
-          path: |
-            palimpsest-license-v*.tar.gz
-            palimpsest-license-v*.zip
-          retention-days: 90
-
-  generate-changelog:
-    name: Generate Changelog
-    needs: validate-release
-    runs-on: ubuntu-latest
-    outputs:
-      changelog: ${{ steps.generate.outputs.changelog }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Generate release notes
-        id: generate
-        run: |
-          VERSION=${{ needs.validate-release.outputs.version }}
-
-          # Get previous tag
-          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
-
-          if [ -z "$PREV_TAG" ]; then
-            echo "No previous tag found, generating full changelog"
-            COMMITS=$(git log --pretty=format:"- %s (%h)" --no-merges)
-          else
-            echo "Generating changelog from $PREV_TAG to v$VERSION"
-            COMMITS=$(git log ${PREV_TAG}..HEAD --pretty=format:"- %s (%h)" --no-merges)
-          fi
-
-          # Extract from CHANGELOG.md if exists
-          if grep -q "## \[${VERSION}\]" CHANGELOG.md 2>/dev/null; then
-            echo "Extracting changelog from CHANGELOG.md..."
-            CHANGELOG=$(sed -n "/## \[${VERSION}\]/,/## \[/p" CHANGELOG.md | sed '$d')
-          else
-            CHANGELOG="## Changes in v${VERSION}\n\n${COMMITS}"
-          fi
-
-          # Save to file for multi-line output
-          echo "$CHANGELOG" > /tmp/changelog.txt
-          echo "changelog<<EOF" >> $GITHUB_OUTPUT
-          cat /tmp/changelog.txt >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-  update-security-txt:
-    name: Update security.txt Expiry
-    needs: validate-release
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0 # Essential for generating accurate changelogs
 
-      - name: Install just
-        uses: extractions/setup-just@v2
-
-      - name: Update security.txt expiry
-        run: |
-          # Update expiry to 1 year from now
-          just update-security-txt || echo "Manual update may be needed"
-
-      - name: Commit security.txt update
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          if git diff --quiet .well-known/security.txt; then
-            echo "No changes to security.txt"
-          else
-            git add .well-known/security.txt
-            git commit -m "chore: update security.txt expiry for release v${{ needs.validate-release.outputs.version }}"
-            git push origin HEAD:main || echo "Could not push security.txt update"
-          fi
-
-  create-release:
-    name: Create GitHub Release
-    needs: [validate-release, build-release-artefacts, generate-changelog]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Download all artefacts
-        uses: actions/download-artifact@v4
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
         with:
-          path: release-artefacts
-
-      - name: Display artefacts
-        run: |
-          echo "Release artefacts:"
-          find release-artefacts -type f
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: Palimpsest License v${{ needs.validate-release.outputs.version }}
-          body: ${{ needs.generate-changelog.outputs.changelog }}
-          draft: false
-          prerelease: ${{ contains(needs.validate-release.outputs.version, '-') }}
-          files: |
-            release-artefacts/**/*.tar.gz
-            release-artefacts/**/*.zip
+          draft: true # Safe: creates a draft you must manually publish
           generate_release_notes: true
+          # Note: If triggering on branches, you might want 'tag_name: nightly' 
+          # but for tags, it handles itself.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  release-summary:
-    name: Release Summary
-    needs: [validate-release, create-release]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Release complete
-        run: |
-          echo "============================================"
-          echo "🚀 RELEASE COMPLETE"
-          echo "============================================"
-          echo ""
-          echo "Version: v${{ needs.validate-release.outputs.version }}"
-          echo "Tag: ${{ github.ref }}"
-          echo ""
-          echo "Release URL:"
-          echo "${{ github.server_url }}/${{ github.repository }}/releases/tag/v${{ needs.validate-release.outputs.version }}"
-          echo ""
-          echo "✅ Release published successfully"
-
-      - name: Notify on failure
-        if: failure()
-        run: |
-          echo "::error::Release workflow failed"
-          echo "Please review the workflow run and retry if necessary"
