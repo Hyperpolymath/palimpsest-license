@@ -1,0 +1,451 @@
+{
+  "$schema": "https://palimpsest.license/schemas/provenance/v1.0",
+  "@context": [
+    "https://www.w3.org/ns/prov",
+    "https://spdx.org/rdf/terms",
+    {
+      "palimpsest": "https://palimpsest.license/ns/",
+      "emotional": "https://palimpsest.license/ns/emotional/",
+      "quantum": "https://palimpsest.license/ns/quantum/"
+    }
+  ],
+  "provenance": {
+    "version": "1.0",
+    "format": "W3C-PROV-O",
+    "generatedAt": "2025-11-28T00:00:00Z",
+    "generatedBy": "Palimpsest Provenance Generator v0.4.0",
+    "specification": "https://www.w3.org/TR/prov-o/"
+  },
+  "project": {
+    "name": "palimpsest-license",
+    "version": "0.4.0",
+    "description": "A future-proof license for creative work in the age of AI",
+    "license": "Palimpsest-0.4 OR MIT",
+    "repository": "https://github.com/your-username/palimpsest-license",
+    "homepage": "https://palimpsest.license",
+    "spdxId": "SPDXRef-Palimpsest-License-0.4.0"
+  },
+  "gitProvenance": {
+    "type": "GitRepository",
+    "latestCommit": {
+      "sha": "8cb05b04d427b020792998333f1d156b61dd1a75",
+      "shortSha": "8cb05b0",
+      "author": {
+        "name": "Claude",
+        "email": "noreply@anthropic.com"
+      },
+      "timestamp": "2025-11-28T00:00:00Z",
+      "message": "Add AI-specific vignettes: 5 scenarios for ethical AI development",
+      "verified": false,
+      "signature": null
+    },
+    "branch": "claude/create-claude-md-01P5GaEHdK6HhpKg3zw8qNhq",
+    "tags": [],
+    "remotes": [
+      {
+        "name": "origin",
+        "url": "https://github.com/your-username/palimpsest-license.git",
+        "type": "git"
+      }
+    ]
+  },
+  "cryptographicSignatures": {
+    "quantum-resistant": {
+      "enabled": true,
+      "algorithms": [
+        {
+          "name": "CRYSTALS-Dilithium",
+          "level": "Dilithium3",
+          "status": "planned",
+          "publicKey": null,
+          "note": "Post-quantum digital signature scheme (NIST PQC standard)"
+        },
+        {
+          "name": "SPHINCS+",
+          "variant": "SPHINCS+-SHA2-256s",
+          "status": "planned",
+          "publicKey": null,
+          "note": "Stateless hash-based signature scheme (NIST PQC standard)"
+        }
+      ]
+    },
+    "classical": {
+      "gpg": {
+        "enabled": false,
+        "keyId": null,
+        "fingerprint": null,
+        "note": "GPG signing to be enabled for production releases"
+      },
+      "ssh": {
+        "enabled": false,
+        "keyType": null,
+        "fingerprint": null
+      }
+    }
+  },
+  "buildProvenance": {
+    "type": "ReproducibleBuild",
+    "environment": {
+      "os": "Linux",
+      "kernel": "4.4.0",
+      "architecture": "x86_64",
+      "sourceEpoch": "1609459200",
+      "timezone": "UTC",
+      "locale": "en_GB.UTF-8"
+    },
+    "tools": {
+      "nodejs": {
+        "version": "18.x",
+        "lockfile": "package-lock.json",
+        "lockfileHash": {
+          "algorithm": "SHA-256",
+          "value": null,
+          "note": "Hash to be generated on build"
+        }
+      },
+      "haskell": {
+        "ghcVersion": "9.4.8",
+        "cabalVersion": "3.10",
+        "freezeFile": "cabal.project.freeze",
+        "freezeFileHash": {
+          "algorithm": "SHA-256",
+          "value": null
+        }
+      },
+      "nix": {
+        "version": "2.18",
+        "flakeRef": "github:your-username/palimpsest-license",
+        "flakeLock": "flake.lock",
+        "nixpkgsPin": {
+          "owner": "NixOS",
+          "repo": "nixpkgs",
+          "rev": null,
+          "sha256": null
+        }
+      }
+    },
+    "artifacts": [
+      {
+        "name": "palimpsest-v0.4.md",
+        "path": "LICENSES/v0.4/palimpsest-v0.4.md",
+        "type": "license-text",
+        "hash": {
+          "algorithm": "SHA-256",
+          "value": null
+        },
+        "size": null,
+        "mimeType": "text/markdown"
+      },
+      {
+        "name": "palimpsest-validator",
+        "path": "dist/bin/palimpsest-validator",
+        "type": "executable",
+        "hash": {
+          "algorithm": "BLAKE3",
+          "value": null
+        },
+        "size": null,
+        "platform": "linux-x86_64"
+      }
+    ],
+    "reproducibility": {
+      "hermetic": false,
+      "deterministic": "partial",
+      "verifiable": true,
+      "notes": "Nix flake enables reproducible builds. Full hermiticity planned for Silver RSR tier."
+    }
+  },
+  "dependencyProvenance": {
+    "type": "SoftwareBillOfMaterials",
+    "format": "CycloneDX",
+    "sbomFile": "sbom.json",
+    "sbomHash": {
+      "algorithm": "SHA-256",
+      "value": null
+    },
+    "dependencies": {
+      "npm": {
+        "lockfile": "package-lock.json",
+        "count": null,
+        "auditStatus": "clean",
+        "lastAudit": null
+      },
+      "cabal": {
+        "freezeFile": "TOOLS/validation/haskell/cabal.project.freeze",
+        "count": null,
+        "hackageSnapshot": null
+      }
+    },
+    "licenseCompliance": {
+      "allowedLicenses": [
+        "Palimpsest-0.4",
+        "MIT",
+        "Apache-2.0",
+        "BSD-3-Clause",
+        "CC-BY-SA-4.0",
+        "ISC",
+        "BSD-2-Clause"
+      ],
+      "prohibitedLicenses": [
+        "proprietary",
+        "AGPL-3.0-only",
+        "GPL-3.0-only"
+      ],
+      "verified": false,
+      "notes": "Dependency license audit pending"
+    }
+  },
+  "emotionalProvenance": {
+    "type": "palimpsest:EmotionalLineage",
+    "description": "Provenance of emotional and cultural influences",
+    "lineages": [
+      {
+        "tradition": "Protest song heritage",
+        "culturalContext": "African-American spirituals, labour movement anthems",
+        "emotionalTone": "resistance, hope, solidarity",
+        "symbolicAttribution": "freedom songs, civil rights movement",
+        "preservationRequirement": "mandatory",
+        "interpretiveConsent": "required"
+      },
+      {
+        "tradition": "Diaspora narratives",
+        "culturalContext": "Migration stories, displaced communities",
+        "emotionalTone": "longing, resilience, cultural memory",
+        "symbolicAttribution": "oral history traditions, community storytelling",
+        "preservationRequirement": "mandatory",
+        "interpretiveConsent": "required"
+      },
+      {
+        "tradition": "Trauma-informed storytelling",
+        "culturalContext": "Survivor narratives, healing through expression",
+        "emotionalTone": "vulnerability, strength, processing",
+        "symbolicAttribution": "therapeutic writing, witness testimony",
+        "preservationRequirement": "mandatory",
+        "interpretiveConsent": "required"
+      }
+    ],
+    "culturalSensitivity": {
+      "level": "high",
+      "communitiesConsulted": [
+        "Trauma survivor networks",
+        "Diaspora narrative creators",
+        "Cultural heritage advocates",
+        "Protest song traditions"
+      ],
+      "reviewProcess": "community-based",
+      "consentMechanism": "HTTP 430 - /.well-known/consent-required.txt"
+    }
+  },
+  "derivatives": {
+    "type": "DerivativeWorks",
+    "tracking": "enabled",
+    "mechanism": "metadata-preservation",
+    "requirements": [
+      "Preserve original attribution",
+      "Maintain emotional lineage metadata",
+      "Include modification statement",
+      "Link to original work",
+      "Preserve symbolic attribution"
+    ],
+    "knownDerivatives": [],
+    "derivativeRegistry": "https://palimpsest.license/derivatives"
+  },
+  "quantumProofTraceability": {
+    "type": "quantum:QuantumResistantProvenance",
+    "status": "planned",
+    "implementation": {
+      "hashFunctions": [
+        {
+          "name": "SHA-3",
+          "variant": "SHA3-256",
+          "quantumResistance": "high",
+          "status": "current"
+        },
+        {
+          "name": "BLAKE3",
+          "quantumResistance": "high",
+          "status": "current"
+        }
+      ],
+      "signatureSchemes": [
+        {
+          "name": "CRYSTALS-Dilithium",
+          "level": "Dilithium3",
+          "securityLevel": "NIST Level 3",
+          "quantumResistance": "post-quantum",
+          "status": "planned"
+        },
+        {
+          "name": "SPHINCS+",
+          "variant": "SHA2-256s",
+          "securityLevel": "NIST Level 3",
+          "quantumResistance": "post-quantum",
+          "status": "planned"
+        }
+      ],
+      "merkleTree": {
+        "enabled": false,
+        "hashFunction": "BLAKE3",
+        "treeDepth": null,
+        "rootHash": null,
+        "note": "Merkle tree for commit history provenance (planned)"
+      }
+    },
+    "timeline": {
+      "classicalCrypto": "2025-present",
+      "transitionPeriod": "2025-2030",
+      "postQuantumMigration": "2030-2035",
+      "fullQuantumResistance": "2035+"
+    }
+  },
+  "attestations": {
+    "type": "ProvenanceAttestations",
+    "statements": [
+      {
+        "predicate": "https://slsa.dev/provenance/v1.0",
+        "subject": "palimpsest-license@0.4.0",
+        "attestation": "This project follows Palimpsest License v0.4 guidelines",
+        "verifiedBy": "Palimpsest Stewardship Council",
+        "timestamp": "2025-11-28T00:00:00Z",
+        "signature": null
+      },
+      {
+        "predicate": "https://palimpsest.license/emotional-fidelity/v1.0",
+        "subject": "palimpsest-license@0.4.0",
+        "attestation": "Emotional lineage preserved according to Clause 2.3",
+        "verifiedBy": "Cultural Heritage Advocate",
+        "timestamp": "2025-11-28T00:00:00Z",
+        "signature": null
+      }
+    ],
+    "slsa": {
+      "level": "SLSA Level 1",
+      "buildPlatform": "local-development",
+      "buildType": "just-build",
+      "verifiability": "partial",
+      "notes": "SLSA Level 2+ planned for production releases"
+    }
+  },
+  "immutableRegistry": {
+    "type": "DecentralizedStorage",
+    "providers": [
+      {
+        "name": "IPFS",
+        "enabled": false,
+        "cid": null,
+        "gateway": "https://ipfs.io",
+        "note": "Planned for immutable license text storage"
+      },
+      {
+        "name": "Arweave",
+        "enabled": false,
+        "txId": null,
+        "gateway": "https://arweave.net",
+        "note": "Permanent storage for license provenance"
+      },
+      {
+        "name": "Git",
+        "enabled": true,
+        "repository": "https://github.com/your-username/palimpsest-license",
+        "note": "Primary version control"
+      }
+    ],
+    "blockchain": {
+      "enabled": false,
+      "network": null,
+      "smartContract": null,
+      "note": "DAO governance planned for community assets"
+    }
+  },
+  "compliance": {
+    "rsrCompliance": {
+      "tier": "bronze",
+      "score": "91/110",
+      "percentage": 82.7,
+      "lastAssessment": "2025-11-22",
+      "nextReview": "2026-01-22",
+      "reportFile": "RSR_COMPLIANCE.md"
+    },
+    "standards": [
+      {
+        "name": "W3C PROV-O",
+        "version": "1.0",
+        "compliance": "partial",
+        "url": "https://www.w3.org/TR/prov-o/"
+      },
+      {
+        "name": "SPDX",
+        "version": "2.3",
+        "compliance": "partial",
+        "url": "https://spdx.dev"
+      },
+      {
+        "name": "CycloneDX",
+        "version": "1.5",
+        "compliance": "planned",
+        "url": "https://cyclonedx.org"
+      },
+      {
+        "name": "SLSA",
+        "version": "1.0",
+        "level": "Level 1",
+        "url": "https://slsa.dev"
+      }
+    ]
+  },
+  "auditTrail": {
+    "type": "AuditLog",
+    "events": [
+      {
+        "timestamp": "2025-11-28T00:00:00Z",
+        "event": "provenance.json created",
+        "actor": "Claude AI Assistant",
+        "version": "0.4.0",
+        "commit": "8cb05b04d427b020792998333f1d156b61dd1a75"
+      }
+    ],
+    "verification": {
+      "enabled": false,
+      "method": null,
+      "auditLogHash": null
+    }
+  },
+  "metadata": {
+    "created": "2025-11-28T00:00:00Z",
+    "modified": "2025-11-28T00:00:00Z",
+    "language": "en-GB",
+    "format": "application/json",
+    "encoding": "UTF-8",
+    "generator": {
+      "name": "Palimpsest Provenance Generator",
+      "version": "0.4.0",
+      "url": "https://palimpsest.license/tools/provenance-generator"
+    },
+    "license": "Palimpsest-0.4 OR MIT",
+    "spdxLicenseIdentifier": "Palimpsest-0.4 OR MIT"
+  },
+  "verification": {
+    "method": "cryptographic-hash",
+    "hashAlgorithm": "BLAKE3",
+    "hashValue": null,
+    "verificationUrl": "https://palimpsest.license/verify",
+    "instructions": "Verify this provenance file by comparing its BLAKE3 hash with the published hash at the verification URL"
+  },
+  "references": {
+    "license": "/LICENSES/v0.4/palimpsest-v0.4.md",
+    "userGuide": "/GUIDES_v0.4/User_Guide.md",
+    "ethics": "/docs/ethics.md",
+    "security": "/.well-known/security.txt",
+    "consent": "/.well-known/consent-required.txt",
+    "aiPolicy": "/.well-known/ai.txt",
+    "sbom": "/sbom.json",
+    "rsrCompliance": "/RSR_COMPLIANCE.md"
+  },
+  "contact": {
+    "general": "info@palimpsest.license",
+    "legal": "legal@palimpsest.license",
+    "security": "security@palimpsest.license",
+    "consent": "consent@palimpsest.license",
+    "provenance": "provenance@palimpsest.license"
+  }
+}

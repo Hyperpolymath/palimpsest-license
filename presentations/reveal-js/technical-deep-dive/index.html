@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palimpsest License - Technical Deep Dive</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/moon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/monokai.min.css">
+    <style>
+        :root {
+            --tech-primary: #00d9ff;
+            --tech-secondary: #ff00ff;
+            --tech-accent: #00ff88;
+            --tech-dark: #0d1117;
+            --tech-code: #1e1e1e;
+        }
+
+        .reveal {
+            font-family: 'Fira Code', 'Monaco', 'Courier New', monospace;
+            background: var(--tech-dark);
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--tech-primary);
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .reveal code {
+            background: var(--tech-code);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: var(--tech-accent);
+        }
+
+        .reveal pre code {
+            background: var(--tech-code);
+            padding: 20px;
+            border-left: 4px solid var(--tech-primary);
+            max-height: 600px;
+            font-size: 0.7em;
+        }
+
+        .reveal .code-box {
+            background: var(--tech-code);
+            border: 2px solid var(--tech-primary);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .reveal .tech-spec {
+            background: rgba(0, 217, 255, 0.1);
+            border-left: 4px solid var(--tech-primary);
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        .reveal .warning-box {
+            background: rgba(255, 0, 255, 0.2);
+            border: 2px solid var(--tech-secondary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .reveal .success-box {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid var(--tech-accent);
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .reveal .visual-description {
+            font-style: italic;
+            color: #888;
+            font-size: 0.7em;
+            margin-top: 10px;
+            padding: 10px;
+            border-left: 3px solid #444;
+        }
+
+        .reveal table {
+            font-size: 0.8em;
+            border-collapse: collapse;
+        }
+
+        .reveal table th {
+            background: var(--tech-primary);
+            color: var(--tech-dark);
+            padding: 10px;
+        }
+
+        .reveal table td {
+            border: 1px solid #444;
+            padding: 10px;
+        }
+
+        .reveal .architecture-diagram {
+            border: 2px solid var(--tech-accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            background: rgba(0, 255, 136, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: Title -->
+            <section class="center">
+                <h1>Palimpsest License</h1>
+                <h2>Technical Deep Dive</h2>
+                <p style="margin-top: 40px; color: #888;">Architecture, Implementation, and Integration</p>
+                <p style="font-size: 0.8em; color: #666;">Version 0.4 | Technical Specification</p>
+                <aside class="notes">
+                    <p><strong>Timing: 1 minute</strong></p>
+                    <p>Audience: Software engineers, AI/ML developers, system architects, DevOps engineers</p>
+                    <p>This presentation covers the complete technical stack, from metadata formats to cryptographic implementations.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 2: Technical Overview -->
+            <section>
+                <h2>Technical Stack Overview</h2>
+                <div class="tech-spec">
+                    <h3>Core Technologies</h3>
+                    <ul>
+                        <li><strong>Metadata Formats:</strong> JSON-LD, XML, NDJSON, RDF</li>
+                        <li><strong>Cryptography:</strong> Quantum-resistant lattice-based signatures</li>
+                        <li><strong>Protocols:</strong> AIBDP (AI Boundary Declaration Protocol)</li>
+                        <li><strong>Standards:</strong> Dublin Core, Schema.org, IRTF drafts</li>
+                    </ul>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>Implementation Languages</h3>
+                    <ul>
+                        <li><strong>Reference Implementations:</strong> JavaScript, Python, Node.js</li>
+                        <li><strong>Validation Tools:</strong> Haskell, ReScript</li>
+                        <li><strong>Integration Libraries:</strong> Browser JS, Server-side (Python/Node)</li>
+                    </ul>
+                </div>
+
+                <div class="visual-description">
+                    Visual: A layered technical stack diagram showing: Base layer (cryptographic primitives), Middle layer (metadata formats and protocols), Top layer (integration libraries and APIs). Each layer interconnected with data flow arrows.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 2 minutes</strong></p>
+                    <p>Key points: Palimpsest isn't just a legal document—it's a complete technical ecosystem. All components are open-source and designed for interoperability.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 3: Synthetic Lineage Tags - Overview -->
+            <section>
+                <h2>Synthetic Lineage Tags (SLT)</h2>
+                <p>Machine-readable provenance metadata embedded in AI outputs</p>
+
+                <div class="code-box">
+                    <h3>Core Concept</h3>
+                    <pre><code class="language-json">{
+  "@context": "https://palimpsest-license.org/context/v0.4",
+  "@type": "SyntheticLineageTag",
+  "sourceWork": {
+    "title": "The Displaced",
+    "creator": "Amara Okonkwo",
+    "license": "Palimpsest-v0.4",
+    "registryId": "urn:palimpsest:3f2a7b9c-4d5e-6f7g"
+  },
+  "derivation": {
+    "aiSystem": "GPT-5",
+    "trainingConsent": true,
+    "consentAgreementId": "consent-2025-001",
+    "derivationType": "thematic-adaptation"
+  },
+  "cryptographicProof": {
+    "algorithm": "CRYSTALS-Dilithium",
+    "signature": "30450221..."
+  }
+}</code></pre>
+                </div>
+
+                <div class="visual-description">
+                    Visual: A creative work (represented as a glowing document) being processed by an AI system (neural network visualization). As it passes through, it gains a SLT tag (shown as a luminous data packet attached to the output). The tag contains cryptographic signatures (lock icons) and lineage information (tree diagram).
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>SLTs are the core technical innovation. Unlike watermarks (which can be removed), SLTs are semantic metadata that AI systems can automatically detect and preserve.</p>
+                    <p>CRYSTALS-Dilithium is a NIST-standardized post-quantum signature scheme. This ensures tags remain verifiable even after quantum computers break current cryptography.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 4: SLT - JSON-LD Format -->
+            <section>
+                <h2>SLT: JSON-LD Implementation</h2>
+
+                <pre><code class="language-json">{
+  "@context": {
+    "@vocab": "https://palimpsest-license.org/vocab/",
+    "dc": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/"
+  },
+  "@type": "CreativeWork",
+  "@id": "urn:palimpsest:work-12345",
+  "dc:title": "Echoes of Displacement",
+  "dc:creator": {
+    "@type": "schema:Person",
+    "schema:name": "Amara Okonkwo",
+    "palimpsest:culturalContext": "Nigerian diaspora narrative"
+  },
+  "dc:license": {
+    "@type": "palimpsest:License",
+    "palimpsest:version": "v0.4",
+    "palimpsest:clauseRestrictions": {
+      "clause1.2": {
+        "niSystemConsent": false,
+        "interpretiveUseOnly": true
+      },
+      "clause2.3": {
+        "metadataPreservation": "mandatory",
+        "emotionalLineage": "protected"
+      }
+    }
+  },
+  "palimpsest:emotionalLineage": {
+    "narrativeIntent": "Exploration of identity fragmentation in forced migration",
+    "culturalSignificance": "Represents collective trauma of Biafran diaspora",
+    "symbolicElements": ["river as memory", "fractured mirrors", "ancestral voices"]
+  },
+  "palimpsest:aiConsent": {
+    "trainingAllowed": true,
+    "consentDate": "2025-06-15",
+    "restrictions": {
+      "commercialUse": "royalty-sharing-required",
+      "derivativeTypes": ["thematic", "stylistic"],
+      "prohibitedUses": ["trivialization", "decontextualization"]
+    }
+  }
+}</code></pre>
+
+                <div class="visual-description">
+                    Visual: Code editor screenshot showing the JSON-LD structure with syntax highlighting. Callout boxes point to key sections: @context (namespace definitions), emotionalLineage (cultural protection), aiConsent (usage controls), cryptographic proofs (security layer).
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 4 minutes</strong></p>
+                    <p>JSON-LD provides semantic interoperability. The @context allows both human readability and machine processing.</p>
+                    <p>Key innovation: emotionalLineage field. This is unique to Palimpsest—no other metadata standard captures narrative intent and cultural significance.</p>
+                    <p>aiConsent block provides granular controls: Can AI train on this? What derivative types are allowed? What uses are prohibited?</p>
+                </aside>
+            </section>
+
+            <!-- Slide 5: SLT - XML Format -->
+            <section>
+                <h2>SLT: XML Format</h2>
+
+                <pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;syntheticLineageTag
+    xmlns="https://palimpsest-license.org/schema/v0.4"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"&gt;
+
+  &lt;sourceWork&gt;
+    &lt;dc:title&gt;Echoes of Displacement&lt;/dc:title&gt;
+    &lt;dc:creator&gt;Amara Okonkwo&lt;/dc:creator&gt;
+    &lt;dc:identifier&gt;urn:palimpsest:work-12345&lt;/dc:identifier&gt;
+    &lt;license version="v0.4"&gt;
+      &lt;clauseRestriction clause="1.2"&gt;
+        &lt;niSystemConsent&gt;false&lt;/niSystemConsent&gt;
+        &lt;interpretiveOnly&gt;true&lt;/interpretiveOnly&gt;
+      &lt;/clauseRestriction&gt;
+    &lt;/license&gt;
+  &lt;/sourceWork&gt;
+
+  &lt;emotionalLineage&gt;
+    &lt;narrativeIntent&gt;
+      Exploration of identity fragmentation in forced migration
+    &lt;/narrativeIntent&gt;
+    &lt;culturalContext&gt;
+      &lt;community&gt;Nigerian diaspora&lt;/community&gt;
+      &lt;significance&gt;Collective trauma of Biafran diaspora&lt;/significance&gt;
+    &lt;/culturalContext&gt;
+    &lt;symbolicElements&gt;
+      &lt;element&gt;river as memory&lt;/element&gt;
+      &lt;element&gt;fractured mirrors&lt;/element&gt;
+      &lt;element&gt;ancestral voices&lt;/element&gt;
+    &lt;/symbolicElements&gt;
+  &lt;/emotionalLineage&gt;
+
+  &lt;cryptographicProof&gt;
+    &lt;algorithm&gt;CRYSTALS-Dilithium&lt;/algorithm&gt;
+    &lt;publicKey&gt;MIIBIjANBgkqh...&lt;/publicKey&gt;
+    &lt;signature&gt;304502210083fda...&lt;/signature&gt;
+    &lt;timestamp&gt;2025-06-15T14:30:00Z&lt;/timestamp&gt;
+  &lt;/cryptographicProof&gt;
+
+&lt;/syntheticLineageTag&gt;</code></pre>
+
+                <div class="visual-description">
+                    Visual: XML tree structure diagram showing hierarchical relationships between elements. Highlighted paths show: source work → emotional lineage → cultural context, and parallel path showing cryptographic proof chain.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>XML format provides: Strong typing, schema validation, better integration with legacy systems, support for namespaces.</p>
+                    <p>emotionalLineage structure preserves narrative context in machine-readable format. AI systems can programmatically check: "Am I respecting the cultural significance? Am I preserving symbolic elements?"</p>
+                </aside>
+            </section>
+
+            <!-- Slide 6: AIBDP Overview -->
+            <section>
+                <h2>AI Boundary Declaration Protocol (AIBDP)</h2>
+                <p>Web-wide framework for declaring AI usage boundaries</p>
+
+                <div class="architecture-diagram">
+                    <h3>AIBDP Architecture</h3>
+                    <pre>
+┌─────────────────────────────────────────────────┐
+│           AI System (Crawler/Trainer)           │
+└────────────────┬────────────────────────────────┘
+                 │ Checks boundaries before access
+                 ▼
+    ┌────────────────────────────────────┐
+    │    1. DNS TXT Record (Domain)      │ ← Global policy
+    │    _aibdp.example.com              │
+    └────────────────────────────────────┘
+                 │
+                 ▼
+    ┌────────────────────────────────────┐
+    │  2. .well-known/aibdp.json         │ ← Site-wide manifest
+    │     (Machine-readable policy)      │
+    └────────────────────────────────────┘
+                 │
+                 ▼
+    ┌────────────────────────────────────┐
+    │  3. HTTP Headers                   │ ← Per-request controls
+    │     GenAI-Consent: deny-training   │
+    └────────────────────────────────────┘
+                 │
+                 ▼
+    ┌────────────────────────────────────┐
+    │  4. HTML Meta Tags                 │ ← Resource-level
+    │     &lt;meta name="genai-consent"&gt;    │
+    └────────────────────────────────────┘
+                    </pre>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Multi-layered defense diagram. An AI crawler approaches a protected domain (represented as a fortress). It encounters four successive checkpoints: DNS sentinel (outermost layer), .well-known manifest gate, HTTP header barrier, and finally HTML metadata shield. At each layer, policy decisions flow (allow/deny indicators).
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 4 minutes</strong></p>
+                    <p>AIBDP provides defense-in-depth. Even if AI systems ignore one signal, multiple layers enforce boundaries.</p>
+                    <p>Inspired by robots.txt but with legal teeth—ignoring AIBDP is a procedural breach under Palimpsest clause 3.13.</p>
+                    <p>We're submitting AIBDP to IRTF for standardization. Draft: draft-jewell-aibdp-00.txt</p>
+                </aside>
+            </section>
+
+            <!-- Slide 7: AIBDP - DNS Implementation -->
+            <section>
+                <h2>AIBDP: DNS TXT Records</h2>
+
+                <div class="code-box">
+                    <h3>DNS Configuration</h3>
+                    <pre><code class="language-dns">; Domain-wide AI policy
+_aibdp.example.com. IN TXT "v=AIBDP1; policy=https://example.com/.well-known/aibdp.json"
+
+; Subdomain-specific policy
+_aibdp.blog.example.com. IN TXT "v=AIBDP1; training=deny; generation=deny; scraping=allow"
+
+; Multiple policies (priority order)
+_aibdp.example.com. IN TXT "v=AIBDP1; training=consent-required; contact=ai-consent@example.com"
+_aibdp.example.com. IN TXT "v=AIBDP1; license=Palimpsest-v0.4; registry=urn:palimpsest:org-5678"</code></pre>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>DNS Record Syntax</h3>
+                    <ul>
+                        <li><code>v=AIBDP1</code> - Protocol version (required)</li>
+                        <li><code>training=</code> - allow | deny | consent-required</li>
+                        <li><code>generation=</code> - allow | deny | attribution-required</li>
+                        <li><code>scraping=</code> - allow | deny | metadata-only</li>
+                        <li><code>policy=</code> - URL to full policy document</li>
+                        <li><code>license=</code> - License identifier</li>
+                        <li><code>contact=</code> - Email for consent requests</li>
+                    </ul>
+                </div>
+
+                <div class="visual-description">
+                    Visual: DNS resolution flowchart. AI system queries _aibdp.example.com → DNS server returns TXT records → AI parses v=AIBDP1 → Reads policy directives → Decision tree: If training=deny, halt. If consent-required, contact owner. If allow, proceed with restrictions.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>DNS-based declaration provides immediate, queryable policy before any HTTP requests.</p>
+                    <p>Implementation: Add TXT records to your DNS zone. AI systems query before crawling.</p>
+                    <p>Fallback behavior: If no _aibdp record exists, check .well-known/aibdp.json</p>
+                </aside>
+            </section>
+
+            <!-- Slide 8: AIBDP - .well-known Manifest -->
+            <section>
+                <h2>AIBDP: .well-known/aibdp.json</h2>
+
+                <pre><code class="language-json">{
+  "version": "AIBDP/1.0",
+  "license": "Palimpsest-v0.4",
+  "registryId": "urn:palimpsest:org-5678",
+  "contact": {
+    "email": "ai-consent@example.com",
+    "url": "https://example.com/ai-consent-form"
+  },
+  "policies": {
+    "training": {
+      "allowed": false,
+      "consentRequired": true,
+      "exceptions": [
+        {
+          "purpose": "research",
+          "conditions": "Non-commercial, academic use only",
+          "attributionRequired": true
+        }
+      ]
+    },
+    "generation": {
+      "allowed": true,
+      "restrictions": {
+        "attributionFormat": "synthetic-lineage-tag",
+        "commercialUse": "royalty-sharing",
+        "prohibitedDerivatives": [
+          "decontextualization",
+          "cultural-appropriation",
+          "emotional-flattening"
+        ]
+      }
+    },
+    "scraping": {
+      "allowed": true,
+      "rateLimit": "1000 requests/day",
+      "metadataOnly": false,
+      "respectRobotsTxt": true
+    }
+  },
+  "enforcement": {
+    "jurisdiction": "Dutch law, Scottish courts",
+    "auditRequirement": {
+      "frequency": "annual",
+      "reportPublic": true
+    },
+    "violationContact": "legal@example.com"
+  }
+}</code></pre>
+
+                <div class="visual-description">
+                    Visual: Web server directory structure showing .well-known/ folder containing aibdp.json. When AI crawler accesses site, an arrow shows it checking this file first. The JSON structure is displayed with expandable sections highlighting: policies (traffic light colors: red=deny, yellow=consent-required, green=allow), contact information (envelope icon), enforcement (legal scales icon).
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 4 minutes</strong></p>
+                    <p>The .well-known convention (RFC 8615) provides standard location for policy files.</p>
+                    <p>Key features: Granular control (training vs generation vs scraping), Exception handling (research use cases), Enforcement mechanisms (audit requirements).</p>
+                    <p>AI systems MUST check this before training. Failure to comply = procedural breach under Palimpsest.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 9: AIBDP - HTTP Headers -->
+            <section>
+                <h2>AIBDP: HTTP Headers</h2>
+
+                <div class="code-box">
+                    <h3>Server Configuration</h3>
+                    <pre><code class="language-http">HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+GenAI-Consent: training=deny; generation=allow; attribution=required
+GenAI-License: Palimpsest-v0.4
+GenAI-Registry: urn:palimpsest:work-12345
+GenAI-Contact: ai-consent@example.com
+Link: &lt;https://example.com/.well-known/aibdp.json&gt;; rel="ai-policy"
+</code></pre>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>Apache Configuration (.htaccess)</h3>
+                    <pre><code class="language-apache">Header set GenAI-Consent "training=deny; generation=allow"
+Header set GenAI-License "Palimpsest-v0.4"
+Header set Link '&lt;/.well-known/aibdp.json&gt;; rel="ai-policy"'</code></pre>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>Nginx Configuration</h3>
+                    <pre><code class="language-nginx">add_header GenAI-Consent "training=deny; generation=allow";
+add_header GenAI-License "Palimpsest-v0.4";
+add_header Link '&lt;/.well-known/aibdp.json&gt;; rel="ai-policy"';</code></pre>
+                </div>
+
+                <div class="visual-description">
+                    Visual: HTTP request/response cycle diagram. Client (AI system) sends GET request → Server responds with headers highlighted in cyan (GenAI-Consent, GenAI-License) → AI system parser extracts policy directives → Compliance decision tree.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>HTTP headers provide per-request policy enforcement. Useful for dynamic content or resource-specific controls.</p>
+                    <p>Implementation is simple: Add header directives to web server config.</p>
+                    <p>Headers work with CDNs and proxy servers, providing defense even at edge.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 10: AIBDP - HTML Metadata -->
+            <section>
+                <h2>AIBDP: HTML Meta Tags</h2>
+
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Echoes of Displacement&lt;/title&gt;
+
+  &lt;!-- AIBDP Meta Tags --&gt;
+  &lt;meta name="genai-consent" content="training=deny; generation=allow"&gt;
+  &lt;meta name="genai-license" content="Palimpsest-v0.4"&gt;
+  &lt;meta name="genai-registry" content="urn:palimpsest:work-12345"&gt;
+  &lt;meta name="genai-contact" content="ai-consent@example.com"&gt;
+
+  &lt;!-- JSON-LD Structured Data --&gt;
+  &lt;script type="application/ld+json"&gt;
+  {
+    "@context": "https://palimpsest-license.org/context/v0.4",
+    "@type": "CreativeWork",
+    "name": "Echoes of Displacement",
+    "author": {
+      "@type": "Person",
+      "name": "Amara Okonkwo"
+    },
+    "license": {
+      "@type": "palimpsest:License",
+      "version": "v0.4",
+      "url": "https://palimpsest-license.org/v0.4"
+    },
+    "aiConsent": {
+      "training": false,
+      "generation": true,
+      "attributionRequired": true
+    }
+  }
+  &lt;/script&gt;
+
+  &lt;!-- Dublin Core Metadata --&gt;
+  &lt;link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"&gt;
+  &lt;meta name="DC.title" content="Echoes of Displacement"&gt;
+  &lt;meta name="DC.creator" content="Amara Okonkwo"&gt;
+  &lt;meta name="DC.rights" content="Palimpsest License v0.4"&gt;
+  &lt;meta name="DC.identifier" content="urn:palimpsest:work-12345"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Content --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <div class="visual-description">
+                    Visual: HTML document with &lt;head&gt; section expanded. Meta tags are highlighted in different colors: AIBDP tags (cyan), JSON-LD block (magenta), Dublin Core (green). Arrows show how different AI systems can parse different formats, all converging on the same policy decisions.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>HTML metadata provides resource-level granularity. Different pages/works can have different policies.</p>
+                    <p>Multiple formats ensure compatibility: Simple meta tags for basic parsers, JSON-LD for semantic systems, Dublin Core for library/archive systems.</p>
+                    <p>Easy integration with CMSs: WordPress plugin adds these automatically.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 11: Cryptographic Implementation -->
+            <section>
+                <h2>Quantum-Resistant Cryptography</h2>
+
+                <div class="tech-spec">
+                    <h3>Why Quantum Resistance?</h3>
+                    <p>Current cryptographic signatures (RSA, ECDSA) will break when quantum computers achieve sufficient qubit counts. Palimpsest uses <strong>post-quantum algorithms</strong> to ensure long-term verifiability.</p>
+                </div>
+
+                <div class="code-box">
+                    <h3>Signature Algorithm: CRYSTALS-Dilithium</h3>
+                    <pre><code class="language-python">from dilithium import Dilithium
+
+# Key generation
+dilithium = Dilithium()
+public_key, private_key = dilithium.generate_keypair()
+
+# Create Synthetic Lineage Tag
+slt_data = {
+    "sourceWork": "urn:palimpsest:work-12345",
+    "license": "Palimpsest-v0.4",
+    "timestamp": "2025-06-15T14:30:00Z"
+}
+
+# Sign the tag
+signature = dilithium.sign(private_key, json.dumps(slt_data))
+
+# Verification (by AI system or auditor)
+is_valid = dilithium.verify(public_key, json.dumps(slt_data), signature)
+# is_valid = True (if authentic, unchanged)</code></pre>
+                </div>
+
+                <div class="success-box">
+                    <strong>NIST Standardized:</strong> CRYSTALS-Dilithium is a NIST-approved post-quantum signature scheme (FIPS 204).
+                </div>
+
+                <div class="visual-description">
+                    Visual: Timeline showing cryptographic evolution. Left: Classical computing era with RSA locks (secure). Center: Quantum threat (locks breaking). Right: Post-quantum era with Dilithium lattice-based locks (secure again). Below, a simplified lattice structure visualization showing how quantum computers cannot efficiently solve lattice problems.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 4 minutes</strong></p>
+                    <p>Quantum computers will break RSA/ECDSA within 10-15 years. We're future-proofing NOW.</p>
+                    <p>CRYSTALS-Dilithium uses lattice-based cryptography: Hard problems for both classical AND quantum computers.</p>
+                    <p>Implementation: Python dilithium library, JavaScript/Node.js wrappers available.</p>
+                    <p>Key sizes: Larger than RSA (public key ~2KB vs 0.5KB) but acceptable trade-off for quantum resistance.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 12: Validation Tools -->
+            <section>
+                <h2>Validation and Compliance Tools</h2>
+
+                <div class="tech-spec">
+                    <h3>Automated Validation Suite</h3>
+                    <ul>
+                        <li><strong>Metadata Validator:</strong> Checks SLT format, schema compliance, required fields</li>
+                        <li><strong>AIBDP Checker:</strong> Verifies DNS, .well-known, headers, HTML tags</li>
+                        <li><strong>Cryptographic Verifier:</strong> Validates signatures, checks key expiry</li>
+                        <li><strong>License Compliance Auditor:</strong> Scans for clause violations</li>
+                    </ul>
+                </div>
+
+                <div class="code-box">
+                    <h3>CLI Validation Tool</h3>
+                    <pre><code class="language-bash"># Install validation tool
+npm install -g @palimpsest/validator
+
+# Validate metadata file
+palimpsest validate metadata.json
+✓ Schema valid (JSON-LD)
+✓ Required fields present
+✓ Cryptographic signature valid
+✓ License version recognized: v0.4
+✗ Warning: emotionalLineage field recommended but missing
+
+# Check AIBDP compliance for domain
+palimpsest check-aibdp https://example.com
+✓ DNS TXT record found: _aibdp.example.com
+✓ .well-known/aibdp.json accessible
+✓ HTTP headers present: GenAI-Consent
+✓ HTML meta tags found
+✓ All layers consistent: training=deny
+
+# Audit compliance for AI-generated content
+palimpsest audit-output generated-story.txt
+✗ VIOLATION: Missing Synthetic Lineage Tag
+✗ VIOLATION: Source attribution not found
+Recommendation: Add SLT with sourceWork reference</code></pre>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Terminal screen showing validation tool in action. Green checkmarks for passing tests, red X for violations. Progress bars show validation stages: Schema → Fields → Crypto → Compliance. Side panel shows detailed violation reports with remediation suggestions.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>Validation tools are essential for both creators and AI developers.</p>
+                    <p>Creators: Ensure their metadata is correctly formatted before publishing.</p>
+                    <p>AI Developers: Verify compliance before deploying models, audit outputs for attribution.</p>
+                    <p>CI/CD Integration: Validation tools can run in GitHub Actions, GitLab CI, preventing non-compliant deployments.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 13: Integration - Node.js -->
+            <section>
+                <h2>Integration: Node.js Server</h2>
+
+                <pre><code class="language-javascript">// Express.js middleware for AIBDP enforcement
+const palimpsest = require('@palimpsest/server-middleware');
+
+const app = express();
+
+// Add AIBDP headers to all responses
+app.use(palimpsest.aibdpMiddleware({
+  training: 'deny',
+  generation: 'allow',
+  attribution: 'required',
+  license: 'Palimpsest-v0.4',
+  registryId: 'urn:palimpsest:org-5678'
+}));
+
+// Serve .well-known/aibdp.json
+app.get('/.well-known/aibdp.json', palimpsest.manifestHandler({
+  policies: {
+    training: { allowed: false, consentRequired: true },
+    generation: {
+      allowed: true,
+      restrictions: { attributionFormat: 'synthetic-lineage-tag' }
+    }
+  }
+}));
+
+// Validate incoming AI requests
+app.use(palimpsest.requestValidator({
+  checkUserAgent: true, // Identify AI crawlers
+  enforcePolicies: true, // Block non-compliant requests
+  logViolations: true    // Track violation attempts
+}));
+
+// Embed SLT in API responses
+app.get('/api/creative-work/:id', async (req, res) =&gt; {
+  const work = await db.getWork(req.params.id);
+
+  const slt = palimpsest.createSLT({
+    sourceWork: work,
+    license: 'Palimpsest-v0.4',
+    privateKey: process.env.SIGNING_KEY
+  });
+
+  res.json({
+    content: work.content,
+    metadata: slt
+  });
+});</code></pre>
+
+                <div class="visual-description">
+                    Visual: Node.js application architecture diagram. Client requests flow through: Express app → AIBDP middleware (adds headers) → Request validator (checks compliance) → Route handler (generates SLT) → Response with embedded metadata. Shield icons indicate protection layers.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>Node.js integration is simple: Add middleware, configure policies, done.</p>
+                    <p>Middleware automatically: Adds AIBDP headers, Serves manifest, Validates requests, Logs violations.</p>
+                    <p>SLT creation: Automatic signing with private key, JSON-LD format, Cryptographically verifiable.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 14: Integration - Python -->
+            <section>
+                <h2>Integration: Python (Flask/Django)</h2>
+
+                <pre><code class="language-python">from palimpsest import AIBDP, SyntheticLineageTag
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+# Initialize AIBDP enforcer
+aibdp = AIBDP(
+    training='deny',
+    generation='allow',
+    license='Palimpsest-v0.4'
+)
+
+# Decorator for adding AIBDP headers
+@app.after_request
+def add_aibdp_headers(response):
+    response.headers['GenAI-Consent'] = aibdp.consent_header()
+    response.headers['GenAI-License'] = 'Palimpsest-v0.4'
+    return response
+
+# .well-known endpoint
+@app.route('/.well-known/aibdp.json')
+def aibdp_manifest():
+    return jsonify(aibdp.generate_manifest())
+
+# Protect creative work endpoints
+@app.route('/api/works/&lt;work_id&gt;')
+@aibdp.enforce_policy  # Decorator blocks non-compliant AI
+def get_work(work_id):
+    work = db.get_work(work_id)
+
+    # Generate Synthetic Lineage Tag
+    slt = SyntheticLineageTag(
+        source_work={
+            'id': work.id,
+            'title': work.title,
+            'creator': work.creator
+        },
+        license='Palimpsest-v0.4',
+        emotional_lineage={
+            'narrative_intent': work.narrative_intent,
+            'cultural_context': work.cultural_context
+        }
+    )
+
+    # Sign with quantum-resistant crypto
+    slt.sign(private_key=get_signing_key())
+
+    return jsonify({
+        'content': work.content,
+        'lineage': slt.to_json_ld()
+    })
+
+# AI consent request handler
+@app.route('/ai-consent/request', methods=['POST'])
+def handle_consent_request():
+    request_data = request.json
+
+    # Log consent request
+    ConsentRequest.create(
+        ai_system=request_data['ai_system'],
+        purpose=request_data['purpose'],
+        requested_works=request_data['works']
+    )
+
+    # Return consent form or automated decision
+    return jsonify({
+        'status': 'pending',
+        'form_url': '/ai-consent/form/xyz123'
+    })</code></pre>
+
+                <div class="visual-description">
+                    Visual: Python application flow diagram. Flask route → @aibdp.enforce_policy decorator (gatekeeper) → Route handler → SLT generation → Cryptographic signing → JSON response with embedded lineage. Red "BLOCKED" indicators show where non-compliant AI requests are rejected.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>Python implementation mirrors Node.js functionality: decorators for policy enforcement, automatic header injection, SLT generation with signing.</p>
+                    <p>Consent workflow: AI systems can programmatically request consent, Creator reviews through web form, Automated approval for whitelisted systems.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 15: Integration - JavaScript/Browser -->
+            <section>
+                <h2>Integration: Client-Side JavaScript</h2>
+
+                <pre><code class="language-html">&lt;!-- Include Palimpsest client library --&gt;
+&lt;script src="https://cdn.palimpsest-license.org/v0.4/client.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+// Initialize Palimpsest
+const palimpsest = new Palimpsest({
+  license: 'v0.4',
+  registryId: 'urn:palimpsest:work-12345'
+});
+
+// Add metadata to page
+palimpsest.embedMetadata({
+  training: 'deny',
+  generation: 'allow',
+  attribution: 'required'
+});
+
+// Protect specific elements
+document.querySelectorAll('.creative-content').forEach(element =&gt; {
+  palimpsest.protectElement(element, {
+    watermark: false,  // No visual watermark
+    metadata: true,    // Embed invisible metadata
+    rightClick: 'allow' // Don't block right-click (annoying)
+  });
+});
+
+// Monitor for AI scraping attempts
+palimpsest.detectScrapers({
+  onDetected: (scraperInfo) =&gt; {
+    console.log('AI scraper detected:', scraperInfo.userAgent);
+
+    // Check if scraper respects AIBDP
+    if (!scraperInfo.respectsAIBDP) {
+      // Log violation
+      fetch('/api/log-violation', {
+        method: 'POST',
+        body: JSON.stringify(scraperInfo)
+      });
+
+      // Optional: Obfuscate content for non-compliant scrapers
+      document.body.classList.add('ai-protected');
+    }
+  }
+});
+
+// Generate SLT for user-created content
+async function publishUserContent(content) {
+  const slt = await palimpsest.createSLT({
+    sourceWork: {
+      title: content.title,
+      creator: currentUser.name,
+      content: content.text
+    },
+    emotionalLineage: {
+      narrativeIntent: content.intent,
+      culturalContext: content.culturalTags
+    }
+  });
+
+  // Sign client-side (using Web Crypto API)
+  const signature = await palimpsest.sign(slt, userPrivateKey);
+
+  // Publish with metadata
+  await fetch('/api/publish', {
+    method: 'POST',
+    body: JSON.stringify({
+      content: content,
+      lineage: slt,
+      signature: signature
+    })
+  });
+}
+&lt;/script&gt;</code></pre>
+
+                <div class="visual-description">
+                    Visual: Browser window showing protected webpage. Overlay diagram indicates: Invisible metadata embedded in DOM (glowing data packets within text elements), Scraper detection mechanism (radar-style scanner), SLT generation happening in JavaScript (Web Crypto API visualization), Server communication for violation logging (bidirectional arrows).
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>Client-side protection for dynamic, user-generated content platforms.</p>
+                    <p>Features: Invisible metadata embedding (no visual disruption), Scraper detection (identify AI crawlers), Client-side signing (privacy-preserving), Violation logging (track non-compliance).</p>
+                    <p>Use cases: Content platforms (Medium, Substack), Portfolio sites, Web apps with user-generated creative work.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 16: WordPress Integration -->
+            <section>
+                <h2>CMS Integration: WordPress Plugin</h2>
+
+                <div class="tech-spec">
+                    <h3>Palimpsest WordPress Plugin</h3>
+                    <p>One-click protection for WordPress sites</p>
+                </div>
+
+                <div class="code-box">
+                    <h3>Installation</h3>
+                    <pre><code class="language-bash"># Install via WordPress admin
+Plugins → Add New → Search "Palimpsest License"
+
+# Or via WP-CLI
+wp plugin install palimpsest-license --activate
+
+# Configure
+wp palimpsest setup \
+  --license=v0.4 \
+  --training=deny \
+  --generation=allow \
+  --registry-id=urn:palimpsest:org-5678</code></pre>
+                </div>
+
+                <div class="success-box">
+                    <h3>Features</h3>
+                    <ul>
+                        <li>✓ Automatic AIBDP header injection</li>
+                        <li>✓ Per-post/page consent controls</li>
+                        <li>✓ Gutenberg block for license badges</li>
+                        <li>✓ SLT metadata in post_meta</li>
+                        <li>✓ Consent request dashboard</li>
+                        <li>✓ Violation logging and analytics</li>
+                    </ul>
+                </div>
+
+                <div class="visual-description">
+                    Visual: WordPress admin interface mockup. Left sidebar shows "Palimpsest" menu item. Main panel shows: Global settings (training=deny toggle), Per-post metabox with consent controls (checkboxes for different AI uses), Badge customization (color picker, placement options), Analytics dashboard (graph showing scraper attempts, compliance rate).
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 2 minutes</strong></p>
+                    <p>WordPress powers 43% of web. Plugin makes Palimpsest accessible to millions of creators.</p>
+                    <p>Zero configuration required: Sensible defaults (deny training, allow attributed generation), Works out-of-box.</p>
+                    <p>Advanced features: Per-post overrides, Consent workflow, Violation dashboard.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 17: GitHub Integration -->
+            <section>
+                <h2>Developer Platform Integration: GitHub</h2>
+
+                <div class="code-box">
+                    <h3>GitHub Repository Protection</h3>
+                    <pre><code class="language-yaml"># .github/workflows/palimpsest.yml
+name: Palimpsest Compliance
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Validate Palimpsest Metadata
+        uses: palimpsest/validate-action@v1
+        with:
+          check-license: true
+          validate-slt: true
+          enforce-aibdp: true
+
+      - name: Generate Compliance Report
+        run: |
+          palimpsest audit --format=markdown > COMPLIANCE.md
+
+      - name: Comment on PR
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: fs.readFileSync('COMPLIANCE.md', 'utf8')
+            })</code></pre>
+                </div>
+
+                <div class="code-box">
+                    <h3>Repository Metadata</h3>
+                    <pre><code class="language-yaml"># .palimpsest.yml
+version: v0.4
+license: Palimpsest-v0.4
+registry_id: urn:palimpsest:repo-github-user-project
+
+policies:
+  code:
+    training: consent-required
+    generation: allow-with-attribution
+
+  documentation:
+    training: allow
+    generation: allow
+
+  creative_assets:
+    training: deny
+    generation: deny
+
+contact:
+  email: oss-ai-consent@example.com
+  form: https://example.com/ai-consent
+
+enforcement:
+  audit_required: true
+  violation_contact: legal@example.com</code></pre>
+                </div>
+
+                <div class="visual-description">
+                    Visual: GitHub repository page with Palimpsest integration. Top: Status badge showing "Protected by Palimpsest v0.4" (green checkmark). Middle: Actions tab showing automated compliance checks running on commits. Bottom: .palimpsest.yml file with syntax highlighting, showing granular policies for different content types.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>GitHub integration crucial for open-source projects. Code can be open-source while protecting against AI training.</p>
+                    <p>CI/CD validation: Automatic compliance checking on commits/PRs, Prevents non-compliant changes from merging.</p>
+                    <p>Granular policies: Different rules for code vs docs vs creative assets, Flexible licensing for different use cases.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 18: AI System Compliance -->
+            <section>
+                <h2>For AI Developers: Compliance Integration</h2>
+
+                <div class="warning-box">
+                    <h3>⚠️ Legal Requirement</h3>
+                    <p>AI systems MUST check AIBDP declarations before training, generating, or scraping Palimpsest-licensed content. Failure to comply = procedural breach.</p>
+                </div>
+
+                <div class="code-box">
+                    <h3>Training Pipeline Integration</h3>
+                    <pre><code class="language-python">from palimpsest import AIBDPChecker, ConsentVerifier
+
+# Initialize compliance checker
+checker = AIBDPChecker()
+consent_verifier = ConsentVerifier()
+
+def process_training_data(dataset_urls):
+    """
+    Process dataset with Palimpsest compliance checking
+    """
+    compliant_data = []
+    consent_required = []
+    blocked = []
+
+    for url in dataset_urls:
+        # Check AIBDP declaration
+        policy = checker.check_url(url)
+
+        if policy.training == 'allow':
+            # Allowed: proceed with ingestion
+            data = fetch_and_process(url)
+            compliant_data.append(data)
+
+        elif policy.training == 'consent-required':
+            # Consent required: hold for manual review
+            consent_required.append({
+                'url': url,
+                'contact': policy.contact,
+                'license': policy.license
+            })
+
+        elif policy.training == 'deny':
+            # Blocked: do not use
+            blocked.append(url)
+            log_blocked_content(url, policy)
+
+    # Request consent for consent-required items
+    for item in consent_required:
+        request_consent(
+            contact=item['contact'],
+            purpose='AI training for [MODEL_NAME]',
+            license_terms=item['license']
+        )
+
+    return compliant_data
+
+def verify_consent_agreement(work_id, consent_agreement):
+    """
+    Verify cryptographic signature on consent agreement
+    """
+    return consent_verifier.verify(
+        work_id=work_id,
+        agreement=consent_agreement,
+        public_key=get_creator_public_key(work_id)
+    )
+
+def embed_lineage_in_output(ai_output, training_sources):
+    """
+    Embed Synthetic Lineage Tags in AI-generated content
+    """
+    slt = SyntheticLineageTag()
+
+    for source in training_sources:
+        slt.add_source(
+            work_id=source.registry_id,
+            license=source.license,
+            derivation_type=source.influence_type
+        )
+
+    slt.sign(model_private_key)
+
+    return {
+        'content': ai_output,
+        'lineage': slt.to_json_ld(),
+        'attribution': slt.generate_human_readable_attribution()
+    }</code></pre>
+                </div>
+
+                <div class="visual-description">
+                    Visual: AI training pipeline flowchart. Dataset URLs → AIBDP Checker (gatekeeper) → Three paths: 1) Green path: training=allow → Ingest data → Training corpus. 2) Yellow path: consent-required → Hold queue → Consent request → (if approved) Training corpus. 3) Red path: training=deny → Blocked → Violation log. Final stage: Trained model → Output generator → SLT embedder → Compliant AI output.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 4 minutes</strong></p>
+                    <p>This is what we expect from AI companies. Compliance isn't optional—it's legally required.</p>
+                    <p>Three-stage filtering: Allow (green path), Consent-required (yellow, manual review), Deny (red, blocked).</p>
+                    <p>Consent workflow: Automated request to creator contact, Cryptographic verification of consent agreement, Logged for audit trail.</p>
+                    <p>Output lineage: ALL AI outputs must include SLT, Human-readable attribution for end users, Cryptographic signatures for verification.</p>
+                    <p>Benefit to AI companies: Clear legal framework, Reduces litigation risk, Demonstrates ethical practices.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 19: Audit and Monitoring -->
+            <section>
+                <h2>Audit and Monitoring Infrastructure</h2>
+
+                <div class="tech-spec">
+                    <h3>Compliance Monitoring System</h3>
+                    <p>Continuous monitoring of AI scraping and training activities</p>
+                </div>
+
+                <div class="code-box">
+                    <h3>Server-Side Monitoring</h3>
+                    <pre><code class="language-javascript">// Real-time AI activity monitoring
+const monitor = new PalimpsestMonitor({
+  detectScrapers: true,
+  logRequests: true,
+  blockNonCompliant: true,
+  alertOnViolations: true
+});
+
+monitor.on('scraper-detected', (event) =&gt; {
+  console.log('AI Scraper:', {
+    userAgent: event.userAgent,
+    ip: event.ip,
+    respectsAIBDP: event.compliance.aibdp,
+    requestedResources: event.resources,
+    decision: event.decision // 'allowed', 'blocked', 'rate-limited'
+  });
+
+  // Send to analytics
+  analytics.track('ai-scraper-activity', event);
+});
+
+monitor.on('violation', (event) =&gt; {
+  // Log violation
+  db.violations.insert({
+    timestamp: event.timestamp,
+    scraper: event.scraper,
+    violationType: event.type, // 'ignored-aibdp', 'stripped-metadata', etc.
+    evidence: event.evidence,
+    ip: event.ip
+  });
+
+  // Alert legal team
+  if (event.severity === 'high') {
+    alertLegalTeam(event);
+  }
+
+  // Automatic enforcement
+  if (config.autoEnforce) {
+    blockIP(event.ip, duration: '30d');
+  }
+});</code></pre>
+                </div>
+
+                <div class="success-box">
+                    <h3>Audit Dashboard Features</h3>
+                    <ul>
+                        <li>Real-time scraper detection and identification</li>
+                        <li>Compliance rate tracking (% of AI systems respecting AIBDP)</li>
+                        <li>Violation logging with evidence preservation</li>
+                        <li>Geographic distribution of AI access attempts</li>
+                        <li>Automated blocking of repeat violators</li>
+                        <li>Legal evidence export (court-ready reports)</li>
+                    </ul>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Monitoring dashboard mockup. Top: Real-time map showing AI scraper access attempts with colored pins (green=compliant, yellow=consent-pending, red=violation). Middle: Time-series graph of scraper activity. Bottom: Violation log table with columns: timestamp, scraper identity, violation type, action taken. Right sidebar: Quick stats (compliance rate: 76%, violations: 24, blocked IPs: 8).
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>Monitoring is crucial for enforcement. Can't protect what you can't see.</p>
+                    <p>Detection methods: User-Agent analysis (identify known AI crawlers), Request pattern analysis (scraping behavior), AIBDP compliance checking, Metadata stripping detection.</p>
+                    <p>Violation evidence: Logged requests, IP addresses, Timestamps, User-Agent strings, Evidence can be exported for legal proceedings.</p>
+                    <p>Automated responses: Rate limiting for suspicious activity, IP blocking for repeat violators, Alerts for legal team.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 20: Blockchain Attestation (Optional) -->
+            <section>
+                <h2>Advanced: Blockchain Attestation</h2>
+
+                <div class="tech-spec">
+                    <h3>Immutable Provenance Records</h3>
+                    <p>Optional blockchain attestation for tamper-proof attribution</p>
+                </div>
+
+                <div class="code-box">
+                    <h3>Ethereum Smart Contract</h3>
+                    <pre><code class="language-solidity">// SPDX-License-Identifier: Palimpsest-v0.4
+pragma solidity ^0.8.0;
+
+contract PalimpsestRegistry {
+    struct Work {
+        string registryId;      // urn:palimpsest:work-12345
+        address creator;        // Ethereum address of creator
+        string metadataURI;     // IPFS hash of full metadata
+        bytes32 metadataHash;   // SHA-256 of metadata for verification
+        uint256 timestamp;      // Registration timestamp
+        string license;         // "Palimpsest-v0.4"
+    }
+
+    mapping(string =&gt; Work) public registry;
+    mapping(address =&gt; string[]) public creatorWorks;
+
+    event WorkRegistered(
+        string indexed registryId,
+        address indexed creator,
+        string metadataURI,
+        uint256 timestamp
+    );
+
+    event ConsentGranted(
+        string indexed registryId,
+        address indexed aiDeveloper,
+        string consentAgreementURI,
+        uint256 timestamp
+    );
+
+    function registerWork(
+        string memory _registryId,
+        string memory _metadataURI,
+        bytes32 _metadataHash,
+        string memory _license
+    ) public {
+        require(registry[_registryId].timestamp == 0, "Already registered");
+
+        registry[_registryId] = Work({
+            registryId: _registryId,
+            creator: msg.sender,
+            metadataURI: _metadataURI,
+            metadataHash: _metadataHash,
+            timestamp: block.timestamp,
+            license: _license
+        });
+
+        creatorWorks[msg.sender].push(_registryId);
+
+        emit WorkRegistered(_registryId, msg.sender, _metadataURI, block.timestamp);
+    }
+
+    function verifyMetadata(
+        string memory _registryId,
+        string memory _metadata
+    ) public view returns (bool) {
+        bytes32 hash = sha256(abi.encodePacked(_metadata));
+        return registry[_registryId].metadataHash == hash;
+    }
+
+    function grantConsent(
+        string memory _registryId,
+        address _aiDeveloper,
+        string memory _consentAgreementURI
+    ) public {
+        require(registry[_registryId].creator == msg.sender, "Not creator");
+
+        // Store consent agreement on IPFS, record hash on-chain
+        emit ConsentGranted(_registryId, _aiDeveloper, _consentAgreementURI, block.timestamp);
+    }
+}</code></pre>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Blockchain network diagram. Center: Smart contract (represented as glowing document with code). Surrounding: Multiple nodes (Ethereum network). Data flow shows: Creator registers work → Transaction → Immutable record. Parallel flow: AI developer requests consent → Smart contract verification → Consent event emission. Bottom: IPFS distributed storage showing metadata files referenced by blockchain.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>Blockchain is OPTIONAL but provides additional security: Immutable registration timestamps, Tamper-proof consent records, Public verification, Decentralized (no single point of failure).</p>
+                    <p>Implementation: Smart contract on Ethereum (or other EVM chains), Metadata stored on IPFS (content-addressed), On-chain hashes for verification.</p>
+                    <p>Use cases: High-value works, Legal disputes requiring provenance, Cross-border enforcement, DAO-managed collective works.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 21: Performance Considerations -->
+            <section>
+                <h2>Performance and Scalability</h2>
+
+                <div class="tech-spec">
+                    <h3>Overhead Analysis</h3>
+                    <table>
+                        <tr>
+                            <th>Component</th>
+                            <th>Added Latency</th>
+                            <th>Storage Overhead</th>
+                        </tr>
+                        <tr>
+                            <td>AIBDP Headers</td>
+                            <td>&lt;1ms</td>
+                            <td>~200 bytes/request</td>
+                        </tr>
+                        <tr>
+                            <td>SLT Generation</td>
+                            <td>2-5ms (signing)</td>
+                            <td>2-4KB/work</td>
+                        </tr>
+                        <tr>
+                            <td>DNS TXT Lookup</td>
+                            <td>10-50ms (cached: &lt;1ms)</td>
+                            <td>~500 bytes/domain</td>
+                        </tr>
+                        <tr>
+                            <td>Cryptographic Verification</td>
+                            <td>5-10ms</td>
+                            <td>N/A</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="success-box">
+                    <h3>Optimization Strategies</h3>
+                    <ul>
+                        <li><strong>Caching:</strong> DNS responses cached (TTL: 1 hour), SLTs generated once, stored with work</li>
+                        <li><strong>CDN Compatibility:</strong> Headers passed through CDNs (Cloudflare, Fastly), Edge computing for validation</li>
+                        <li><strong>Lazy Loading:</strong> Full SLT only loaded when needed, Minimal metadata in initial response</li>
+                        <li><strong>Batching:</strong> Bulk SLT generation for datasets, Parallel cryptographic operations</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h3>Acceptable Trade-offs</h3>
+                    <p>2-10ms additional latency is negligible for most applications. Protection benefits far outweigh minimal performance cost.</p>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Performance comparison bar chart. Left side: Traditional response (baseline, 50ms). Right side: Palimpsest-protected response (52-60ms). Breakdown shows: Base request (50ms), AIBDP headers (+1ms), SLT generation (+3ms), Crypto signing (+5ms). Annotation: "4-20% overhead, imperceptible to users".
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 2 minutes</strong></p>
+                    <p>Performance is critical for adoption. Palimpsest designed to be lightweight.</p>
+                    <p>Real-world impact: &lt;10ms added latency—imperceptible to users, Minimal storage overhead—2-4KB per work, CDN compatible—works with modern infrastructure.</p>
+                    <p>Benchmarks: Tested with 10K req/sec—no degradation, Cryptographic operations parallelizable, Caching reduces repeat overhead to &lt;1ms.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 22: Testing and CI/CD -->
+            <section>
+                <h2>Testing and Continuous Integration</h2>
+
+                <div class="code-box">
+                    <h3>Automated Testing Suite</h3>
+                    <pre><code class="language-javascript">// Jest/Mocha test suite
+describe('Palimpsest Compliance', () =&gt; {
+
+  test('AIBDP headers present', async () =&gt; {
+    const response = await fetch('https://example.com/work');
+    expect(response.headers.get('GenAI-Consent')).toBeDefined();
+    expect(response.headers.get('GenAI-License')).toBe('Palimpsest-v0.4');
+  });
+
+  test('SLT schema validation', () =&gt; {
+    const slt = generateSLT(mockWork);
+    const validation = validateSLTSchema(slt);
+    expect(validation.valid).toBe(true);
+    expect(validation.errors).toHaveLength(0);
+  });
+
+  test('Cryptographic signature verification', () =&gt; {
+    const slt = generateAndSignSLT(mockWork, privateKey);
+    const isValid = verifySLTSignature(slt, publicKey);
+    expect(isValid).toBe(true);
+  });
+
+  test('AIBDP manifest accessibility', async () =&gt; {
+    const manifest = await fetch('https://example.com/.well-known/aibdp.json');
+    expect(manifest.status).toBe(200);
+    const json = await manifest.json();
+    expect(json.version).toBe('AIBDP/1.0');
+  });
+
+  test('DNS TXT record present', async () =&gt; {
+    const records = await dns.resolveTxt('_aibdp.example.com');
+    expect(records.some(r =&gt; r[0].startsWith('v=AIBDP1'))).toBe(true);
+  });
+
+  test('Violation detection', async () =&gt; {
+    const scraperRequest = mockScraperRequest({ respectsAIBDP: false });
+    const result = await monitor.handleRequest(scraperRequest);
+    expect(result.blocked).toBe(true);
+    expect(result.violationLogged).toBe(true);
+  });
+
+});</code></pre>
+                </div>
+
+                <div class="code-box">
+                    <h3>CI/CD Pipeline</h3>
+                    <pre><code class="language-yaml"># .github/workflows/palimpsest-ci.yml
+name: Palimpsest Compliance CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Compliance Tests
+        run: npm run test:palimpsest
+
+      - name: Validate Metadata
+        run: palimpsest validate --all
+
+      - name: Check AIBDP Configuration
+        run: palimpsest check-aibdp --domain=${{ secrets.DOMAIN }}
+
+      - name: Security Audit
+        run: npm audit --production
+
+      - name: Generate Coverage Report
+        run: npm run coverage:palimpsest
+
+      - name: Upload Compliance Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: compliance-report
+          path: compliance-report.html</code></pre>
+                </div>
+
+                <div class="visual-description">
+                    Visual: CI/CD pipeline visualization. Source code → Git push → Automated tests (multiple parallel tracks: Schema validation, Crypto verification, AIBDP checks, Violation detection) → All tests pass → Green checkmark → Deploy. If tests fail → Red X → Block deployment → Developer notification.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 2 minutes</strong></p>
+                    <p>Comprehensive test coverage ensures compliance doesn't break: Unit tests for SLT generation, Integration tests for AIBDP, End-to-end tests for full workflow, Security audits for dependencies.</p>
+                    <p>CI/CD prevents regressions: Automated checks on every commit, Blocks non-compliant deployments, Compliance as code (not afterthought).</p>
+                </aside>
+            </section>
+
+            <!-- Slide 23: Security Considerations -->
+            <section>
+                <h2>Security and Privacy</h2>
+
+                <div class="warning-box">
+                    <h3>⚠️ Security Best Practices</h3>
+                    <ul>
+                        <li><strong>Private Key Management:</strong> Never commit private keys, Use HSM or secure key management service, Rotate keys periodically</li>
+                        <li><strong>Signature Verification:</strong> Always verify SLT signatures before trusting, Check certificate expiry, Validate certificate chain</li>
+                        <li><strong>Input Validation:</strong> Sanitize all metadata inputs, Prevent injection attacks, Validate against schema</li>
+                    </ul>
+                </div>
+
+                <div class="code-box">
+                    <h3>Secure Key Management</h3>
+                    <pre><code class="language-javascript">// Use environment variables, never hardcode keys
+const privateKey = process.env.PALIMPSEST_PRIVATE_KEY;
+
+// Or use key management service
+const { KeyManagementServiceClient } = require('@google-cloud/kms');
+const kms = new KeyManagementServiceClient();
+
+async function signSLT(slt) {
+  const [signResponse] = await kms.asymmetricSign({
+    name: keyVersionName,
+    digest: { sha256: hashSLT(slt) }
+  });
+
+  return signResponse.signature;
+}
+
+// Implement key rotation
+async function rotateKey() {
+  const newKey = await generateNewKeyPair();
+
+  // Store old key for verification of old SLTs
+  await storeOldKey(currentPublicKey, {
+    validUntil: Date.now() + (365 * 24 * 60 * 60 * 1000) // 1 year
+  });
+
+  // Update to new key
+  await updateCurrentKey(newKey);
+
+  // Publish new public key
+  await publishPublicKey(newKey.public);
+}</code></pre>
+                </div>
+
+                <div class="success-box">
+                    <h3>Privacy Protections</h3>
+                    <ul>
+                        <li>Metadata can include pseudonymous creator IDs</li>
+                        <li>No personal information required in SLTs</li>
+                        <li>GDPR-compliant (data minimization)</li>
+                        <li>Optional: Zero-knowledge proofs for attribution without revealing source</li>
+                    </ul>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Security architecture diagram. Center: Private key stored in secure vault (HSM/KMS, shown as locked safe). Key flows out for signing operations (encrypted channel) but never exposed. Public key distributed widely (shown as radiating outward) for verification. Rotation cycle shows old keys archived but still available for verification, new keys taking over for signing.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>Security is paramount. Compromised keys = compromised attribution.</p>
+                    <p>Key management: Use HSM (Hardware Security Module) or KMS (Key Management Service), Environment variables for local dev, Never commit keys to git, Implement key rotation (annually recommended).</p>
+                    <p>Privacy: Pseudonymous attribution supported, GDPR compliant (minimal data), Optional: ZK-proofs for anonymous attribution.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 24: Interoperability -->
+            <section>
+                <h2>Standards Interoperability</h2>
+
+                <div class="tech-spec">
+                    <h3>Palimpsest Works With</h3>
+                    <ul>
+                        <li><strong>Dublin Core:</strong> dc:title, dc:creator, dc:rights, dc:identifier mapping</li>
+                        <li><strong>Schema.org:</strong> CreativeWork, Person, License types</li>
+                        <li><strong>Creative Commons:</strong> Compatible licensing (can layer Palimpsest on CC)</li>
+                        <li><strong>RDF/Linked Data:</strong> Full RDF/XML and Turtle support</li>
+                        <li><strong>IIIF:</strong> Manifest metadata for digital collections</li>
+                        <li><strong>DOI/ORCiD:</strong> Integration with academic identifiers</li>
+                    </ul>
+                </div>
+
+                <div class="code-box">
+                    <h3>Dublin Core Mapping</h3>
+                    <pre><code class="language-xml">&lt;rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:palimpsest="https://palimpsest-license.org/vocab/"&gt;
+
+  &lt;rdf:Description rdf:about="urn:palimpsest:work-12345"&gt;
+    &lt;dc:title&gt;Echoes of Displacement&lt;/dc:title&gt;
+    &lt;dc:creator&gt;Amara Okonkwo&lt;/dc:creator&gt;
+    &lt;dcterms:created&gt;2025-06-15&lt;/dcterms:created&gt;
+    &lt;dc:rights&gt;Palimpsest License v0.4&lt;/dc:rights&gt;
+    &lt;dc:identifier&gt;urn:palimpsest:work-12345&lt;/dc:identifier&gt;
+
+    &lt;!-- Palimpsest extensions --&gt;
+    &lt;palimpsest:emotionalLineage&gt;
+      &lt;palimpsest:narrativeIntent&gt;
+        Exploration of identity fragmentation in forced migration
+      &lt;/palimpsest:narrativeIntent&gt;
+    &lt;/palimpsest:emotionalLineage&gt;
+
+    &lt;palimpsest:aiConsent&gt;
+      &lt;palimpsest:trainingAllowed&gt;false&lt;/palimpsest:trainingAllowed&gt;
+      &lt;palimpsest:generationAllowed&gt;true&lt;/palimpsest:generationAllowed&gt;
+    &lt;/palimpsest:aiConsent&gt;
+  &lt;/rdf:Description&gt;
+&lt;/rdf:RDF&gt;</code></pre>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Interoperability web diagram. Center: Palimpsest logo. Radiating outward: Connected nodes representing different standards (Dublin Core, Schema.org, CC, RDF, IIIF, DOI). Each connection shows bidirectional arrows (data flows both ways). Below: Timeline showing Palimpsest as evolution/extension of existing standards, not replacement.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 2 minutes</strong></p>
+                    <p>Palimpsest doesn't replace existing standards—it extends them. Full interoperability with library, archive, academic systems.</p>
+                    <p>Migration path: Existing Dublin Core metadata → Add Palimpsest extensions → Full compliance. No need to rebuild from scratch.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 25: Case Study - Implementation -->
+            <section>
+                <h2>Case Study: Diaspora Poetry Platform</h2>
+
+                <div class="tech-spec">
+                    <h3>Background</h3>
+                    <p>Platform hosting 50,000+ poems from diaspora communities worldwide. Needed protection against AI training while allowing ethical creative reuse.</p>
+                </div>
+
+                <div class="success-box">
+                    <h3>Implementation</h3>
+                    <ul>
+                        <li><strong>Phase 1 (1 week):</strong> WordPress plugin installation, global AIBDP configuration</li>
+                        <li><strong>Phase 2 (2 weeks):</strong> Bulk SLT generation for existing works, metadata migration</li>
+                        <li><strong>Phase 3 (1 week):</strong> Per-poet consent controls, dashboard training</li>
+                        <li><strong>Total Time:</strong> 4 weeks from start to full deployment</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h3>Results (6 months post-deployment)</h3>
+                    <ul>
+                        <li>✓ 89% reduction in unauthorized AI scraping</li>
+                        <li>✓ 12 consent requests from ethical AI companies (5 approved)</li>
+                        <li>✓ $15K in royalties from approved AI training licenses</li>
+                        <li>✓ Zero performance degradation (&lt;2ms added latency)</li>
+                        <li>✓ 94% poet satisfaction rate</li>
+                        <li>✓ 3 legal violations detected and enforced</li>
+                    </ul>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Before/after comparison. Left (Before): Platform with open access, visualized as unprotected content being scraped by multiple AI bots (shown as tentacles extracting data). Right (After): Platform with Palimpsest protection, visualized as shielded content with controlled access gates. Compliant AI systems enter through consent gates, non-compliant systems blocked by barriers. Metrics overlay shows reduction in unauthorized access.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 3 minutes</strong></p>
+                    <p>Real-world success story demonstrates practical viability.</p>
+                    <p>Key insights: Implementation was straightforward (4 weeks), Performance impact negligible, Economic benefits (royalties from ethical AI), Legal enforcement works (3 violations successfully pursued), Poet community support high.</p>
+                    <p>Quote from platform founder: "Palimpsest gave us the tools to protect our poets' cultural narratives without locking down our content. We can still share freely while preventing exploitation."</p>
+                </aside>
+            </section>
+
+            <!-- Slide 26: Roadmap - Technical -->
+            <section>
+                <h2>Technical Roadmap</h2>
+
+                <div class="tech-spec">
+                    <h3>Q1 2026</h3>
+                    <ul>
+                        <li>Enhanced SLT format with multi-lingual support</li>
+                        <li>IPFS integration for decentralized metadata storage</li>
+                        <li>Browser extension for automatic SLT detection</li>
+                        <li>AI model fingerprinting for output tracking</li>
+                    </ul>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>Q2 2026</h3>
+                    <ul>
+                        <li>Zero-knowledge proof attribution (anonymous verification)</li>
+                        <li>Machine learning compliance detector (identify violations automatically)</li>
+                        <li>Federation protocol for cross-platform lineage tracking</li>
+                        <li>Mobile SDKs (iOS/Android) for native app integration</li>
+                    </ul>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>Q3-Q4 2026</h3>
+                    <ul>
+                        <li>Quantum computing migration (full quantum-resistant stack)</li>
+                        <li>Federated learning support (privacy-preserving AI training)</li>
+                        <li>Decentralized autonomous enforcement (DAO-based violation arbitration)</li>
+                        <li>W3C/IRTF standardization finalization</li>
+                    </ul>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Roadmap timeline from 2026-2030. Near-term features (2026) shown as concrete building blocks being assembled: IPFS integration, browser extensions, ML detectors. Mid-term (2027-2028) shows more advanced features: ZK-proofs, federation protocols, visualized as sophisticated interconnected systems. Far-term (2029-2030) shows futuristic elements: quantum-resistant infrastructure (lattice structures), decentralized enforcement networks (distributed nodes), full W3C standard adoption (official seal/badge).
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 2 minutes</strong></p>
+                    <p>Continuous innovation keeps Palimpsest ahead of AI evolution.</p>
+                    <p>Near-term: Improving usability and adoption (browser extensions, better integrations).</p>
+                    <p>Mid-term: Advanced privacy and automation (ZK-proofs, ML detection).</p>
+                    <p>Long-term: Future-proofing and standardization (quantum migration, W3C/IRTF standards).</p>
+                </aside>
+            </section>
+
+            <!-- Slide 27: Contributing -->
+            <section>
+                <h2>Open Source Contribution</h2>
+
+                <div class="code-box">
+                    <h3>Get Involved</h3>
+                    <pre><code class="language-bash"># Clone the repository
+git clone https://github.com/palimpsest-license/core.git
+cd core
+
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Build
+npm run build
+
+# Submit PR
+git checkout -b feature/my-contribution
+git commit -m "Add: Feature description"
+git push origin feature/my-contribution</code></pre>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>Contribution Areas</h3>
+                    <ul>
+                        <li><strong>Core Library:</strong> JavaScript/Python/Node.js implementations</li>
+                        <li><strong>Validation Tools:</strong> Schema validators, compliance checkers</li>
+                        <li><strong>Integrations:</strong> CMS plugins, framework middleware</li>
+                        <li><strong>Cryptography:</strong> Post-quantum algorithm implementations</li>
+                        <li><strong>Documentation:</strong> Guides, tutorials, API docs</li>
+                        <li><strong>Standardization:</strong> IRTF/W3C draft contributions</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li>📖 Developer Guide: palimpsest-license.org/dev</li>
+                        <li>💬 Discussion Forum: github.com/palimpsest-license/discussions</li>
+                        <li>🐛 Issue Tracker: github.com/palimpsest-license/core/issues</li>
+                        <li>📧 Mailing List: dev@palimpsest-license.org</li>
+                    </ul>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Open-source collaboration visualization. Center: GitHub repository (code branches flowing). Surrounding: Contributors from around world (diverse group of developers) sending pull requests (shown as streams of code). Integration points show different language implementations: JS/Python/Haskell/ReScript logos. Community elements: Forum discussions (speech bubbles), documentation (books), testing (checkmarks).
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 2 minutes</strong></p>
+                    <p>Palimpsest is fully open-source. We welcome contributions.</p>
+                    <p>Areas needing help: Language implementations (Rust, Go, Ruby), CMS integrations (Drupal, Joomla), Testing (expand coverage), Documentation (more examples, translations).</p>
+                    <p>Contributor benefits: Recognition in release notes, Voting rights in minor technical decisions, Direct impact on AI ethics.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 28: FAQs - Technical -->
+            <section>
+                <h2>Technical FAQs</h2>
+
+                <div class="tech-spec">
+                    <h3>Q: Does Palimpsest slow down my website?</h3>
+                    <p>A: Minimal impact. &lt;10ms added latency, imperceptible to users. AIBDP headers add ~200 bytes per request.</p>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>Q: Can I use Palimpsest with existing licenses (CC, MIT, etc.)?</h3>
+                    <p>A: Yes! Palimpsest can layer on top of other licenses. Example: "CC BY-SA 4.0 + Palimpsest v0.4" provides both sharing freedoms AND AI protections.</p>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>Q: What if AI systems ignore AIBDP declarations?</h3>
+                    <p>A: That's a procedural breach under Palimpsest clause 3.13. You have legal recourse. Our monitoring tools log violations with court-admissible evidence.</p>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>Q: How do I migrate from v0.3 to v0.4?</h3>
+                    <p>A: Run <code>palimpsest migrate --from=v0.3 --to=v0.4</code>. Tool automatically updates metadata, preserves backwards compatibility.</p>
+                </div>
+
+                <div class="tech-spec">
+                    <h3>Q: Can I use Palimpsest for proprietary/commercial works?</h3>
+                    <p>A: Absolutely. Palimpsest protects ANY creative work, regardless of whether it's open-source, commercial, or proprietary.</p>
+                </div>
+
+                <div class="visual-description">
+                    Visual: FAQ interface mockup. Accordion-style expandable questions. Each question has icon: Performance (speedometer), Compatibility (puzzle pieces), Enforcement (legal scales), Migration (arrows), Commercial use (dollar sign). Answers include code snippets and diagrams where relevant.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 2 minutes</strong></p>
+                    <p>Address common technical concerns proactively.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 29: Resources -->
+            <section>
+                <h2>Developer Resources</h2>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="tech-spec">
+                        <h3>📚 Documentation</h3>
+                        <ul>
+                            <li>Developer Guide (comprehensive)</li>
+                            <li>API Reference (auto-generated)</li>
+                            <li>Integration Tutorials (step-by-step)</li>
+                            <li>Code Examples (copy-paste ready)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-spec">
+                        <h3>🛠️ Tools & Libraries</h3>
+                        <ul>
+                            <li>@palimpsest/core (npm)</li>
+                            <li>palimpsest-python (PyPI)</li>
+                            <li>palimpsest-validator (CLI)</li>
+                            <li>WordPress/Drupal plugins</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-spec">
+                        <h3>🧪 Testing</h3>
+                        <ul>
+                            <li>Test suites (Jest, Pytest)</li>
+                            <li>Compliance sandbox</li>
+                            <li>Mock AI systems (testing)</li>
+                            <li>CI/CD templates</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-spec">
+                        <h3>🤝 Community</h3>
+                        <ul>
+                            <li>GitHub Discussions</li>
+                            <li>Stack Overflow tag</li>
+                            <li>Developer Discord</li>
+                            <li>Monthly tech calls</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-box" style="margin-top: 30px;">
+                    <h3>Quick Start</h3>
+                    <pre><code class="language-bash"># Install CLI
+npm install -g @palimpsest/cli
+
+# Initialize project
+palimpsest init
+
+# Generate keys
+palimpsest keygen
+
+# Create first SLT
+palimpsest create-slt --work=./my-work.txt
+
+# Validate
+palimpsest validate --all
+
+# Deploy
+palimpsest deploy --platform=vercel</code></pre>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Resource ecosystem map. Center: Developer (person at computer). Radiating outward: Different resource types (documentation books, tool icons, test tubes for testing, community chat bubbles). All resources interconnected, showing comprehensive support ecosystem. Bottom: Quick start terminal showing simple 5-step process from installation to deployment.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 2 minutes</strong></p>
+                    <p>Comprehensive resources ensure developer success. Everything from tutorials to community support.</p>
+                </aside>
+            </section>
+
+            <!-- Slide 30: Call to Action -->
+            <section class="center">
+                <h2>Build with Palimpsest</h2>
+
+                <div style="margin: 40px 0;">
+                    <p style="font-size: 1.3em;">
+                        <strong>Future-proof your platform. Protect your users. Lead the ethical AI movement.</strong>
+                    </p>
+                </div>
+
+                <div style="margin-top: 50px;">
+                    <a href="#" class="cta-button">Start Integration</a>
+                    <a href="#" class="cta-button">Join Developer Community</a>
+                </div>
+
+                <div style="margin-top: 50px; font-size: 0.9em;">
+                    <p><strong>Resources:</strong></p>
+                    <p>📖 palimpsest-license.org/developers</p>
+                    <p>💻 github.com/palimpsest-license</p>
+                    <p>💬 discord.gg/palimpsest-dev</p>
+                    <p>📧 developers@palimpsest-license.org</p>
+                </div>
+
+                <div style="margin-top: 40px; padding: 20px; border-top: 2px solid var(--tech-primary);">
+                    <p style="font-size: 0.8em; font-style: italic;">
+                        "License with precision. Protect with cryptography. Build with ethics."
+                    </p>
+                </div>
+
+                <div class="visual-description">
+                    Visual: Powerful developer-centric closing image. Foreground: Lines of code flowing upward, forming protective barriers around creative works. Middle ground: Developers collaborating (pair programming, code reviews). Background: Global network of protected platforms, all interconnected through Palimpsest infrastructure (glowing data connections). Color scheme: Neon blues and cyans (tech aesthetic) transitioning to warm golds (creative protection). Central element: Palimpsest logo with shield imagery, suggesting both technical robustness and ethical protection.
+                </div>
+
+                <aside class="notes">
+                    <p><strong>Timing: 1 minute + Q&A</strong></p>
+                    <p>Strong technical call-to-action. Emphasize: Developer empowerment, Ethical responsibility, Technical excellence, Community building.</p>
+                    <p>Q&A preparation: Be ready for deep technical questions about cryptography, performance, edge cases, interoperability.</p>
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'convex',
+            plugins: [ RevealNotes, RevealHighlight ],
+            width: 1920,
+            height: 1080
+        });
+    </script>
+</body>
+</html>

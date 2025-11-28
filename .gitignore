@@ -40,6 +40,10 @@ htmlcov/
 docs/_site/
 docs/dist/
 *.html
+# Exception: licence block HTML snippets (intentional documentation)
+!embed/license-blocks/*.html
+# Exception: presentation HTML files (reveal.js presentations)
+!presentations/**/*.html
 
 # 🎞 Mermaid diagrams
 *.mmd
@@ -57,3 +61,21 @@ docs/dist/
 # 💾 OS-generated files
 .DS_Store
 Thumbs.db
+
+# 🎨 Compiled CSS (generated from SCSS)
+styles/css/*.css
+styles/css/*.css.map
+!styles/css/.gitkeep
+
+# 📦 Node.js
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 🔧 ReScript build artifacts
+rescript/lib/
+*.bs.js
+.bsb.lock
+.merlin

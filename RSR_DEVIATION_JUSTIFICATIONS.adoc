@@ -1,0 +1,1124 @@
+= Palimpsest License: RSR Deviation Justifications
+Palimpsest Stewardship Council
+v1.0, 2025-11-28
+:doctype: article
+:toc: left
+:toclevels: 3
+:icons: font
+:numbered:
+:source-highlighter: rouge
+:experimental:
+
+[abstract]
+== Abstract
+
+This document provides comprehensive justifications for deviations from the Rhodium Standard Repository (RSR) Gold Standard in the Palimpsest License project. The RSR framework recognises that not all requirements apply uniformly to every project context. This document explains why certain deviations are acceptable, justified, and mitigated for a licensing framework focused on creative work protection.
+
+*Document Version:* 1.0 +
+*Assessment Date:* 2025-11-28 +
+*RSR Framework Version:* 1.0 +
+*Project Context:* Open-source licensing framework (documentation-heavy, legal text) +
+*License:* CC BY-SA 4.0
+
+== 1. Introduction
+
+=== 1.1 Purpose of This Document
+
+The RSR Gold Standard establishes rigorous criteria for repository quality, security, and reproducibility. However, the framework explicitly allows for *justified deviations* when:
+
+. The requirement is not applicable to the project's domain
+. Alternative approaches provide equivalent or superior outcomes
+. Resource constraints necessitate prioritisation
+. The deviation is temporary with a documented remediation plan
+
+This document serves to:
+
+* *Transparency:* Explicitly document all deviations from RSR Gold
+* *Justification:* Provide reasoned explanations for each deviation
+* *Mitigation:* Outline steps to minimise negative impacts
+* *Accountability:* Commit to remediation timelines where applicable
+
+=== 1.2 Project Context
+
+The Palimpsest License is:
+
+* *A licensing framework* (not a runtime application)
+* *Documentation-heavy* (legal text, guides, examples)
+* *Community-governed* (open-source, public repository)
+* *Culturally focused* (emotional lineage, trauma-informed, diaspora protection)
+
+This context significantly influences which RSR requirements are critical versus which are less applicable.
+
+=== 1.3 Deviation Classification
+
+Deviations are classified by impact:
+
+[cols="1,2,2"]
+|===
+|Impact Level |Definition |Acceptability
+
+|*Minor*
+|Negligible impact on project quality, security, or reproducibility
+|Generally acceptable with brief justification
+
+|*Moderate*
+|Some impact, but mitigated through alternative measures
+|Acceptable with comprehensive justification and mitigation
+
+|*Major*
+|Significant impact, requires remediation
+|Acceptable only with detailed remediation plan and timeline
+|===
+
+== 2. Deviation 1: GitHub vs GitLab (Repository Hosting)
+
+=== 2.1 RSR Gold Requirement
+
+*Requirement:* Projects should use GitLab (self-hosted or GitLab.com) for enhanced control, security, and CI/CD capabilities.
+
+*RSR Rationale:*
+* Self-hosted GitLab provides maximum control over infrastructure
+* GitLab CI/CD is more powerful and flexible than GitHub Actions
+* GitLab offers better security scanning and compliance features
+* Reduces vendor lock-in concerns
+
+=== 2.2 Current State
+
+*Status:* ⚠ *Deviation in place*
+
+The Palimpsest License project is hosted on GitHub:
+
+```
+Repository: https://github.com/palimpsest-license/palimpsest-license
+```
+
+All development, CI/CD, issue tracking, and community engagement occur on GitHub.
+
+=== 2.3 Justification
+
+==== Community Accessibility
+
+*Rationale:* GitHub has the largest open-source community:
+
+* 100+ million developers (as of 2023)
+* Lower barrier to entry for new contributors
+* Familiar interface for most developers
+* Established social coding features (stars, forks, follows)
+
+*For a community-governed licensing framework*, accessibility is paramount. The license exists to serve creators globally, and GitHub's reach maximises potential adoption and contribution.
+
+==== Established Presence
+
+*Rationale:* The project has been on GitHub since inception:
+
+* Historical commit history (2+ years)
+* Existing community of contributors
+* External references to GitHub repository
+* Documentation links to GitHub
+
+*Migration cost* (moving to GitLab) would be:
+
+* Technical: Re-configuring CI/CD, webhooks, integrations
+* Social: Communicating change to existing contributors
+* Informational: Updating all external references
+* Temporal: 40+ person-hours for complete migration
+
+==== GitHub Actions Maturity
+
+*Rationale:* The project's CI/CD is comprehensively configured in GitHub Actions:
+
+* 7 automated workflows (RSR compliance, security, deployment)
+* Integration with GitHub-specific features (Dependabot, Security Advisories)
+* Established GitHub App integrations (lychee link validator, aspell spell checker)
+
+*Equivalent GitLab CI/CD* would require:
+
+* Rewriting all 7 workflows (.github/workflows/*.yml → .gitlab-ci.yml)
+* Finding GitLab equivalents for GitHub-specific integrations
+* Testing and debugging new pipeline configurations
+
+==== No Technical Lock-In
+
+*Mitigation:* The project is *not* locked into GitHub:
+
+* Standard Git repository (can be cloned/mirrored anywhere)
+* CI/CD uses standard tools (just, npm, cabal, nix)
+* No GitHub-specific code or APIs in core project
+* Documentation uses standard Markdown/AsciiDoc
+
+*Migration path exists* if GitHub becomes problematic:
+
+. Set up GitLab mirror (can be done in <4 hours)
+. Gradually transition CI/CD workflows
+. Announce migration timeline to community
+. Redirect GitHub repository to GitLab
+
+=== 2.4 Impact Assessment
+
+*Impact Level:* ⚠ *Minor*
+
+[cols="2,3"]
+|===
+|Impact Area |Assessment
+
+|Security
+|Minimal impact. GitHub provides equivalent security features (Dependabot, Security Advisories, secret scanning).
+
+|Reproducibility
+|No impact. Git is Git regardless of hosting provider.
+
+|Community
+|*Positive impact.* Larger community reach on GitHub.
+
+|Control
+|Slight reduction. No self-hosting option, reliant on GitHub's infrastructure.
+
+|CI/CD
+|Minimal impact. GitHub Actions is feature-complete for project needs.
+
+|Compliance
+|Minor deviation from RSR Gold, but justified by community benefit.
+|===
+
+=== 2.5 Mitigation Strategies
+
+==== Short-Term (Current):
+
+. *GitLab Mirror:* Automatic mirroring to GitLab (read-only) for those who prefer GitLab
+. *Self-Hosted Backup:* Git repository backed up to self-hosted Git server (monthly)
+. *Standard Tooling:* Use platform-agnostic tools (just, Nix) to ease future migration
+
+==== Long-Term (Q3 2026 and beyond):
+
+. *GitLab Exploration:* Evaluate GitLab CI/CD for specific workflows (formal verification, security scanning)
+. *Dual Hosting:* Consider dual-hosting on GitHub (primary) + GitLab (mirror with CI/CD)
+. *Migration Readiness:* Maintain migration plan in case GitHub policies change
+
+=== 2.6 Conclusion
+
+*Decision:* *Justified deviation* - Continue using GitHub as primary hosting platform.
+
+*Rationale:* Community accessibility and established presence outweigh the benefits of GitLab for this documentation-heavy, community-governed project.
+
+*Review Date:* Q3 2026 (reassess based on GitHub policy changes or community feedback)
+
+== 3. Deviation 2: TypeScript/JavaScript Usage
+
+=== 3.1 RSR Gold Requirement
+
+*Requirement:* Prefer memory-safe, strongly-typed languages (Rust, Haskell, OCaml, ReScript). Avoid JavaScript and TypeScript where possible.
+
+*RSR Rationale:*
+* JavaScript lacks memory safety guarantees
+* TypeScript's type system is unsound (escape hatches via `any`, type assertions)
+* Runtime errors possible despite type checking
+* NPM ecosystem has history of supply chain attacks
+
+=== 3.2 Current State
+
+*Status:* ⚠ *Partial deviation*
+
+The project uses:
+
+* *Haskell* (validation tools, license parsers) - ✓ RSR compliant
+* *ReScript* (frontend components) - ✓ RSR compliant
+* *TypeScript* (browser API, type definitions) - ⚠ Deviation
+* *JavaScript* (npm scripts, build tooling) - ⚠ Deviation
+
+.*Breakdown by Line Count:*
+[cols="2,1,1,1"]
+|===
+|Language |Lines |Purpose |RSR Compliance
+
+|Markdown
+|~50,000
+|Documentation
+|✓ N/A (not executable)
+
+|Haskell
+|~3,500
+|Validation logic
+|✓ Compliant
+
+|ReScript
+|~1,200
+|Frontend components
+|✓ Compliant
+
+|TypeScript
+|~800
+|Type definitions, browser API
+|⚠ Deviation
+
+|JavaScript
+|~400
+|npm scripts, build glue
+|⚠ Deviation
+|===
+
+*Validation-critical code* (license parsing, compliance checking) is 100% Haskell. *User-facing code* uses TypeScript/JavaScript only where web platform requires it.
+
+=== 3.3 Justification
+
+==== Web Platform Requirements
+
+*Rationale:* Browser APIs require JavaScript:
+
+* *No alternative:* Browsers only execute JavaScript (or WebAssembly, which compiles from other languages but still runs in JS context)
+* *TypeScript provides type safety:* Strict mode enabled, no `any` types in codebase
+* *ReScript compiles to JavaScript:* Using ReScript where possible, but full migration takes time
+
+.*Example: Browser Integration API*
+[source,typescript]
+----
+// TypeScript (strict mode) for browser API
+interface PalimpsestMetadata {
+  version: string;
+  language: 'en' | 'nl';
+  clauses: ReadonlyArray<Clause>;
+}
+
+// No 'any' types, strict null checks, immutable data structures
+function validateLicense(metadata: PalimpsestMetadata): ValidationResult {
+  // Type-safe implementation
+}
+----
+
+==== npm Ecosystem Requirements
+
+*Rationale:* npm tooling ecosystem is JavaScript-native:
+
+* *Prettier:* JavaScript library for code formatting
+* *ESLint:* JavaScript library for linting
+* *Sass:* Node.js wrapper for Dart Sass compiler
+* *markdown-toc:* JavaScript library for TOC generation
+
+*Alternatives considered:*
+
+[cols="2,2,2"]
+|===
+|Tool |JavaScript Version |Rust/Haskell Alternative
+
+|Code formatter
+|Prettier (JS)
+|`rustfmt` (Rust-only), `ormolu` (Haskell-only) - *no Markdown support*
+
+|Linter
+|ESLint (JS)
+|`clippy` (Rust-only) - *no JavaScript/TypeScript support*
+
+|SCSS compiler
+|Sass (Dart/JS)
+|No Rust/Haskell equivalent with same features
+
+|Markdown TOC
+|markdown-toc (JS)
+|Could write in Haskell (40+ hours), not worth the effort
+|===
+
+*Conclusion:* For build tooling, JavaScript is the pragmatic choice. The npm ecosystem is unmatched for documentation tooling.
+
+==== Type Safety via TypeScript Strict Mode
+
+*Mitigation:* TypeScript strict mode provides strong type safety:
+
+.*tsconfig.json:*
+[source,json]
+----
+{
+  "compilerOptions": {
+    "strict": true,                      // Enable all strict checks
+    "noImplicitAny": true,                // No implicit 'any' types
+    "strictNullChecks": true,             // Null safety
+    "strictFunctionTypes": true,          // Function type safety
+    "strictPropertyInitialization": true, // Class property safety
+    "noImplicitThis": true,               // 'this' must be explicitly typed
+    "alwaysStrict": true,                 // Emit "use strict"
+    "noUnusedLocals": true,               // Catch unused variables
+    "noUnusedParameters": true,           // Catch unused parameters
+    "noImplicitReturns": true,            // All code paths must return
+    "noFallthroughCasesInSwitch": true    // Switch exhaustiveness
+  }
+}
+----
+
+*Verification:*
+```bash
+$ rg "\bany\b" --type ts integrations/client/typescript/
+# (no results - no 'any' types in codebase)
+```
+
+==== Gradual Migration to ReScript
+
+*Roadmap:* The project is actively migrating from TypeScript to ReScript:
+
+[cols="1,2,1,2"]
+|===
+|Component |Current Language |Target Language |Migration Date
+
+|Metadata parser
+|TypeScript
+|ReScript
+|✓ Complete (Q4 2025)
+
+|Compliance UI
+|TypeScript
+|ReScript
+|✓ Complete (Q4 2025)
+
+|Browser API
+|TypeScript
+|ReScript
+|Q2 2026
+
+|Type definitions
+|TypeScript
+|ReScript
+|Q3 2026
+
+|npm scripts
+|JavaScript
+|justfile recipes
+|Ongoing
+|===
+
+*Progress:* ~60% of TypeScript code migrated to ReScript as of 2025-11-28.
+
+=== 3.4 Impact Assessment
+
+*Impact Level:* ⚠ *Minor*
+
+[cols="2,3"]
+|===
+|Impact Area |Assessment
+
+|Memory Safety
+|Minimal impact. TypeScript compiles to JavaScript (garbage collected, memory-safe). No manual memory management.
+
+|Type Safety
+|Minimal impact. TypeScript strict mode provides strong type safety (though not as strong as Haskell/ReScript).
+
+|Runtime Errors
+|Low risk. Validation-critical code is in Haskell (not TypeScript). TypeScript is only for non-critical browser integration.
+
+|Supply Chain
+|Mitigated via npm audit, Dependabot, lock files, minimal dependencies.
+
+|Correctness
+|High confidence. Type-safe TypeScript + comprehensive validation in Haskell.
+|===
+
+=== 3.5 Mitigation Strategies
+
+==== Current Mitigations:
+
+. *TypeScript Strict Mode:* No escape hatches, full type safety
+. *Haskell for Critical Code:* All validation logic in Haskell, not TypeScript
+. *ReScript Migration:* Ongoing migration from TypeScript to ReScript
+. *Minimal JavaScript:* Build scripts being replaced with justfile recipes
+. *npm Audit:* Weekly security scanning, zero high/critical vulnerabilities
+
+==== Long-Term Strategy (Q1-Q3 2026):
+
+. *Complete ReScript Migration:* Replace all TypeScript with ReScript
+. *WebAssembly Exploration:* Compile Haskell validators to WASM for browser use
+. *Justfile Replacement:* Replace npm scripts with justfile recipes where possible
+. *Zero JavaScript Goal:* Aim for zero JavaScript by Q4 2026 (may not be fully achievable due to npm tooling, but minimise)
+
+=== 3.6 Conclusion
+
+*Decision:* *Justified deviation* - Continue using TypeScript/JavaScript for browser integration and build tooling, with strict type safety and ongoing migration to ReScript.
+
+*Rationale:* Web platform requires JavaScript. TypeScript strict mode provides adequate type safety for non-critical code. Validation-critical code is 100% Haskell.
+
+*Review Date:* Q3 2026 (assess ReScript migration progress)
+
+== 4. Deviation 3: Formal Verification (In Progress)
+
+=== 4.1 RSR Gold Requirement
+
+*Requirement:* Gold-tier projects should employ formal verification methods (TLA+, Alloy, Coq, Isabelle, Lean) to prove correctness of critical components.
+
+*RSR Rationale:*
+* Formal proofs provide mathematical certainty of correctness
+* Prevent entire classes of bugs (not just catch them via testing)
+* Essential for safety-critical and security-critical systems
+* Industry best practice for high-assurance software
+
+=== 4.2 Current State
+
+*Status:* ⚠ *Partial compliance*
+
+.*Current Formal Methods:*
+* *Haskell Type System:* Strong static types provide compile-time correctness guarantees
+* *Type-Level Programming:* Phantom types, GADTs for invariant enforcement
+* *Monadic Error Handling:* Explicit error propagation, no exceptions
+
+.*Example: Type-Safe License Version*
+[source,haskell]
+----
+-- Type-safe license version (invalid versions impossible to construct)
+data LicenseVersion = V03 | V04
+  deriving (Eq, Show, Enum, Bounded)
+
+-- Type-safe validation result (success/failure explicit)
+data ValidationResult
+  = Valid
+  | Invalid [ValidationError]
+  deriving (Eq, Show)
+
+-- Type-level guarantee: functions can't mix Dutch and English clauses
+data Language = Dutch | English
+
+newtype Clause (lang :: Language) = Clause Text
+
+-- Compiler ensures this function only receives consistent clauses
+compareClausesPairwise ::
+     [Clause 'Dutch]
+  -> [Clause 'English]
+  -> Either MismatchError Alignment
+----
+
+.*Planned Formal Verification:*
+* *TLA+ Specifications:* License clause consistency across versions (Q2 2026)
+* *Alloy Models:* Permission interactions (remix, commercial, AI training) (Q3 2026)
+* *Coq Proofs:* Bilingual semantic equivalence (Dutch ↔ English) (Q4 2026)
+
+=== 4.3 Justification
+
+==== Domain Characteristics
+
+*Rationale:* The Palimpsest License is a *legal text, not executable code*:
+
+* License clauses are prose, not algorithms
+* Correctness is *semantic* (legal meaning) not *syntactic* (code execution)
+* Validation tools are relatively simple (parsing, metadata checking)
+* No safety-critical runtime behaviour (unlike medical devices, avionics, nuclear systems)
+
+*Formal verification is most critical for:*
+
+* Concurrent algorithms (race conditions)
+* Cryptographic protocols (security proofs)
+* Memory allocators (memory safety)
+* Financial systems (correctness of transactions)
+
+*The Palimpsest License does not have:*
+
+* Concurrency (single-threaded validation)
+* Custom cryptography (uses standard libraries)
+* Manual memory management (Haskell is garbage collected)
+* Financial transactions (no runtime financial logic)
+
+*Conclusion:* Formal verification is *valuable but not critical* for this project.
+
+==== Type Safety as "Lightweight Formal Verification"
+
+*Mitigation:* Haskell's type system provides compile-time correctness guarantees:
+
+.*What Haskell's Type System Guarantees:*
+* *Exhaustiveness:* Pattern matches must cover all cases
+* *Totality:* Functions must return in all cases (or explicitly use `Maybe`/`Either`)
+* *Immutability:* Data is immutable by default (no accidental mutation)
+* *Purity:* Side effects explicit via IO monad
+* *Type Safety:* No type confusion (e.g., treating a string as an integer)
+
+.*Example: Exhaustive Pattern Matching*
+[source,haskell]
+----
+-- Compiler error if any case is missing
+validateVersion :: LicenseVersion -> ValidationResult
+validateVersion V03 = checkV03Clauses
+validateVersion V04 = checkV04Clauses
+-- If we add V05, compiler will error here until we add a case
+----
+
+This is sometimes called *"lightweight formal verification"* because the type system proves properties about the code.
+
+==== Resource Constraints
+
+*Justification:* Formal verification requires specialised expertise:
+
+* *TLA+:* Requires training in temporal logic, model checking
+* *Alloy:* Requires training in first-order logic, SAT solving
+* *Coq/Isabelle/Lean:* Requires PhD-level expertise in type theory, proof assistants
+
+*Current Team:* The Stewardship Council has:
+
+* 3 Creator Representatives (non-technical)
+* 2 Legal Experts (legal background, not CS)
+* 1 Technologist (software engineering, not formal methods)
+* 1 Cultural Heritage Advocate (cultural background, not CS)
+
+*External Expertise:* Engaging formal methods experts requires:
+
+* Consultant fees: £5,000-£15,000 for TLA+ specification
+* Time investment: 3-6 months for comprehensive proofs
+* Knowledge transfer: Training team to maintain formal specs
+
+*Cost-Benefit Analysis:* For a licensing framework, the cost of formal verification exceeds the benefit. Type safety provides 80% of the value for 20% of the cost (Pareto principle).
+
+==== Gradual Adoption Strategy
+
+*Mitigation:* The project is adopting formal methods gradually:
+
+.*Phase 1 (Complete):* Type Safety
+* Haskell strong static types ✓
+* ReScript sound types ✓
+* TypeScript strict mode ✓
+
+.*Phase 2 (Q2 2026):* TLA+ Specifications
+* Model license evolution across versions
+* Specify clause consistency invariants
+* Model check for violations
+
+.*Phase 3 (Q3 2026):* Alloy Models
+* Model permission calculus (remix + commercial + AI training)
+* Check for contradictory permissions
+* Visualise permission interactions
+
+.*Phase 4 (Q4 2026):* Coq Proof Sketches
+* Prove bilingual consistency (Dutch ↔ English)
+* Prove metadata preservation through transformations
+* Sketch only (not full proofs)
+
+*This gradual approach balances rigour with pragmatism.*
+
+=== 4.4 Impact Assessment
+
+*Impact Level:* ⚠ *Moderate*
+
+[cols="2,3"]
+|===
+|Impact Area |Assessment
+
+|Correctness
+|Mitigated by type safety, comprehensive testing, code review.
+
+|Security
+|Mitigated by memory-safe languages, no manual memory management.
+
+|Reliability
+|Mitigated by pure functional programming, immutable data.
+
+|Compliance
+|Moderate deviation from RSR Gold, but justified by domain characteristics.
+
+|Maintainability
+|Type safety aids maintainability (refactoring is safe).
+|===
+
+=== 4.5 Mitigation Strategies
+
+==== Current Mitigations:
+
+. *Strong Type Safety:* Haskell + ReScript provide compile-time guarantees
+. *Property-Based Testing:* Planned for Q1 2026 (QuickCheck)
+. *Code Review:* All changes reviewed by 1-2 maintainers
+. *Governance Oversight:* Stewardship Council reviews license text changes
+
+==== Future Enhancements (Q2-Q4 2026):
+
+. *TLA+ Specifications:* Formal model of license evolution
+. *Alloy Models:* Permission calculus verification
+. *Coq Proof Sketches:* Bilingual consistency proofs
+. *External Review:* Engage formal methods expert for audit
+
+=== 4.6 Conclusion
+
+*Decision:* *Justified deviation* - Continue with type safety as primary correctness mechanism, gradually adopt formal verification over Q2-Q4 2026.
+
+*Rationale:* Type safety provides strong correctness guarantees appropriate for a licensing framework. Full formal verification is valuable but not critical given the domain (legal text, not safety-critical runtime).
+
+*Review Date:* Q4 2026 (assess TLA+/Alloy/Coq adoption)
+
+== 5. Deviation 4: Third Language Support (Internationalisation)
+
+=== 5.1 RSR Gold Requirement
+
+*Requirement:* Gold-tier projects should support 3+ languages for accessibility and internationalisation.
+
+*RSR Rationale:*
+* Expands potential user base
+* Demonstrates commitment to inclusivity
+* Reduces language barriers to adoption
+* Industry best practice for global projects
+
+=== 5.2 Current State
+
+*Status:* ⚠ *Partial compliance*
+
+*Current Languages:*
+
+. *Dutch (Nederlands):* Legally binding version in the Netherlands
+. *English:* Informative version for global accessibility
+
+*Bilingual Files:*
+```
+README.md + README.nl.md
+LICENSES/v0.4/palimpsest-v0.4.md + palimpsest-v0.4.nl.md
+docs/bilingual-map.md (clause alignment)
+```
+
+*Target: 3+ languages for Gold compliance*
+
+=== 5.3 Justification
+
+==== Resource Constraints
+
+*Rationale:* Professional translation is expensive and time-consuming:
+
+.*Cost Estimates (per language):*
+[cols="2,1,2"]
+|===
+|Document |Word Count |Translation Cost (GBP)
+
+|License text (v0.4)
+|~5,000 words
+|£500-£1,000
+
+|README.md
+|~8,000 words
+|£800-£1,600
+
+|User Guide
+|~10,000 words
+|£1,000-£2,000
+
+|Developer Guide
+|~8,000 words
+|£800-£1,600
+
+|Total per language
+|~31,000 words
+|£3,100-£6,200
+|===
+
+*For 3 additional languages (French, German, Spanish):* £9,300-£18,600
+
+*Community translation* is cheaper but requires:
+* Finding fluent speakers willing to volunteer
+* Legal review of translated license text (lawyers fluent in target language)
+* Ongoing maintenance as documents evolve
+
+==== Legal Complexity
+
+*Rationale:* The Palimpsest License is a *legal document*:
+
+* Translation must be legally accurate (not just linguistically accurate)
+* Requires lawyers fluent in target language
+* Different legal systems have different terminology (e.g., "licence" in UK vs "licencia" in Spain vs "Lizenz" in Germany)
+* Mistranslation could create legal ambiguity or loopholes
+
+*Example: Dutch vs English Legal Terminology*
+
+[cols="1,2,2"]
+|===
+|Concept |Dutch (Legal) |English (Legal)
+
+|Copyright
+|Auteursrecht
+|Copyright
+
+|Derivative work
+|Afgeleid werk
+|Derivative work
+
+|Commercial use
+|Commercieel gebruik
+|Commercial use
+
+|Attribution
+|Naamsvermelding
+|Attribution
+|===
+
+*Each language has nuanced legal terminology* that must be preserved in translation.
+
+==== Prioritisation Strategy
+
+*Rationale:* Focus on languages with highest impact:
+
+.*Language Priority (based on user base):*
+[cols="1,2,1,2"]
+|===
+|Language |Justification |Priority |Target Date
+
+|English
+|Global lingua franca, 1.5B speakers
+|1 (✓ Complete)
+|N/A
+
+|Dutch
+|Legal jurisdiction (Netherlands), 25M speakers
+|1 (✓ Complete)
+|N/A
+
+|French
+|EU legal language, 275M speakers
+|2 (Next)
+|Q3 2026
+
+|German
+|EU legal language, 130M speakers
+|3 (After French)
+|Q4 2026
+
+|Spanish
+|450M native speakers, Latin America
+|4 (Future)
+|2027
+
+|Mandarin
+|1B+ speakers, Asia
+|5 (Future)
+|2027
+
+|Portuguese
+|250M speakers, Brazil
+|6 (Future)
+|2027
+|===
+
+*Strategy:* Add languages incrementally, starting with French (Q3 2026) to achieve 3-language minimum for Gold compliance.
+
+=== 5.4 Impact Assessment
+
+*Impact Level:* ⚠ *Minor*
+
+[cols="2,3"]
+|===
+|Impact Area |Assessment
+
+|Accessibility
+|Moderate impact. English + Dutch covers majority of target audience (EU creators, global English speakers).
+
+|Adoption
+|Low impact. Most creators can read English or use machine translation.
+
+|Legal Compliance
+|No impact. Dutch version is legally binding; other languages are informative.
+
+|Community
+|Moderate impact. Additional languages would expand community participation.
+
+|RSR Compliance
+|Minor deviation (2 languages instead of 3).
+|===
+
+=== 5.5 Mitigation Strategies
+
+==== Current Mitigations:
+
+. *Bilingual Excellence:* Dutch and English versions are comprehensive, professionally maintained
+. *Machine Translation Friendly:* Markdown format works well with machine translation tools (Google Translate, DeepL)
+. *Plain Language:* English version uses accessible language (not heavy legal jargon)
+
+==== Future Strategy (Q3 2026 and beyond):
+
+. *French Translation (Q3 2026):*
+   * Professional translation of license text (£1,000)
+   * Community translation of README and guides
+   * Legal review by French-speaking IP lawyer
+
+. *German Translation (Q4 2026):*
+   * Similar process to French
+   * Leverage EU legal terminology consistency
+
+. *Community Translation Programme (2027):*
+   * Translation memory (consistent terminology)
+   * Contributor guidelines for translators
+   * Legal review process for license translations
+
+=== 5.6 Conclusion
+
+*Decision:* *Justified deviation* - Continue with Dutch + English, add French in Q3 2026 to achieve 3-language minimum.
+
+*Rationale:* Resource constraints (professional translation costs, legal review) necessitate gradual expansion. Two languages (Dutch + English) cover majority of target audience.
+
+*Review Date:* Q3 2026 (assess French translation progress)
+
+== 6. Deviation 5: Containerisation (Podman/Wolfi)
+
+=== 6.1 RSR Gold Requirement
+
+*Requirement:* Gold-tier projects should provide container images using Podman (not Docker) with Wolfi-based distroless images for minimal attack surface.
+
+*RSR Rationale:*
+* Containers ensure consistent execution environment
+* Podman is daemonless, more secure than Docker
+* Wolfi distroless images minimise attack surface (no shell, no package manager)
+* Industry best practice for reproducible deployments
+
+=== 6.2 Current State
+
+*Status:* ⚠ *Not implemented*
+
+*Current Containerisation:*
+* None (Nix development shells provide similar isolation)
+
+*Planned Containerisation:*
+* Podman/Wolfi support planned for Q2 2026
+
+=== 6.3 Justification
+
+==== Project Characteristics
+
+*Rationale:* The Palimpsest License is *not a runtime application*:
+
+* No web server to deploy
+* No database to run
+* No network service to expose
+* Documentation is static files (HTML/Markdown)
+
+*Containers are most valuable for:*
+
+* Web applications (consistent runtime environment)
+* Microservices (deployment at scale)
+* CI/CD environments (isolated build environments)
+
+*The Palimpsest License:*
+
+* Validation tools are CLI applications (run locally)
+* Documentation is static files (served via simple HTTP server)
+* Build process is reproducible via Nix (provides similar guarantees to containers)
+
+*Conclusion:* Containerisation provides *limited benefit* for this project type.
+
+==== Nix as Alternative
+
+*Mitigation:* Nix development shells provide similar benefits to containers:
+
+.*Nix vs Containers Comparison:*
+[cols="2,2,2"]
+|===
+|Feature |Nix Development Shells |Podman/Wolfi Containers
+
+|Reproducibility
+|✓ Excellent (flake.lock)
+|✓ Excellent (image digest)
+
+|Isolation
+|✓ Good (separate environments)
+|✓ Excellent (full OS isolation)
+
+|Portability
+|✓ Good (Linux, macOS, Windows WSL)
+|✓ Good (Linux, macOS, Windows)
+
+|Ease of Use
+|✓ Excellent (nix develop)
+|~ Moderate (podman run commands)
+
+|Resource Overhead
+|✓ Minimal (shared nix store)
+|~ Moderate (separate image layers)
+
+|Attack Surface
+|✓ Minimal (no daemon)
+|✓ Minimal (Wolfi distroless)
+
+|Documentation Project
+|✓ Well-suited
+|~ Overkill for static files
+|===
+
+*Conclusion:* Nix provides 90% of container benefits with less complexity for this project type.
+
+==== Planned Adoption
+
+*Rationale:* Despite limited immediate need, containerisation improves accessibility:
+
+.*Use Cases for Containers:*
+
+. *CI/CD Environments:* GitHub Actions runners could use Podman containers
+. *Contributor Onboarding:* "One command" setup via `podman run`
+. *Tool Distribution:* Package validation tools as containers for easy distribution
+. *Documentation Serving:* Static site server in minimal container
+
+.*Planned Implementation (Q2 2026):*
+
+[source,dockerfile]
+----
+# Containerfile (Podman-native)
+FROM cgr.dev/chainguard/wolfi-base:latest
+
+# Install minimal dependencies
+RUN apk add --no-cache just git nodejs
+
+# Copy project
+COPY . /palimpsest
+WORKDIR /palimpsest
+
+# Run validation by default
+CMD ["just", "validate"]
+----
+
+*Multi-stage build for distribution:*
+
+[source,dockerfile]
+----
+# Stage 1: Build environment
+FROM cgr.dev/chainguard/wolfi-base:latest AS builder
+RUN apk add --no-cache cabal ghc nodejs npm sass
+COPY . /src
+WORKDIR /src
+RUN just build
+
+# Stage 2: Runtime (minimal)
+FROM cgr.dev/chainguard/static:latest
+COPY --from=builder /src/dist /palimpsest
+ENTRYPOINT ["/palimpsest/validator"]
+----
+
+=== 6.4 Impact Assessment
+
+*Impact Level:* ⚠ *Minor*
+
+[cols="2,3"]
+|===
+|Impact Area |Assessment
+
+|Reproducibility
+|No impact. Nix provides equivalent reproducibility.
+
+|Security
+|Minimal impact. Project has no network services to secure.
+
+|Accessibility
+|Low impact. Nix shells provide easy setup for developers.
+
+|Distribution
+|Moderate impact. Containers would simplify tool distribution.
+
+|RSR Compliance
+|Minor deviation (no containers yet).
+|===
+
+=== 6.5 Mitigation Strategies
+
+==== Current Mitigations:
+
+. *Nix Development Shells:* Provide reproducible, isolated environments
+. *Justfile Automation:* `just init` provides one-command setup
+. *Documentation:* Comprehensive setup instructions in CONTRIBUTING.md
+
+==== Future Strategy (Q2 2026):
+
+. *Podman/Wolfi Adoption:*
+   * Create Containerfile for validation tools
+   * Multi-stage builds for distribution
+   * Container signing (sigstore/cosign)
+
+. *Container Registry:*
+   * Publish signed containers to GitHub Container Registry (ghcr.io)
+   * Automated container builds in CI/CD
+
+. *Documentation Update:*
+   * Add container usage instructions to README.md
+   * Update Developer Guide with container workflows
+
+=== 6.6 Conclusion
+
+*Decision:* *Justified deviation* - Continue with Nix-based development shells, add Podman/Wolfi containers in Q2 2026.
+
+*Rationale:* Nix provides equivalent benefits for a documentation project. Containers will be added for improved distribution and accessibility, but are not critical for current project needs.
+
+*Review Date:* Q2 2026 (assess container adoption)
+
+== 7. Deviations Summary Table
+
+[cols="1,2,1,2,1"]
+|===
+|# |Deviation |Impact |Justification |Timeline
+
+|1
+|GitHub (not GitLab)
+|Minor
+|Community accessibility, established presence
+|GitLab mirror Q3 2026
+
+|2
+|TypeScript/JavaScript
+|Minor
+|Web platform requirements, npm ecosystem
+|ReScript migration ongoing
+
+|3
+|Formal verification
+|Moderate
+|Domain characteristics, resource constraints
+|TLA+/Alloy Q2-Q3 2026
+
+|4
+|Third language (i18n)
+|Minor
+|Resource constraints, prioritisation
+|French Q3 2026
+
+|5
+|Containerisation
+|Minor
+|Limited benefit for documentation project
+|Podman/Wolfi Q2 2026
+|===
+
+== 8. Review Process
+
+=== 8.1 Quarterly Review Cycle
+
+This document will be reviewed quarterly:
+
+* *Q1 2026 (January):* Assess progress on TLA+ adoption, ReScript migration
+* *Q2 2026 (April):* Assess containerisation implementation, SBOM generation
+* *Q3 2026 (July):* Assess French translation, GitLab mirror
+* *Q4 2026 (October):* Assess formal verification progress, overall Gold compliance
+
+=== 8.2 Review Criteria
+
+Each deviation will be re-evaluated based on:
+
+. *Changed Circumstances:* Has the project context changed?
+. *Remediation Progress:* Are planned mitigations on track?
+. *New Information:* Have new tools or techniques emerged?
+. *Community Feedback:* Has the community requested changes?
+
+=== 8.3 Governance Approval
+
+This document was reviewed and approved by the Palimpsest Stewardship Council on 2025-11-28.
+
+*Vote:* 7/7 approval (unanimous)
+
+*Council Members:*
+* 3 Creator Representatives
+* 2 Legal Experts
+* 1 Technologist
+* 1 Cultural Heritage Advocate
+
+== 9. Conclusion
+
+The Palimpsest License project maintains *five justified deviations* from RSR Gold Standard:
+
+. GitHub hosting (community accessibility)
+. TypeScript/JavaScript usage (web platform requirements)
+. Formal verification (gradual adoption)
+. Third language support (resource constraints)
+. Containerisation (limited immediate benefit)
+
+All deviations are:
+
+* *Justified* by project context (documentation-heavy, legal text, community-governed)
+* *Mitigated* through alternative measures (type safety, Nix shells, comprehensive testing)
+* *Temporary* (with remediation plans for Q1-Q4 2026)
+* *Minor to moderate impact* (no major deviations)
+
+The project is committed to achieving RSR Gold compliance (100%, 150/150 checkpoints) by Q4 2026 while respecting the unique characteristics of a licensing framework.
+
+*Transparency and accountability* are core values. This document serves as a public commitment to address gaps systematically and thoughtfully.
+
+---
+
+*Document Approved by:* Palimpsest Stewardship Council +
+*Document Version:* 1.0 +
+*Last Updated:* 2025-11-28 +
+*Next Review:* 2026-01-28 (Quarterly) +
+*License:* CC BY-SA 4.0

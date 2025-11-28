@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palimpsest Consent Form Example</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 { color: #663399; margin-top: 0; }
+        .intro {
+            background: #f0e6f6;
+            padding: 1rem;
+            border-left: 4px solid #663399;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+        #consent-form-container { margin-top: 2rem; }
+        #result-display {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #e8f5e9;
+            border-radius: 4px;
+            display: none;
+        }
+        #result-display.active { display: block; }
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Your Work's Usage Consents</h1>
+
+        <div class="intro">
+            <p>
+                <strong>The Palimpsest License gives you control over how AI systems use your creative work.</strong>
+            </p>
+            <p>
+                Use this form to specify which types of AI usage you permit. Your choices will be
+                recorded in the license metadata and enforced through technical and legal mechanisms.
+            </p>
+        </div>
+
+        <div id="consent-form-container"></div>
+
+        <div id="result-display">
+            <h3>✓ Consent Preferences Saved</h3>
+            <p>Your consent preferences have been recorded. Copy this metadata to include in your work:</p>
+            <pre id="result-json"></pre>
+        </div>
+    </div>
+
+    <!--
+        NOTE: In a real implementation, update these import paths to point to your
+        compiled ReScript JavaScript files.
+    -->
+    <script type="module">
+        // PLACEHOLDER: Update these paths to your actual compiled files
+        // import { generateEmbeddableConsentForm } from '../lib/js/src/components/ConsentFlow.bs.js';
+
+        console.log('Palimpsest Consent Form Example');
+        console.log('To use this example:');
+        console.log('1. Build the ReScript project: npm run build');
+        console.log('2. Update the import paths above');
+        console.log('3. Open this file in a web browser');
+
+        // Example implementation (uncomment after building):
+        /*
+        // Configuration for the consent form
+        const config = {
+            showExplanations: true,
+            allowConditional: true,
+            requireJustification: false,
+            multiStep: true
+        };
+
+        // Generate the form (with existing consents if editing)
+        const existingConsents = [
+            // Example of existing consent
+            {
+                usageType: { TAG: 4 }, // Commercial
+                status: { TAG: 1 }, // Denied
+                revocable: true
+            }
+        ];
+
+        const formHtml = generateEmbeddableConsentForm({ config, existingConsents });
+        document.getElementById('consent-form-container').innerHTML = formHtml;
+
+        // Listen for consent updates
+        window.addEventListener('palimpsest:consent-updated', (event) => {
+            console.log('Consent preferences updated:', event.detail);
+
+            // Display the result
+            const resultDisplay = document.getElementById('result-display');
+            const resultJson = document.getElementById('result-json');
+
+            resultJson.textContent = JSON.stringify(event.detail, null, 2);
+            resultDisplay.classList.add('active');
+
+            // In a real application, you would:
+            // 1. Save to your backend
+            // 2. Update the work's metadata file
+            // 3. Regenerate license badges/widgets
+            // 4. Notify relevant parties
+
+            // Example: Save to backend
+            saveConsentsToBackend(event.detail);
+        });
+
+        async function saveConsentsToBackend(consentData) {
+            try {
+                const response = await fetch('/api/consents', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(consentData)
+                });
+
+                if (response.ok) {
+                    console.log('Consents saved to backend');
+                } else {
+                    console.error('Failed to save consents');
+                }
+            } catch (error) {
+                console.error('Error saving consents:', error);
+            }
+        }
+        */
+
+        // Demonstration placeholder
+        const demoHtml = `
+            <div style="padding: 2rem; background: #f9f9f9; border: 2px dashed #ccc; border-radius: 8px; text-align: center;">
+                <h3>Consent Form Will Appear Here</h3>
+                <p>Build the ReScript project and update the import paths to see the interactive form.</p>
+                <p style="color: #666; font-size: 0.9rem;">
+                    The form will include options for:
+                    <br>• Interpretive AI use
+                    <br>• AI training
+                    <br>• Derivative works
+                    <br>• Commercial use
+                </p>
+            </div>
+        `;
+        document.getElementById('consent-form-container').innerHTML = demoHtml;
+    </script>
+</body>
+</html>

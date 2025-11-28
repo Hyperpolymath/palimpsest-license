@@ -1,0 +1,315 @@
+name: RSR Compliance Check
+
+# Rhodium Standard Repository (RSR) compliance verification
+# Runs on every PR and push to main to ensure repository standards
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  rsr-core-check:
+    name: RSR Core Files Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install just command runner
+        uses: extractions/setup-just@v2
+
+      - name: Run RSR compliance check
+        run: just rsr-check
+
+  markdown-lint:
+    name: Markdown Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Prettier check
+        run: npx prettier --check "**/*.md" "**/*.json" "**/*.yml" "**/*.yaml"
+
+      - name: Run markdownlint
+        run: npx markdownlint-cli2 "**/*.md" "#node_modules" "#.git"
+
+  link-validation:
+    name: Link Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate internal and external links
+        uses: lycheeverse/lychee-action@v1.9.3
+        with:
+          # Check all markdown files, exclude mail links and example URLs
+          args: --verbose --no-progress --exclude-mail --exclude "https://example.com" --exclude "http://example.com" --exclude "mailto:" '**/*.md'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  spdx-validation:
+    name: SPDX License Identifier Verification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check SPDX identifiers in Haskell files
+        run: |
+          echo "Checking Haskell files for SPDX identifiers..."
+          MISSING_FILES=""
+          if [ -d "TOOLS/validation/haskell/src" ]; then
+            for file in $(find TOOLS/validation/haskell/src -name "*.hs"); do
+              if ! grep -q "SPDX-License-Identifier: Palimpsest-0.4" "$file"; then
+                echo "❌ Missing SPDX identifier in: $file"
+                MISSING_FILES="$MISSING_FILES $file"
+              fi
+            done
+          fi
+
+          if [ -n "$MISSING_FILES" ]; then
+            echo "::error::SPDX identifiers missing in files:$MISSING_FILES"
+            exit 1
+          fi
+          echo "✅ All Haskell files have SPDX identifiers"
+
+      - name: Check SPDX identifiers in ReScript files
+        run: |
+          echo "Checking ReScript files for SPDX identifiers..."
+          MISSING_FILES=""
+          if [ -d "rescript/src" ]; then
+            for file in $(find rescript/src -name "*.res"); do
+              if ! grep -q "SPDX-License-Identifier: Palimpsest-0.4" "$file"; then
+                echo "❌ Missing SPDX identifier in: $file"
+                MISSING_FILES="$MISSING_FILES $file"
+              fi
+            done
+          fi
+
+          if [ -n "$MISSING_FILES" ]; then
+            echo "::error::SPDX identifiers missing in files:$MISSING_FILES"
+            exit 1
+          fi
+          echo "✅ All ReScript files have SPDX identifiers"
+
+  json-validation:
+    name: JSON Metadata Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate all JSON files
+        run: |
+          echo "Validating JSON files..."
+          INVALID_FILES=""
+          for file in $(find . -name "*.json" -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./rescript/node_modules/*"); do
+            echo "Checking: $file"
+            if ! jq empty "$file" 2>/dev/null; then
+              echo "❌ Invalid JSON: $file"
+              INVALID_FILES="$INVALID_FILES $file"
+            fi
+          done
+
+          if [ -n "$INVALID_FILES" ]; then
+            echo "::error::Invalid JSON files found:$INVALID_FILES"
+            exit 1
+          fi
+          echo "✅ All JSON files are valid"
+
+      - name: Validate JSON-LD metadata
+        run: |
+          echo "Validating JSON-LD metadata files..."
+          if [ -d "METADATA_v0.4" ]; then
+            for file in $(find METADATA_v0.4 -name "*.json"); do
+              echo "Validating JSON-LD: $file"
+              # Check for required JSON-LD context
+              if ! jq -e '.["@context"]' "$file" > /dev/null 2>&1; then
+                echo "⚠️  Warning: $file may be missing @context (JSON-LD)"
+              fi
+            done
+          fi
+          echo "✅ JSON-LD validation complete"
+
+  bilingual-consistency:
+    name: Dutch ↔ English Bilingual Consistency
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for Dutch-English file pairs
+        run: |
+          echo "Checking bilingual file consistency..."
+
+          # Check for major bilingual documents
+          FILES_TO_CHECK=("README.md:README.nl.md" "LICENSES/v0.4/palimpsest-v0.4.md:LICENSES/v0.4/palimpsest-v0.4.nl.md")
+
+          MISSING=""
+          for pair in "${FILES_TO_CHECK[@]}"; do
+            EN_FILE=$(echo $pair | cut -d: -f1)
+            NL_FILE=$(echo $pair | cut -d: -f2)
+
+            if [ -f "$EN_FILE" ]; then
+              echo "✓ Found English: $EN_FILE"
+              if [ ! -f "$NL_FILE" ]; then
+                echo "⚠️  Warning: Dutch translation missing for $EN_FILE (expected: $NL_FILE)"
+              else
+                echo "✓ Found Dutch: $NL_FILE"
+              fi
+            fi
+          done
+
+          echo "✅ Bilingual consistency check complete"
+
+      - name: Check word count parity (Dutch vs English)
+        run: |
+          echo "Checking word count parity for bilingual documents..."
+
+          if [ -f "README.md" ] && [ -f "README.nl.md" ]; then
+            EN_WORDS=$(wc -w < README.md)
+            NL_WORDS=$(wc -w < README.nl.md)
+            DIFF=$((EN_WORDS - NL_WORDS))
+            PCT=$(awk "BEGIN {print ($DIFF/$EN_WORDS)*100}")
+
+            echo "README.md: $EN_WORDS words"
+            echo "README.nl.md: $NL_WORDS words"
+            echo "Difference: $DIFF words ($PCT%)"
+
+            # Warn if difference is > 30% (allowing for language differences)
+            if [ ${DIFF#-} -gt $((EN_WORDS * 30 / 100)) ]; then
+              echo "⚠️  Warning: Large word count difference between English and Dutch README"
+            fi
+          fi
+
+  spell-check:
+    name: Spell Check (British English)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install aspell
+        run: sudo apt-get update && sudo apt-get install -y aspell aspell-en
+
+      - name: Run spell check on markdown files
+        run: |
+          echo "Running spell check (British English)..."
+
+          # Create custom dictionary for project-specific terms
+          cat > .aspell.en.pws << EOF
+          personal_ws-1.1 en 100
+          Palimpsest
+          Stewardship
+          DAO
+          DAOs
+          AGI
+          JSON
+          ReScript
+          Haskell
+          metadata
+          blockchain
+          cryptographic
+          multimodal
+          quantum
+          traceability
+          TODO
+          EOF
+
+          # Check key markdown files (exclude auto-generated and node_modules)
+          find . -name "*.md" \
+            -not -path "./node_modules/*" \
+            -not -path "./.git/*" \
+            -not -path "./rescript/node_modules/*" \
+            -not -path "./ARCHIVE/*" \
+            -exec aspell --lang=en_GB --mode=markdown --personal=./.aspell.en.pws list {} \; \
+            | sort | uniq > /tmp/misspelled.txt
+
+          if [ -s /tmp/misspelled.txt ]; then
+            echo "⚠️  Potential spelling issues found:"
+            cat /tmp/misspelled.txt
+            # Don't fail on spelling issues, just warn
+          else
+            echo "✅ No spelling issues detected"
+          fi
+
+  cultural-sensitivity:
+    name: Cultural Sensitivity Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for prohibited terms
+        run: |
+          echo "Scanning for culturally insensitive or prohibited terms..."
+
+          # Create list of terms to flag for review
+          TERMS=(
+            "blacklist|whitelist"
+            "master/slave"
+            "grandfathered"
+          )
+
+          FOUND_ISSUES=0
+          for term in "${TERMS[@]}"; do
+            if grep -r -i -E "$term" --include="*.md" --include="*.txt" . --exclude-dir=node_modules --exclude-dir=.git; then
+              echo "⚠️  Found potentially insensitive term: $term"
+              FOUND_ISSUES=1
+            fi
+          done
+
+          if [ $FOUND_ISSUES -eq 0 ]; then
+            echo "✅ No prohibited terms found"
+          else
+            echo "::warning::Found terms that may need review for cultural sensitivity"
+            # Don't fail, just warn
+          fi
+
+  compliance-summary:
+    name: Compliance Summary
+    runs-on: ubuntu-latest
+    needs: [rsr-core-check, markdown-lint, link-validation, spdx-validation, json-validation, bilingual-consistency, spell-check, cultural-sensitivity]
+    if: always()
+    steps:
+      - name: Check all compliance jobs
+        run: |
+          echo "============================================"
+          echo "🏆 RSR COMPLIANCE REPORT"
+          echo "============================================"
+          echo ""
+          echo "Core RSR files: ${{ needs.rsr-core-check.result }}"
+          echo "Markdown lint: ${{ needs.markdown-lint.result }}"
+          echo "Link validation: ${{ needs.link-validation.result }}"
+          echo "SPDX validation: ${{ needs.spdx-validation.result }}"
+          echo "JSON validation: ${{ needs.json-validation.result }}"
+          echo "Bilingual consistency: ${{ needs.bilingual-consistency.result }}"
+          echo "Spell check: ${{ needs.spell-check.result }}"
+          echo "Cultural sensitivity: ${{ needs.cultural-sensitivity.result }}"
+          echo ""
+          echo "============================================"
+
+          # Fail if any critical check failed
+          if [ "${{ needs.rsr-core-check.result }}" != "success" ] || \
+             [ "${{ needs.markdown-lint.result }}" != "success" ] || \
+             [ "${{ needs.spdx-validation.result }}" != "success" ] || \
+             [ "${{ needs.json-validation.result }}" != "success" ]; then
+            echo "❌ Critical compliance checks failed"
+            exit 1
+          fi
+
+          echo "✅ RSR Compliance: PASSED"

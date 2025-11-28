@@ -1,0 +1,62 @@
+# Palimpsest License Project - Security Contact Information
+# RFC 9116 Compliant
+
+Contact: mailto:security@palimpsest-license.org
+Contact: https://github.com/palimpsest-license/palimpsest-license/security/advisories/new
+Expires: 2026-12-31T23:59:59.000Z
+Encryption: https://palimpsest-license.org/.well-known/pgp-key.txt
+Acknowledgments: https://palimpsest-license.org/security-acknowledgments
+Preferred-Languages: en, nl
+Canonical: https://palimpsest-license.org/.well-known/security.txt
+Policy: https://palimpsest-license.org/SECURITY.md
+
+# Security Scope
+# This security.txt covers:
+# - Palimpsest License text vulnerabilities (legal interpretation ambiguities)
+# - Metadata infrastructure (JSON-LD, Protocol Buffers, ndjson, Ecto schemas)
+# - Validation tools (Haskell validators, ReScript components)
+# - Documentation security issues (misleading guidance)
+# - Website/infrastructure vulnerabilities
+# - Cryptographic implementation flaws (quantum-proof traceability)
+
+# Out of Scope
+# - Third-party tools that use the license
+# - User-generated content in examples
+# - Theoretical attacks without proof of concept
+
+# Coordinated Disclosure Timeline
+# Day 0: Initial report received
+# Day 1-2: Acknowledgment sent
+# Day 3-7: Triage and severity assessment
+# Day 7-90: Fix development and testing
+# Day 90: Public disclosure (coordinated with reporter)
+
+# Safe Harbor
+# Palimpsest License project commits to:
+# - No legal action against good-faith security researchers
+# - Recognition in security acknowledgments
+# - Collaboration on responsible disclosure
+
+# Special Considerations
+# License Integrity: Vulnerabilities affecting license interpretation are CRITICAL
+# Cultural Protection: Issues enabling cultural appropriation are HIGH priority
+# AI Training: Vulnerabilities in AI consent mechanisms are HIGH priority
+# Metadata Tampering: Attribution chain manipulation is CRITICAL
+# Emotional Lineage: Attacks on symbolic attribution are HIGH priority
+
+# Contact Methods
+# Primary: security@palimpsest-license.org (PGP encrypted preferred)
+# GitHub: Private security advisory (for repository issues)
+# Emergency: Include [URGENT] in subject line for active exploitation
+
+# Expected Response Times
+# Critical: 24 hours
+# High: 48 hours
+# Medium: 7 days
+# Low: 14 days
+
+# Hiring
+# We welcome security researchers to contribute to the Palimpsest License project.
+# See CONTRIBUTING.md for how to get involved.
+
+Hiring: https://palimpsest-license.org/CONTRIBUTING.md

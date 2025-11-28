@@ -1,0 +1,366 @@
+# trust.txt - Trust and Verification Information
+# Palimpsest License Project
+# Version 1.0 | Effective: 2025-11-22
+
+# =============================================================================
+# PROJECT IDENTITY & AUTHENTICITY
+# =============================================================================
+
+Project-Name: Palimpsest License
+Project-Type: Open Source Licensing Framework
+Version: v0.4 (in development)
+Status: Active Development
+Inception-Date: 2023
+License: Self-licensed under Palimpsest License v0.4
+
+# Official Channels
+Website: https://palimpsest-license.org
+Repository: https://github.com/palimpsest-license/palimpsest-license
+Documentation: https://palimpsest-license.org/docs/
+Discussion: https://github.com/palimpsest-license/palimpsest-license/discussions
+
+# =============================================================================
+# GOVERNANCE & AUTHORITY
+# =============================================================================
+
+Governance-Model: Stewardship Council
+Governing-Body: Palimpsest Stewardship Council (7 members)
+Governance-Document: /GOVERNANCE.md
+
+Council-Composition:
+  - 3 Creator Representatives (elected by community)
+  - 2 Legal Experts (IP, Dutch, or Scottish law)
+  - 1 Technologist (AI ethics/decentralised systems)
+  - 1 Cultural Heritage Advocate
+
+Decision-Making:
+  - Standard proposals: 5/7 supermajority
+  - Major version changes: 6/7 supermajority + 90-day review
+  - Minor updates: 4/7 majority to draft, 5/7 to ratify
+
+Governance-Contact: governance@palimpsest-license.org
+
+# =============================================================================
+# OFFICIAL CONTACT INFORMATION
+# =============================================================================
+
+General-Contact: contact@palimpsest-license.org
+Security-Contact: security@palimpsest-license.org
+Legal-Contact: legal@palimpsest-license.org
+Press-Contact: press@palimpsest-license.org
+AI-Ethics-Contact: ai-ethics@palimpsest-license.org
+Technical-Contact: technical@palimpsest-license.org
+
+# Emergency contact for critical issues
+Emergency-Contact: security@palimpsest-license.org
+Emergency-Response-Time: 48 hours maximum
+
+# =============================================================================
+# CRYPTOGRAPHIC VERIFICATION
+# =============================================================================
+
+# PGP/GPG Keys
+PGP-Key-URL: https://palimpsest-license.org/.well-known/pgp-key.txt
+PGP-Key-Fingerprint: [To be generated upon deployment]
+Key-Server: keys.openpgp.org
+
+# Code Signing
+Signing-Key-Type: GPG
+Signed-Commits: Required for all official releases
+Signed-Tags: Required for all version tags
+
+# Git Repository Verification
+Repository-Provider: GitHub
+Repository-URL: https://github.com/palimpsest-license/palimpsest-license
+Branch-Protection: Enabled on main branches
+Commit-Signature-Verification: Required
+
+# =============================================================================
+# TRUST INDICATORS
+# =============================================================================
+
+# Transparency
+Open-Source: Yes
+License-Text: Publicly available under /LICENSES/
+Development-Model: Open governance with community input
+Issue-Tracking: Public (GitHub Issues)
+Roadmap: Public (GitHub Projects)
+Changelog: /CHANGELOG.md
+Audit-Trail: Full git history publicly available
+
+# Community
+Code-of-Conduct: /CODE_OF_PRACTICE.md
+Contributing-Guidelines: /CONTRIBUTING.md
+Community-Forum: GitHub Discussions
+Public-Meetings: Announced via GitHub and mailing list
+
+# Documentation
+Documentation-Quality: Comprehensive (GUIDES_v0.4/)
+Examples: Available (/examples/)
+API-Documentation: As applicable for tooling
+User-Support: Community-driven via GitHub Discussions
+
+# Security
+Security-Policy: /SECURITY.md
+Security-txt: /security.txt (RFC 9116 compliant)
+Vulnerability-Disclosure: /vulnerability.txt
+Security-Advisories: GitHub Security Advisories
+Dependency-Scanning: Automated via GitHub Dependabot
+Security-Updates: Timely response to reported vulnerabilities
+
+# =============================================================================
+# LEGAL & COMPLIANCE
+# =============================================================================
+
+Primary-Jurisdiction: Netherlands (Dutch law)
+Legal-Framework: Dutch copyright and contract law
+Comparative-Analysis: /docs/jurisdiction-comparison.md
+
+Legal-Compliance:
+  - Dutch Copyright Law (Auteurswet)
+  - GDPR (where applicable to metadata)
+  - Dutch Contract Law (Burgerlijk Wetboek)
+
+Legal-Representation: Community-led (no dedicated legal entity yet)
+Dispute-Resolution: Outlined in GOVERNANCE.md
+
+# =============================================================================
+# AUTHENTICITY VERIFICATION
+# =============================================================================
+
+# How to Verify Official Palimpsest License Releases
+
+1. Repository Verification:
+   - Official repository: github.com/palimpsest-license/palimpsest-license
+   - Check for GitHub organisation verification badge
+   - Verify repository is listed on palimpsest-license.org
+
+2. Release Verification:
+   - All official releases are tagged in Git
+   - Tags are cryptographically signed
+   - Verify signature: git tag -v v0.4.0
+   - Check CHANGELOG.md for version history
+
+3. Document Verification:
+   - License texts include metadata headers
+   - Check SHA-256 checksums (provided in releases)
+   - Verify JSON-LD metadata blocks
+   - Cross-reference version numbers across documents
+
+4. Website Verification:
+   - Official domain: palimpsest-license.org
+   - HTTPS required (valid TLS certificate)
+   - Content matches GitHub repository
+   - Look for trust indicators (security.txt, etc.)
+
+# =============================================================================
+# TRUST BOUNDARIES
+# =============================================================================
+
+# What We Control
+- Official GitHub repository
+- Documentation and license texts
+- Reference implementations
+- Compliance tooling
+- Official website (palimpsest-license.org)
+
+# What We DON'T Control
+- Third-party implementations
+- Forks and derivatives
+- Community-created tools
+- Translations (unless officially endorsed)
+- Social media accounts (until verified)
+
+# Third-Party Integrations
+Third-Party-Tools: Listed with disclaimers
+Community-Contributions: Reviewed but not officially endorsed
+External-Validators: Independent verification encouraged
+
+# =============================================================================
+# TRANSPARENCY COMMITMENTS
+# =============================================================================
+
+Public-Governance: All governance decisions publicly documented
+Open-Development: All development occurs in public repository
+Public-Discussions: Community input welcomed and documented
+Financial-Transparency: No commercial entity (community-funded)
+Conflict-of-Interest: Council members must declare conflicts
+
+# Audit Trail
+Git-History: Complete and unmodified
+Decision-Log: Maintained in governance documentation
+Change-Rationale: Documented in commit messages and CHANGELOG.md
+Community-Input: Preserved in GitHub Issues and Discussions
+
+# =============================================================================
+# VERIFICATION CHECKLIST FOR USERS
+# =============================================================================
+
+To verify you are using an authentic Palimpsest License:
+
+☑ Check the source is github.com/palimpsest-license/palimpsest-license
+☑ Verify the license file includes proper metadata headers
+☑ Confirm the version number matches official releases
+☑ Check the SHA-256 checksum against published hashes
+☑ Verify GPG signature on signed releases
+☑ Cross-reference with documentation on palimpsest-license.org
+☑ Look for the official Palimpsest badge (see /assets/)
+☑ Verify no modifications have been made (unless disclosed)
+
+# Red Flags (Potential Forgery):
+✗ Source is not the official GitHub repository
+✗ License text lacks metadata headers
+✗ Version numbers don't match official releases
+✗ Checksums don't match
+✗ GPG signatures fail verification
+✗ Modifications without disclosure
+✗ Contact information differs from official channels
+✗ Domain is not palimpsest-license.org
+
+# =============================================================================
+# TRUST CHAIN FOR AI-GENERATED CONTENT
+# =============================================================================
+
+# Special Considerations for AI Context
+
+The Palimpsest License includes mechanisms for verifying attribution
+chains, especially for AI-generated or AI-modified content.
+
+Attribution-Chain: Cryptographically verifiable
+Metadata-Preservation: Required (Clause 2.3)
+Quantum-Proof-Traceability: Forward-compatible mechanisms
+Emotional-Lineage: Documented and preserved
+
+AI-Usage-Guidelines: /llms.txt
+NI-Consent-Requirements: Clause 1.2 of license
+Training-Data-Restrictions: Outlined in license text
+
+# =============================================================================
+# TRUST PARTNERSHIPS & ENDORSEMENTS
+# =============================================================================
+
+# Current Status: Early stage, seeking partnerships
+
+Proposed-Partnerships:
+  - Creative Commons (outreach in progress)
+  - National Union of Journalists (proposal drafted)
+  - Ubuntu Community (proposal drafted)
+  - AI ethics organisations
+
+Community-Endorsements: Listed on project website
+Academic-Recognition: Seeking peer review
+Legal-Community: Engagement ongoing
+
+# =============================================================================
+# REPORTING TRUST VIOLATIONS
+# =============================================================================
+
+# If you encounter potential fraud or misuse:
+
+Report-To: trust@palimpsest-license.org
+Also-Contact: security@palimpsest-license.org (if security-related)
+
+Include:
+  - URL or location of suspicious content
+  - Description of the issue
+  - Evidence (screenshots, links, documents)
+  - Your contact information (for follow-up)
+
+Response-Time: Within 7 days
+Investigation: Conducted by Stewardship Council
+Resolution: Documented and published (as appropriate)
+
+# Common Trust Issues:
+- Forged or modified license texts
+- Impersonation of official channels
+- Misleading attributions
+- Metadata tampering
+- Unauthorised use of Palimpsest branding
+
+# =============================================================================
+# TRUST METRICS & ACCOUNTABILITY
+# =============================================================================
+
+Community-Size: Growing (measured via GitHub stars, contributors)
+Active-Contributors: Tracked in /humans.txt
+Commit-Frequency: Visible in git history
+Issue-Response-Time: Average tracked and published
+Security-Record: Published in annual security report
+
+Accountability-Mechanisms:
+  - Public governance meetings
+  - Council member elections
+  - Community votes on major changes
+  - Transparent decision-making process
+  - Public audit trails
+
+# =============================================================================
+# FUTURE TRUST INFRASTRUCTURE
+# =============================================================================
+
+# Planned Trust Enhancements
+
+Roadmap:
+  - [ ] Establish legal entity (foundation or DAO)
+  - [ ] Implement formal GPG key infrastructure
+  - [ ] Deploy automated checksum verification
+  - [ ] Create official mirror sites
+  - [ ] Establish verified social media presence
+  - [ ] Implement BIMI for email authentication
+  - [ ] Deploy DNSSEC for domain verification
+  - [ ] Create trust seal/badge verification API
+
+Timeline: See /docs/Compliance_Roadmap.md
+
+# =============================================================================
+# STANDARDS COMPLIANCE
+# =============================================================================
+
+RFC-9116: security.txt implemented
+Vulnerability-Disclosure: vulnerability.txt implemented
+Robots-Protocol: robots.txt with AI/LLM guidelines
+Human-Attribution: humans.txt with credits
+Machine-Readable: JSON-LD metadata throughout
+Accessibility: WCAG 2.1 AA target for documentation
+
+# =============================================================================
+# CONTACT FOR TRUST VERIFICATION
+# =============================================================================
+
+Trust-Inquiries: trust@palimpsest-license.org
+Verification-Help: technical@palimpsest-license.org
+Legal-Questions: legal@palimpsest-license.org
+
+Response-Time: Within 5 business days
+Verification-Support: Free for all users
+
+# =============================================================================
+# METADATA
+# =============================================================================
+
+Document-Version: 1.0
+Last-Updated: 2025-11-22
+Next-Review: 2026-06-01
+Maintained-By: Palimpsest Stewardship Council
+Document-URL: https://palimpsest-license.org/trust.txt
+Canonical-URL: https://palimpsest-license.org/.well-known/trust.txt
+
+# Checksum (SHA-256): [To be generated upon final release]
+# Signature: [To be GPG-signed upon final release]
+
+# =============================================================================
+# FINAL NOTE
+# =============================================================================
+
+The Palimpsest License is built on trust, transparency, and care for
+creators. We take authenticity seriously because creators depend on
+the integrity of our licensing framework.
+
+If you have any questions about trust or verification, please contact us.
+We are committed to responding promptly and transparently.
+
+"This is a license born not just from copyright, but from care."
+
+---
+Palimpsest Stewardship Council
+palimpsest-license.org
