@@ -1,24 +1,42 @@
-name: Release Drafter
+name: Release
 
 on:
   push:
+    # OPTION A: Release on every push to master (Your current method)
+    # branches:
+    #   - master
+    #   - main
+    
+    # OPTION B: Release only when you tag a version (Recommended)
+    # This prevents 'fix typo' commits from creating empty releases.
     tags:
-      - 'v*' # Run on tags like v0.3.0
+      - 'v*'
+
+  # prevent it running on docs updates to save minutes
+  paths-ignore:
+    - '**.adoc'
+    - '**.md'
+
+# CRITICAL: This gives the token permission to create Releases
+permissions:
+  contents: write
+  packages: write
 
 jobs:
-  draft_release:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetch all history for changelog generation
+          fetch-depth: 0 # Essential for generating accurate changelogs
 
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          draft: true # Creates a draft release that you can review and publish manually
-          generate_release_notes: true # Auto-generates release notes from commits
+          draft: true # Safe: creates a draft you must manually publish
+          generate_release_notes: true
+          # Note: If triggering on branches, you might want 'tag_name: nightly' 
+          # but for tags, it handles itself.
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOK
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
