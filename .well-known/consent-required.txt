@@ -1,0 +1,338 @@
+# HTTP 430 Consent Required - Palimpsest License
+# Machine-readable consent requirements for AI training and Non-Interpretive systems
+# SPDX-License-Identifier: Palimpsest-0.4 OR MIT
+# Version: 0.4.0
+# Specification: https://palimpsest.license/specs/http-430
+
+# ============================================================================
+# OVERVIEW
+# ============================================================================
+
+# This file declares that content from this repository requires explicit
+# consent before use in AI training, Non-Interpretive (NI) systems, or
+# derivative works that involve emotional interpretation, cultural analysis,
+# or narrative transformation.
+
+# HTTP 430 Status Code: Consent Required
+# Usage: Web servers should return HTTP 430 when AI crawlers access content
+# without prior consent negotiation.
+
+# ============================================================================
+# CONSENT POLICY
+# ============================================================================
+
+Consent-Policy: required
+License: Palimpsest-0.4
+Fallback-License: MIT
+Effective-Date: 2025-01-01T00:00:00Z
+Expires: 2026-12-31T23:59:59Z
+
+# ============================================================================
+# SCOPE
+# ============================================================================
+
+# Content requiring consent:
+Scope: all-content
+Scope-Includes:
+  - text/*
+  - application/json
+  - application/ld+json
+  - application/markdown
+  - text/markdown
+  - text/plain
+
+# Specific directories requiring consent:
+Consent-Required-Paths:
+  - /LICENSES/
+  - /GUIDES_v0.4/
+  - /docs/
+  - /examples/vignettes/
+  - /press-lobby-kit/
+  - /LICENSE_CORE/AGREEMENTS/
+
+# ============================================================================
+# PROHIBITED USES WITHOUT CONSENT
+# ============================================================================
+
+# As per Palimpsest License Clause 1.2 - Non-Interpretive Systems
+
+Prohibited-Without-Consent:
+  - AI training (Large Language Models, diffusion models, etc.)
+  - Sentiment analysis
+  - Emotional tone detection
+  - Cultural context inference
+  - Narrative summarisation with interpretation
+  - Symbolic meaning extraction
+  - Trauma pattern analysis
+  - Psychological profiling
+  - Emotional state prediction
+  - Intent inference
+  - Subtext interpretation
+
+# Permitted uses (no consent required):
+Permitted-Uses:
+  - Citation with proper attribution
+  - Academic research (with attribution)
+  - Non-commercial personal reading
+  - Accessibility transformations (text-to-speech, translation)
+  - Archival preservation
+  - Search engine indexing (snippet preview only)
+  - Version control operations (git, etc.)
+
+# ============================================================================
+# CONSENT REQUEST PROCESS
+# ============================================================================
+
+Consent-Request-Method: email
+Consent-Contact: consent@palimpsest.license
+Consent-Contact-Alternative: https://palimpsest.license/consent-request
+
+# Required information for consent requests:
+Consent-Request-Fields:
+  - requester-name: Full name or organisation
+  - requester-email: Contact email
+  - requester-website: Organisation website (if applicable)
+  - intended-use: Detailed description of intended use
+  - ai-system-type: Type of AI system (LLM, diffusion model, etc.)
+  - training-dataset-name: Name of training dataset
+  - training-dataset-size: Approximate size of dataset
+  - commercial-use: Boolean (true/false)
+  - attribution-method: How attribution will be provided
+  - emotional-lineage: How emotional lineage will be preserved
+  - metadata-preservation: Commitment to metadata preservation
+  - derivative-license: License for derivatives (if any)
+
+# Response time:
+Consent-Response-Time: 30 days
+
+# Consent validity:
+Consent-Validity-Period: 1 year
+Consent-Renewal: Required annually
+
+# ============================================================================
+# CLAUSE 1.2 ENFORCEMENT
+# ============================================================================
+
+# Palimpsest License v0.4 - Clause 1.2:
+# "Use in Non-Interpretive (NI) systems—including but not limited to
+# Large Language Models (LLMs), sentiment analysers, or emotion detection
+# tools—requires explicit written consent from the Author."
+
+Enforcement-Clause: 1.2
+Enforcement-Mechanism: legal-notice
+Enforcement-Contact: legal@palimpsest.license
+
+# Violations should be reported to:
+Violation-Report-Email: legal@palimpsest.license
+Violation-Report-Form: https://palimpsest.license/report-violation
+
+# ============================================================================
+# ATTRIBUTION REQUIREMENTS
+# ============================================================================
+
+# Even with consent, attribution is mandatory:
+
+Attribution-Required: true
+Attribution-Format: Palimpsest-v0.4
+Attribution-Elements:
+  - Author name or pseudonym
+  - License identifier (SPDX: Palimpsest-0.4)
+  - Original source URL
+  - Emotional lineage statement (if applicable)
+  - Modification statement (if modified)
+
+# Example attribution:
+# """
+# Original work: [Title] by [Author]
+# License: Palimpsest-0.4
+# Source: https://github.com/your-username/palimpsest-license
+# Emotional lineage: Protest song tradition, African-American spirituals
+# Modified: [Description of modifications]
+# """
+
+# ============================================================================
+# METADATA PRESERVATION (CLAUSE 2.3)
+# ============================================================================
+
+# All derivatives must preserve metadata:
+
+Metadata-Preservation: mandatory
+Metadata-Fields:
+  - dc:creator
+  - dc:title
+  - dc:date
+  - dc:rights
+  - dc:license
+  - palimpsest:emotionalLineage
+  - palimpsest:culturalContext
+  - palimpsest:symbolicAttribution
+
+# Metadata stripping is a breach:
+Metadata-Stripping: prohibited
+Metadata-Breach-Severity: high
+
+# ============================================================================
+# QUANTUM-PROOF TRACEABILITY
+# ============================================================================
+
+# Future-proof cryptographic traceability:
+
+Traceability-Method: quantum-resistant
+Traceability-Algorithms:
+  - CRYSTALS-Dilithium (post-quantum signatures)
+  - SPHINCS+ (stateless hash-based signatures)
+  - SHA-3 / BLAKE3 (content hashing)
+
+# Provenance chain:
+Provenance-Chain: required
+Provenance-Format: W3C PROV-O
+Provenance-File: /.well-known/provenance.json
+
+# ============================================================================
+# CRAWLER DIRECTIVES
+# ============================================================================
+
+# Specific directives for AI crawlers:
+
+User-Agent-Restrictions:
+  - GPTBot: consent-required
+  - ChatGPT-User: consent-required
+  - Google-Extended: consent-required
+  - CCBot: consent-required
+  - anthropic-ai: consent-required
+  - Claude-Web: consent-required
+  - cohere-ai: consent-required
+  - PerplexityBot: consent-required
+  - Omgilibot: consent-required
+  - FacebookBot: consent-required
+  - Applebot-Extended: consent-required
+
+# Robots.txt integration:
+Robots-Integration: required
+Robots-File: /robots.txt
+
+# ============================================================================
+# HTTP HEADERS
+# ============================================================================
+
+# Recommended HTTP headers for servers:
+
+Recommended-Headers:
+  - "X-Consent-Required: Palimpsest-0.4"
+  - "X-License: Palimpsest-0.4 OR MIT"
+  - "X-AI-Training: consent-required"
+  - "X-Emotional-Lineage: preserved"
+  - "Link: </.well-known/consent-required.txt>; rel=\"consent-policy\""
+
+# Example HTTP response for non-consented access:
+# HTTP/1.1 430 Consent Required
+# X-Consent-Required: Palimpsest-0.4
+# X-Consent-Contact: consent@palimpsest.license
+# Content-Type: application/json
+#
+# {
+#   "error": "consent_required",
+#   "message": "This content requires explicit consent for AI training.",
+#   "license": "Palimpsest-0.4",
+#   "consent_policy": "/.well-known/consent-required.txt",
+#   "contact": "consent@palimpsest.license"
+# }
+
+# ============================================================================
+# GRACE PERIOD
+# ============================================================================
+
+# Grace period for existing crawlers to comply:
+Grace-Period-Start: 2025-01-01T00:00:00Z
+Grace-Period-End: 2025-03-31T23:59:59Z
+
+# After grace period, violations will be enforced:
+Enforcement-Start: 2025-04-01T00:00:00Z
+
+# ============================================================================
+# CULTURAL SENSITIVITY
+# ============================================================================
+
+# Special considerations for culturally sensitive content:
+
+Cultural-Sensitivity: high
+Cultural-Review-Required: true
+Cultural-Communities-Consulted:
+  - Diaspora narrative creators
+  - Trauma survivor networks
+  - Indigenous knowledge keepers
+  - Protest song traditions
+
+# Content with emotional lineage requires additional consent:
+Emotional-Lineage-Content: enhanced-consent
+Emotional-Lineage-Review: community-based
+
+# ============================================================================
+# VERSIONING & UPDATES
+# ============================================================================
+
+Version: 0.4.0
+Specification-Version: 1.0
+Last-Updated: 2025-11-28T00:00:00Z
+Next-Review: 2026-06-01T00:00:00Z
+
+# Changelog:
+# 0.4.0 - Initial HTTP 430 consent protocol
+#       - Defined consent request process
+#       - Added quantum-proof traceability
+#       - Integrated with Palimpsest v0.4 Clause 1.2
+
+# ============================================================================
+# REFERENCES
+# ============================================================================
+
+References:
+  - Palimpsest License: /LICENSES/v0.4/palimpsest-v0.4.md
+  - User Guide: /GUIDES_v0.4/User_Guide.md
+  - Ethics Framework: /docs/ethics.md
+  - Security Policy: /.well-known/security.txt
+  - AI Training Policy: /.well-known/ai.txt
+  - Provenance Data: /.well-known/provenance.json
+
+# ============================================================================
+# CONTACT INFORMATION
+# ============================================================================
+
+Contact: consent@palimpsest.license
+Legal: legal@palimpsest.license
+Security: security@palimpsest.license
+General: info@palimpsest.license
+
+Website: https://palimpsest.license
+Repository: https://github.com/your-username/palimpsest-license
+Documentation: https://palimpsest.license/docs
+
+# ============================================================================
+# ACKNOWLEDGEMENTS
+# ============================================================================
+
+# This consent protocol was developed with input from:
+# - Creative Commons (licensing framework inspiration)
+# - Electronic Frontier Foundation (digital rights)
+# - Algorithmic Justice League (AI ethics)
+# - Trauma-informed content creators
+# - Digital rights activists
+
+# Special thanks to communities protecting:
+# - Protest song traditions
+# - Diaspora narratives
+# - Trauma survivor stories
+# - Cultural heritage knowledge
+
+# ============================================================================
+# LICENSE
+# ============================================================================
+
+# This consent-required.txt file itself is dual-licensed:
+# SPDX-License-Identifier: Palimpsest-0.4 OR MIT
+
+# You may use this file under either:
+# 1. Palimpsest License v0.4 (preferred)
+# 2. MIT License (for broader compatibility)
+
+# END OF CONSENT POLICY
