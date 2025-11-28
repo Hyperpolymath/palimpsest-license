@@ -53,7 +53,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate internal and external links
-        uses: lycheeverse/lychee-action@v1.9.3
+        uses: lycheeverse/lychee-action@v2.0.2
         with:
           # Check all markdown files, exclude mail links and example URLs
           args: --verbose --no-progress --exclude-mail --exclude "https://example.com" --exclude "http://example.com" --exclude "mailto:" '**/*.md'
