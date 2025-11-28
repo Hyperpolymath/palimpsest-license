@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: 'npm'
@@ -40,7 +40,7 @@ jobs:
           echo "✅ CSS built successfully"
 
       - name: Upload CSS artefacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: compiled-css
           path: |
@@ -57,7 +57,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Haskell
         uses: haskell-actions/setup@v2
@@ -94,7 +94,7 @@ jobs:
           fi
 
       - name: Upload Haskell binaries
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: haskell-validator-${{ matrix.os }}
           path: build-output/*
@@ -106,10 +106,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: 'npm'
@@ -134,7 +134,7 @@ jobs:
           echo "✅ ReScript built successfully"
 
       - name: Upload ReScript artefacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: rescript-compiled
           path: |
@@ -147,10 +147,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: 'npm'
@@ -186,7 +186,7 @@ jobs:
           echo "✅ Documentation bundled"
 
       - name: Upload documentation bundle
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: documentation-bundle
           path: build-output/docs
@@ -197,7 +197,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install ImageMagick and librsvg
         run: |
@@ -236,7 +236,7 @@ jobs:
           echo "✅ Asset conversion complete"
 
       - name: Upload converted assets
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: converted-assets
           path: build-output/assets
@@ -248,7 +248,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
@@ -276,7 +276,7 @@ jobs:
           echo "✅ Metadata package built"
 
       - name: Upload metadata package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: metadata-package
           path: build-output/metadata
@@ -289,7 +289,7 @@ jobs:
     if: always()
     steps:
       - name: Download all artefacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           path: all-artefacts
 
@@ -324,7 +324,7 @@ jobs:
 
       - name: Upload combined artefacts (release only)
         if: github.event_name == 'release'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: palimpsest-license-build-${{ github.sha }}
           path: all-artefacts
