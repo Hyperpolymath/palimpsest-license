@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2024-2025 Palimpsest Stewardship Council
+
 // Web platform integration helpers
 // Provides utilities for embedding Palimpsest License in web applications
 

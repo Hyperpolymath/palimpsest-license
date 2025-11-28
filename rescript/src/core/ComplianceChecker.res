@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2024-2025 Palimpsest Stewardship Council
+
 // Compliance checker for Palimpsest License
 // Validates usage against license terms and consent grants
 

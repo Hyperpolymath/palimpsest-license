@@ -261,6 +261,31 @@ deploy:
 # SECURITY & COMPLIANCE
 # ============================================================================
 
+# Audit SPDX license identifiers in all source files
+audit-licence:
+    @echo "🔍 Auditing SPDX license identifiers..."
+    @# Check Haskell files
+    @find TOOLS/validation/haskell/src -name "*.hs" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
+        (grep . && echo "❌ Haskell files missing SPDX headers" && exit 1 || echo "✅ All Haskell files have SPDX headers")
+    @find TOOLS/validation/haskell/app -name "*.hs" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
+        (grep . && echo "❌ Haskell app files missing SPDX headers" && exit 1 || echo "✅ All Haskell app files have SPDX headers")
+    @find TOOLS/validation/haskell/test -name "*.hs" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
+        (grep . && echo "❌ Haskell test files missing SPDX headers" && exit 1 || echo "✅ All Haskell test files have SPDX headers")
+    @# Check ReScript files
+    @find rescript/src -name "*.res" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
+        (grep . && echo "❌ ReScript files missing SPDX headers" && exit 1 || echo "✅ All ReScript files have SPDX headers")
+    @# Check JavaScript files (excluding node_modules)
+    @find assets -name "*.js" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
+        (grep . && echo "❌ Asset JavaScript files missing SPDX headers" && exit 1 || echo "✅ All asset JavaScript files have SPDX headers")
+    @find integrations/client -name "*.js" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
+        (grep . && echo "❌ Integration JavaScript files missing SPDX headers" && exit 1 || echo "✅ All integration JavaScript files have SPDX headers")
+    @# Check YAML files
+    @find integrations -name "*.yml" -o -name "*.yaml" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
+        (grep . && echo "❌ Integration YAML files missing SPDX headers" && exit 1 || echo "✅ All integration YAML files have SPDX headers")
+    @find TOOLS/validation/haskell -name "stack.yaml" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
+        (grep . && echo "❌ Stack YAML files missing SPDX headers" && exit 1 || echo "✅ All Stack YAML files have SPDX headers")
+    @echo "✅ License audit complete - all source files have SPDX headers"
+
 # Check for security vulnerabilities in dependencies
 security-audit:
     @echo "🔒 Running security audit..."

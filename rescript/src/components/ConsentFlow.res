@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2024-2025 Palimpsest Stewardship Council
+
 // Consent flow UI components
 // Interactive forms for managing AI training and usage consents
 

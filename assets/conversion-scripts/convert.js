@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2024-2025 Palimpsest Stewardship Council
+
 /**
  * convert.js - SVG Asset Conversion Script for Palimpsest License
  *

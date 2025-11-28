@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2024-2025 Palimpsest Stewardship Council
+
 // Parser for Palimpsest License metadata (JSON-LD and plain JSON)
 
 open PalimpsestTypes

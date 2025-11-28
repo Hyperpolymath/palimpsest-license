@@ -1,3 +1,8 @@
+{-
+SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: 2024-2025 Palimpsest Stewardship Council
+-}
+
 {-# LANGUAGE OverloadedStrings #-}
 
 -- | Bilingual consistency checker for Dutch ↔ English license texts

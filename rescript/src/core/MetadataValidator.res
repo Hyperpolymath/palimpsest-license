@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2024-2025 Palimpsest Stewardship Council
+
 // Validator for Palimpsest License metadata
 // Ensures metadata structure and content meets specification
 
