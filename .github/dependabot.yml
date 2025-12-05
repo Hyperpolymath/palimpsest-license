@@ -15,17 +15,17 @@ updates:
   - package-ecosystem: "cargo"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     groups:
       dependencies:
         patterns:
           - "*"
 
   # 3. Maintain NPM (if you have package.json)
-  - package-ecosystem: "npm"
+  - package-ecosystem: "deno"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     groups:
       dependencies:
         patterns:
