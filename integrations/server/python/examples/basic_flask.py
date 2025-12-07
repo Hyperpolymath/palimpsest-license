@@ -167,8 +167,13 @@ def api_stories():
 
 
 if __name__ == "__main__":
+    import os
+
     print("Starting Flask application with Palimpsest License integration")
     print("Palimpsest License middleware active")
     print("Visit http://localhost:5000")
     print("License info available at http://localhost:5000/license.json")
-    app.run(debug=True, port=5000)
+
+    # Use environment variable for debug mode (default to False for security)
+    debug_mode = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
+    app.run(debug=debug_mode, port=5000)

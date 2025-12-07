@@ -9,6 +9,10 @@ on:
   push:
     branches: [ main ]
 
+# Default permissions for all jobs (principle of least privilege)
+permissions:
+  contents: read
+
 jobs:
   rsr-core-check:
     name: RSR Core Files Check

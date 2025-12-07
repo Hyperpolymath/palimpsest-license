@@ -11,6 +11,10 @@ on:
   release:
     types: [published]
 
+# Default permissions for all jobs (principle of least privilege)
+permissions:
+  contents: read
+
 jobs:
   build-styles:
     name: SCSS → CSS Compilation
