@@ -12,6 +12,10 @@ on:
     # Run daily at 02:00 UTC
     - cron: '0 2 * * *'
 
+# Default permissions for all jobs (principle of least privilege)
+permissions:
+  contents: read
+
 jobs:
   npm-audit:
     name: NPM Security Audit
@@ -240,6 +244,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [npm-audit, codeql-analysis, secret-scanning, security-txt-validation, license-compliance, vulnerability-disclosure-policy]
     if: always()
+    permissions:
+      issues: write  # Required for creating security alert issues
     steps:
       - name: Check security results
         run: |

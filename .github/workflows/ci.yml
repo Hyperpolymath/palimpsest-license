@@ -5,6 +5,10 @@ on:
   pull_request:
     branches: [ main ]
 
+# Default permissions for all jobs (principle of least privilege)
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest

@@ -21,6 +21,43 @@ const DEFAULT_CONFIG = {
 };
 
 /**
+ * Sanitize a URL to prevent XSS via javascript: or data: protocols
+ *
+ * @param {string} url - The URL to sanitize
+ * @returns {string} Sanitized URL or empty string if invalid
+ */
+function sanitizeUrl(url) {
+  if (typeof url !== 'string') {
+    return '';
+  }
+
+  const trimmedUrl = url.trim().toLowerCase();
+
+  // Block dangerous protocols
+  if (trimmedUrl.startsWith('javascript:') ||
+      trimmedUrl.startsWith('data:') ||
+      trimmedUrl.startsWith('vbscript:')) {
+    return '';
+  }
+
+  // Only allow http, https, and relative URLs
+  if (trimmedUrl.startsWith('http://') ||
+      trimmedUrl.startsWith('https://') ||
+      trimmedUrl.startsWith('/') ||
+      trimmedUrl.startsWith('./') ||
+      trimmedUrl.startsWith('../')) {
+    return url;
+  }
+
+  // For other cases, prepend https:// if it looks like a domain
+  if (trimmedUrl.match(/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z]{2,})+/)) {
+    return 'https://' + url;
+  }
+
+  return '';
+}
+
+/**
  * Extract license metadata from the current page
  *
  * @returns {Object|null} License metadata object or null if not found
@@ -147,7 +184,8 @@ export function createLicenseBadge(options = {}) {
   const config = { ...DEFAULT_CONFIG, ...options };
   const badge = document.createElement('a');
 
-  badge.href = config.licenseUrl;
+  // Sanitize URL to prevent XSS via javascript: protocol
+  badge.href = sanitizeUrl(config.licenseUrl);
   badge.target = '_blank';
   badge.rel = 'license noopener noreferrer';
   badge.className = 'palimpsest-badge';
@@ -182,14 +220,33 @@ export function createLicenseBadge(options = {}) {
     ? `Palimpsest Licentie v${config.version}`
     : `Palimpsest License v${config.version}`;
 
-  badge.innerHTML = `
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right: 6px;">
-      <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
-      <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
-      <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
-    </svg>
-    ${text}
-  `;
+  // Create SVG element safely
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('width', '16');
+  svg.setAttribute('height', '16');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('fill', 'none');
+  svg.style.marginRight = '6px';
+
+  const paths = [
+    'M12 2L2 7L12 12L22 7L12 2Z',
+    'M2 17L12 22L22 17',
+    'M2 12L12 17L22 12'
+  ];
+
+  paths.forEach(d => {
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', d);
+    path.setAttribute('stroke', 'currentColor');
+    path.setAttribute('stroke-width', '2');
+    svg.appendChild(path);
+  });
+
+  badge.appendChild(svg);
+
+  // Create text node safely (prevents XSS)
+  const textNode = document.createTextNode(text);
+  badge.appendChild(textNode);
 
   badge.addEventListener('mouseenter', () => {
     badge.style.borderColor = config.theme === 'dark' ? '#58a6ff' : '#0366d6';
@@ -240,29 +297,79 @@ export function createLicenseNotice(options = {}) {
   `;
 
   const text = config.language === 'nl' ? {
-    main: `Dit werk is beschermd onder de <strong>Palimpsest Licentie v${config.version}</strong>.`,
+    mainPrefix: 'Dit werk is beschermd onder de ',
+    mainLicense: `Palimpsest Licentie v${config.version}`,
+    mainSuffix: '.',
     requirement: 'Afgeleiden moeten de emotionele en culturele integriteit van het origineel behouden.',
     link: 'Lees de volledige licentie'
   } : {
-    main: `This work is protected under the <strong>Palimpsest License v${config.version}</strong>.`,
+    mainPrefix: 'This work is protected under the ',
+    mainLicense: `Palimpsest License v${config.version}`,
+    mainSuffix: '.',
     requirement: "Derivatives must preserve the original's emotional and cultural integrity.",
     link: 'Read the full license'
   };
 
-  notice.innerHTML = `
-    <div style="display: flex; align-items: center;">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right: 12px; flex-shrink: 0;">
-        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="${styles.linkColor}" stroke-width="2"/>
-        <path d="M2 17L12 22L22 17" stroke="${styles.linkColor}" stroke-width="2"/>
-        <path d="M2 12L12 17L22 12" stroke="${styles.linkColor}" stroke-width="2"/>
-      </svg>
-      <div>
-        <p style="margin: 0 0 8px 0;">${text.main}</p>
-        <p style="margin: 0 0 8px 0; font-size: 13px; opacity: 0.8;">${text.requirement}</p>
-        <a href="${config.licenseUrl}" style="color: ${styles.linkColor}; text-decoration: none; font-weight: 500;" target="_blank" rel="license noopener">${text.link} →</a>
-      </div>
-    </div>
-  `;
+  // Build DOM safely to prevent XSS
+  const container = document.createElement('div');
+  container.style.cssText = 'display: flex; align-items: center;';
+
+  // Create SVG safely
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('width', '24');
+  svg.setAttribute('height', '24');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('fill', 'none');
+  svg.style.cssText = 'margin-right: 12px; flex-shrink: 0;';
+
+  const pathData = [
+    'M12 2L2 7L12 12L22 7L12 2Z',
+    'M2 17L12 22L22 17',
+    'M2 12L12 17L22 12'
+  ];
+
+  pathData.forEach(d => {
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', d);
+    path.setAttribute('stroke', styles.linkColor);
+    path.setAttribute('stroke-width', '2');
+    svg.appendChild(path);
+  });
+
+  container.appendChild(svg);
+
+  // Create content div
+  const contentDiv = document.createElement('div');
+
+  // Main paragraph with safe text content
+  const mainP = document.createElement('p');
+  mainP.style.cssText = 'margin: 0 0 8px 0;';
+  mainP.appendChild(document.createTextNode(text.mainPrefix));
+  const strong = document.createElement('strong');
+  strong.textContent = text.mainLicense;
+  mainP.appendChild(strong);
+  mainP.appendChild(document.createTextNode(text.mainSuffix));
+
+  // Requirement paragraph
+  const reqP = document.createElement('p');
+  reqP.style.cssText = 'margin: 0 0 8px 0; font-size: 13px; opacity: 0.8;';
+  reqP.textContent = text.requirement;
+
+  // Link with URL validation
+  const link = document.createElement('a');
+  // Validate URL to prevent javascript: protocol injection
+  const sanitizedUrl = sanitizeUrl(config.licenseUrl);
+  link.href = sanitizedUrl;
+  link.style.cssText = `color: ${styles.linkColor}; text-decoration: none; font-weight: 500;`;
+  link.target = '_blank';
+  link.rel = 'license noopener';
+  link.textContent = text.link + ' →';
+
+  contentDiv.appendChild(mainP);
+  contentDiv.appendChild(reqP);
+  contentDiv.appendChild(link);
+  container.appendChild(contentDiv);
+  notice.appendChild(container);
 
   return notice;
 }
