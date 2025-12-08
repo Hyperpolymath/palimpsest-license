@@ -6,7 +6,7 @@
     "scripts": {
         "lint": "eslint .",
         "format": "prettier --write .",
-        "test": "echo \"No JS tests specified yet\" && exit 0",
+        "test": "./test.sh",
         "scss": "sass styles/scss/main.scss styles/css/main.css --style=expanded --source-map",
         "scss:watch": "sass styles/scss/main.scss styles/css/main.css --watch --style=expanded --source-map",
         "scss:build": "sass styles/scss/main.scss styles/css/main.css --style=compressed --no-source-map",
