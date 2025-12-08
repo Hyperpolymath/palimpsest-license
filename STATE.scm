@@ -12,30 +12,35 @@
 
 (define state
   '((metadata
-     (format-version . "2.0")
-     (schema-version . "2025-12-06")
+     (format-version . "2.1")
+     (schema-version . "2025-12-08")
      (created-at . "2025-12-08T00:00:00Z")
-     (last-updated . "2025-12-08T00:00:00Z")
+     (last-updated . "2025-12-08T23:00:00Z")
      (generator . "Claude/STATE-system")
      (project . "palimpsest-license")
-     (repository . "https://github.com/hyperpolymath/palimpsest-license"))
+     (repository . "https://github.com/hyperpolymath/palimpsest-license")
+     (canonical-source . "github")
+     (mirrors . ("gitlab.com/maa-framework/1-ethical-and-legal-framework/palimpsest-license")))
 
     (user
      (name . "Palimpsest Stewardship Council")
      (roles . ("license-steward" "standards-body" "creator-advocate"))
      (preferences
-      (languages-preferred . ("Haskell" "Rust" "ReScript" "TypeScript"))
-      (languages-avoid . ("Python"))
-      (tools-preferred . ("Nix" "Guix" "Just" "Nickel" "Podman"))
+      (languages-preferred . ("OCaml" "Haskell" "Rust" "ReScript"))
+      (languages-avoid . ("Python" "TypeScript" "Julia"))
+      (tools-preferred . ("Nix" "Guix" "Just" "Nickel" "Podman" "Deno"))
       (values . ("creator-protection" "emotional-lineage" "quantum-proof-traceability"
                  "bilingual-integrity" "FOSS" "reproducibility"))))
 
     (session
-     (conversation-id . "2025-12-08-STATE-CREATION")
-     (started-at . "2025-12-08T00:00:00Z")
-     (messages-used . 0)
-     (messages-remaining . 100)
-     (token-limit-reached . #f))
+     (conversation-id . "2025-12-08-GITLAB-RECONCILIATION")
+     (started-at . "2025-12-08T22:00:00Z")
+     (milestone . "GitHub/GitLab reconciliation complete")
+     (actions-completed . ("Merged PR #41 workflow overhaul"
+                          "Reconciled GitLab content"
+                          "Established GitHub as canonical source"
+                          "Consolidated OCaml as primary implementation"
+                          "Removed TypeScript/Julia in favor of OCaml")))
 
     ;;; ==================================================
     ;;; CURRENT POSITION
@@ -418,12 +423,34 @@
        (notes . "RSR Bronze achieved, v0.4 text still stub"))))
 
     (files-created-this-session
-     ("STATE.scm"))
+     ("/FUNDING.md"
+      "/TOOLS/scripts/scaffold.sh"))
 
     (files-modified-this-session
-     ())
+     ("/STATE.scm"
+      "/.github/workflows/ci.yml"
+      "/.github/workflows/docs.yml"
+      "/.github/workflows/release.yml"
+      "/.github/workflows/security.yml"
+      "/.github/workflows/maintenance.yml"))
 
-    (context-notes . "CRITICAL: v0.4 license text is blocking. The project declares v0.4 'stable and ready' but the actual license files are empty stubs. This must be resolved before any progress toward v1.0. Second priority is forming the 7-member Stewardship Council.")))
+    (reconciliation-summary
+     (canonical-source . "GitHub")
+     (gitlab-unique-preserved . ("FUNDING.md content" "scaffold.sh script"))
+     (gitlab-unique-skipped . ("TypeScript widget (OCaml/Melange preferred)"
+                               "Julia parser (OCaml parser superior)"
+                               "post-sync.yml (GitHub now source of truth)"))
+     (workflows-consolidated . ("ci.yml: lint + test + build"
+                               "docs.yml: Jekyll + GitHub Pages"
+                               "security.yml: CodeQL + dependency review"
+                               "maintenance.yml: stale issue management"
+                               "release.yml: release automation"))
+     (implementation-stack . ("OCaml: Primary parser/validator (with Melange for browser)"
+                             "Haskell: Validation tools"
+                             "Deno: JavaScript linting/formatting"
+                             "SCSS: Styling")))
+
+    (context-notes . "GitHub is now the canonical source. GitLab content reconciled. OCaml is the primary implementation language (TypeScript/Julia removed). Workflows consolidated from PR #41. CRITICAL: v0.4 license text still blocking - this must be resolved before progress toward v1.0.")))
 
 ;;; ==================================================
 ;;; END STATE.scm
