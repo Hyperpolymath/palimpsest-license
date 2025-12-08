@@ -6,7 +6,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           # Use a Personal Access Token (PAT) if you have one stored as a secret
           # This allows the push to trigger OTHER workflows (default token does not)
