@@ -51,8 +51,8 @@ jobs:
           build-mode: none
         - language: ruby
           build-mode: none
-        - language: rust
-          build-mode: none
+        # Rust scanning disabled - experimental code in ARCHIVE/ has no Cargo.toml
+        # Re-enable when a proper Rust project is added to the repository
         # CodeQL supports the following values keywords for 'language': 'actions', 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'rust', 'swift'
         # Use `c-cpp` to analyze code written in C, C++ or both
         # Use 'java-kotlin' to analyze code written in Java, Kotlin or both
