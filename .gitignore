@@ -1,81 +1,193 @@
-# 🐍 Python artifacts
+# ==============================================================================
+# .gitignore - Palimpsest License Project
+# ==============================================================================
+# Comprehensive ignore patterns for OCaml, Haskell, Deno, Nix stack
+# Last updated: 2025-12-08
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# OCaml / Dune (Primary Implementation)
+# ------------------------------------------------------------------------------
+_build/
+*.install
+*.byte
+*.native
+*.cmo
+*.cmi
+*.cma
+*.cmx
+*.cmxa
+*.cmxs
+*.o
+*.a
+.merlin
+_opam/
+
+# ------------------------------------------------------------------------------
+# Haskell / Stack / Cabal (Validation Suite)
+# ------------------------------------------------------------------------------
+.stack-work/
+dist/
+dist-newstyle/
+*.hi
+*.dyn_hi
+*.dyn_o
+.ghc.environment.*
+cabal.project.local
+cabal.project.local~
+.HTF/
+.hpc/
+
+# ------------------------------------------------------------------------------
+# JavaScript / Node.js / Deno
+# ------------------------------------------------------------------------------
+node_modules/
+.deno/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+.yarn/
+
+# ------------------------------------------------------------------------------
+# ReScript
+# ------------------------------------------------------------------------------
+rescript/lib/
+*.bs.js
+.bsb.lock
+
+# ------------------------------------------------------------------------------
+# Nix
+# ------------------------------------------------------------------------------
+result
+result-*
+.direnv/
+
+# ------------------------------------------------------------------------------
+# Python (tooling scripts only - no Python in main codebase)
+# ------------------------------------------------------------------------------
 __pycache__/
 *.py[cod]
 *$py.class
 *.pyc
-
-# 🧪 Test and coverage tools
-.tox/
-.nox/
-.pytest_cache/
-.coverage
-.hypothesis/
-.mypy_cache/
-
-# 🧠 Elixir / Livebook
-/_build/
-/deps/
-/erl_crash.dump
-.mix/
-/cover/
-.elixir_ls/
-.livebook/
-
-# 🌍 Jupyter & Notebook tooling
-.ipynb_checkpoints/
-
-# 🧵 Environment folders
-.env
-.venv
-env/
+.venv/
 venv/
 ENV/
-ENV.bak/
-venv.bak/
+.pytest_cache/
+.mypy_cache/
+.tox/
+.nox/
+.hypothesis/
+.coverage
 
-# 📚 Documentation and build output
+# ------------------------------------------------------------------------------
+# Rust (if added)
+# ------------------------------------------------------------------------------
+target/
+
+# ------------------------------------------------------------------------------
+# Build Outputs
+# ------------------------------------------------------------------------------
 *.log
 *.pot
 htmlcov/
 docs/_site/
-docs/dist/
-*.html
-# Exception: licence block HTML snippets (intentional documentation)
-!embed/license-blocks/*.html
-# Exception: presentation HTML files (reveal.js presentations)
-!presentations/**/*.html
+_site/
+public/
 
-# 🎞 Mermaid diagrams
-*.mmd
-*.mermaid
-
-# 💻 IDEs and editors
-.vscode/
-.idea/
-.project
-.classpath
-.settings/
-*.sublime-project
-*.sublime-workspace
-
-# 💾 OS-generated files
-.DS_Store
-Thumbs.db
-
-# 🎨 Compiled CSS (generated from SCSS)
+# ------------------------------------------------------------------------------
+# Compiled CSS (generated from SCSS)
+# ------------------------------------------------------------------------------
 styles/css/*.css
 styles/css/*.css.map
 !styles/css/.gitkeep
 
-# 📦 Node.js
-node_modules/
-package-lock.json
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# ------------------------------------------------------------------------------
+# Editor & IDE
+# ------------------------------------------------------------------------------
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+\#*\#
+.#*
+.project
+.classpath
+.settings/
 
-# 🔧 ReScript build artifacts
-rescript/lib/
-*.bs.js
-.bsb.lock
-.merlin
+# ------------------------------------------------------------------------------
+# OS Generated
+# ------------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ------------------------------------------------------------------------------
+# Temporary & Backup Files
+# ------------------------------------------------------------------------------
+*.bak
+*.backup
+*.tmp
+*.temp
+*.orig
+*.rej
+
+# ------------------------------------------------------------------------------
+# Test & Coverage
+# ------------------------------------------------------------------------------
+coverage/
+*.lcov
+.nyc_output/
+
+# ------------------------------------------------------------------------------
+# Secrets & Credentials (NEVER commit)
+# ------------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+credentials.json
+secrets.json
+.secrets/
+
+# ------------------------------------------------------------------------------
+# Sync & Lock Files
+# ------------------------------------------------------------------------------
+sync.log
+
+# ------------------------------------------------------------------------------
+# Project-Specific Ignores
+# ------------------------------------------------------------------------------
+# Mermaid diagram source (compiled SVGs are committed)
+*.mmd
+*.mermaid
+
+# Draft documents (keep in local only)
+drafts/
+DRAFTS/
+*-DRAFT.md
+*-draft.md
+
+# Local notes
+notes.md
+NOTES.md
+TODO.local.md
+scratch/
+
+# HTML files (except specific allowed locations)
+*.html
+!embed/license-blocks/*.html
+!presentations/**/*.html
+!assets/**/*.html

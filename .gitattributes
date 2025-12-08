@@ -1,23 +1,142 @@
-# 🌐 Normalize line endings
+# ==============================================================================
+# .gitattributes - Palimpsest License Project
+# ==============================================================================
+# Defines consistent handling of files across all platforms and Git operations.
+# Last updated: 2025-12-08
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Default: Auto-detect text files and normalize line endings
+# ------------------------------------------------------------------------------
 * text=auto
 
-# 📜 Enforce LF endings for structured and source formats
-*.md     text eol=lf
-*.json   text eol=lf
-*.jsonld text eol=lf
-*.xml    text eol=lf
-*.html   text eol=lf
-*.py     text eol=lf
-*.ex     text eol=lf
-*.exs    text eol=lf
-*.sh     text eol=lf
-*.mmd    text eol=lf
-*.mermaid text eol=lf
+# ------------------------------------------------------------------------------
+# Legal Documents - LF endings, diff-friendly
+# ------------------------------------------------------------------------------
+*.md          text eol=lf diff=markdown
+*.txt         text eol=lf
+*.adoc        text eol=lf
+LICENSE*      text eol=lf
+COPYING*      text eol=lf
 
-# 📦 Binary file handling
-*.png    binary
-*.jpg    binary
-*.jpeg   binary
-*.gif    binary
-*.zip    binary
-*.ico    binary
+# ------------------------------------------------------------------------------
+# Structured Data - LF endings
+# ------------------------------------------------------------------------------
+*.json        text eol=lf
+*.jsonld      text eol=lf
+*.xml         text eol=lf
+*.yaml        text eol=lf
+*.yml         text eol=lf
+*.toml        text eol=lf
+*.csv         text eol=lf
+
+# ------------------------------------------------------------------------------
+# Source Code - OCaml (primary implementation)
+# ------------------------------------------------------------------------------
+*.ml          text eol=lf diff=ocaml
+*.mli         text eol=lf diff=ocaml
+dune          text eol=lf
+dune-project  text eol=lf
+*.opam        text eol=lf
+
+# ------------------------------------------------------------------------------
+# Source Code - Haskell (validation suite - may consolidate to OCaml)
+# ------------------------------------------------------------------------------
+*.hs          text eol=lf diff=haskell
+*.lhs         text eol=lf diff=haskell
+*.cabal       text eol=lf
+stack.yaml    text eol=lf
+
+# ------------------------------------------------------------------------------
+# Source Code - Web/JavaScript (Deno-managed)
+# ------------------------------------------------------------------------------
+*.js          text eol=lf
+*.mjs         text eol=lf
+*.jsx         text eol=lf
+
+# ------------------------------------------------------------------------------
+# Source Code - ReScript
+# ------------------------------------------------------------------------------
+*.res         text eol=lf
+*.resi        text eol=lf
+
+# ------------------------------------------------------------------------------
+# Source Code - Rust (if added)
+# ------------------------------------------------------------------------------
+*.rs          text eol=lf diff=rust
+Cargo.toml    text eol=lf
+Cargo.lock    text eol=lf -diff
+
+# ------------------------------------------------------------------------------
+# Source Code - Solidity (smart contracts)
+# ------------------------------------------------------------------------------
+*.sol         text eol=lf
+
+# ------------------------------------------------------------------------------
+# Shell Scripts
+# ------------------------------------------------------------------------------
+*.sh          text eol=lf
+*.bash        text eol=lf
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+*.nix         text eol=lf
+*.ncl         text eol=lf
+*.scm         text eol=lf diff=scheme
+Makefile      text eol=lf
+justfile      text eol=lf
+.gitignore    text eol=lf
+.gitattributes text eol=lf
+.editorconfig text eol=lf
+
+# ------------------------------------------------------------------------------
+# Web Assets
+# ------------------------------------------------------------------------------
+*.html        text eol=lf diff=html
+*.css         text eol=lf diff=css
+*.scss        text eol=lf diff=css
+*.svg         text eol=lf
+
+# ------------------------------------------------------------------------------
+# Binary Files - Never normalize, never diff
+# ------------------------------------------------------------------------------
+*.png         binary
+*.jpg         binary
+*.jpeg        binary
+*.gif         binary
+*.webp        binary
+*.ico         binary
+*.pdf         binary
+*.docx        binary
+*.xlsx        binary
+*.pptx        binary
+*.zip         binary
+*.tar         binary
+*.gz          binary
+*.woff        binary
+*.woff2       binary
+*.ttf         binary
+*.eot         binary
+
+# ------------------------------------------------------------------------------
+# Lock Files - Track but don't diff (too noisy)
+# ------------------------------------------------------------------------------
+package-lock.json text eol=lf -diff
+flake.lock        text eol=lf -diff
+opam.lock         text eol=lf -diff
+
+# ------------------------------------------------------------------------------
+# Generated Files - Mark for GitHub linguist
+# ------------------------------------------------------------------------------
+**/vendor/**      linguist-vendored
+**/node_modules/** linguist-vendored
+**/_build/**      linguist-generated
+**/_site/**       linguist-generated
+styles/css/*.css  linguist-generated
+
+# ------------------------------------------------------------------------------
+# Documentation - Ensure proper language detection
+# ------------------------------------------------------------------------------
+*.md linguist-documentation=false
+LICENSES/**/*.md linguist-documentation=false
