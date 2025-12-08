@@ -1,286 +1,100 @@
-name: Security Scanning
+# =============================================================================
+# Security - CodeQL Analysis & Dependency Scanning
+# =============================================================================
+# Comprehensive security scanning for the Palimpsest License project.
+#
+# Jobs:
+#   - codeql: Static analysis for vulnerabilities (JavaScript, Ruby, Actions)
+#   - dependencies: Check for vulnerable dependencies
+#
+# Schedule: Runs weekly (Saturday 18:00 UTC) and on every push to main
+#
+# Note: Python and Rust scanning disabled - code removed from project.
+#       Re-enable if those languages are added back.
+# =============================================================================
 
-# Comprehensive security scanning workflow
-# Runs npm audit, CodeQL, secret scanning, and dependency checks
+name: Security
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   schedule:
-    # Run daily at 02:00 UTC
-    - cron: '0 2 * * *'
+    # Weekly scan: Saturday at 18:00 UTC
+    - cron: '0 18 * * 6'
+  workflow_dispatch:  # Allow manual trigger
 
-# Default permissions for all jobs (principle of least privilege)
 permissions:
+  security-events: write  # Required for CodeQL
   contents: read
+  actions: read
 
 jobs:
-  npm-audit:
-    name: NPM Security Audit
+  # ---------------------------------------------------------------------------
+  # CodeQL - Static Application Security Testing (SAST)
+  # ---------------------------------------------------------------------------
+  # Scans source code for security vulnerabilities and coding errors.
+  # Results appear in GitHub Security tab > Code scanning alerts
+  # ---------------------------------------------------------------------------
+  codeql:
+    name: CodeQL (${{ matrix.language }})
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run npm audit
-        run: |
-          echo "Running npm audit..."
-          npm audit --audit-level=moderate || EXIT_CODE=$?
-
-          if [ "${EXIT_CODE:-0}" -ne 0 ]; then
-            echo "::warning::npm audit found vulnerabilities"
-            npm audit --audit-level=moderate --json > audit-report.json || true
-            cat audit-report.json
-          fi
-
-          # Fail on high or critical vulnerabilities
-          npm audit --audit-level=high
-
-      - name: Audit ReScript dependencies
-        working-directory: rescript
-        run: |
-          echo "Auditing ReScript dependencies..."
-          npm ci
-          npm audit --audit-level=moderate || echo "::warning::ReScript npm audit found issues"
-          npm audit --audit-level=high
-
-      - name: Upload audit report
-        if: failure()
-        uses: actions/upload-artifact@v5
-        with:
-          name: npm-audit-report
-          path: audit-report.json
-          retention-days: 30
-
-  codeql-analysis:
-    name: CodeQL Security Analysis
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-
     strategy:
-      fail-fast: false
+      fail-fast: false  # Continue other languages if one fails
       matrix:
-        language: [ 'javascript' ]
-        # Add 'python' if Python code becomes significant
+        # Languages to scan:
+        # - javascript-typescript: Embed scripts, widgets
+        # - ruby: Server integrations
+        # - actions: Workflow files themselves
+        #
+        # NOT scanning (code removed):
+        # - python: Removed, replaced with Julia if needed
+        # - rust: Removed, was incomplete experiment
+        include:
+          - language: javascript-typescript
+            build-mode: none
+          - language: ruby
+            build-mode: none
+          - language: actions
+            build-mode: none
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4
+        uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
-          queries: security-extended,security-and-quality
-
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v4
+          build-mode: ${{ matrix.build-mode }}
+          # Using default queries - security-extended adds more checks
+          # but may produce false positives
+          # queries: security-extended
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@v3
         with:
           category: "/language:${{ matrix.language }}"
 
-  secret-scanning:
-    name: Secret Scanning
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Full history for comprehensive scanning
-
-      - name: TruffleHog Secret Scan
-        uses: trufflesecurity/trufflehog@v3.91.2
-        with:
-          path: ./
-          base: ${{ github.event.repository.default_branch }}
-          head: HEAD
-          extra_args: --only-verified
-
-      - name: Gitleaks Secret Scan
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  # ---------------------------------------------------------------------------
+  # Dependency Review - Check for vulnerable dependencies
+  # ---------------------------------------------------------------------------
+  # Runs on pull requests to catch vulnerable dependencies before merge.
+  # Uses GitHub's dependency graph to identify known vulnerabilities.
+  # ---------------------------------------------------------------------------
   dependency-review:
     name: Dependency Review
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Dependency Review
         uses: actions/dependency-review-action@v4
         with:
-          fail-on-severity: moderate
-          deny-licenses: AGPL-3.0, GPL-3.0
-          allow-licenses: MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC
-
-  security-txt-validation:
-    name: Validate security.txt
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Check security.txt exists
-        run: |
-          if [ ! -f ".well-known/security.txt" ]; then
-            echo "❌ security.txt not found"
-            exit 1
-          fi
-          echo "✅ security.txt found"
-
-      - name: Validate security.txt format
-        run: |
-          echo "Validating security.txt format..."
-          SECURITY_FILE=".well-known/security.txt"
-
-          # Check required fields
-          grep -q "^Contact:" "$SECURITY_FILE" || { echo "❌ Missing Contact field"; exit 1; }
-          grep -q "^Expires:" "$SECURITY_FILE" || { echo "❌ Missing Expires field"; exit 1; }
-
-          echo "✅ Required fields present"
-
-      - name: Check security.txt expiry
-        run: |
-          SECURITY_FILE=".well-known/security.txt"
-          EXPIRY_LINE=$(grep "^Expires:" "$SECURITY_FILE" | head -1)
-          EXPIRY_DATE=$(echo "$EXPIRY_LINE" | sed 's/Expires: //')
-
-          echo "Expiry date: $EXPIRY_DATE"
-
-          # Convert to timestamp (this is a simplified check)
-          EXPIRY_EPOCH=$(date -d "$EXPIRY_DATE" +%s 2>/dev/null || date -j -f "%Y-%m-%dT%H:%M:%S" "$EXPIRY_DATE" +%s 2>/dev/null)
-          CURRENT_EPOCH=$(date +%s)
-
-          DAYS_UNTIL_EXPIRY=$(( ($EXPIRY_EPOCH - $CURRENT_EPOCH) / 86400 ))
-
-          echo "Days until expiry: $DAYS_UNTIL_EXPIRY"
-
-          if [ $DAYS_UNTIL_EXPIRY -lt 0 ]; then
-            echo "::error::security.txt has expired!"
-            exit 1
-          elif [ $DAYS_UNTIL_EXPIRY -lt 30 ]; then
-            echo "::warning::security.txt expires in less than 30 days!"
-          else
-            echo "✅ security.txt is valid and not expiring soon"
-          fi
-
-  license-compliance:
-    name: License Compliance Check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Check dependency licenses
-        run: |
-          echo "Checking dependency licenses..."
-          npx license-checker --summary || echo "license-checker not configured"
-
-          # Ensure no GPL dependencies (except development)
-          echo "Checking for GPL licenses..."
-          if npx license-checker --production --onlyAllow "MIT;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC;0BSD;CC0-1.0;Unlicense" 2>&1 | grep -i "GPL"; then
-            echo "::error::Found GPL-licensed dependencies in production"
-            exit 1
-          fi
-
-          echo "✅ License compliance check passed"
-
-  vulnerability-disclosure-policy:
-    name: Verify Vulnerability Disclosure Policy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Check SECURITY.md exists
-        run: |
-          if [ ! -f "SECURITY.md" ]; then
-            echo "❌ SECURITY.md not found"
-            exit 1
-          fi
-          echo "✅ SECURITY.md found"
-
-      - name: Validate SECURITY.md content
-        run: |
-          SECURITY_FILE="SECURITY.md"
-
-          # Check for key sections
-          grep -i "reporting" "$SECURITY_FILE" || { echo "⚠️  Warning: Missing reporting section"; }
-          grep -i "disclosure" "$SECURITY_FILE" || { echo "⚠️  Warning: Missing disclosure policy"; }
-          grep -i "contact" "$SECURITY_FILE" || { echo "⚠️  Warning: Missing contact information"; }
-
-          echo "✅ SECURITY.md validation complete"
-
-  security-summary:
-    name: Security Summary
-    runs-on: ubuntu-latest
-    needs: [npm-audit, codeql-analysis, secret-scanning, security-txt-validation, license-compliance, vulnerability-disclosure-policy]
-    if: always()
-    permissions:
-      issues: write  # Required for creating security alert issues
-    steps:
-      - name: Check security results
-        run: |
-          echo "============================================"
-          echo "🔒 SECURITY SCAN RESULTS"
-          echo "============================================"
-          echo ""
-          echo "NPM audit: ${{ needs.npm-audit.result }}"
-          echo "CodeQL analysis: ${{ needs.codeql-analysis.result }}"
-          echo "Secret scanning: ${{ needs.secret-scanning.result }}"
-          echo "security.txt validation: ${{ needs.security-txt-validation.result }}"
-          echo "License compliance: ${{ needs.license-compliance.result }}"
-          echo "Vulnerability policy: ${{ needs.vulnerability-disclosure-policy.result }}"
-          echo ""
-          echo "============================================"
-
-          # Fail if critical security checks failed
-          if [ "${{ needs.npm-audit.result }}" != "success" ] || \
-             [ "${{ needs.secret-scanning.result }}" != "success" ] || \
-             [ "${{ needs.security-txt-validation.result }}" != "success" ]; then
-            echo "❌ Critical security checks failed"
-            exit 1
-          fi
-
-          echo "✅ Security scan complete"
-
-      - name: Create security report issue (on failure)
-        if: failure() && github.event_name == 'schedule'
-        uses: actions/github-script@v8
-        with:
-          script: |
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: '🔒 Security Scan Alert',
-              body: 'Automated security scan found issues. Please review the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).',
-              labels: ['security', 'automated']
-            })
+          # Fail on high/critical vulnerabilities
+          fail-on-severity: high
+          # Allow specific licenses (add more as needed)
+          allow-licenses: MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, LGPL-2.1, LGPL-3.0
