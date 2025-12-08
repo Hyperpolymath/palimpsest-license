@@ -48,8 +48,7 @@ jobs:
           build-mode: none
         - language: javascript-typescript
           build-mode: none
-        - language: python
-          build-mode: none
+        # Python removed - all Python code deleted in favor of Julia (if needed)
         - language: ruby
           build-mode: none
         # Rust scanning disabled - experimental code in ARCHIVE/ has no Cargo.toml
