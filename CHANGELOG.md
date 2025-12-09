@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2025-12-09
+
+### Added
+- **Professional Integration Guides** for archivists, museum curators, educators, translators, psychologists, and marginalised communities
+- **Research Documents** covering OCanren logic programming, neurosymbolic AI architecture, PKP integration, ambient computing, and trans-perceptual representation
+- **Philosophy Documentation** articulating the founding question ("history written by winners") and blockchain's role in immutable consent
+- **Platform Infrastructure**: Nix flake, Guix package definition, Wolfi container, Nickel configuration schema
+- **Document Review System** for tracking freshness and consistency across the repository
+- **Podcast Series Plan** ("Layers") for public outreach
+- **Funding Strategy** and target organisation research
+
+### Changed
+- **Language Consolidation**: OCaml as primary implementation language (Melange for browser, OCanren for logic)
+- **CI/CD Overhaul**: Workflows made resilient with conditional execution and graceful degradation
+- **Repository Structure**: Major cleanup following APM-level project management framework
+- **Archived**: Elixir experiment moved to ARCHIVE/elixir-experiment/
+
+### Fixed
+- Merge conflict resolution for PR #41
+- GitHub/GitLab repository reconciliation (GitHub now canonical)
+- CI workflow failures blocking PRs
+
+### Removed
+- Elixir/Ecto schemas (archived, superseded by OCaml)
+- Redundant workflow files (release.yml, jekyll-gh-pages.yml)
+
 ## [0.3.0] - 2025-04-05
 
 ### Added

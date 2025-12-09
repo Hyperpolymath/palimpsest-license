@@ -43,7 +43,16 @@
             nodePackages.npm     # Package management
             python3              # For serving docs locally
 
-            # Validation & build tools
+            # OCaml tools (primary language)
+            ocaml                # OCaml compiler
+            dune_3               # OCaml build system
+            opam                 # OCaml package manager
+            ocamlPackages.utop   # OCaml REPL
+            ocamlPackages.merlin # OCaml IDE support
+            ocamlPackages.ocaml-lsp # OCaml LSP
+            ocamlPackages.odoc   # OCaml documentation
+
+            # Haskell tools (migrating away, but still needed)
             cabal-install        # Haskell build tool
             ghc                  # Glasgow Haskell Compiler
             haskellPackages.haskell-language-server # Haskell LSP
@@ -54,6 +63,12 @@
             # Image conversion (for assets)
             imagemagick          # SVG → PNG/JPG/TIFF
             librsvg              # SVG rendering
+
+            # Container tools
+            nerdctl              # Container runtime (if available)
+
+            # Configuration tools
+            nickel               # Configuration language
 
             # Optional: for Protocol Buffers
             protobuf             # protoc compiler
