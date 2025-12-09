@@ -413,6 +413,114 @@ let honors_thematic_integrity transformation original =
 - VoID vocabulary extension proposal (W3C)
 - Palimpsest ontology (OWL/RDF)
 - Post-quantum provenance protocol specification
+- IndieWeb microformat extensions for licensing
+
+---
+
+## VoID + IndieWeb: The Parallel Web
+
+The VoID network and IndieWeb share a fundamental philosophy: **user-owned, decentralized, interoperable**. Together they form the backbone of an alternative consent infrastructure.
+
+### Why IndieWeb is Essential
+
+IndieWeb principles align perfectly with Palimpsest goals:
+
+| IndieWeb Principle | Palimpsest Alignment |
+|-------------------|----------------------|
+| **Own your data** | Own your consent declarations |
+| **Own your identity** | Own your attribution identity |
+| **POSSE** (Publish Own Site, Syndicate Elsewhere) | Consent originates from your domain |
+| **Backfeed** | Attribution notifications return to you |
+| **Plurality** | Multiple frameworks (Zola/Serum/ReScript/WP) |
+
+### The Parallel VoID/IndieWeb Network
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        PARALLEL CONSENT WEB                              │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  ┌─────────────────────┐         ┌─────────────────────┐               │
+│  │  IndieWeb Sites     │◄───────►│  VoID Registry      │               │
+│  │  (user-owned)       │         │  Nodes              │               │
+│  │                     │         │                     │               │
+│  │  - h-card identity  │   IPFS  │  - SurrealDB        │               │
+│  │  - h-entry works    │◄───────►│  - Consent records  │               │
+│  │  - Webmention       │   CIDs  │  - Attribution      │               │
+│  │  - Micropub         │         │    graphs           │               │
+│  └─────────────────────┘         └─────────────────────┘               │
+│           │                               │                             │
+│           │         ┌─────────────────────┘                             │
+│           │         │                                                    │
+│           ▼         ▼                                                    │
+│  ┌─────────────────────────────────────┐                               │
+│  │     Federated Consent Discovery      │                               │
+│  │                                       │                               │
+│  │  "Is work X licensed under          │                               │
+│  │   Palimpsest? What consent          │                               │
+│  │   exists for AI training?"          │                               │
+│  │                                       │                               │
+│  │  → Query IndieWeb site's AIBDP      │                               │
+│  │  → Cross-reference VoID registry    │                               │
+│  │  → Return consent status + CID      │                               │
+│  └─────────────────────────────────────┘                               │
+│                     │                                                    │
+│                     ▼                                                    │
+│  ┌─────────────────────────────────────┐                               │
+│  │          AI Systems                  │                               │
+│  │                                       │                               │
+│  │  Before training on content:        │                               │
+│  │  1. Check .well-known/ai-boundary   │                               │
+│  │  2. Query VoID network              │                               │
+│  │  3. Verify Webmention trail         │                               │
+│  │  4. Record provenance (IPFS CID)    │                               │
+│  └─────────────────────────────────────┘                               │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### IndieWeb Building Blocks for VoID
+
+**Microformat Extensions:**
+
+```html
+<!-- Proposed: p-consent for Palimpsest consent metadata -->
+<div class="h-entry">
+  <h1 class="p-name">Creative Work</h1>
+
+  <!-- Consent block (proposed microformat) -->
+  <div class="p-consent h-consent">
+    <data class="p-license" value="Palimpsest-0.7">
+    <data class="p-ai-training" value="allowed">
+    <data class="p-attribution-required" value="true">
+    <data class="p-ethical-use-required" value="true">
+    <a class="u-void-registry" href="ipfs://Qm...">VoID Record</a>
+    <time class="dt-expires" datetime="2027-01-01">Consent valid until</time>
+  </div>
+</div>
+```
+
+**Webmention as Attribution Protocol:**
+
+Every derivative work sends a Webmention, creating a distributed attribution graph without centralized infrastructure.
+
+**IndieAuth for Consent Issuance:**
+
+Use your own domain as identity to issue consent tokens:
+
+```
+Authorization: Bearer <IndieAuth token>
+X-Consent-Domain: example.com
+X-Consent-Scope: ai-training,derivatives
+```
+
+### Research Questions
+
+1. How do we bridge IndieWeb's "small web" ethos with corporate AI systems?
+2. Can Webmention scale to attribution chains with millions of derivatives?
+3. How do we handle consent for works that predate IndieWeb adoption?
+4. What's the governance model for VoID node operators?
+5. How do we prevent Sybil attacks on the consent registry?
 
 ---
 

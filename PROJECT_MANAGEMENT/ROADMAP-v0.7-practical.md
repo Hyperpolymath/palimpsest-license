@@ -51,42 +51,221 @@ Create a standalone, portable Zola-based site generator that users can:
 - **Self-host** on any static hosting platform
 - **Customize** with their own branding/styling
 
-**Package Structure:**
+**Multi-Framework Ejectable Kits:**
+
+The ejectable site kit will be available in multiple flavors to meet users where they are:
+
 ```
-palimpsest-site-kit/
-├── config.toml.template      # Zola config template
+palimpsest-site-kits/
+├── zola/                     # Static, offline-first (Rust)
+├── serum-liveview/           # Dynamic consent flows (Elixir/Phoenix)
+├── rescript-tea/             # Functional web apps (ReScript)
+└── wp-simple-theme/          # WordPress mainstream adoption
+```
+
+### Option 1: Zola (Static, Offline-First)
+```
+palimpsest-zola/
+├── config.toml.template
 ├── content/
-│   └── _index.md             # Landing page template
 ├── templates/
-│   ├── base.html
-│   ├── page.html
-│   ├── license.html          # License display template
-│   └── shortcodes/
-│       └── palimpsest-notice.html
 ├── sass/
-│   └── main.scss
-├── static/
-│   ├── .well-known/
-│   │   └── ai-boundary.json.template
-│   └── licenses/
-│       └── palimpsest-v0.7.txt
-├── scripts/
-│   ├── setup.sh              # One-command setup
-│   └── eject.sh              # Extract from main repo
-├── README.md
-└── LICENSE                   # Meta: Palimpsest-0.7
+├── static/.well-known/
+└── scripts/setup.sh
 ```
 
-**Installation:**
+### Option 2: Serum + Phoenix LiveView (Dynamic Consent)
+```
+palimpsest-serum/
+├── mix.exs
+├── config/
+├── lib/
+│   ├── palimpsest_web/
+│   │   ├── live/
+│   │   │   ├── consent_live.ex      # Real-time consent UI
+│   │   │   ├── attribution_live.ex  # Live attribution chain
+│   │   │   └── void_dashboard.ex    # VoID network status
+│   │   ├── channels/
+│   │   │   └── consent_channel.ex   # WebSocket consent updates
+│   │   └── controllers/
+│   │       └── aibdp_controller.ex  # HTTP 430 handler
+│   └── palimpsest/
+│       ├── void/                    # VoID network client
+│       ├── ipfs/                    # IPFS integration
+│       └── consent/                 # Consent token logic
+├── priv/static/.well-known/
+├── posts/                           # Serum blog content
+└── serum.exs
+```
+
+LiveView benefits for Palimpsest:
+- Real-time consent revocation notifications
+- Live attribution chain visualization
+- Interactive license wizard
+- VoID network status dashboard
+- WebSocket-based consent negotiation
+
+### Option 3: ReScript-TEA (Functional Web Apps)
+
+Using https://github.com/hyperpolymath/rescript-tea:
+
+```
+palimpsest-rescript/
+├── bsconfig.json
+├── src/
+│   ├── App.res                     # Main TEA app
+│   ├── Consent.res                 # Consent state machine
+│   ├── Attribution.res             # Attribution chain model
+│   ├── VoidClient.res              # VoID network queries
+│   ├── Palimpsest.res              # License metadata types
+│   └── components/
+│       ├── LicenseWizard.res
+│       ├── ConsentBadge.res
+│       └── AttributionChain.res
+├── static/.well-known/
+└── index.html
+```
+
+ReScript-TEA benefits:
+- Strong typing for license metadata
+- Elm-architecture for predictable consent state
+- Compiles to efficient JS
+- Functional approach aligns with license philosophy
+
+### Option 4: WordPress (wp-simple-theme)
+
+Using https://github.com/hyperpolymath/wp-simple-theme:
+
+```
+palimpsest-wp/
+├── style.css
+├── functions.php
+│   └── palimpsest_meta_tags()      # License metadata
+│   └── palimpsest_aibdp_headers()  # HTTP headers
+│   └── palimpsest_consent_shortcode()
+├── template-parts/
+│   └── palimpsest-notice.php
+├── .well-known/
+│   └── ai-boundary.json
+└── inc/
+    └── class-palimpsest-consent.php
+```
+
+WordPress benefits:
+- Massive existing user base
+- Low barrier to entry
+- Plugin ecosystem
+- Bridges to mainstream web
+
+**Installation (All Options):**
 ```bash
-# Option 1: Git submodule
-git submodule add https://github.com/hyperpolymath/palimpsest-site-kit.git palimpsest
+# Zola (static)
+curl -L https://palimpsest.license/kits/zola.tar.gz | tar xz
 
-# Option 2: Direct copy
-curl -L https://palimpsest.license/site-kit.tar.gz | tar xz
+# Serum/LiveView (dynamic)
+mix archive.install hex palimpsest_serum
+mix palimpsest.new my_site
 
-# Option 3: Deno script
-deno run https://palimpsest.license/install.ts
+# ReScript-TEA (functional)
+npx degit hyperpolymath/palimpsest-rescript my-site
+
+# WordPress (mainstream)
+wp plugin install palimpsest-license --activate
+```
+
+### IndieWeb Integration
+
+All site kits should support IndieWeb standards for decentralized, user-owned web presence:
+
+**Core IndieWeb Building Blocks:**
+
+```html
+<!-- h-card: Machine-readable author identity -->
+<div class="h-card">
+  <a class="p-name u-url" href="https://example.com">Creator Name</a>
+  <data class="p-license" value="Palimpsest-0.7">Palimpsest License v0.7</data>
+</div>
+
+<!-- h-entry with Palimpsest metadata -->
+<article class="h-entry">
+  <h1 class="p-name">My Creative Work</h1>
+  <div class="e-content">...</div>
+  <a class="u-license" href="https://palimpsest.license/v0.7">Palimpsest-0.7</a>
+  <data class="p-ai-training-consent" value="true">AI Training Permitted</data>
+  <data class="p-attribution-required" value="true">Attribution Required</data>
+</article>
+
+<!-- rel="me" for identity verification -->
+<link rel="me" href="https://github.com/username">
+<link rel="license" href="https://palimpsest.license/v0.7">
+```
+
+**IndieWeb Protocols + Palimpsest:**
+
+| IndieWeb | Palimpsest Integration |
+|----------|------------------------|
+| **Webmention** | Attribution chain notifications - when derivative works link back |
+| **Micropub** | Publish consent declarations to your own site |
+| **IndieAuth** | Authenticate for consent token issuance |
+| **Vouch** | Trust network for consent verification |
+| **Microsub** | Subscribe to consent/attribution updates |
+
+**VoID ↔ IndieWeb Bridge:**
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│                     User's IndieWeb Site                        │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐│
+│  │   h-card    │  │  h-entry    │  │ .well-known/ai-boundary ││
+│  │ (identity)  │  │ (works)     │  │ (AIBDP)                 ││
+│  └──────┬──────┘  └──────┬──────┘  └────────────┬────────────┘│
+│         │                │                       │             │
+│         └────────────────┴───────────────────────┘             │
+│                          │                                      │
+│              ┌───────────┴───────────┐                         │
+│              │     Webmention        │◄── Attribution notifs   │
+│              │     endpoint          │                          │
+│              └───────────┬───────────┘                         │
+└──────────────────────────┼─────────────────────────────────────┘
+                           │
+           ┌───────────────┼───────────────┐
+           │               │               │
+           ▼               ▼               ▼
+┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+│ VoID Node 1  │  │ VoID Node 2  │  │ VoID Node 3  │
+│  (SurrealDB  │  │  (SurrealDB  │  │  (SurrealDB  │
+│  + IPFS)     │  │  + IPFS)     │  │  + IPFS)     │
+└──────────────┘  └──────────────┘  └──────────────┘
+```
+
+**Webmention for Attribution Chains:**
+
+When someone creates a derivative work:
+1. They publish it with `u-license` and `u-in-reply-to` pointing to original
+2. Webmention notifies original creator
+3. VoID node records the attribution link
+4. Both sites show the relationship
+
+```elixir
+# Serum/Phoenix: Webmention handler for attribution
+defmodule PalimpsestWeb.WebmentionController do
+  def receive(conn, %{"source" => source, "target" => target}) do
+    with {:ok, derivative} <- fetch_h_entry(source),
+         {:ok, license} <- extract_license(derivative),
+         :ok <- verify_palimpsest_compliance(license, derivative) do
+
+      # Record in VoID network
+      VoID.record_attribution(%{
+        original: target,
+        derivative: source,
+        license: license,
+        thematic_integrity: analyze_integrity(derivative)
+      })
+
+      send_resp(conn, 202, "Accepted")
+    end
+  end
+end
 ```
 
 ### 3. Simplified License Selection
