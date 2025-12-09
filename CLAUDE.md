@@ -4,7 +4,7 @@
 
 The **Palimpsest License** is a future-proof, layered licensing framework designed for creative work in the age of AI. It protects creators who work with narrative, trauma, mythology, and symbolic expression while addressing modern challenges like AI training, emotional lineage, and quantum-proof traceability.
 
-**Current Version:** v0.4 (transitioning from v0.3)
+**Current Version:** v0.6
 
 **Core Purpose:**
 - Protects emotional lineage (e.g., protest songs, cultural narratives)
@@ -17,7 +17,7 @@ The **Palimpsest License** is a future-proof, layered licensing framework design
 <!-- Run `just generate-structure` to regenerate this -->
 ```
 palimpsest-license/
-├── LICENSES/                    # License texts (v0.3, v0.4)
+├── LICENSES/                    # License texts (v0.3, v0.4, v0.6)
 ├── LICENSE_CORE/                # Core agreements (AGI consent, etc.)
 ├── GUIDES_v0.4/                 # User guides and professional integration
 ├── TOOLKIT_v0.4/                # Compliance audit tools
@@ -35,9 +35,14 @@ palimpsest-license/
 ├── ocaml/                       # OCaml implementation (primary)
 ├── standards/                   # RSR compliance, TPCF, reversibility docs
 ├── scripts/                     # Shell scripts (setup, hooks, generation)
-├── config/                      # Configuration files (Nickel, Deno)
+├── integrations/                # Platform integrations (SSG, CI/CD, etc.)
 ├── .well-known/                 # Web standards (security.txt, robots.txt, etc.)
 ├── .github/                     # CI/CD workflows
+│
+├── content/                     # Zola content (markdown)
+├── templates/                   # Zola templates (Tera)
+├── sass/                        # Zola SCSS styles
+├── static/                      # Zola static assets
 │
 ├── README.md                    # Project overview (English)
 ├── README.nl.md                 # Project overview (Dutch)
@@ -48,6 +53,8 @@ palimpsest-license/
 ├── GOVERNANCE.md                # Decision-making process
 ├── MAINTAINERS.md               # Project maintainers
 ├── SECURITY.md                  # Security policy
+├── config.toml                  # Zola configuration
+├── deno.json                    # Deno configuration (replaces package.json)
 ├── FUNDING.md                   # Funding strategy
 ├── CLAUDE.md                    # AI assistant context
 │

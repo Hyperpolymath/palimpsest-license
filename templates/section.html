@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock %}
+
+{% block description %}{% if section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}{% endblock %}
+
+{% block content %}
+<section class="section-listing">
+    <header class="section-header">
+        <h1>{{ section.title }}</h1>
+        {% if section.description %}
+        <p class="section-description">{{ section.description }}</p>
+        {% endif %}
+    </header>
+
+    {% if section.content %}
+    <div class="section-content">
+        {{ section.content | safe }}
+    </div>
+    {% endif %}
+
+    {% if section.subsections %}
+    <nav class="subsections">
+        <h2>Sections</h2>
+        <ul>
+            {% for subsection in section.subsections %}
+            <li><a href="{{ subsection.permalink }}">{{ subsection.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+    {% endif %}
+
+    {% if section.pages %}
+    <ul class="page-list">
+        {% for page in section.pages %}
+        <li class="page-item">
+            <a href="{{ page.permalink }}" class="page-link">
+                <h2>{{ page.title }}</h2>
+                {% if page.description %}
+                <p>{{ page.description }}</p>
+                {% endif %}
+                {% if page.date %}
+                <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+                {% endif %}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</section>
+{% endblock %}

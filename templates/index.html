@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>Palimpsest License</h1>
+    <p class="tagline">Human-Centered Content Licensing in the AI Era</p>
+    <p class="description">{{ config.description }}</p>
+    <div class="hero-actions">
+        <a href="/licenses/v0-6/" class="btn btn-primary">Read License v0.6</a>
+        <a href="/guides/" class="btn btn-secondary">Getting Started</a>
+    </div>
+</section>
+
+<section class="features">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+        <div class="feature">
+            <h3>Ethical Use Requirements</h3>
+            <p>Ensures content is used responsibly with attribution integrity, contextual integrity, and reputational protection.</p>
+        </div>
+        <div class="feature">
+            <h3>AI Training Permitted</h3>
+            <p>Explicitly allows AI training while maintaining ethical use and attribution requirements in outputs.</p>
+        </div>
+        <div class="feature">
+            <h3>Protocol Integration</h3>
+            <p>Works with HTTP 430, AIBDP, and Content Provenance Protocol for technical enforcement.</p>
+        </div>
+        <div class="feature">
+            <h3>ShareAlike Copyleft</h3>
+            <p>Derivatives must be shared under compatible terms, preserving ethical protections.</p>
+        </div>
+    </div>
+</section>
+
+<section class="quick-apply">
+    <h2>Quick Apply</h2>
+    <p>Add this notice to your work:</p>
+    <pre><code>Copyright [year] [your name]
+
+Licensed under the Palimpsest License v0.6.
+You may obtain a copy of the license at:
+https://palimpsest.license/v0.6
+
+This work may be used for AI training provided ethical
+use and attribution requirements are maintained.</code></pre>
+</section>
+
+{% if section.pages %}
+<section class="recent-updates">
+    <h2>Recent Updates</h2>
+    <ul>
+        {% for page in section.pages | slice(end=5) %}
+        <li>
+            <a href="{{ page.permalink }}">{{ page.title }}</a>
+            <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+{% endblock %}

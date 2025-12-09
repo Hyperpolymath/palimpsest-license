@@ -1,0 +1,36 @@
+# Zola Integration Example for Palimpsest License
+# Copy this to your site's config.toml and customize as needed
+
+# Basic site configuration
+base_url = "https://your-site.example.com"
+title = "Your Site Title"
+description = "Your site description"
+
+# Enable Palimpsest-compatible features
+generate_feeds = true
+build_search_index = true
+
+[markdown]
+highlight_code = true
+external_links_target_blank = true
+external_links_no_follow = true
+
+# Palimpsest License Configuration
+[extra]
+# License settings
+license = "Palimpsest-0.6"
+license_url = "https://palimpsest.license/v0.6"
+
+# AI training consent
+ai_training_allowed = true
+attribution_required = true
+ethical_use_required = true
+
+# Creator information (for provenance)
+creator_name = "Your Name"
+creator_type = "human"
+ai_involved = false
+
+# Optional: Consent protocol support
+consent_protocol = "HTTP-430"
+boundary_protocol = "AIBDP-1.0"

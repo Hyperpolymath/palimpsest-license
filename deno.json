@@ -1,0 +1,72 @@
+{
+  "name": "@palimpsest/license",
+  "version": "0.6.0",
+  "license": "Palimpsest-0.6",
+  "tasks": {
+    "lint": "deno lint",
+    "fmt": "deno fmt",
+    "check": "deno fmt --check && deno lint",
+    "test": "./test.sh",
+    "validate": "deno run --allow-read scripts/validate.ts",
+    "serve": "deno run --allow-net --allow-read scripts/serve.ts",
+    "zola:serve": "zola serve",
+    "zola:build": "zola build",
+    "zola:check": "zola check"
+  },
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "singleQuote": false,
+    "proseWrap": "preserve",
+    "include": [
+      "embed/**/*.js",
+      "embed/**/*.ts",
+      "assets/**/*.js",
+      "scripts/**/*.ts",
+      "integrations/**/*.js",
+      "integrations/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "rescript",
+      "ocaml",
+      "ARCHIVE",
+      "public",
+      "_site"
+    ]
+  },
+  "lint": {
+    "include": [
+      "embed/**/*.js",
+      "embed/**/*.ts",
+      "assets/**/*.js",
+      "scripts/**/*.ts",
+      "integrations/**/*.js",
+      "integrations/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "rescript",
+      "ocaml",
+      "ARCHIVE",
+      "public",
+      "_site"
+    ],
+    "rules": {
+      "tags": ["recommended"],
+      "exclude": ["no-explicit-any"]
+    }
+  },
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["deno.window", "dom"]
+  },
+  "imports": {
+    "@std/": "jsr:@std/",
+    "@std/path": "jsr:@std/path@^1.0.0",
+    "@std/fs": "jsr:@std/fs@^1.0.0",
+    "@std/yaml": "jsr:@std/yaml@^1.0.0",
+    "@std/toml": "jsr:@std/toml@^1.0.0"
+  }
+}

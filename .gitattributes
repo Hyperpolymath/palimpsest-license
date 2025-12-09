@@ -48,11 +48,13 @@ dune-project  text eol=lf
 stack.yaml    text eol=lf
 
 # ------------------------------------------------------------------------------
-# Source Code - Web/JavaScript (Deno-managed)
+# Source Code - Web/JavaScript/TypeScript (Deno-managed)
 # ------------------------------------------------------------------------------
 *.js          text eol=lf
 *.mjs         text eol=lf
 *.jsx         text eol=lf
+*.ts          text eol=lf
+*.tsx         text eol=lf
 
 # ------------------------------------------------------------------------------
 # Source Code - ReScript
@@ -122,7 +124,7 @@ justfile      text eol=lf
 # ------------------------------------------------------------------------------
 # Lock Files - Track but don't diff (too noisy)
 # ------------------------------------------------------------------------------
-package-lock.json text eol=lf -diff
+deno.lock         text eol=lf -diff
 flake.lock        text eol=lf -diff
 opam.lock         text eol=lf -diff
 
@@ -130,9 +132,9 @@ opam.lock         text eol=lf -diff
 # Generated Files - Mark for GitHub linguist
 # ------------------------------------------------------------------------------
 **/vendor/**      linguist-vendored
-**/node_modules/** linguist-vendored
 **/_build/**      linguist-generated
 **/_site/**       linguist-generated
+public/**         linguist-generated
 styles/css/*.css  linguist-generated
 
 # ------------------------------------------------------------------------------

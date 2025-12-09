@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ config.title }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
+
+    <!-- License metadata -->
+    <link rel="license" href="/licenses/v0-6/">
+    <meta name="license" content="Palimpsest-0.6">
+    <meta name="ai-training-consent" content="true">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock %}">
+    <meta property="og:description" content="{{ config.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ config.base_url }}{% block og_url %}{% endblock %}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/main.css">
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="/" class="logo">
+                <span class="logo-text">Palimpsest License</span>
+                <span class="version-badge">v{{ config.extra.current_version }}</span>
+            </a>
+            <ul class="nav-links">
+                {% for item in config.extra.nav %}
+                <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+
+    <main class="site-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Palimpsest License</h3>
+                <p>Human-Centered Content Licensing in the AI Era</p>
+            </div>
+            <div class="footer-section">
+                <h4>Maintainers</h4>
+                <ul>
+                    {% for author in config.extra.authors %}
+                    <li>{{ author.name }} ({{ author.institution }})</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="{{ config.extra.repository }}">GitLab</a></li>
+                    <li><a href="{{ config.extra.github_mirror }}">GitHub Mirror</a></li>
+                    <li><a href="/atom.xml">Atom Feed</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Content licensed under <a href="/licenses/v0-6/">Palimpsest License v0.6</a></p>
+        </div>
+    </footer>
+</body>
+</html>

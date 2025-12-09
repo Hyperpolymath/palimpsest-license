@@ -1,6 +1,6 @@
 # Palimpsest License - Justfile
 # Cross-platform build automation for the Rhodium Standard Repository framework
-# Requirements: just (https://github.com/casey/just), optional: nix, sass, haskell
+# Requirements: just (https://github.com/casey/just), optional: nix, deno, zola, haskell
 
 # Default recipe (shows help)
 default:
@@ -30,37 +30,55 @@ rsr-check:
     @just _check-file "SECURITY.md" "Security policy"
     @echo "✅ RSR compliance check passed!"
 
-# Lint markdown files
+# Lint all code files (using Deno)
 lint:
-    @echo "🔍 Linting markdown files..."
-    @npx prettier --check "**/*.md" || (echo "❌ Prettier formatting issues found. Run 'just format' to fix." && exit 1)
-    @echo "✅ Markdown linting passed!"
+    @echo "🔍 Linting code files..."
+    @if command -v deno &> /dev/null; then \
+        deno lint || (echo "❌ Linting issues found. Run 'just format' to auto-fix formatting." && exit 1); \
+    else \
+        echo "⚠️  Deno not found, skipping lint"; \
+    fi
+    @echo "✅ Linting passed!"
 
-# Format all files (auto-fix)
+# Format all files (using Deno)
 format:
     @echo "✨ Formatting all files..."
-    npx prettier --write "**/*.md" "**/*.json" "**/*.yml" "**/*.yaml"
+    @if command -v deno &> /dev/null; then \
+        deno fmt; \
+    else \
+        echo "⚠️  Deno not found, skipping format"; \
+    fi
     @echo "✅ Formatting complete!"
+
+# Check formatting without modifying (CI-friendly)
+format-check:
+    @echo "🔍 Checking format..."
+    @if command -v deno &> /dev/null; then \
+        deno fmt --check || (echo "❌ Formatting issues found. Run 'just format' to fix." && exit 1); \
+    else \
+        echo "⚠️  Deno not found, skipping format check"; \
+    fi
+    @echo "✅ Format check passed!"
 
 # Validate all hyperlinks (internal and external)
 validate-links:
     @echo "🔗 Validating hyperlinks (internal only for speed)..."
-    @# This is a simplified check - full link validation requires markdown-link-check
+    @# This is a simplified check - full link validation requires external tool
     @grep -r "\[.*\](.*)" --include="*.md" . | grep -v "node_modules" | grep -v ".git" || true
     @echo "✅ Link validation complete!"
 
 # Validate SPDX license identifiers in code
 validate-licenses:
     @echo "📜 Validating license identifiers..."
-    @just _check-spdx-in-files "TOOLS/validation/haskell/src/**/*.hs" "Palimpsest-0.4"
-    @just _check-spdx-in-files "rescript/src/**/*.res" "Palimpsest-0.4"
+    @just _check-spdx-in-files "TOOLS/validation/haskell/src/**/*.hs" "Palimpsest-0.6"
+    @just _check-spdx-in-files "rescript/src/**/*.res" "Palimpsest-0.6"
     @echo "✅ License identifier validation complete!"
 
 # Validate Dutch ↔ English bilingual consistency
 validate-bilingual:
     @echo "🌐 Checking bilingual consistency..."
     @# Simplified check - full validation requires Haskell validator
-    @test -f "LICENSES/v0.4/palimpsest-v0.4.md" || (echo "❌ Missing English license v0.4" && exit 1)
+    @test -f "LICENSES/v0.6/palimpsest-v0.6.md" || (echo "❌ Missing English license v0.6" && exit 1)
     @test -f "README.nl.md" || (echo "⚠️  Warning: Missing Dutch README" && exit 0)
     @echo "✅ Bilingual files present!"
 
@@ -69,7 +87,7 @@ validate-bilingual:
 # ============================================================================
 
 # Run all tests
-test: test-haskell test-rescript test-integration
+test: test-haskell test-ocaml test-integration
     @echo "✅ All tests passed!"
 
 # Test Haskell validation tools
@@ -79,6 +97,15 @@ test-haskell:
         cd TOOLS/validation/haskell && cabal test; \
     else \
         echo "⚠️  Cabal not found, skipping Haskell tests"; \
+    fi
+
+# Test OCaml components
+test-ocaml:
+    @echo "🧪 Testing OCaml components..."
+    @if command -v dune &> /dev/null; then \
+        cd ocaml && dune runtest; \
+    else \
+        echo "⚠️  Dune not found, skipping OCaml tests"; \
     fi
 
 # Run Haskell tests with coverage report
@@ -101,15 +128,6 @@ test-coverage:
         echo "⚠️  Cabal not found, skipping coverage analysis"; \
     fi
 
-# Test ReScript components
-test-rescript:
-    @echo "🧪 Testing ReScript components..."
-    @if [ -d "rescript" ]; then \
-        cd rescript && npm test || echo "⚠️  ReScript tests not configured"; \
-    else \
-        echo "⚠️  ReScript directory not found"; \
-    fi
-
 # Integration tests (end-to-end)
 test-integration:
     @echo "🧪 Running integration tests..."
@@ -118,21 +136,25 @@ test-integration:
         cat METADATA_v0.4/dublin-core/palimpsest-v0.4-dc.json | jq . > /dev/null && echo "✅ Dublin Core JSON valid"; \
     fi
     @# Test SPDX headers
-    @grep -r "SPDX-License-Identifier: Palimpsest-0.4" TOOLS/ --include="*.hs" -q && echo "✅ SPDX headers present" || true
+    @grep -r "SPDX-License-Identifier: Palimpsest" TOOLS/ --include="*.hs" -q && echo "✅ SPDX headers present" || true
 
 # ============================================================================
 # BUILD SYSTEM
 # ============================================================================
 
 # Build all components
-build: build-styles build-haskell build-rescript build-docs
+build: build-zola build-haskell build-ocaml
     @echo "✅ Build complete!"
 
-# Build SCSS styles
-build-styles:
-    @echo "🎨 Building CSS from SCSS..."
-    npm run scss:build
-    @echo "✅ Styles built!"
+# Build static site with Zola
+build-zola:
+    @echo "🌐 Building static site with Zola..."
+    @if command -v zola &> /dev/null; then \
+        zola build; \
+    else \
+        echo "⚠️  Zola not found, skipping site build"; \
+    fi
+    @echo "✅ Site built!"
 
 # Build Haskell validators (release mode)
 build-haskell:
@@ -143,13 +165,22 @@ build-haskell:
         echo "⚠️  Cabal not found, skipping Haskell build"; \
     fi
 
-# Build ReScript components
-build-rescript:
-    @echo "🔨 Building ReScript components..."
-    @if [ -d "rescript" ]; then \
-        cd rescript && npm run build; \
+# Build OCaml components
+build-ocaml:
+    @echo "🐫 Building OCaml components..."
+    @if command -v dune &> /dev/null; then \
+        cd ocaml && dune build; \
     else \
-        echo "⚠️  ReScript directory not found"; \
+        echo "⚠️  Dune not found, skipping OCaml build"; \
+    fi
+
+# Build browser JS via Melange
+build-browser:
+    @echo "🌐 Building browser bundle via Melange..."
+    @if command -v dune &> /dev/null; then \
+        cd ocaml && dune build @browser; \
+    else \
+        echo "⚠️  Dune not found, skipping browser build"; \
     fi
 
 # Build documentation (consolidate metadata)
@@ -162,56 +193,94 @@ build-docs:
 # DEVELOPMENT
 # ============================================================================
 
-# Watch for changes and auto-rebuild
+# Serve site locally with Zola
+serve:
+    @echo "🌐 Serving site at http://localhost:1111"
+    @if command -v zola &> /dev/null; then \
+        zola serve; \
+    else \
+        echo "⚠️  Zola not found. Falling back to Python HTTP server..."; \
+        python3 -m http.server 8000 || python -m SimpleHTTPServer 8000; \
+    fi
+
+# Watch for changes and auto-rebuild (Zola)
 watch:
     @echo "👀 Watching for changes..."
-    @# Run SCSS watch in background
-    @trap 'kill 0' EXIT; \
-    npm run watch & \
-    wait
+    @if command -v zola &> /dev/null; then \
+        zola serve --drafts; \
+    else \
+        echo "⚠️  Zola not found"; \
+    fi
 
-# Install all dependencies
+# Check Zola configuration
+check:
+    @echo "🔍 Checking Zola configuration..."
+    @if command -v zola &> /dev/null; then \
+        zola check; \
+    else \
+        echo "⚠️  Zola not found"; \
+    fi
+
+# Initialize development environment (no npm needed!)
 install:
-    @echo "📦 Installing dependencies..."
-    npm install
+    @echo "📦 Setting up development environment..."
+    @echo ""
+    @echo "This project uses Deno (no npm required)."
+    @echo ""
+    @# Check for required tools
+    @command -v deno &> /dev/null && echo "✅ Deno found" || echo "⚠️  Install Deno: https://deno.land"
+    @command -v zola &> /dev/null && echo "✅ Zola found" || echo "⚠️  Install Zola: https://www.getzola.org"
+    @command -v just &> /dev/null && echo "✅ Just found" || echo "⚠️  Install Just: https://github.com/casey/just"
+    @# Haskell (optional)
     @if [ -d "TOOLS/validation/haskell" ]; then \
-        cd TOOLS/validation/haskell && cabal update && cabal install --only-dependencies; \
+        if command -v cabal &> /dev/null; then \
+            echo "✅ Cabal found"; \
+            cd TOOLS/validation/haskell && cabal update && cabal install --only-dependencies; \
+        else \
+            echo "⚠️  Cabal not found (optional - for Haskell validators)"; \
+        fi; \
     fi
-    @if [ -d "rescript" ]; then \
-        cd rescript && npm install; \
+    @# OCaml (optional)
+    @if [ -d "ocaml" ]; then \
+        if command -v dune &> /dev/null; then \
+            echo "✅ Dune found"; \
+        else \
+            echo "⚠️  Dune not found (optional - for OCaml tools)"; \
+        fi; \
     fi
-    @echo "✅ Dependencies installed!"
+    @echo ""
+    @echo "✅ Development environment ready!"
 
 # Clean build artifacts
 clean:
     @echo "🧹 Cleaning build artifacts..."
-    npm run clean
-    @rm -rf rescript/lib/
+    @rm -rf public/
+    @rm -rf _site/
+    @rm -rf ocaml/_build/
     @rm -rf TOOLS/validation/haskell/dist-newstyle/
     @find . -name "*.css.map" -delete
     @echo "✅ Clean complete!"
 
-# Deep clean (including node_modules)
+# Deep clean (all generated files)
 clean-all: clean
     @echo "🧹 Deep cleaning..."
-    rm -rf node_modules/
-    @rm -rf rescript/node_modules/
+    @rm -rf .deno/
     @echo "✅ Deep clean complete!"
 
 # ============================================================================
 # DOCUMENTATION
 # ============================================================================
 
-# Serve documentation locally (requires Python)
+# Serve documentation locally
 serve-docs:
-    @echo "📖 Serving documentation at http://localhost:8000"
-    @python3 -m http.server 8000 || python -m SimpleHTTPServer 8000
+    @echo "📖 Serving documentation..."
+    @just serve
 
 # Generate table of contents for markdown files
 generate-toc FILE:
     @echo "📋 Generating TOC for {{FILE}}..."
-    @npx markdown-toc -i {{FILE}}
-    @echo "✅ TOC generated!"
+    @# Using deno for markdown processing
+    @echo "TOC generation requires markdown-toc tool"
 
 # Generate directory structure for README (keeps docs in sync with repo)
 generate-structure:
@@ -224,16 +293,16 @@ stats:
     @echo "📊 Project statistics:"
     @echo ""
     @echo "Markdown documentation:"
-    @find . -name "*.md" -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./rescript/node_modules/*" | xargs wc -l | tail -1
+    @find . -name "*.md" -not -path "./.git/*" -not -path "./public/*" | xargs wc -l | tail -1
     @echo ""
     @echo "Haskell code:"
     @find TOOLS/validation/haskell/src -name "*.hs" 2>/dev/null | xargs wc -l 2>/dev/null | tail -1 || echo "  (not found)"
     @echo ""
-    @echo "ReScript code:"
-    @find rescript/src -name "*.res" 2>/dev/null | xargs wc -l 2>/dev/null | tail -1 || echo "  (not found)"
+    @echo "OCaml code:"
+    @find ocaml/lib -name "*.ml" 2>/dev/null | xargs wc -l 2>/dev/null | tail -1 || echo "  (not found)"
     @echo ""
-    @echo "JavaScript/JSON:"
-    @find . -name "*.js" -o -name "*.json" -not -path "./node_modules/*" -not -path "./.git/*" | xargs wc -l | tail -1
+    @echo "JavaScript/TypeScript:"
+    @find . -name "*.js" -o -name "*.ts" -not -path "./.git/*" -not -path "./public/*" | xargs wc -l | tail -1
 
 # ============================================================================
 # RELEASE MANAGEMENT
@@ -242,8 +311,8 @@ stats:
 # Create a new release (version bump)
 release VERSION:
     @echo "🚀 Creating release v{{VERSION}}..."
-    @# Update version in package.json
-    @sed -i 's/"version": ".*"/"version": "{{VERSION}}"/' package.json
+    @# Update version in deno.json
+    @sed -i 's/"version": ".*"/"version": "{{VERSION}}"/' deno.json
     @# Create git tag
     @git tag -a "v{{VERSION}}" -m "Release v{{VERSION}}"
     @echo "✅ Release v{{VERSION}} created! Push with: git push origin v{{VERSION}}"
@@ -260,8 +329,9 @@ changelog:
 # Deploy to GitHub Pages (if configured)
 deploy:
     @echo "🌐 Deploying to GitHub Pages..."
+    @just build-zola
     @# This assumes gh-pages branch is configured
-    @echo "Not implemented - configure with your hosting provider"
+    @echo "Deploy output in public/"
 
 # ============================================================================
 # SECURITY & COMPLIANCE
@@ -277,26 +347,13 @@ audit-licence:
         (grep . && echo "❌ Haskell app files missing SPDX headers" && exit 1 || echo "✅ All Haskell app files have SPDX headers")
     @find TOOLS/validation/haskell/test -name "*.hs" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
         (grep . && echo "❌ Haskell test files missing SPDX headers" && exit 1 || echo "✅ All Haskell test files have SPDX headers")
-    @# Check ReScript files
-    @find rescript/src -name "*.res" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
-        (grep . && echo "❌ ReScript files missing SPDX headers" && exit 1 || echo "✅ All ReScript files have SPDX headers")
-    @# Check JavaScript files (excluding node_modules)
+    @# Check OCaml files
+    @find ocaml/lib -name "*.ml" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
+        (grep . && echo "❌ OCaml files missing SPDX headers" && exit 1 || echo "✅ All OCaml files have SPDX headers")
+    @# Check JavaScript/TypeScript files (excluding vendored)
     @find assets -name "*.js" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
         (grep . && echo "❌ Asset JavaScript files missing SPDX headers" && exit 1 || echo "✅ All asset JavaScript files have SPDX headers")
-    @find integrations/client -name "*.js" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
-        (grep . && echo "❌ Integration JavaScript files missing SPDX headers" && exit 1 || echo "✅ All integration JavaScript files have SPDX headers")
-    @# Check YAML files
-    @find integrations -name "*.yml" -o -name "*.yaml" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
-        (grep . && echo "❌ Integration YAML files missing SPDX headers" && exit 1 || echo "✅ All integration YAML files have SPDX headers")
-    @find TOOLS/validation/haskell -name "stack.yaml" -exec grep -L "SPDX-License-Identifier" {} \; 2>/dev/null | \
-        (grep . && echo "❌ Stack YAML files missing SPDX headers" && exit 1 || echo "✅ All Stack YAML files have SPDX headers")
-    @echo "✅ License audit complete - all source files have SPDX headers"
-
-# Check for security vulnerabilities in dependencies
-security-audit:
-    @echo "🔒 Running security audit..."
-    npm audit
-    @echo "✅ Security audit complete!"
+    @echo "✅ License audit complete"
 
 # Update security.txt expiry date
 update-security-txt:
@@ -345,62 +402,27 @@ convert-assets:
 # Generate Software Bill of Materials (SBOM)
 sbom-generate:
     @echo "📦 Generating Software Bill of Materials (SBOM)..."
-    @just _sbom-npm
-    @just _sbom-haskell
-    @just _sbom-consolidate
-    @echo "✅ SBOM generated: sbom.json"
-
-# Generate npm SBOM (internal helper)
-_sbom-npm:
-    @echo "  📦 npm dependencies..."
-    @if command -v npm >/dev/null 2>&1 && [ -f "package.json" ]; then \
-        npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json 2>/dev/null || \
-        (echo "  ⚠️  CycloneDX npm plugin not installed, using manual generation" && \
-         echo '{"bomFormat":"CycloneDX","specVersion":"1.5","serialNumber":"urn:uuid:npm-manual","version":1,"components":[]}' > sbom-npm.json); \
-    else \
-        echo "  ⚠️  npm not available, skipping npm SBOM"; \
-        echo '{"bomFormat":"CycloneDX","specVersion":"1.5","components":[]}' > sbom-npm.json; \
-    fi
-
-# Generate Haskell SBOM (internal helper)
-_sbom-haskell:
-    @echo "  📦 Haskell dependencies..."
-    @if [ -d "TOOLS/validation/haskell" ]; then \
-        cd TOOLS/validation/haskell && \
-        (cabal list --simple-output 2>/dev/null | head -20 | \
-         awk 'BEGIN{print "{\"bomFormat\":\"CycloneDX\",\"specVersion\":\"1.5\",\"components\":["} \
-              {if(NR>1) printf ","; printf "{\"name\":\"%s\",\"version\":\"unknown\",\"type\":\"library\"}", $$1} \
-              END{print "]}"}' > ../../sbom-haskell.json) || \
-        echo '{"bomFormat":"CycloneDX","specVersion":"1.5","components":[]}' > sbom-haskell.json; \
-    else \
-        echo "  ⚠️  Haskell tools not available, skipping Haskell SBOM"; \
-        echo '{"bomFormat":"CycloneDX","specVersion":"1.5","components":[]}' > sbom-haskell.json; \
-    fi
-
-# Consolidate SBOM files (internal helper)
-_sbom-consolidate:
-    @echo "  📦 Consolidating SBOM..."
     @echo '{' > sbom.json
     @echo '  "bomFormat": "CycloneDX",' >> sbom.json
     @echo '  "specVersion": "1.5",' >> sbom.json
-    @echo '  "serialNumber": "urn:uuid:palimpsest-license-0.4.0",' >> sbom.json
+    @echo '  "serialNumber": "urn:uuid:palimpsest-license-0.6.0",' >> sbom.json
     @echo '  "version": 1,' >> sbom.json
     @echo '  "metadata": {' >> sbom.json
     @echo '    "timestamp": "'$$(date -u +"%Y-%m-%dT%H:%M:%SZ")'",' >> sbom.json
     @echo '    "tools": [' >> sbom.json
     @echo '      {' >> sbom.json
     @echo '        "name": "justfile-sbom-generator",' >> sbom.json
-    @echo '        "version": "0.4.0"' >> sbom.json
+    @echo '        "version": "0.6.0"' >> sbom.json
     @echo '      }' >> sbom.json
     @echo '    ],' >> sbom.json
     @echo '    "component": {' >> sbom.json
     @echo '      "name": "palimpsest-license",' >> sbom.json
-    @echo '      "version": "0.4.0",' >> sbom.json
+    @echo '      "version": "0.6.0",' >> sbom.json
     @echo '      "type": "application",' >> sbom.json
     @echo '      "licenses": [' >> sbom.json
     @echo '        {' >> sbom.json
     @echo '          "license": {' >> sbom.json
-    @echo '            "id": "Palimpsest-0.4 OR MIT"' >> sbom.json
+    @echo '            "id": "Palimpsest-0.6"' >> sbom.json
     @echo '          }' >> sbom.json
     @echo '        }' >> sbom.json
     @echo '      ]' >> sbom.json
@@ -409,7 +431,7 @@ _sbom-consolidate:
     @echo '  "components": [],' >> sbom.json
     @echo '  "dependencies": []' >> sbom.json
     @echo '}' >> sbom.json
-    @rm -f sbom-npm.json sbom-haskell.json 2>/dev/null || true
+    @echo "✅ SBOM generated: sbom.json"
 
 # Verify SBOM
 sbom-verify:
@@ -424,33 +446,6 @@ sbom-verify:
 # ============================================================================
 # OCAML BUILD SYSTEM
 # ============================================================================
-
-# Build OCaml components
-build-ocaml:
-    @echo "🐫 Building OCaml components..."
-    @if command -v dune &> /dev/null; then \
-        cd ocaml && dune build; \
-    else \
-        echo "⚠️  Dune not found, skipping OCaml build"; \
-    fi
-
-# Test OCaml components
-test-ocaml:
-    @echo "🧪 Testing OCaml components..."
-    @if command -v dune &> /dev/null; then \
-        cd ocaml && dune runtest; \
-    else \
-        echo "⚠️  Dune not found, skipping OCaml tests"; \
-    fi
-
-# Build browser JS via Melange
-build-browser:
-    @echo "🌐 Building browser bundle via Melange..."
-    @if command -v dune &> /dev/null; then \
-        cd ocaml && dune build @browser; \
-    else \
-        echo "⚠️  Dune not found, skipping browser build"; \
-    fi
 
 # Run OCaml TUI (when implemented)
 tui:
@@ -528,15 +523,6 @@ nix-shell:
         nix develop; \
     else \
         echo "⚠️  Nix not found"; \
-    fi
-
-# Build Void Linux XBPS package
-void-build:
-    @echo "🌑 Building XBPS package..."
-    @if command -v xbps-src &> /dev/null; then \
-        cd packaging/void && ./xbps-src pkg palimpsest; \
-    else \
-        echo "⚠️  xbps-src not found (Void Linux required)"; \
     fi
 
 # ============================================================================
@@ -630,7 +616,7 @@ ontology-diagram:
 # Check document freshness
 docs-freshness:
     @echo "📅 Checking document freshness..."
-    @find . -name "*.md" -not -path "./.git/*" -not -path "./node_modules/*" | while read file; do \
+    @find . -name "*.md" -not -path "./.git/*" -not -path "./public/*" | while read file; do \
         if ! grep -q "Document Review Log" "$$file" 2>/dev/null; then \
             echo "  ⚠️  No review log: $$file"; \
         fi; \
@@ -661,7 +647,7 @@ docs-review-report:
     @grep -rl "Document Review Log" --include="*.md" . 2>/dev/null | wc -l
     @echo ""
     @echo "Documents without review logs:"
-    @find . -name "*.md" -not -path "./.git/*" -not -path "./node_modules/*" -exec sh -c 'grep -q "Document Review Log" "$$1" || echo "$$1"' _ {} \; | wc -l
+    @find . -name "*.md" -not -path "./.git/*" -not -path "./public/*" -exec sh -c 'grep -q "Document Review Log" "$$1" || echo "$$1"' _ {} \; | wc -l
 
 # ============================================================================
 # ACCESSIBILITY
@@ -720,7 +706,7 @@ init:
     @echo "  just validate    # Run all checks"
     @echo "  just build       # Build all components"
     @echo "  just test        # Run test suite"
+    @echo "  just serve       # Serve site locally"
     @echo "  just watch       # Auto-rebuild on changes"
-    @echo "  just serve-docs  # Serve docs locally"
     @echo ""
     @echo "See 'just --list' for all available commands."

@@ -1,0 +1,113 @@
+# Palimpsest License - Zola Configuration
+# https://www.getzola.org/documentation/getting-started/configuration/
+
+# The base URL of the site
+base_url = "https://palimpsest.license"
+
+# Site title
+title = "Palimpsest License"
+
+# Site description for SEO
+description = "Human-Centered Content Licensing in the AI Era - A framework for ethical content use protecting human creators while enabling beneficial AI development"
+
+# Default language
+default_language = "en"
+
+# Theme (none for custom templates)
+# theme = ""
+
+# Generate feed
+generate_feeds = true
+feed_filenames = ["atom.xml", "rss.xml"]
+
+# Enable syntax highlighting
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+render_emoji = true
+external_links_target_blank = true
+external_links_no_follow = true
+external_links_no_referrer = true
+smart_punctuation = true
+
+# Slugify settings
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
+
+# Search configuration
+build_search_index = true
+
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+index_format = "elasticlunr_json"
+
+# Link checker
+[link_checker]
+skip_prefixes = [
+    "http://localhost",
+    "http://127.0.0.1",
+]
+skip_anchor_prefixes = []
+
+# Taxonomies
+taxonomies = [
+    { name = "tags", feed = true },
+    { name = "categories", feed = true },
+    { name = "versions", feed = false },
+]
+
+# Extra configuration
+[extra]
+# Project metadata
+project_name = "Palimpsest License"
+current_version = "0.6"
+license_identifier = "Palimpsest-0.6"
+
+# Authors
+authors = [
+    { name = "Jonathan D.A. Jewell", institution = "The Open University", email = "jonathan.jewell@open.ac.uk" },
+    { name = "Joshua B. Jewell", institution = "Royal Veterinary College", email = "jjewell23@rvc.ac.uk" },
+]
+
+# Repository
+repository = "https://gitlab.com/hyperpolymath/ethical-ai-framework"
+github_mirror = "https://github.com/hyperpolymath/palimpsest-license"
+
+# Navigation
+[[extra.nav]]
+name = "Home"
+url = "/"
+
+[[extra.nav]]
+name = "License v0.6"
+url = "/licenses/v0-6/"
+
+[[extra.nav]]
+name = "Guides"
+url = "/guides/"
+
+[[extra.nav]]
+name = "Research"
+url = "/research/"
+
+[[extra.nav]]
+name = "Integration"
+url = "/integration/"
+
+# Social/contact
+[extra.social]
+gitlab = "hyperpolymath/ethical-ai-framework"
+github = "hyperpolymath/palimpsest-license"
+
+# AI/consent integration
+[extra.ai]
+training_allowed = true
+attribution_required = true
+ethical_use_required = true
+consent_protocol = "HTTP-430"
+boundary_protocol = "AIBDP-1.0"
