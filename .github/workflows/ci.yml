@@ -29,6 +29,11 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+# Minimum permissions for CI - follows principle of least privilege
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   # ---------------------------------------------------------------------------
   # Lint - Check formatting and style
