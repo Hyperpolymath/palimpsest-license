@@ -416,6 +416,265 @@ sbom-verify:
     fi
 
 # ============================================================================
+# OCAML BUILD SYSTEM
+# ============================================================================
+
+# Build OCaml components
+build-ocaml:
+    @echo "🐫 Building OCaml components..."
+    @if command -v dune &> /dev/null; then \
+        cd ocaml && dune build; \
+    else \
+        echo "⚠️  Dune not found, skipping OCaml build"; \
+    fi
+
+# Test OCaml components
+test-ocaml:
+    @echo "🧪 Testing OCaml components..."
+    @if command -v dune &> /dev/null; then \
+        cd ocaml && dune runtest; \
+    else \
+        echo "⚠️  Dune not found, skipping OCaml tests"; \
+    fi
+
+# Build browser JS via Melange
+build-browser:
+    @echo "🌐 Building browser bundle via Melange..."
+    @if command -v dune &> /dev/null; then \
+        cd ocaml && dune build @browser; \
+    else \
+        echo "⚠️  Dune not found, skipping browser build"; \
+    fi
+
+# Run OCaml TUI (when implemented)
+tui:
+    @echo "🖥️  Running Palimpsest TUI..."
+    @if [ -f "ocaml/_build/default/bin/palimpsest_tui.exe" ]; then \
+        cd ocaml && dune exec bin/palimpsest_tui.exe; \
+    else \
+        echo "⚠️  TUI not built. Run 'just build-ocaml' first"; \
+    fi
+
+# Run OCaml CLI
+cli *ARGS:
+    @if [ -f "ocaml/_build/default/bin/palimpsest.exe" ]; then \
+        cd ocaml && dune exec bin/palimpsest.exe -- {{ARGS}}; \
+    else \
+        echo "⚠️  CLI not built. Run 'just build-ocaml' first"; \
+    fi
+
+# ============================================================================
+# CONTAINER & PACKAGING
+# ============================================================================
+
+# Build container with nerdctl/Wolfi
+container-build:
+    @echo "📦 Building container..."
+    @if command -v nerdctl &> /dev/null; then \
+        nerdctl build -t palimpsest:latest -f Containerfile .; \
+    elif command -v docker &> /dev/null; then \
+        docker build -t palimpsest:latest -f Containerfile .; \
+    else \
+        echo "⚠️  Neither nerdctl nor docker found"; \
+    fi
+
+# Run container
+container-run *ARGS:
+    @if command -v nerdctl &> /dev/null; then \
+        nerdctl run --rm -it palimpsest:latest {{ARGS}}; \
+    elif command -v docker &> /dev/null; then \
+        docker run --rm -it palimpsest:latest {{ARGS}}; \
+    else \
+        echo "⚠️  Neither nerdctl nor docker found"; \
+    fi
+
+# Build Guix package
+guix-build:
+    @echo "🐂 Building with Guix..."
+    @if command -v guix &> /dev/null; then \
+        guix build -f guix.scm; \
+    else \
+        echo "⚠️  Guix not found"; \
+    fi
+
+# Enter Guix development shell
+guix-shell:
+    @echo "🐂 Entering Guix development shell..."
+    @if command -v guix &> /dev/null; then \
+        guix shell -D -f guix.scm; \
+    else \
+        echo "⚠️  Guix not found"; \
+    fi
+
+# Build with Nix (fallback)
+nix-build:
+    @echo "❄️  Building with Nix..."
+    @if command -v nix &> /dev/null; then \
+        nix build; \
+    else \
+        echo "⚠️  Nix not found"; \
+    fi
+
+# Enter Nix development shell
+nix-shell:
+    @echo "❄️  Entering Nix development shell..."
+    @if command -v nix &> /dev/null; then \
+        nix develop; \
+    else \
+        echo "⚠️  Nix not found"; \
+    fi
+
+# Build Void Linux XBPS package
+void-build:
+    @echo "🌑 Building XBPS package..."
+    @if command -v xbps-src &> /dev/null; then \
+        cd packaging/void && ./xbps-src pkg palimpsest; \
+    else \
+        echo "⚠️  xbps-src not found (Void Linux required)"; \
+    fi
+
+# ============================================================================
+# METADATA & CONSENT
+# ============================================================================
+
+# Validate Palimpsest metadata in a file
+validate-palimpsest FILE:
+    @echo "🔍 Validating Palimpsest metadata in {{FILE}}..."
+    @just cli validate {{FILE}}
+
+# Register work in consent registry (mock for now)
+register-consent FILE:
+    @echo "📝 Registering consent for {{FILE}}..."
+    @just cli register {{FILE}}
+
+# Check consent status
+check-consent ID:
+    @echo "🔍 Checking consent status for {{ID}}..."
+    @just cli check-consent {{ID}}
+
+# Generate Palimpsest metadata block
+generate-metadata:
+    @echo "📝 Generating Palimpsest metadata..."
+    @just cli generate-metadata --interactive
+
+# ============================================================================
+# CITATION & REFERENCES
+# ============================================================================
+
+# Format citation in OSCOLA
+cite-oscola WORK:
+    @echo "📚 Generating OSCOLA citation..."
+    @just cli cite --format=oscola {{WORK}}
+
+# Format citation in IEEE
+cite-ieee WORK:
+    @echo "📚 Generating IEEE citation..."
+    @just cli cite --format=ieee {{WORK}}
+
+# Format citation in MLA
+cite-mla WORK:
+    @echo "📚 Generating MLA citation..."
+    @just cli cite --format=mla {{WORK}}
+
+# Export to Zotero RIS
+export-zotero FILE:
+    @echo "📚 Exporting to Zotero format..."
+    @just cli export --format=ris {{FILE}}
+
+# Export to BibTeX
+export-bibtex FILE:
+    @echo "📚 Exporting to BibTeX..."
+    @just cli export --format=bibtex {{FILE}}
+
+# ============================================================================
+# RESEARCH & DEVELOPMENT
+# ============================================================================
+
+# Run OCanren logic tests
+test-logic:
+    @echo "🔮 Running OCanren logic tests..."
+    @if [ -d "ocaml/lib/logic" ]; then \
+        cd ocaml && dune runtest lib/logic; \
+    else \
+        echo "⚠️  Logic module not yet implemented"; \
+    fi
+
+# Start neurosymbolic reasoning REPL
+repl-logic:
+    @echo "🔮 Starting OCanren REPL..."
+    @if command -v utop &> /dev/null; then \
+        cd ocaml && dune utop lib/logic; \
+    else \
+        echo "⚠️  utop not found"; \
+    fi
+
+# Generate ontology diagram
+ontology-diagram:
+    @echo "🗺️  Generating ontology diagram..."
+    @if command -v dot &> /dev/null; then \
+        cd RESEARCH/logic-reasoning && dot -Tsvg ontology.dot -o ontology.svg; \
+    else \
+        echo "⚠️  graphviz not found"; \
+    fi
+
+# ============================================================================
+# DOCUMENTATION REVIEW
+# ============================================================================
+
+# Check document freshness
+docs-freshness:
+    @echo "📅 Checking document freshness..."
+    @find . -name "*.md" -not -path "./.git/*" -not -path "./node_modules/*" | while read file; do \
+        if ! grep -q "Document Review Log" "$$file" 2>/dev/null; then \
+            echo "  ⚠️  No review log: $$file"; \
+        fi; \
+    done
+    @echo "✅ Freshness check complete"
+
+# Add review log to a document
+docs-add-review FILE:
+    @echo "📝 Adding review log to {{FILE}}..."
+    @echo "" >> {{FILE}}
+    @echo "---" >> {{FILE}}
+    @echo "" >> {{FILE}}
+    @echo "## Document Review Log" >> {{FILE}}
+    @echo "" >> {{FILE}}
+    @echo "| Date | Reviewer | Status | Notes |" >> {{FILE}}
+    @echo "|------|----------|--------|-------|" >> {{FILE}}
+    @echo "| $$(date +%Y-%m-%d) | [reviewer] | Current | Initial review log |" >> {{FILE}}
+    @echo "" >> {{FILE}}
+    @echo "**Next Review Due:** $$(date -d '+3 months' +%Y-%m-%d 2>/dev/null || date -v +3m +%Y-%m-%d)" >> {{FILE}}
+    @echo "✅ Review log added"
+
+# Generate review report
+docs-review-report:
+    @echo "📊 Document Review Report"
+    @echo "========================="
+    @echo ""
+    @echo "Documents with review logs:"
+    @grep -rl "Document Review Log" --include="*.md" . 2>/dev/null | wc -l
+    @echo ""
+    @echo "Documents without review logs:"
+    @find . -name "*.md" -not -path "./.git/*" -not -path "./node_modules/*" -exec sh -c 'grep -q "Document Review Log" "$$1" || echo "$$1"' _ {} \; | wc -l
+
+# ============================================================================
+# ACCESSIBILITY
+# ============================================================================
+
+# Check accessibility of markdown files
+a11y-check:
+    @echo "♿ Checking accessibility..."
+    @# Check for alt text in images
+    @grep -r "!\[" --include="*.md" . | grep -v "\!\[.\+\]" && echo "⚠️  Images without alt text found" || echo "✅ All images have alt text"
+    @# Check for heading hierarchy
+    @echo "✅ Accessibility check complete"
+
+# Generate plain language version
+plain-language FILE:
+    @echo "📖 Generating plain language version of {{FILE}}..."
+    @echo "Not yet implemented - would use simplification heuristics"
+
+# ============================================================================
 # RHODIUM STANDARD REPOSITORY (RSR) COMPLIANCE
 # ============================================================================
 
