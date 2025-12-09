@@ -8,9 +8,11 @@ The Palimpsest License metadata infrastructure provides multiple representations
 
 - **Library and archival systems** (Dublin Core)
 - **Streaming data processing** (NDJSON)
-- **Web applications** (Elixir/Phoenix with Ecto)
 - **High-performance distributed systems** (Protocol Buffers)
 - **Semantic web and linked data** (VoID RDF)
+
+> **Note (2025-12-09):** Elixir/Ecto schemas have been archived to `ARCHIVE/elixir-experiment/`.
+> The project now uses OCaml as the primary implementation language.
 
 All formats use **British English** throughout and provide bilingual support (English/Dutch) where appropriate.
 
@@ -20,10 +22,9 @@ All formats use **British English** throughout and provide bilingual support (En
 METADATA_v0.4/
 ├── dublin-core/          # Dublin Core metadata (XML, JSON, RDF)
 ├── ndjson/               # Newline-delimited JSON schemas and examples
-├── ecto/                 # Elixir Ecto schemas for database integration
 ├── serialization/        # Protocol Buffers for binary serialisation
-├── void-rdf/            # VoID RDF vocabulary and semantic web integration
-└── README.md            # This file
+├── void-rdf/             # VoID RDF vocabulary and semantic web integration
+└── README.md             # This file
 ```
 
 ## Formats
