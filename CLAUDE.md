@@ -14,50 +14,49 @@ The **Palimpsest License** is a future-proof, layered licensing framework design
 
 ## Project Structure
 
+<!-- Run `just generate-structure` to regenerate this -->
 ```
 palimpsest-license/
-├── LICENSES/                    # License texts across versions
-│   ├── v0.3/                   # Previous version (archived)
-│   └── v0.4/                   # Current version
-├── LICENSE_CORE/               # Core license components and agreements
-│   └── AGREEMENTS/             # Specific agreements (e.g., AGI-consent.md)
-├── GUIDES_v0.4/                # User-facing documentation
-│   ├── User_Guide.md
-│   ├── Developer_Guide.md
-│   ├── Compliance_Roadmap.md
-│   ├── Red_Flag_Index.md
-│   └── professional-integration/  # Guides for archivists, educators, etc.
-├── TOOLKIT_v0.4/               # Compliance and audit tools
-│   └── Audit_Template.md
-├── METADATA_v0.4/              # Machine-readable metadata
-├── RESEARCH/                   # Research documents (OCanren, neurosymbolic, etc.)
-├── PROJECT_MANAGEMENT/         # APM-level project management
-│   ├── governance/             # Philosophy, workstreams
-│   └── campaigns/              # Communications planning
-├── OUTREACH/                   # Public outreach materials
-│   └── podcast/                # "Layers" podcast series
-├── docs/                       # Additional documentation
-│   ├── EXPLAINME_ROOT.md       # Quick reference for common pitfalls
-│   ├── ethics.md & ethics-FAQ.md
-│   ├── jurisdiction-comparison.md
-│   └── GUIDES_v0.3_ARCHIVE/    # Archived v0.3 guides
-├── examples/                   # Usage examples and vignettes
-│   └── vignettes/              # Creative and legal scenarios
-├── assets/                     # Visual assets (badges, QR codes)
-├── embed/                      # Integration snippets (HTML, Markdown, JS)
-├── press-lobby-kit/            # Outreach materials
-├── TOOLS/                      # Development and validation tools
-├── ARCHIVE/                    # Historical versions and experiments
-├── ocaml/                      # OCaml implementation (primary)
-├── flake.nix                   # Nix reproducible builds
-├── guix.scm                    # Guix package definition
-├── config.ncl                  # Nickel configuration schema
-├── Containerfile               # Wolfi-based container
-├── GOVERNANCE.md               # Governance model and decision-making
-├── CONTRIBUTING.md             # Contribution guidelines
-├── CODE_OF_PRACTICE.md         # Ethical standards
-├── FUNDING.md                  # Funding strategy
-└── SECURITY.md                 # Security policies
+├── LICENSES/                    # License texts (v0.3, v0.4)
+├── LICENSE_CORE/                # Core agreements (AGI consent, etc.)
+├── GUIDES_v0.4/                 # User guides and professional integration
+├── TOOLKIT_v0.4/                # Compliance audit tools
+├── METADATA_v0.4/               # Machine-readable metadata schemas
+├── RESEARCH/                    # Research documents (neurosymbolic, OCanren, etc.)
+├── PROJECT_MANAGEMENT/          # Roadmaps, governance, campaigns
+├── OUTREACH/                    # Podcast series, communications
+├── docs/                        # Additional documentation
+├── examples/                    # Usage vignettes and scenarios
+├── assets/                      # Visual assets (badges, images)
+├── embed/                       # Embeddable HTML/JS snippets
+├── press-lobby-kit/             # Advocacy and press materials
+├── TOOLS/                       # Validation tools (Haskell, future OCaml)
+├── ARCHIVE/                     # Historical versions and experiments
+├── ocaml/                       # OCaml implementation (primary)
+├── standards/                   # RSR compliance, TPCF, reversibility docs
+├── scripts/                     # Shell scripts (setup, hooks, generation)
+├── config/                      # Configuration files (Nickel, Deno)
+├── .well-known/                 # Web standards (security.txt, robots.txt, etc.)
+├── .github/                     # CI/CD workflows
+│
+├── README.md                    # Project overview (English)
+├── README.nl.md                 # Project overview (Dutch)
+├── LICENSE.md                   # License pointer
+├── CHANGELOG.md                 # Version history
+├── CONTRIBUTING.md              # Contribution guidelines
+├── CODE_OF_CONDUCT.md           # Community standards
+├── GOVERNANCE.md                # Decision-making process
+├── MAINTAINERS.md               # Project maintainers
+├── SECURITY.md                  # Security policy
+├── FUNDING.md                   # Funding strategy
+├── CLAUDE.md                    # AI assistant context
+│
+├── flake.nix                    # Nix reproducible builds
+├── guix.scm                     # Guix package definition
+├── Containerfile                # Wolfi container definition
+├── justfile                     # Build automation recipes
+├── package.json                 # Node.js dependencies
+└── Makefile                     # Asset conversion targets
 ```
 
 ## Key Principles

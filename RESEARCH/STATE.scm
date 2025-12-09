@@ -26,8 +26,9 @@
      (name . "Palimpsest Stewardship Council")
      (roles . ("license-steward" "standards-body" "creator-advocate"))
      (preferences
-      (languages-preferred . ("OCaml" "Haskell" "Rust" "ReScript"))
-      (languages-avoid . ("Python" "TypeScript" "Julia"))
+      (languages-preferred . ("OCaml"))
+      (languages-avoid . ("Python" "TypeScript" "Julia" "Haskell"))
+      (languages-migrating . ("Haskell → OCaml"))
       (tools-preferred . ("Nix" "Guix" "Just" "Nickel" "Podman" "Deno"))
       (values . ("creator-protection" "emotional-lineage" "quantum-proof-traceability"
                  "bilingual-integrity" "FOSS" "reproducibility"))))

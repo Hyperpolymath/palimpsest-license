@@ -1,62 +1,79 @@
-# Palimpsest License Project - Security Contact Information
-# RFC 9116 Compliant
+# security.txt - RFC 9116 Compliant Security Information
+# Palimpsest License Project
+# https://securitytxt.org/
 
 Contact: mailto:security@palimpsest-license.org
 Contact: https://github.com/palimpsest-license/palimpsest-license/security/advisories/new
 Expires: 2026-12-31T23:59:59.000Z
 Encryption: https://palimpsest-license.org/.well-known/pgp-key.txt
-Acknowledgments: https://palimpsest-license.org/security-acknowledgments
 Preferred-Languages: en, nl
 Canonical: https://palimpsest-license.org/.well-known/security.txt
 Policy: https://palimpsest-license.org/SECURITY.md
+Acknowledgments: https://palimpsest-license.org/docs/security-acknowledgments.md
 
-# Security Scope
-# This security.txt covers:
-# - Palimpsest License text vulnerabilities (legal interpretation ambiguities)
-# - Metadata infrastructure (JSON-LD, Protocol Buffers, ndjson, Ecto schemas)
-# - Validation tools (Haskell validators, ReScript components)
-# - Documentation security issues (misleading guidance)
-# - Website/infrastructure vulnerabilities
-# - Cryptographic implementation flaws (quantum-proof traceability)
+# About the Palimpsest License Project
+# The Palimpsest License is a future-proof, layered licensing framework
+# designed for creative work in the age of AI. We protect creators who work
+# with narrative, trauma, mythology, and symbolic expression.
+
+# Scope
+# This security policy covers:
+# - License text and documentation repositories
+# - Compliance and audit tooling
+# - Metadata validation systems
+# - Web infrastructure and presentation layers
+# - Integration examples and code snippets
+
+# What to Report
+# We are particularly interested in vulnerabilities related to:
+# - Metadata stripping or tampering (Clause 2.3 violations)
+# - Attribution chain manipulation
+# - Cryptographic signature weaknesses
+# - Documentation injection attacks
+# - Supply chain vulnerabilities in our tooling
+
+# Response Time
+# - Initial acknowledgment: Within 48 hours
+# - Status update: Within 7 days
+# - Resolution timeline: Based on severity assessment
 
 # Out of Scope
-# - Third-party tools that use the license
-# - User-generated content in examples
-# - Theoretical attacks without proof of concept
+# - Theoretical legal interpretations (use GitHub Discussions)
+# - General feature requests (use GitHub Issues)
+# - Third-party services not directly controlled by this project
 
-# Coordinated Disclosure Timeline
-# Day 0: Initial report received
-# Day 1-2: Acknowledgment sent
-# Day 3-7: Triage and severity assessment
-# Day 7-90: Fix development and testing
-# Day 90: Public disclosure (coordinated with reporter)
+# Responsible Disclosure
+# We follow a coordinated disclosure process:
+# 1. Report received and acknowledged
+# 2. Vulnerability verified and assessed
+# 3. Fix developed and tested
+# 4. Security advisory published (if applicable)
+# 5. Credit given to reporter (if desired)
 
-# Safe Harbor
-# Palimpsest License project commits to:
-# - No legal action against good-faith security researchers
-# - Recognition in security acknowledgments
-# - Collaboration on responsible disclosure
+# Special Considerations for This Project
+# The Palimpsest License exists to protect creators from AI exploitation
+# and metadata manipulation. Security vulnerabilities that could enable
+# circumvention of these protections are treated with highest priority.
 
-# Special Considerations
-# License Integrity: Vulnerabilities affecting license interpretation are CRITICAL
-# Cultural Protection: Issues enabling cultural appropriation are HIGH priority
-# AI Training: Vulnerabilities in AI consent mechanisms are HIGH priority
-# Metadata Tampering: Attribution chain manipulation is CRITICAL
-# Emotional Lineage: Attacks on symbolic attribution are HIGH priority
+# Legal Safe Harbor
+# We support security research conducted in good faith and will not pursue
+# legal action against researchers who:
+# - Make a good faith effort to avoid privacy violations and data destruction
+# - Do not exploit vulnerabilities beyond necessary verification
+# - Follow our responsible disclosure process
+# - Do not demand payment or compensation for disclosure
 
-# Contact Methods
-# Primary: security@palimpsest-license.org (PGP encrypted preferred)
-# GitHub: Private security advisory (for repository issues)
-# Emergency: Include [URGENT] in subject line for active exploitation
+# Contact Methods Priority
+# 1. Encrypted email to security@palimpsest-license.org (preferred)
+# 2. GitHub Security Advisory (for code/infrastructure issues)
+# 3. Regular email if encryption not available
 
-# Expected Response Times
-# Critical: 24 hours
-# High: 48 hours
-# Medium: 7 days
-# Low: 14 days
+# Additional Resources
+# - Security Policy: /SECURITY.md
+# - Vulnerability Disclosure: /vulnerability.txt
+# - Governance: /GOVERNANCE.md
+# - Code of Practice: /CODE_OF_PRACTICE.md
 
-# Hiring
-# We welcome security researchers to contribute to the Palimpsest License project.
-# See CONTRIBUTING.md for how to get involved.
-
-Hiring: https://palimpsest-license.org/CONTRIBUTING.md
+# Maintained by: Palimpsest Stewardship Council
+# Last Updated: 2025-11-22
+# Next Review: 2026-06-01
