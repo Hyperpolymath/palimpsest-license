@@ -19,7 +19,7 @@ rsr-check:
     @echo "🔍 Running RSR compliance check..."
     @just _check-file "CLAUDE.md" "CLAUDE.md documentation"
     @just _check-file "MAINTAINERS.md" "Maintainers roster"
-    @just _check-file "TPCF.md" "Tri-Perimeter Contribution Framework"
+    @just _check-file "standards/TPCF.md" "Tri-Perimeter Contribution Framework"
     @just _check-file ".well-known/security.txt" "RFC 9116 security.txt"
     @just _check-file ".well-known/ai.txt" "AI training policy"
     @just _check-file ".well-known/humans.txt" "Humans.txt credits"
@@ -212,6 +212,12 @@ generate-toc FILE:
     @echo "📋 Generating TOC for {{FILE}}..."
     @npx markdown-toc -i {{FILE}}
     @echo "✅ TOC generated!"
+
+# Generate directory structure for README (keeps docs in sync with repo)
+generate-structure:
+    @echo "📁 Generating directory structure..."
+    @./scripts/generate-structure.sh
+    @echo "✅ Structure generated! Copy to README.md if needed."
 
 # Count lines of code (excluding dependencies)
 stats:
