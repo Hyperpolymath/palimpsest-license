@@ -68,6 +68,9 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
+          # Using default queries - security-extended adds more checks
+          # but may produce false positives
+          # queries: security-extended
         continue-on-error: true
 
       - name: Perform CodeQL Analysis
@@ -95,7 +98,7 @@ jobs:
       - name: Dependency Review
         uses: actions/dependency-review-action@v4
         with:
-          # Fail on high/critical vulnerabilities
+          # Fail on critical vulnerabilities only
           fail-on-severity: critical
           # Allow specific licenses (add more as needed)
           allow-licenses: MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, LGPL-2.1, LGPL-3.0, Palimpsest-0.4
