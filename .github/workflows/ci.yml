@@ -8,7 +8,7 @@
 #   - test: Run test suites (Haskell, OCaml)
 #   - build: Verify everything compiles
 #
-# All jobs use actions/checkout@v4 (current stable version as of 2024)
+# All jobs use actions/checkout@v6 (current stable version as of 2024)
 # =============================================================================
 
 name: CI
@@ -43,10 +43,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2
         with:
           deno-version: v1.x
 
@@ -69,7 +69,7 @@ jobs:
         working-directory: TOOLS/validation/haskell
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Haskell
         uses: haskell-actions/setup@v2
@@ -102,10 +102,10 @@ jobs:
         working-directory: ocaml
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup OCaml
-        uses: ocaml/setup-ocaml@v2
+        uses: ocaml/setup-ocaml@v3
         with:
           ocaml-compiler: '5.1'
 
@@ -130,10 +130,10 @@ jobs:
     needs: [lint]  # Run after lint passes
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js (for SCSS)
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
 
