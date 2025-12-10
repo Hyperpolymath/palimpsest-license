@@ -1,21 +1,21 @@
-# Palimpsest License
+= Palimpsest License
 
-> **Note:** This Markdown version is maintained for backwards compatibility. The canonical version is now [README.adoc](./README.adoc) (AsciiDoc format) for RSR Gold compliance.
+> *Note:* This Markdown version is maintained for backwards compatibility. The canonical version is now [README.adoc](./README.adoc) (AsciiDoc format) for RSR Gold compliance.
 
 ![Palimpsest License Logo](./assets/badges/svg/palimpsest-badge.svg)
 
-**Future-proof licensing for creative work in the age of AI**
+*Future-proof licensing for creative work in the age of AI*
 
 [![License: Palimpsest v0.4](https://img.shields.io/badge/license-Palimpsest%20v0.4-blue.svg)](./LICENSES/v0.4/palimpsest-v0.4.md)
 [![RSR Compliance: Bronze](https://img.shields.io/badge/RSR-Bronze-cd7f32.svg)](./RSR_COMPLIANCE.md)
 [![Version](https://img.shields.io/badge/version-0.4.0-green.svg)](./CHANGELOG.md)
 [![CI Status](https://img.shields.io/badge/CI-passing-brightgreen.svg)](https://github.com/palimpsest-license/palimpsest-license/actions)
 
-**Quick Links:** [Documentation](#documentation) | [Get Started](#quick-start) | [Examples](#examples) | [Community](#support--community)
+*Quick Links:* [Documentation](#documentation) | [Get Started](#quick-start) | [Examples](#examples) | [Community](#support--community)
 
 ---
 
-## Table of Contents
+== Table of Contents
 
 <!-- toc -->
 
@@ -86,11 +86,11 @@
 
 ---
 
-## What is Palimpsest?
+== What is Palimpsest?
 
-### The Mission
+=== The Mission
 
-> **"This is a license born not just from copyright, but from care. From narrative debt. From cultural refusal. From emotional fidelity."**
+> *"This is a license born not just from copyright, but from care. From narrative debt. From cultural refusal. From emotional fidelity."*
 
 The Palimpsest License is a future-proof, layered licensing framework designed for creative work in the age of artificial intelligence. We protect creators who work with narrative, trauma, mythology, and symbolic expression—those whose work carries emotional weight and cultural significance that traditional copyright law struggles to recognise or enforce.
 
@@ -98,47 +98,47 @@ In an era where AI systems scrape the internet for training data, where metadata
 
 Our name comes from the ancient practice of creating palimpsests—manuscripts where earlier writing was scraped away to make room for new text, yet traces of the original remained visible beneath the surface. Every creative work is a palimpsest, layered with influences, contexts, and meanings. This license ensures those layers—the emotional lineage, the cultural context, the narrative debt—aren't erased as work is transformed, remixed, and reused.
 
-### The Problem We're Solving
+=== The Problem We're Solving
 
 The digital age has brought unprecedented challenges for creators:
 
-**1. AI Training Without Consent**
+*1. AI Training Without Consent*
 
 Large language models, image generators, and other AI systems are trained on billions of creative works scraped from the internet—often without the creators' knowledge or consent, and never with compensation. A protest song becomes training data for a corporate chatbot. A trauma narrative becomes fodder for automated content generation. Cultural heritage is appropriated to train systems that may be used to further marginalise the communities they drew from.
 
 Existing copyright law is ill-equipped to address this. "Fair use" and similar doctrines were written for a pre-AI world and are being stretched beyond recognition. Creators are left without recourse as their life's work is ingested into black-box systems they'll never be credited for, compensated for, or even told about.
 
-**2. Cultural Appropriation and Context Collapse**
+*2. Cultural Appropriation and Context Collapse*
 
 When creative work is separated from its cultural context, harm occurs. A song written in protest against injustice loses its activist meaning when it's used in a car advertisement. A story about diaspora trauma is stripped of its cultural specificity when it's remixed without understanding. Indigenous knowledge is extracted and commodified without community consent.
 
-Traditional attribution—a simple credit line—doesn't capture this. We need **symbolic attribution**: recognition not just of who created something, but *why* they created it, what cultural context it emerges from, and what lineages it honours.
+Traditional attribution—a simple credit line—doesn't capture this. We need *symbolic attribution*: recognition not just of who created something, but *why* they created it, what cultural context it emerges from, and what lineages it honours.
 
-**3. Metadata Stripping and Attribution Laundering**
+*3. Metadata Stripping and Attribution Laundering*
 
 Digital works carry metadata: information about their creator, license, creation context, and cultural significance. This metadata is routinely stripped—sometimes deliberately, sometimes through careless platform design or file format conversions.
 
 Once metadata is gone, attribution becomes impossible. Works circulate without credit, without context, without compensation. Creators lose control of their narrative. Cultural heritage loses its moorings.
 
-**4. The Emotional Dimension of Creative Work**
+*4. The Emotional Dimension of Creative Work*
 
 Some creative work carries emotional weight that goes beyond intellectual property. A song written after losing a loved one. A poem about surviving violence. A novel processing generational trauma. Art created as resistance, as survival, as witness.
 
-Copyright law treats all creative works the same: as property to be owned, licensed, and controlled. It doesn't account for **emotional fidelity**—the idea that some works deserve special care, that their emotional and symbolic dimension matters as much as their commercial value.
+Copyright law treats all creative works the same: as property to be owned, licensed, and controlled. It doesn't account for *emotional fidelity*—the idea that some works deserve special care, that their emotional and symbolic dimension matters as much as their commercial value.
 
-**5. Collective and Community Ownership**
+*5. Collective and Community Ownership*
 
 Not all creative work has a single author. Many cultural traditions emphasise collective creation, community ownership, or works that emerge from shared heritage. DAOs (Decentralised Autonomous Organisations) and other community governance structures are creating works that don't fit the individual-author model.
 
 Existing licenses struggle with this. Who signs the license? Who can enforce it? How do communities maintain agency over their collective heritage?
 
-### Our Solution
+=== Our Solution
 
 The Palimpsest License addresses these challenges through five core innovations:
 
-**1. Emotional Lineage Protection**
+*1. Emotional Lineage Protection*
 
-We recognise that creative work carries **emotional lineage**: the story of *why* it was created, what it means to its creator, what cultural or personal context it emerges from. Our license protects this lineage, requiring that:
+We recognise that creative work carries *emotional lineage*: the story of *why* it was created, what it means to its creator, what cultural or personal context it emerges from. Our license protects this lineage, requiring that:
 
 - Works must preserve information about their emotional and cultural context
 - Derivatives must respect the original emotional intent
@@ -147,7 +147,7 @@ We recognise that creative work carries **emotional lineage**: the story of *why
 
 For example: a protest song licensed under Palimpsest cannot be used in corporate advertising without consent, because doing so would violate its emotional lineage as an activist work. The license creates legal grounds to refuse uses that betray the work's core meaning.
 
-**2. Quantum-Proof Traceability**
+*2. Quantum-Proof Traceability*
 
 We're building for the future. As quantum computing becomes viable, many current cryptographic attribution systems will fail. The Palimpsest License specifies that:
 
@@ -157,29 +157,29 @@ We're building for the future. As quantum computing becomes viable, many current
 
 We're future-proofing creative attribution for an age of post-quantum cryptography, distributed storage, and AI-generated content at scale.
 
-**3. AI Training Consent (Clause 1.2)**
+*3. AI Training Consent (Clause 1.2)*
 
-Our license explicitly addresses AI training. **Clause 1.2** distinguishes between:
+Our license explicitly addresses AI training. *Clause 1.2* distinguishes between:
 
-- **Interpretive AI** (search engines, recommendation systems, accessibility tools): These can process Palimpsest-licensed work without special consent
-- **Non-Interpretive (NI) AI** (training data for generative models, corpus analysis for commercial products): These require **explicit consent** from the rights holder
+- *Interpretive AI* (search engines, recommendation systems, accessibility tools): These can process Palimpsest-licensed work without special consent
+- *Non-Interpretive (NI) AI* (training data for generative models, corpus analysis for commercial products): These require *explicit consent* from the rights holder
 
 This distinction gives creators control over whether their work is used to train systems that will compete with them, replace them, or misuse their creative lineage.
 
 Using Palimpsest-licensed work as training data without consent is a license violation—creating grounds for legal action, even where copyright law is ambiguous.
 
-**4. Mandatory Metadata Preservation (Clause 2.3)**
+*4. Mandatory Metadata Preservation (Clause 2.3)*
 
-**Clause 2.3** makes metadata preservation a license requirement. When you use a Palimpsest-licensed work:
+*Clause 2.3* makes metadata preservation a license requirement. When you use a Palimpsest-licensed work:
 
-- You **must** preserve all embedded metadata
-- You **must** maintain attribution information in any derivatives
-- You **must** provide this information in accessible formats
-- You **cannot** use technical measures to obscure or strip metadata
+- You *must* preserve all embedded metadata
+- You *must* maintain attribution information in any derivatives
+- You *must* provide this information in accessible formats
+- You *cannot* use technical measures to obscure or strip metadata
 
 Stripping metadata is a license breach, not just an ethical failing. This creates legal recourse where platforms or users remove attribution.
 
-**5. DAO and Community Governance Support**
+*5. DAO and Community Governance Support*
 
 The Palimpsest License explicitly supports collective ownership and DAO governance:
 
@@ -190,11 +190,11 @@ The Palimpsest License explicitly supports collective ownership and DAO governan
 
 We're built for an age where creative work is increasingly collaborative, community-driven, and owned by collectives rather than individuals.
 
-### Who This Is For
+=== Who This Is For
 
 The Palimpsest License is designed for:
 
-**Creators Working with Emotional and Symbolic Content**
+*Creators Working with Emotional and Symbolic Content*
 
 - Musicians writing protest songs, activist music, or work processing trauma
 - Writers exploring personal or collective trauma, diaspora narratives, or cultural memory
@@ -202,7 +202,7 @@ The Palimpsest License is designed for:
 - Filmmakers documenting marginalised communities or sensitive subjects
 - Poets and spoken-word artists whose work carries political or emotional weight
 
-**Cultural Heritage and Community Projects**
+*Cultural Heritage and Community Projects*
 
 - Indigenous communities protecting traditional knowledge
 - Diaspora communities preserving and sharing cultural heritage
@@ -210,30 +210,30 @@ The Palimpsest License is designed for:
 - Cultural heritage organisations managing collective works
 - Community art projects with collective ownership
 
-**Creators Concerned About AI**
+*Creators Concerned About AI*
 
 - Anyone who wants control over whether their work trains AI systems
 - Creators whose style or voice might be replicated by generative AI
 - Writers concerned about language models trained on their work without consent
 - Artists worried about image generators reproducing their aesthetic
 
-**Projects with Collective Ownership**
+*Projects with Collective Ownership*
 
 - DAOs creating collaborative works
 - Open-source projects with community governance
 - Collectives managing shared creative assets
 - Community-owned platforms and cultural initiatives
 
-**Ethically-Minded Technologists**
+*Ethically-Minded Technologists*
 
 - Developers building tools that respect creator rights
 - Platforms that want to demonstrate commitment to ethical AI
 - Researchers who need clear consent mechanisms for corpus building
 - Companies who want to be transparent about AI training data
 
-### Not Anti-AI, Pro-Consent
+=== Not Anti-AI, Pro-Consent
 
-**The Palimpsest License is not anti-AI. It's pro-consent.**
+*The Palimpsest License is not anti-AI. It's pro-consent.*
 
 We recognise that AI can be a powerful tool for accessibility, discovery, education, and creativity. Search engines that help people find creative work, recommendation systems that connect creators with audiences, assistive technologies that make content accessible, translation tools that break down language barriers—these are valuable.
 
@@ -253,23 +253,23 @@ We believe AI and creator rights can coexist. We're building the legal and techn
 
 ---
 
-## Key Concepts
+== Key Concepts
 
 The Palimpsest License introduces several novel concepts that go beyond traditional intellectual property law. Understanding these concepts is key to understanding why the license works the way it does.
 
-### Emotional Lineage
+=== Emotional Lineage
 
-**Emotional lineage** is the story behind creative work: why it was made, what it means to its creator, what emotional or cultural journey it represents.
+*Emotional lineage* is the story behind creative work: why it was made, what it means to its creator, what emotional or cultural journey it represents.
 
-Every creative work has both a **technical lineage** (who created it, when, using what influences) and an **emotional lineage** (why it was created, what it means, what context it emerges from). Traditional copyright protects the technical: who owns it, who has rights to it. The Palimpsest License also protects the emotional.
+Every creative work has both a *technical lineage* (who created it, when, using what influences) and an *emotional lineage* (why it was created, what it means, what context it emerges from). Traditional copyright protects the technical: who owns it, who has rights to it. The Palimpsest License also protects the emotional.
 
-**Why This Matters:**
+*Why This Matters:*
 
 A protest song written during a social movement carries emotional lineage as an activist work. Using that song in a corporate advertisement—even with technical attribution—violates its emotional lineage. The song was created to challenge power, not to sell products. Its meaning is betrayed when it's divorced from its activist context.
 
 Similarly, a memoir written by a trauma survivor carries emotional lineage as a work of witness and healing. Using excerpts to train a chatbot without consent strips that emotional context, reducing lived experience to statistical patterns in a neural network.
 
-**How Palimpsest Protects It:**
+*How Palimpsest Protects It:*
 
 The license requires that:
 - Emotional lineage information must be preserved in metadata
@@ -277,7 +277,7 @@ The license requires that:
 - Uses that would fundamentally betray the work's meaning require explicit consent
 - Attribution includes symbolic and emotional context, not just legal credit
 
-**Example in Practice:**
+*Example in Practice:*
 
 Imagine a folk song written by a coal miner during a labour strike in 1926. The song's emotional lineage is:
 - Created as resistance to exploitation
@@ -287,18 +287,18 @@ Imagine a folk song written by a coal miner during a labour strike in 1926. The 
 
 If that song is licensed under Palimpsest, using it in an advertisement for a mining company would violate its emotional lineage. Even if the mining company offers payment and includes attribution, the use betrays the song's core meaning. Under Palimpsest, the rights holder can refuse such uses—or demand additional consent specifically acknowledging the contradiction.
 
-**Emotional Lineage vs. Moral Rights:**
+*Emotional Lineage vs. Moral Rights:*
 
 Some jurisdictions (particularly in civil law countries) recognise "moral rights" (*droits moraux*) that give creators the right to object to distortions or mutilations of their work. Emotional lineage extends this concept:
 
-- **Moral rights** protect against modifications that harm the creator's reputation
-- **Emotional lineage** protects against uses that betray the work's core meaning
+- *Moral rights* protect against modifications that harm the creator's reputation
+- *Emotional lineage* protects against uses that betray the work's core meaning
 
 Emotional lineage is broader: it's not just about the creator's reputation, but about the work's integrity as an emotional and cultural artefact.
 
-### Symbolic Attribution
+=== Symbolic Attribution
 
-**Symbolic attribution** is recognition that goes beyond legal credit. It acknowledges not just *who* created something, but *why*, and what cultural or emotional lineages it honours.
+*Symbolic attribution* is recognition that goes beyond legal credit. It acknowledges not just *who* created something, but *why*, and what cultural or emotional lineages it honours.
 
 Traditional attribution is simple: "Created by [Name], [Date]." This satisfies copyright law but erases context. Symbolic attribution adds:
 - The emotional or cultural motivation behind creation
@@ -306,7 +306,7 @@ Traditional attribution is simple: "Created by [Name], [Date]." This satisfies c
 - The symbolic meaning the creator intended
 - The context necessary to understand the work's significance
 
-**Why This Matters:**
+*Why This Matters:*
 
 When a diasporic artist creates work exploring their cultural heritage, they're not creating in isolation. They're honouring their ancestors, their community, their cultural tradition. Simple attribution—"Created by [Artist Name]"—erases all of that.
 
@@ -315,17 +315,17 @@ Symbolic attribution might instead say:
 
 This preserves the work's cultural moorings. It makes visible the relationships and responsibilities embedded in creation.
 
-**How Palimpsest Implements It:**
+*How Palimpsest Implements It:*
 
 The license requires that works include:
 - Standard attribution (creator name, date, license)
-- **Emotional attribution** (why the work was created)
-- **Cultural attribution** (what communities or lineages it honours)
-- **Symbolic attribution** (what meaning or significance it carries)
+- *Emotional attribution* (why the work was created)
+- *Cultural attribution* (what communities or lineages it honours)
+- *Symbolic attribution* (what meaning or significance it carries)
 
 These are embedded in metadata using structured formats (JSON-LD, YAML) and must be preserved when works are reused or remixed.
 
-**Example in Practice:**
+*Example in Practice:*
 
 A Scottish Gaelic poet writes a poem about language loss in Highland communities. Symbolic attribution would include:
 
@@ -352,53 +352,53 @@ attribution:
 
 When someone uses or remixes this poem, they must preserve this attribution. They must acknowledge it's not just a poem—it's an act of cultural resistance. They must respect that it emerges from and honours a specific community's struggle.
 
-**Ambient Attribution:**
+*Ambient Attribution:*
 
 Symbolic attribution can be *ambient*: woven into the work itself rather than separate credits. A film might include visual symbols acknowledging its cultural lineage. A song might reference its influences lyrically. This is valid symbolic attribution under Palimpsest—it doesn't have to be a separate metadata block.
 
-### Non-Interpretive vs Interpretive AI
+=== Non-Interpretive vs Interpretive AI
 
-One of the Palimpsest License's most important innovations is distinguishing between different types of AI use. **Clause 1.2** draws a line between **Interpretive** and **Non-Interpretive (NI)** AI systems.
+One of the Palimpsest License's most important innovations is distinguishing between different types of AI use. *Clause 1.2* draws a line between *Interpretive* and *Non-Interpretive (NI)* AI systems.
 
-**Interpretive AI Systems:**
+*Interpretive AI Systems:*
 
 These are AI systems that help users find, access, or understand creative work without fundamentally transforming it or using it as training data for generative models. Examples include:
 
-- **Search engines**: Indexing work so users can discover it
-- **Recommendation systems**: Suggesting related works based on user preferences
-- **Accessibility tools**: Screen readers, translation, alt-text generation
-- **Organisational tools**: Tagging, categorisation, metadata enhancement
-- **Analytical tools**: Sentiment analysis, topic modelling, research analysis
+- *Search engines*: Indexing work so users can discover it
+- *Recommendation systems*: Suggesting related works based on user preferences
+- *Accessibility tools*: Screen readers, translation, alt-text generation
+- *Organisational tools*: Tagging, categorisation, metadata enhancement
+- *Analytical tools*: Sentiment analysis, topic modelling, research analysis
 
-**These do NOT require additional consent under Clause 1.2.** They're considered fair and beneficial uses that help creators reach audiences and make work accessible.
+*These do NOT require additional consent under Clause 1.2.* They're considered fair and beneficial uses that help creators reach audiences and make work accessible.
 
-**Non-Interpretive (NI) AI Systems:**
+*Non-Interpretive (NI) AI Systems:*
 
 These are AI systems that use creative work as training data for models that will generate new content, often competing with or replacing the original creators. Examples include:
 
-- **Language model training**: Using text to train GPT-like systems
-- **Image generator training**: Using artwork to train DALL-E, Midjourney, Stable Diffusion, etc.
-- **Voice cloning training**: Using speech to train voice synthesis systems
-- **Style replication**: Training models to mimic a creator's unique style
-- **Corpus building**: Aggregating works into datasets for commercial AI products
+- *Language model training*: Using text to train GPT-like systems
+- *Image generator training*: Using artwork to train DALL-E, Midjourney, Stable Diffusion, etc.
+- *Voice cloning training*: Using speech to train voice synthesis systems
+- *Style replication*: Training models to mimic a creator's unique style
+- *Corpus building*: Aggregating works into datasets for commercial AI products
 
-**These DO require explicit consent under Clause 1.2.** Using Palimpsest-licensed work for NI purposes without consent is a license violation.
+*These DO require explicit consent under Clause 1.2.* Using Palimpsest-licensed work for NI purposes without consent is a license violation.
 
-**The Distinction:**
+*The Distinction:*
 
 The key difference is:
-- **Interpretive AI** helps users engage with the original work
-- **Non-Interpretive AI** uses the work to create substitutes or derivatives
+- *Interpretive AI* helps users engage with the original work
+- *Non-Interpretive AI* uses the work to create substitutes or derivatives
 
 Interpretive AI preserves creator agency: the work remains attributed to its creator, and the AI helps people find and access it. Non-Interpretive AI erases creator agency: the work becomes fuel for systems that may replace the creator, erase their style, or compete with their livelihood.
 
-**Why This Matters:**
+*Why This Matters:*
 
 Current copyright law doesn't distinguish between these uses. Courts treat "AI training" as a monolithic category, often ruling it "transformative fair use." This erases the meaningful difference between a search engine indexing your work (helpful) and a generative model training on your work to replace you (exploitative).
 
 The Palimpsest License makes this distinction explicit and enforceable. Creators can say: "Yes to search engines and accessibility tools. No to training data for systems that will mimic my style without credit or compensation."
 
-**Obtaining NI Consent:**
+*Obtaining NI Consent:*
 
 If you want to use Palimpsest-licensed work for Non-Interpretive AI training, you must:
 
@@ -410,7 +410,7 @@ If you want to use Palimpsest-licensed work for Non-Interpretive AI training, yo
 
 Many creators may consent—especially if fairly compensated and properly attributed. The license simply ensures they have the right to decide, rather than having their work taken without permission.
 
-**Technical Detection:**
+*Technical Detection:*
 
 The license encourages including technical measures to detect NI use:
 - Watermarking or fingerprinting that survives AI training
@@ -419,11 +419,11 @@ The license encourages including technical measures to detect NI use:
 
 These are optional but recommended. They make enforcement more practical.
 
-### Quantum-Proof Traceability
+=== Quantum-Proof Traceability
 
-We're building for a future where today's cryptographic systems may be obsolete. **Quantum-proof traceability** means attribution mechanisms that will survive the advent of quantum computing and other technological disruptions.
+We're building for a future where today's cryptographic systems may be obsolete. *Quantum-proof traceability* means attribution mechanisms that will survive the advent of quantum computing and other technological disruptions.
 
-**The Problem:**
+*The Problem:*
 
 Most current digital attribution relies on cryptographic signatures (e.g., digital signatures, hash functions, blockchain records). Many of these systems use algorithms that will be broken by quantum computers:
 
@@ -433,11 +433,11 @@ Most current digital attribution relies on cryptographic signatures (e.g., digit
 
 If attribution relies on these systems, it will become unverifiable once quantum computers are widely available (estimated 10-20 years, possibly sooner).
 
-**The Solution:**
+*The Solution:*
 
 The Palimpsest License requires (or strongly recommends) quantum-resistant attribution mechanisms:
 
-**1. Post-Quantum Cryptography:**
+*1. Post-Quantum Cryptography:*
 
 Use cryptographic algorithms believed to resist quantum attacks:
 - Lattice-based cryptography (e.g., Crystals-Kyber, Crystals-Dilithium)
@@ -447,7 +447,7 @@ Use cryptographic algorithms believed to resist quantum attacks:
 
 These are already being standardised by NIST (National Institute of Standards and Technology) for post-quantum use.
 
-**2. Content-Addressable Storage:**
+*2. Content-Addressable Storage:*
 
 Use systems where content is identified by its hash, not by location:
 - IPFS (InterPlanetary File System)
@@ -457,14 +457,14 @@ Use systems where content is identified by its hash, not by location:
 
 These systems create immutable links between content and attribution, surviving platform changes and link rot.
 
-**3. Distributed Ledgers:**
+*3. Distributed Ledgers:*
 
 Use blockchain or similar distributed ledger technology with post-quantum signatures:
 - Attribution records on distributed ledgers
 - Timestamping services that will transition to post-quantum algorithms
 - Decentralised storage networks
 
-**4. Redundant Attribution:**
+*4. Redundant Attribution:*
 
 Embed attribution in multiple ways:
 - In metadata (JSON-LD, EXIF, ID3 tags)
@@ -474,7 +474,7 @@ Embed attribution in multiple ways:
 
 If one system fails, others remain.
 
-**Why This Matters:**
+*Why This Matters:*
 
 Creative works can last centuries. A song written today might be sung for generations. A novel might be read by your great-great-grandchildren. Attribution needs to last as long as the work.
 
@@ -482,7 +482,7 @@ If we build attribution systems on cryptography that will be broken in 20 years,
 
 Quantum-proof traceability ensures that attribution survives technological change. It's future-proofing creative credit.
 
-**Practical Implementation:**
+*Practical Implementation:*
 
 You don't need to be a cryptography expert to comply. The license provides:
 - Recommended tools and services for quantum-resistant attribution
@@ -491,11 +491,11 @@ You don't need to be a cryptography expert to comply. The license provides:
 
 As post-quantum systems become standard, Palimpsest-licensed works will be ready.
 
-### DAO Governance
+=== DAO Governance
 
-The Palimpsest License explicitly supports **DAO (Decentralised Autonomous Organisation) governance** for collective creative works.
+The Palimpsest License explicitly supports *DAO (Decentralised Autonomous Organisation) governance* for collective creative works.
 
-**What is a DAO?**
+*What is a DAO?*
 
 A DAO is an organisation governed by code and community voting rather than hierarchical management:
 - Rules are encoded in smart contracts
@@ -505,7 +505,7 @@ A DAO is an organisation governed by code and community voting rather than hiera
 
 DAOs are increasingly used for collective projects: open-source software, community media, collaborative art, cultural heritage preservation.
 
-**Why Creative Work Needs DAO Support:**
+*Why Creative Work Needs DAO Support:*
 
 Not all creative work has a single author:
 - Collaborative media projects (podcasts, documentary series, community archives)
@@ -516,11 +516,11 @@ Not all creative work has a single author:
 
 Traditional licenses assume a single rights holder who can grant or deny permission. This doesn't fit collective ownership models.
 
-**How Palimpsest Supports DAOs:**
+*How Palimpsest Supports DAOs:*
 
 The license allows for:
 
-**1. Multi-Party Licensing:**
+*1. Multi-Party Licensing:*
 
 Multiple rights holders can jointly license a work. The license can specify:
 - How many votes are needed to grant permissions
@@ -528,28 +528,28 @@ Multiple rights holders can jointly license a work. The license can specify:
 - How new contributors gain rights
 - How rights holders can leave without disrupting the project
 
-**2. Smart Contract Integration:**
+*2. Smart Contract Integration:*
 
 Consent mechanisms can reference DAO voting:
 > "Permission for Non-Interpretive AI use requires approval by 66% vote of the [DAO Name] governance token holders."
 
 This makes consent verifiable on-chain and enforceable through both the license and the DAO's smart contracts.
 
-**3. Community Consent Processes:**
+*3. Community Consent Processes:*
 
 For cultural heritage or community works, consent can require community consultation:
 > "Permission for commercial use requires consultation with [Community Name] through their established decision-making process."
 
 This respects that some creative works belong to communities, not individuals, and decisions should involve community voice.
 
-**4. Dynamic Rights Holder Lists:**
+*4. Dynamic Rights Holder Lists:*
 
 As contributors join or leave a project, the list of rights holders can update:
 - New contributors can be added by DAO vote
 - Departed contributors can transfer rights to the collective
 - Rights can vest over time (e.g., "become full rights holder after 6 months of contribution")
 
-**Example in Practice:**
+*Example in Practice:*
 
 A community podcast collective uses a DAO to govern their work:
 
@@ -576,18 +576,18 @@ Anyone wanting to use the podcast for AI training would:
 4. If approved, the smart contract records consent
 5. The user can proceed, with consent verifiably on-chain
 
-**Benefits:**
+*Benefits:*
 
-- **Transparency**: All decisions are public and auditable
-- **Community agency**: Those who contribute have say in how work is used
-- **Automated enforcement**: Smart contracts can restrict use to approved parties
-- **Resilience**: No single point of failure; the collective continues even as individuals leave
+- *Transparency*: All decisions are public and auditable
+- *Community agency*: Those who contribute have say in how work is used
+- *Automated enforcement*: Smart contracts can restrict use to approved parties
+- *Resilience*: No single point of failure; the collective continues even as individuals leave
 
-### Trauma-Informed Approach
+=== Trauma-Informed Approach
 
-The Palimpsest License is designed with a **trauma-informed approach** to creative work—recognising that some creative work emerges from trauma, processes trauma, or documents trauma, and deserves special care.
+The Palimpsest License is designed with a *trauma-informed approach* to creative work—recognising that some creative work emerges from trauma, processes trauma, or documents trauma, and deserves special care.
 
-**What Does Trauma-Informed Mean?**
+*What Does Trauma-Informed Mean?*
 
 A trauma-informed approach:
 - Recognises the prevalence and impact of trauma
@@ -596,7 +596,7 @@ A trauma-informed approach:
 - Centres the agency and consent of trauma survivors
 - Acknowledges that trauma impacts individuals and communities
 
-**Why Creative Work Needs This:**
+*Why Creative Work Needs This:*
 
 Many creators process personal or collective trauma through their work:
 - Memoirs and autobiographical writing about abuse, violence, or loss
@@ -607,16 +607,16 @@ Many creators process personal or collective trauma through their work:
 
 When this work is used without consent, stripped of context, or exploited commercially, it can re-traumatise creators and communities. Using a sexual assault survivor's memoir to train a chatbot without consent isn't just a copyright violation—it's an ethical violation that treats trauma as data.
 
-**How Palimpsest Protects Trauma Narratives:**
+*How Palimpsest Protects Trauma Narratives:*
 
-**1. Consent Requirements:**
+*1. Consent Requirements:*
 
 Trauma narratives licensed under Palimpsest can specify heightened consent requirements:
 - Commercial use requires explicit discussion of the work's trauma context
 - AI training requires acknowledgement that this is trauma narrative, not just data
 - Remixes or derivatives require sensitivity to the original emotional content
 
-**2. Metadata Flags:**
+*2. Metadata Flags:*
 
 Works can include metadata indicating they're trauma narratives:
 
@@ -636,7 +636,7 @@ special_handling:
 
 This alerts users that special care is needed.
 
-**3. Right to Withdraw:**
+*3. Right to Withdraw:*
 
 The license includes provisions for creators to withdraw permission in cases of:
 - Re-traumatisation from how work is being used
@@ -645,20 +645,20 @@ The license includes provisions for creators to withdraw permission in cases of:
 
 This gives creators ongoing agency, not just a one-time licensing decision.
 
-**4. Community and Collective Trauma:**
+*4. Community and Collective Trauma:*
 
 For works about collective trauma (genocide, colonisation, systemic oppression), the license supports community consent:
 - Use may require consultation with affected communities
 - Cultural sensitivity review may be mandatory
 - Communities can specify how their traumatic histories should (and should not) be used
 
-**Example in Practice:**
+*Example in Practice:*
 
 A writer publishes a memoir about surviving domestic violence, licensed under Palimpsest. The license specifies:
 
-- ✅ **Allowed**: Sharing for education, support groups, advocacy, research with proper ethics review
-- ⚠️ **Requires consent**: Excerpts in media, commercial publication, inclusion in anthologies
-- ❌ **Not allowed without explicit consent**: AI training, decontextualised quotation, use in content that minimises or denies domestic violence
+- ✅ *Allowed*: Sharing for education, support groups, advocacy, research with proper ethics review
+- ⚠️ *Requires consent*: Excerpts in media, commercial publication, inclusion in anthologies
+- ❌ *Not allowed without explicit consent*: AI training, decontextualised quotation, use in content that minimises or denies domestic violence
 
 If a language model wants to train on this memoir, they must:
 1. Contact the author
@@ -668,45 +668,45 @@ If a language model wants to train on this memoir, they must:
 
 The author can refuse if they feel AI training would treat their trauma as mere data. The license gives legal backing to that refusal.
 
-**Benefits:**
+*Benefits:*
 
-- **Respects creator agency**: Survivors control how their trauma narratives are used
-- **Prevents exploitation**: Can't be used for profit without consent and proper context
-- **Preserves context**: Trauma narratives aren't stripped of their meaning
-- **Enables healing**: Creators can share their work without losing control of it
-- **Supports advocacy**: Work can be used for education and change while preventing harmful uses
+- *Respects creator agency*: Survivors control how their trauma narratives are used
+- *Prevents exploitation*: Can't be used for profit without consent and proper context
+- *Preserves context*: Trauma narratives aren't stripped of their meaning
+- *Enables healing*: Creators can share their work without losing control of it
+- *Supports advocacy*: Work can be used for education and change while preventing harmful uses
 
 ---
 
-## Quick Start
+== Quick Start
 
 Ready to use the Palimpsest License? Here's how to get started in five minutes.
 
-### 5-Minute Adoption Guide
+=== 5-Minute Adoption Guide
 
-**Step 1: Choose Your Version**
+*Step 1: Choose Your Version*
 
-The current version is **v0.4**. It's stable and ready for use, though formal v1.0 is planned for 2026.
+The current version is *v0.4*. It's stable and ready for use, though formal v1.0 is planned for 2026.
 
-- **For most creators**: Use v0.4
-- **For production systems**: v0.4 is stable but pre-1.0; assess risk tolerance
-- **For experimentation**: v0.4 is perfect
+- *For most creators*: Use v0.4
+- *For production systems*: v0.4 is stable but pre-1.0; assess risk tolerance
+- *For experimentation*: v0.4 is perfect
 
-**Step 2: Add License Text**
+*Step 2: Add License Text*
 
 Copy the license text to your project:
 
 ```bash
-# For English
+= For English
 cp LICENSES/v0.4/palimpsest-v0.4.md ./LICENSE.md
 
-# For Dutch (legally binding in Netherlands)
+= For Dutch (legally binding in Netherlands)
 cp LICENSES/v0.4/palimpsest-v0.4.nl.md ./LICENTIE.md
 ```
 
 Or download from: [https://palimpsest-license.org/v0.4/license](https://palimpsest-license.org/v0.4/license)
 
-**Step 3: Add a License Badge**
+*Step 3: Add a License Badge*
 
 Add to your README.md:
 
@@ -720,12 +720,12 @@ Or use our custom badge:
 ![Licensed under Palimpsest v0.4](https://palimpsest-license.org/assets/badges/palimpsest-v0.4.svg)
 ```
 
-**Step 4: Add Metadata**
+*Step 4: Add Metadata*
 
 Create a metadata file describing your work:
 
 ```yaml
-# .palimpsest.yml
+= .palimpsest.yml
 license:
   name: "Palimpsest License"
   version: "v0.4"
@@ -755,7 +755,7 @@ permissions:
   interpretive_AI: "Yes - search, accessibility, and discovery allowed"
 ```
 
-**Step 5: Announce It**
+*Step 5: Announce It*
 
 Let people know you're using Palimpsest:
 - Add to your project README
@@ -763,24 +763,24 @@ Let people know you're using Palimpsest:
 - Share on social media: #PalimpsestLicense
 - Link to https://palimpsest-license.org
 
-**Done!** Your work is now protected by the Palimpsest License.
+*Done!* Your work is now protected by the Palimpsest License.
 
-### Adding to GitHub Repository
+=== Adding to GitHub Repository
 
 For code repositories, documentation, or creative projects hosted on GitHub:
 
-**1. Add License File**
+*1. Add License File*
 
 ```bash
-# Clone or download Palimpsest License
+= Clone or download Palimpsest License
 git clone https://github.com/palimpsest-license/palimpsest-license
 cd palimpsest-license
 
-# Copy license to your project
+= Copy license to your project
 cp LICENSES/v0.4/palimpsest-v0.4.md /path/to/your/project/LICENSE.md
 ```
 
-**2. Add to package.json (if applicable)**
+*2. Add to package.json (if applicable)*
 
 ```json
 {
@@ -792,7 +792,7 @@ cp LICENSES/v0.4/palimpsest-v0.4.md /path/to/your/project/LICENSE.md
 }
 ```
 
-**3. Add GitHub License Badge**
+*3. Add GitHub License Badge*
 
 In your repository settings:
 - Go to "About" section (right sidebar)
@@ -800,55 +800,55 @@ In your repository settings:
 - Enter: "Palimpsest v0.4"
 - Link to: `LICENSE.md`
 
-**4. Add Attribution File**
+*4. Add Attribution File*
 
 Create `ATTRIBUTION.md`:
 
 ```markdown
-# Attribution
+= Attribution
 
 This work is licensed under the Palimpsest License v0.4.
 
-## Creators
+== Creators
 
-- **Your Name** (your@email.com)
+- *Your Name* (your@email.com)
   - Role: Primary creator
   - Contribution: Original concept and implementation
   - Why: Created to demonstrate ethical AI licensing
 
-## Emotional Lineage
+== Emotional Lineage
 
 This project was created in response to growing concerns about AI training on creative work without consent. It honours the work of creators who have fought for their rights in the digital age.
 
-## Cultural Context
+== Cultural Context
 
 This project is part of the broader movement for ethical AI and creator rights.
 
-## Symbolic Attribution
+== Symbolic Attribution
 
 Every line of code and documentation is an act of care for future creators.
 
-## Contact
+== Contact
 
 For permissions, questions, or collaboration:
 - Email: you@example.com
 - GitHub: @yourusername
 ```
 
-**5. Add to README**
+*5. Add to README*
 
 At the top of your README.md:
 
 ```markdown
-# Your Project
+= Your Project
 
 [![License: Palimpsest v0.4](https://img.shields.io/badge/license-Palimpsest%20v0.4-blue.svg)](./LICENSE.md)
 
-## License
+== License
 
 This project is licensed under the [Palimpsest License v0.4](./LICENSE.md).
 
-### What This Means
+=== What This Means
 
 - ✅ You can use, modify, and share this work
 - ✅ Search engines and accessibility tools can process it
@@ -860,11 +860,11 @@ This project is licensed under the [Palimpsest License v0.4](./LICENSE.md).
 See [ATTRIBUTION.md](./ATTRIBUTION.md) for full details.
 ```
 
-### Adding to Creative Work
+=== Adding to Creative Work
 
 For creative works (music, writing, art, film):
 
-**For Written Work (Books, Articles, Poetry)**
+*For Written Work (Books, Articles, Poetry)*
 
 Add to the copyright page:
 
@@ -881,7 +881,7 @@ Emotional lineage and cultural context must be preserved.
 For permissions: you@example.com
 ```
 
-**For Music (MP3, FLAC, etc.)**
+*For Music (MP3, FLAC, etc.)*
 
 Add to ID3 tags:
 
@@ -894,7 +894,7 @@ Comment: Licensed under Palimpsest v0.4. AI training requires consent. See palim
 
 Or include a `LICENSE.txt` file with your music release.
 
-**For Visual Art (Images, Paintings, Photography)**
+*For Visual Art (Images, Paintings, Photography)*
 
 Add to EXIF metadata:
 
@@ -912,7 +912,7 @@ Or embed in the image itself (e.g., in a border or watermark):
 © 2025 Your Name | Palimpsest v0.4 | palimpsest-license.org
 ```
 
-**For Film/Video**
+*For Film/Video*
 
 Add to end credits:
 
@@ -926,7 +926,7 @@ Contact: filmmaker@example.com
 Palimpsest-license.org
 ```
 
-**For Websites**
+*For Websites*
 
 Add to footer:
 
@@ -943,14 +943,14 @@ Add to footer:
 </footer>
 ```
 
-### Metadata Examples
+=== Metadata Examples
 
 Comprehensive metadata templates for different use cases:
 
-**Template 1: Individual Creator, Personal Work**
+*Template 1: Individual Creator, Personal Work*
 
 ```yaml
-# .palimpsest.yml
+= .palimpsest.yml
 license:
   name: "Palimpsest License"
   version: "v0.4"
@@ -1003,10 +1003,10 @@ contact:
   mastodon: "@amara@writing.exchange"
 ```
 
-**Template 2: Collective/DAO Project**
+*Template 2: Collective/DAO Project*
 
 ```yaml
-# .palimpsest.yml
+= .palimpsest.yml
 license:
   name: "Palimpsest License"
   version: "v0.4"
@@ -1073,10 +1073,10 @@ contact:
   dao_forum: "https://forum.communityvoices.coop"
 ```
 
-**Template 3: Trauma Narrative**
+*Template 3: Trauma Narrative*
 
 ```yaml
-# .palimpsest.yml
+= .palimpsest.yml
 license:
   name: "Palimpsest License"
   version: "v0.4"
@@ -1131,61 +1131,61 @@ contact:
   note: "Please be patient - I may need time to respond to requests involving this work"
 ```
 
-### Verification
+=== Verification
 
 How to verify that a work is legitimately licensed under Palimpsest:
 
-**1. Check for License Text**
+*1. Check for License Text*
 
 Look for:
 - `LICENSE.md` or `LICENTIE.md` file
 - License badge in README
 - Copyright notice mentioning Palimpsest v0.4
 
-**2. Check Metadata**
+*2. Check Metadata*
 
 Look for:
 - `.palimpsest.yml` or `.palimpsest.json`
 - Embedded metadata in files (ID3, EXIF, etc.)
 - Attribution file or page
 
-**3. Verify Contact Information**
+*3. Verify Contact Information*
 
 Legitimate Palimpsest licenses should include:
 - Creator contact information
 - Way to request permissions
 - Link to palimpsest-license.org or official license text
 
-**4. Check Attribution Chain**
+*4. Check Attribution Chain*
 
 If the work is a derivative:
 - Should include attribution to original creator
 - Should preserve original metadata
 - Should link to original source
 
-**5. Use Validation Tools**
+*5. Use Validation Tools*
 
 We provide tools to verify Palimpsest metadata:
 
 ```bash
-# Install validator
+= Install validator
 npm install -g palimpsest-validator
 
-# Validate a project
+= Validate a project
 palimpsest-validate /path/to/project
 
-# Check metadata
+= Check metadata
 palimpsest-check-metadata .palimpsest.yml
 ```
 
-**6. Check On-Chain Records (for DAO projects)**
+*6. Check On-Chain Records (for DAO projects)*
 
 If using blockchain verification:
 - Check the specified contract address
 - Verify vote records match claimed permissions
 - Confirm transaction history
 
-**Red Flags (Potential Misuse):**
+*Red Flags (Potential Misuse):*
 
 - ❌ No contact information for permissions
 - ❌ Metadata stripped or incomplete
@@ -1195,181 +1195,181 @@ If using blockchain verification:
 
 ---
 
-## Documentation
+== Documentation
 
 Comprehensive guides for users, developers, and adopters.
 
-### User Guide
+=== User Guide
 
-**Location**: `GUIDES_v0.4/User_Guide.md`
+*Location*: `GUIDES_v0.4/User_Guide.md`
 
 The User Guide is for creators who want to license their work under Palimpsest. It covers:
 
-- **Choosing Palimpsest**: Is this license right for your work?
-- **Basic Setup**: How to add Palimpsest to your project
-- **Understanding Clauses**: Plain-language explanation of each clause
-- **Practical Scenarios**: What to do when someone wants to use your work
-- **Enforcement**: What to do if someone violates your license
-- **FAQ**: Common questions from creators
+- *Choosing Palimpsest*: Is this license right for your work?
+- *Basic Setup*: How to add Palimpsest to your project
+- *Understanding Clauses*: Plain-language explanation of each clause
+- *Practical Scenarios*: What to do when someone wants to use your work
+- *Enforcement*: What to do if someone violates your license
+- *FAQ*: Common questions from creators
 
-**Perfect for:**
+*Perfect for:*
 - Individual creators
 - Small collectives
 - Anyone new to open licensing
 - Non-lawyers who want clear guidance
 
-### Developer Guide
+=== Developer Guide
 
-**Location**: `GUIDES_v0.4/Developer_Guide.md`
+*Location*: `GUIDES_v0.4/Developer_Guide.md`
 
 The Developer Guide is for technologists building tools and platforms that interact with Palimpsest-licensed work. It covers:
 
-- **Technical Specifications**: Metadata formats, APIs, schemas
-- **Integration Patterns**: How to honour Palimpsest in your platform
-- **Consent Mechanisms**: Implementing NI consent verification
-- **Metadata Preservation**: How to ensure metadata isn't stripped
-- **Validation Tools**: How to verify Palimpsest compliance
-- **Best Practices**: Building ethical systems that respect creator rights
+- *Technical Specifications*: Metadata formats, APIs, schemas
+- *Integration Patterns*: How to honour Palimpsest in your platform
+- *Consent Mechanisms*: Implementing NI consent verification
+- *Metadata Preservation*: How to ensure metadata isn't stripped
+- *Validation Tools*: How to verify Palimpsest compliance
+- *Best Practices*: Building ethical systems that respect creator rights
 
-**Perfect for:**
+*Perfect for:*
 - Platform developers
 - Tool builders
 - AI researchers
 - Integration engineers
 
-### Compliance Roadmap
+=== Compliance Roadmap
 
-**Location**: `GUIDES_v0.4/Compliance_Roadmap.md`
+*Location*: `GUIDES_v0.4/Compliance_Roadmap.md`
 
 The Compliance Roadmap helps organisations adopt Palimpsest in a structured way. It covers:
 
-- **Maturity Levels**: From basic awareness to full implementation
-- **Audit Checklists**: How to assess current compliance
-- **Implementation Steps**: Concrete actions to become compliant
-- **Timeline Planning**: Realistic timelines for adoption
-- **Resource Requirements**: What you'll need (technical, legal, organisational)
-- **Success Metrics**: How to measure progress
+- *Maturity Levels*: From basic awareness to full implementation
+- *Audit Checklists*: How to assess current compliance
+- *Implementation Steps*: Concrete actions to become compliant
+- *Timeline Planning*: Realistic timelines for adoption
+- *Resource Requirements*: What you'll need (technical, legal, organisational)
+- *Success Metrics*: How to measure progress
 
-**Perfect for:**
+*Perfect for:*
 - Organisations adopting Palimpsest
 - Platforms wanting to support creator rights
 - AI companies implementing consent mechanisms
 - Legal teams planning compliance strategies
 
-### Red Flag Index
+=== Red Flag Index
 
-**Location**: `GUIDES_v0.4/Red_Flag_Index.md`
+*Location*: `GUIDES_v0.4/Red_Flag_Index.md`
 
 The Red Flag Index is a comprehensive reference of violations and warning signs. It covers:
 
-- **Common Violations**: What breaks the Palimpsest License
-- **Warning Signs**: How to spot potential misuse
-- **Case Studies**: Real and hypothetical violation scenarios
-- **Response Strategies**: What to do when you spot violations
-- **Escalation Paths**: When to send a cease-and-desist, when to lawyer up
-- **Prevention**: How to make violations less likely
+- *Common Violations*: What breaks the Palimpsest License
+- *Warning Signs*: How to spot potential misuse
+- *Case Studies*: Real and hypothetical violation scenarios
+- *Response Strategies*: What to do when you spot violations
+- *Escalation Paths*: When to send a cease-and-desist, when to lawyer up
+- *Prevention*: How to make violations less likely
 
-**Perfect for:**
+*Perfect for:*
 - Creators monitoring use of their work
 - Platforms moderating user-generated content
 - Legal teams assessing risk
 - Anyone concerned about enforcement
 
-### Ethics Framework
+=== Ethics Framework
 
-**Location**: `docs/ethics.md` and `docs/ethics-FAQ.md`
+*Location*: `docs/ethics.md` and `docs/ethics-FAQ.md`
 
 Our ethics documentation explains the moral foundations of the Palimpsest License. It covers:
 
-- **Core Values**: Care, consent, cultural sensitivity, creator agency
-- **Ethical Dilemmas**: How we navigate tensions (openness vs. protection, access vs. consent)
-- **Trauma-Informed Ethics**: Why some work deserves special care
-- **Cultural Sensitivity**: Respecting community ownership and heritage
-- **AI Ethics**: Our position on ethical vs. exploitative AI
-- **FAQ**: Common ethical questions
+- *Core Values*: Care, consent, cultural sensitivity, creator agency
+- *Ethical Dilemmas*: How we navigate tensions (openness vs. protection, access vs. consent)
+- *Trauma-Informed Ethics*: Why some work deserves special care
+- *Cultural Sensitivity*: Respecting community ownership and heritage
+- *AI Ethics*: Our position on ethical vs. exploitative AI
+- *FAQ*: Common ethical questions
 
-**Perfect for:**
+*Perfect for:*
 - Understanding *why* Palimpsest works the way it does
 - Engaging with the philosophical foundations
 - Teaching or writing about licensing ethics
 - Participating in governance discussions
 
-### All Guides
+=== All Guides
 
 Complete documentation index:
 
-**Core Guides (v0.4):**
+*Core Guides (v0.4):*
 - [User Guide](GUIDES_v0.4/User_Guide.md) - For creators using Palimpsest
 - [Developer Guide](GUIDES_v0.4/Developer_Guide.md) - For technical integration
 - [Compliance Roadmap](GUIDES_v0.4/Compliance_Roadmap.md) - For organisations
 - [Red Flag Index](GUIDES_v0.4/Red_Flag_Index.md) - Violations and enforcement
 
-**Supporting Documentation:**
+*Supporting Documentation:*
 - [EXPLAINME_ROOT](docs/EXPLAINME_ROOT.md) - Quick orientation
 - [Ethics Framework](docs/ethics.md) - Moral foundations
 - [Ethics FAQ](docs/ethics-FAQ.md) - Common ethical questions
 - [Bilingual Map](docs/bilingual-map.md) - Dutch ↔ English alignment
 - [Jurisdiction Comparison](docs/jurisdiction-comparison.md) - How Palimpsest works in different legal systems
 
-**Technical Docs:**
+*Technical Docs:*
 - [Validation Tools](docs/validation-tools.md) - How to validate compliance
 - [AIBDP Manifest Guidance](docs/aibdp-manifest-guidance.md) - AI Best Data Practices integration
 - [BIMI Implementation](docs/BIMI-implementation.md) - Brand Indicators for Message Identification
 - [EDNS OPT Records](docs/EDNS-OPT-records.md) - DNS-based license signalling
 
-**Governance:**
+*Governance:*
 - [Governance Model](GOVERNANCE.md) - How decisions are made
 - [Contributing Guidelines](CONTRIBUTING.md) - How to participate
 - [Code of Practice](CODE_OF_PRACTICE.md) - Community standards
 - [Security Policy](SECURITY.md) - Vulnerability reporting
 
-**Project Meta:**
+*Project Meta:*
 - [CLAUDE.md](CLAUDE.md) - Instructions for AI assistants
 - [TPCF.md](TPCF.md) - Tri-Perimeter Contribution Framework
 - [Changelog](CHANGELOG.md) - Version history
 - [RSR Compliance](RSR_COMPLIANCE.md) - Rhodium Standard Repository compliance
 
-**Archived (v0.3):**
+*Archived (v0.3):*
 - [docs/GUIDES_v0.3_ARCHIVE/](docs/GUIDES_v0.3_ARCHIVE/) - Previous version documentation
 
 ---
 
-## Features
+== Features
 
 What makes Palimpsest unique among open licenses.
 
-### Bilingual Framework
+=== Bilingual Framework
 
-The Palimpsest License operates in **two languages with clear primacy**:
+The Palimpsest License operates in *two languages with clear primacy*:
 
-- **Dutch (Nederlands)**: Legally binding in the Netherlands
-- **English**: Informative, for global accessibility
+- *Dutch (Nederlands)*: Legally binding in the Netherlands
+- *English*: Informative, for global accessibility
 
-**Why Bilingual?**
+*Why Bilingual?*
 
-1. **Legal Clarity**: The Netherlands has strong creator protection laws. Having a Dutch version allows Palimpsest to leverage Dutch jurisprudence on moral rights, personality rights, and cultural heritage protection.
+1. *Legal Clarity*: The Netherlands has strong creator protection laws. Having a Dutch version allows Palimpsest to leverage Dutch jurisprudence on moral rights, personality rights, and cultural heritage protection.
 
-2. **Global Accessibility**: Most creators and technologists work in English. An English version ensures the license is understandable and usable worldwide.
+2. *Global Accessibility*: Most creators and technologists work in English. An English version ensures the license is understandable and usable worldwide.
 
-3. **Cultural Respect**: Many diasporic communities are multilingual. Offering licenses in multiple languages respects linguistic diversity and accessibility.
+3. *Cultural Respect*: Many diasporic communities are multilingual. Offering licenses in multiple languages respects linguistic diversity and accessibility.
 
-**How It Works:**
+*How It Works:*
 
-- The **Dutch version** (`palimpsest-v0.4.nl.md`) is the legally binding text for disputes in Dutch courts
-- The **English version** (`palimpsest-v0.4.md`) is informative and used globally
+- The *Dutch version* (`palimpsest-v0.4.nl.md`) is the legally binding text for disputes in Dutch courts
+- The *English version* (`palimpsest-v0.4.md`) is informative and used globally
 - Both versions are kept in sync (see `docs/bilingual-map.md`)
 - If there's a conflict between versions, the Dutch version prevails in Dutch jurisdiction, but both are considered in good faith elsewhere
 
-**Future Languages:**
+*Future Languages:*
 
 We plan to add:
-- **Scottish Gaelic** (for Scottish jurisdiction variants)
-- **Spanish** (for Latin American adoption)
-- **French** (for Francophone communities)
-- **Swahili** (for East African communities)
+- *Scottish Gaelic* (for Scottish jurisdiction variants)
+- *Spanish* (for Latin American adoption)
+- *French* (for Francophone communities)
+- *Swahili* (for East African communities)
 - Community-contributed translations verified by native speakers
 
-**Translation Process:**
+*Translation Process:*
 
 All translations are:
 - Done by native speakers with legal expertise
@@ -1379,11 +1379,11 @@ All translations are:
 
 We don't use machine translation for legal text—only human translators who understand both the language and the legal concepts.
 
-### Multi-Jurisdiction Support
+=== Multi-Jurisdiction Support
 
-While primarily based in **Dutch law**, Palimpsest is designed to work across multiple legal systems.
+While primarily based in *Dutch law*, Palimpsest is designed to work across multiple legal systems.
 
-**Primary Jurisdiction: Netherlands**
+*Primary Jurisdiction: Netherlands*
 
 Why the Netherlands?
 - Strong moral rights (*persoonlijkheidsrechten*)
@@ -1392,54 +1392,54 @@ Why the Netherlands?
 - EU membership (GDPR, Copyright Directive compliance)
 - Bilingual legal tradition (Dutch/English common in Dutch law)
 
-**Comparative Analysis:**
+*Comparative Analysis:*
 
 We provide guidance for how Palimpsest interacts with:
 
-- **United Kingdom**: How Palimpsest works under UK Copyright, Designs and Patents Act 1988
-- **Scotland**: Special considerations for Scots law and cultural heritage
-- **United States**: How Palimpsest interacts with US fair use and DMCA
-- **European Union**: GDPR, Copyright Directive, Digital Services Act implications
-- **International**: Berne Convention compliance and international enforcement
+- *United Kingdom*: How Palimpsest works under UK Copyright, Designs and Patents Act 1988
+- *Scotland*: Special considerations for Scots law and cultural heritage
+- *United States*: How Palimpsest interacts with US fair use and DMCA
+- *European Union*: GDPR, Copyright Directive, Digital Services Act implications
+- *International*: Berne Convention compliance and international enforcement
 
 See `docs/jurisdiction-comparison.md` for detailed analysis.
 
-**Enforcement Across Borders:**
+*Enforcement Across Borders:*
 
-- Palimpsest is designed to be enforceable under **Berne Convention** reciprocity
+- Palimpsest is designed to be enforceable under *Berne Convention* reciprocity
 - License violations are contract violations, enforceable where the violator operates
 - Metadata preservation requirements align with GDPR in EU
 - International arbitration provisions for cross-border disputes
 
-**Cultural and Legal Pluralism:**
+*Cultural and Legal Pluralism:*
 
 We recognise that law isn't universal:
 - Indigenous communities may have customary law that supersedes state law
 - Different jurisdictions balance creator rights vs. public interest differently
 - Cultural norms around attribution vary
 
-Palimpsest is designed to be **symbolically meaningful** even where strict legal enforcement is uncertain. The license creates community standards and norms, not just legal obligations.
+Palimpsest is designed to be *symbolically meaningful* even where strict legal enforcement is uncertain. The license creates community standards and norms, not just legal obligations.
 
-### AI Training Consent
+=== AI Training Consent
 
-**Clause 1.2** is Palimpsest's most distinctive feature: explicit consent requirements for AI training.
+*Clause 1.2* is Palimpsest's most distinctive feature: explicit consent requirements for AI training.
 
-**How It Works:**
+*How It Works:*
 
-1. **Interpretive AI**: Allowed without special consent
+1. *Interpretive AI*: Allowed without special consent
    - Search engines (Google, Bing, DuckDuckGo)
    - Recommendation systems (YouTube suggestions, Spotify recommendations)
    - Accessibility tools (screen readers, translation, alt-text generation)
    - Organisation tools (tagging, archiving, metadata enhancement)
 
-2. **Non-Interpretive AI**: Requires explicit consent
+2. *Non-Interpretive AI*: Requires explicit consent
    - Training data for language models (GPT, Claude, Llama, etc.)
    - Training data for image generators (DALL-E, Midjourney, Stable Diffusion)
    - Training data for voice cloning or music generation
    - Corpus building for commercial AI products
    - Style replication systems
 
-**Obtaining Consent:**
+*Obtaining Consent:*
 
 To use Palimpsest work for NI AI training:
 
@@ -1461,71 +1461,71 @@ To use Palimpsest work for NI AI training:
 7. Honour the terms
 ```
 
-**Why This Matters:**
+*Why This Matters:*
 
 Current AI training operates on an "ask forgiveness, not permission" model. Companies scrape billions of works, train models, and commercialise them before creators even know their work was used.
 
-Palimpsest flips this: **permission first, use second**. It creates legal grounds to refuse AI training uses and to negotiate fair terms when you consent.
+Palimpsest flips this: *permission first, use second*. It creates legal grounds to refuse AI training uses and to negotiate fair terms when you consent.
 
-**Technical Enforcement:**
+*Technical Enforcement:*
 
 We're building tools to make this practical:
 
-- **Robots.txt extensions**: Declare NI restrictions in machine-readable format
-- **AI.txt**: Specify AI training policies at `/.well-known/ai.txt`
-- **Header-based signalling**: HTTP headers declaring license terms
-- **Watermarking**: Embed invisible markers that survive AI training
-- **Audit mechanisms**: Tools to detect when your work appears in training datasets
+- *Robots.txt extensions*: Declare NI restrictions in machine-readable format
+- *AI.txt*: Specify AI training policies at `/.well-known/ai.txt`
+- *Header-based signalling*: HTTP headers declaring license terms
+- *Watermarking*: Embed invisible markers that survive AI training
+- *Audit mechanisms*: Tools to detect when your work appears in training datasets
 
-**Industry Adoption:**
+*Industry Adoption:*
 
 We're in dialogue with:
-- **AI companies**: Anthropic, OpenAI, Stability AI, Hugging Face
-- **Creative platforms**: DeviantArt, ArtStation, GitHub
-- **Standards bodies**: Seeking to make NI consent a web standard
-- **Legal advocates**: Partnering with creator rights organisations
+- *AI companies*: Anthropic, OpenAI, Stability AI, Hugging Face
+- *Creative platforms*: DeviantArt, ArtStation, GitHub
+- *Standards bodies*: Seeking to make NI consent a web standard
+- *Legal advocates*: Partnering with creator rights organisations
 
 Our goal is to make Palimpsest-style consent the industry norm, not the exception.
 
-### Metadata Preservation
+=== Metadata Preservation
 
-**Clause 2.3** requires that all metadata—attribution, licensing, cultural context—be preserved when works are used or shared.
+*Clause 2.3* requires that all metadata—attribution, licensing, cultural context—be preserved when works are used or shared.
 
-**What Counts as Metadata:**
+*What Counts as Metadata:*
 
-- **Technical metadata**: Creator name, date, license, version
-- **Emotional metadata**: Why it was created, what it means
-- **Cultural metadata**: What communities it honours, what lineages it represents
-- **Usage metadata**: Permissions granted, consent records, prior uses
+- *Technical metadata*: Creator name, date, license, version
+- *Emotional metadata*: Why it was created, what it means
+- *Cultural metadata*: What communities it honours, what lineages it represents
+- *Usage metadata*: Permissions granted, consent records, prior uses
 
-**How to Preserve It:**
+*How to Preserve It:*
 
-**For Files:**
+*For Files:*
 - Embed in file headers (EXIF for images, ID3 for audio, PDF metadata for documents)
 - Include in sidecar files (`.palimpsest.yml` alongside the work)
 - Include in project files (README.md, ATTRIBUTION.md)
 
-**For Platforms:**
+*For Platforms:*
 - Display attribution information with the work
 - Provide metadata in APIs and downloads
 - Don't strip metadata during processing
 - Export metadata with user content
 
-**For Derivatives:**
+*For Derivatives:*
 - Include original attribution + your own
 - Preserve emotional and cultural context from original
 - Link back to original source
 - Document how the derivative relates to the original
 
-**Technical Standards:**
+*Technical Standards:*
 
 We use:
-- **JSON-LD**: Machine-readable structured data
-- **YAML**: Human-readable metadata files
-- **Schema.org**: Standard vocabularies where applicable
-- **Custom schemas**: Palimpsest-specific fields for emotional lineage, etc.
+- *JSON-LD*: Machine-readable structured data
+- *YAML*: Human-readable metadata files
+- *Schema.org*: Standard vocabularies where applicable
+- *Custom schemas*: Palimpsest-specific fields for emotional lineage, etc.
 
-**Example:**
+*Example:*
 
 Original work has this metadata:
 
@@ -1578,7 +1578,7 @@ A derivative must preserve this and add:
 }
 ```
 
-**Enforcement:**
+*Enforcement:*
 
 Stripping metadata is a license violation. If someone removes attribution, you can:
 - Send a cease-and-desist requiring restoration
@@ -1586,48 +1586,48 @@ Stripping metadata is a license violation. If someone removes attribution, you c
 - Pursue legal action for contract breach
 - Use technical measures to detect and report stripped metadata
 
-### Cultural Sensitivity
+=== Cultural Sensitivity
 
 Palimpsest is designed with deep cultural sensitivity, recognising that creative work often emerges from and belongs to communities, not just individuals.
 
-**Key Features:**
+*Key Features:*
 
-**1. Community Consent:**
+*1. Community Consent:*
 
 For works representing cultural heritage or collective knowledge:
 - Consent can require community consultation
 - Decision-making can involve cultural leaders or elders
 - Communities can specify appropriate and inappropriate uses
 
-**2. Diaspora Narrative Protection:**
+*2. Diaspora Narrative Protection:*
 
 Special provisions for diaspora communities:
 - Recognition that diaspora work honours ancestral lineages
 - Protection against uses that would betray cultural context
 - Support for multilingual and cross-cultural attribution
 
-**3. Trauma-Informed Language:**
+*3. Trauma-Informed Language:*
 
 Documentation uses trauma-informed language:
 - Content warnings for sensitive examples
 - Respect for survivors and vulnerable communities
 - Acknowledgement that some work processes collective trauma
 
-**4. Indigenous Knowledge:**
+*4. Indigenous Knowledge:*
 
 Support for Indigenous knowledge protocols:
 - Community ownership structures
 - Seasonal or ceremonial use restrictions
 - Respect for cultural protocols around sharing
 
-**5. Linguistic Diversity:**
+*5. Linguistic Diversity:*
 
 Multilingual support:
 - License available in multiple languages
 - Attribution can be in the creator's language
 - Cultural terms don't have to be translated if that would lose meaning
 
-**Example:**
+*Example:*
 
 A Scottish Gaelic-language archive licenses its material under Palimpsest:
 
@@ -1651,25 +1651,25 @@ cultural_protocols:
   - "Don't use to represent 'Celtic mysticism' or other stereotypes"
 ```
 
-### Accessibility
+=== Accessibility
 
 Palimpsest is committed to accessibility at every level.
 
-**License Accessibility:**
+*License Accessibility:*
 
-- **Plain language summaries**: Legal text is complex; we provide plain language summaries
-- **Multiple formats**: Markdown, HTML, PDF, plain text
-- **Screen reader friendly**: Semantic HTML, alt text, clear structure
-- **Translation**: Available in multiple languages
+- *Plain language summaries*: Legal text is complex; we provide plain language summaries
+- *Multiple formats*: Markdown, HTML, PDF, plain text
+- *Screen reader friendly*: Semantic HTML, alt text, clear structure
+- *Translation*: Available in multiple languages
 
-**Documentation Accessibility:**
+*Documentation Accessibility:*
 
-- **Clear structure**: Headings, lists, tables for easy navigation
-- **Concrete examples**: Abstract concepts illustrated with real scenarios
-- **Visual descriptions**: Diagrams described in text
-- **WCAG 2.1 AA compliance**: Web content meets accessibility standards
+- *Clear structure*: Headings, lists, tables for easy navigation
+- *Concrete examples*: Abstract concepts illustrated with real scenarios
+- *Visual descriptions*: Diagrams described in text
+- *WCAG 2.1 AA compliance*: Web content meets accessibility standards
 
-**Tooling Accessibility:**
+*Tooling Accessibility:*
 
 Our validation and compliance tools:
 - Work from command line (accessible for screen reader users)
@@ -1677,7 +1677,7 @@ Our validation and compliance tools:
 - Don't require GUI interaction
 - Support multiple input formats
 
-**Format Diversity:**
+*Format Diversity:*
 
 Creative works can be licensed in any format:
 - Text: books, poetry, articles, documentation
@@ -1687,7 +1687,7 @@ Creative works can be licensed in any format:
 - Interactive: games, web experiences, installations
 - Code: software, scripts, algorithms
 
-**Accessible Attribution:**
+*Accessible Attribution:*
 
 Attribution can be provided in multiple ways:
 - Text (for screen readers)
@@ -1697,57 +1697,57 @@ Attribution can be provided in multiple ways:
 
 We don't require one format—use what works for your work and your audience.
 
-### Offline-First Tooling
+=== Offline-First Tooling
 
 All Palimpsest tools work offline. No network required.
 
-**Why Offline-First:**
+*Why Offline-First:*
 
-1. **Accessibility**: Not everyone has reliable internet
-2. **Privacy**: Validation shouldn't require sending data to remote servers
-3. **Resilience**: Tools should work even if palimpsest-license.org is down
-4. **Independence**: Creators shouldn't depend on centralised infrastructure
+1. *Accessibility*: Not everyone has reliable internet
+2. *Privacy*: Validation shouldn't require sending data to remote servers
+3. *Resilience*: Tools should work even if palimpsest-license.org is down
+4. *Independence*: Creators shouldn't depend on centralised infrastructure
 
-**What Works Offline:**
+*What Works Offline:*
 
-- **License text**: Distributed as static files, no external dependencies
-- **Validation tools**: Check Palimpsest compliance without network calls
-- **Metadata generators**: Create `.palimpsest.yml` files locally
-- **Documentation**: All docs available as static files
-- **Examples**: All examples and templates included in repository
+- *License text*: Distributed as static files, no external dependencies
+- *Validation tools*: Check Palimpsest compliance without network calls
+- *Metadata generators*: Create `.palimpsest.yml` files locally
+- *Documentation*: All docs available as static files
+- *Examples*: All examples and templates included in repository
 
-**Installation:**
+*Installation:*
 
 ```bash
-# Clone entire repository for offline use
+= Clone entire repository for offline use
 git clone https://github.com/palimpsest-license/palimpsest-license
 cd palimpsest-license
 
-# Install dependencies (one-time, requires network)
+= Install dependencies (one-time, requires network)
 npm install
 
-# From now on, everything works offline
+= From now on, everything works offline
 npm run validate
 npm run build
 npm test
 ```
 
-**Nix Flake:**
+*Nix Flake:*
 
 For maximum reproducibility and offline capability:
 
 ```bash
-# Enable Nix flakes
+= Enable Nix flakes
 nix flake check
 
-# Build offline (after first fetch)
+= Build offline (after first fetch)
 nix build
 
-# Development shell (all tools available)
+= Development shell (all tools available)
 nix develop
 ```
 
-**No CDN Dependencies:**
+*No CDN Dependencies:*
 
 Unlike many modern web projects, Palimpsest doesn't require:
 - CDN-hosted libraries
@@ -1760,11 +1760,11 @@ Everything needed is in the repository. Clone it once, use it forever.
 
 ---
 
-## Project Structure
+== Project Structure
 
 Understanding how Palimpsest is organised.
 
-### Directory Tree
+=== Directory Tree
 
 ```
 palimpsest-license/
@@ -1888,61 +1888,61 @@ palimpsest-license/
 └── style.css                     # Stylesheet for web presentation
 ```
 
-### Where to Find What
+=== Where to Find What
 
-**Looking for the license text?**
+*Looking for the license text?*
 → `LICENSES/v0.4/palimpsest-v0.4.md` (English) or `palimpsest-v0.4.nl.md` (Dutch)
 
-**Want to use Palimpsest for your project?**
+*Want to use Palimpsest for your project?*
 → Start with `GUIDES_v0.4/User_Guide.md`
 
-**Building a platform that respects Palimpsest?**
+*Building a platform that respects Palimpsest?*
 → Read `GUIDES_v0.4/Developer_Guide.md`
 
-**Need to understand a concept (emotional lineage, NI AI, etc.)?**
+*Need to understand a concept (emotional lineage, NI AI, etc.)?*
 → Check `docs/EXPLAINME_ROOT.md` or this README's [Key Concepts](#key-concepts) section
 
-**Want examples of Palimpsest in practice?**
+*Want examples of Palimpsest in practice?*
 → Browse `examples/vignettes/`
 
-**Need to verify a work is legitimately licensed?**
+*Need to verify a work is legitimately licensed?*
 → Use tools in `TOOLS/validation/`
 
-**Want to contribute or propose changes?**
+*Want to contribute or propose changes?*
 → Read `CONTRIBUTING.md` and `GOVERNANCE.md`
 
-**Looking for press materials or advocacy resources?**
+*Looking for press materials or advocacy resources?*
 → Explore `press-lobby-kit/`
 
-**Need badges or embeddable snippets?**
+*Need badges or embeddable snippets?*
 → Check `assets/badges/` and `embed/`
 
-**Want to understand how we govern the project?**
+*Want to understand how we govern the project?*
 → Read `GOVERNANCE.md`, `TPCF.md`, and `MAINTAINERS.md`
 
-**Concerned about security?**
+*Concerned about security?*
 → See `SECURITY.md` and `.well-known/security.txt`
 
-**Want to see version history?**
+*Want to see version history?*
 → Read `CHANGELOG.md`
 
-**Curious about RSR compliance?**
+*Curious about RSR compliance?*
 → Check `RSR_COMPLIANCE.md`
 
-### Navigation Guide
+=== Navigation Guide
 
-**For New Users:**
+*For New Users:*
 
 1. Start here: `README.md` (you are here)
 2. Read: `docs/EXPLAINME_ROOT.md`
 3. Choose your path:
-   - **Creator**: Read `GUIDES_v0.4/User_Guide.md`
-   - **Developer**: Read `GUIDES_v0.4/Developer_Guide.md`
-   - **Organisation**: Read `GUIDES_v0.4/Compliance_Roadmap.md`
+   - *Creator*: Read `GUIDES_v0.4/User_Guide.md`
+   - *Developer*: Read `GUIDES_v0.4/Developer_Guide.md`
+   - *Organisation*: Read `GUIDES_v0.4/Compliance_Roadmap.md`
 4. Explore examples: `examples/vignettes/`
 5. Adopt: Follow [Quick Start](#quick-start) guide
 
-**For Contributors:**
+*For Contributors:*
 
 1. Read: `CONTRIBUTING.md`
 2. Understand governance: `GOVERNANCE.md`
@@ -1951,7 +1951,7 @@ palimpsest-license/
 5. Find what to work on: GitHub Issues
 6. Make your contribution
 
-**For Researchers:**
+*For Researchers:*
 
 1. Read ethical framework: `docs/ethics.md`
 2. Understand concepts: [Key Concepts](#key-concepts) in this README
@@ -1959,7 +1959,7 @@ palimpsest-license/
 4. Explore examples: `examples/`
 5. Check references and influences: `docs/` and `.well-known/humans.txt`
 
-**For Press/Media:**
+*For Press/Media:*
 
 1. Quick overview: `press-lobby-kit/briefing-sheet.md`
 2. Core principles: `press-lobby-kit/manifesto.md`
@@ -1968,52 +1968,52 @@ palimpsest-license/
 
 ---
 
-## Governance
+== Governance
 
 How Palimpsest is governed and how you can participate.
 
-### Stewardship Council
+=== Stewardship Council
 
-The Palimpsest License is governed by a **7-member Stewardship Council**:
+The Palimpsest License is governed by a *7-member Stewardship Council*:
 
-**Composition:**
-- **3 × Creator Representatives**: Elected by the community
+*Composition:*
+- *3 × Creator Representatives*: Elected by the community
   - Must be active creators using Palimpsest for their work
   - Represent diverse creative disciplines and communities
   - Bring lived experience of creator challenges
 
-- **2 × Legal Experts**: Appointed/elected
+- *2 × Legal Experts*: Appointed/elected
   - Specialise in IP law, Dutch law, or Scottish law
   - Provide legal guidance and review
   - Help navigate international copyright complexities
 
-- **1 × Technologist**: Appointed/elected
+- *1 × Technologist*: Appointed/elected
   - Expertise in AI ethics, decentralised systems, or cryptography
   - Ensures technical feasibility of license provisions
   - Guides development of validation and enforcement tools
 
-- **1 × Cultural Heritage Advocate**: Appointed/elected
+- *1 × Cultural Heritage Advocate*: Appointed/elected
   - Represents cultural heritage and community interests
   - Ensures cultural sensitivity in license evolution
   - Advocates for diaspora, Indigenous, and marginalised communities
 
-**Terms:**
+*Terms:*
 - 2 years per term
 - Staggered terms (ensure continuity)
 - Renewable (can serve multiple terms)
 - Rotation (fresh perspectives encouraged)
 
-**Current Council:**
+*Current Council:*
 As of v0.4, the Council is being established. Formal composition will be announced at v1.0 launch.
 
-**Contact:**
+*Contact:*
 governance@palimpsest-license.org
 
-### Decision-Making Process
+=== Decision-Making Process
 
 Changes to Palimpsest follow a transparent, community-driven process:
 
-**1. Proposal Phase**
+*1. Proposal Phase*
 
 Anyone can submit a proposal:
 - Open a GitHub Issue using "Proposal" template
@@ -2021,7 +2021,7 @@ Anyone can submit a proposal:
 - Explain why it's needed
 - Propose specific text if possible
 
-**2. Community Discussion (Minimum 30 Days)**
+*2. Community Discussion (Minimum 30 Days)*
 
 The community discusses:
 - Is this change needed?
@@ -2034,7 +2034,7 @@ Discussion happens:
 - In community forums
 - In scheduled community calls (if major change)
 
-**3. Council Review**
+*3. Council Review*
 
 Stewardship Council reviews:
 - Community feedback
@@ -2043,9 +2043,9 @@ Stewardship Council reviews:
 - Cultural sensitivity
 - Alignment with project values
 
-Vote required: **4/7 (simple majority)** to move forward
+Vote required: *4/7 (simple majority)* to move forward
 
-**4. Drafting Phase**
+*4. Drafting Phase*
 
 If approved, a working group drafts the change:
 - Composed of relevant experts
@@ -2053,14 +2053,14 @@ If approved, a working group drafts the change:
 - Council provides oversight
 - Iterative draft → feedback → revision
 
-**5. Final Review & Vote**
+*5. Final Review & Vote*
 
 Draft presented to Council and community:
 - Minimum 14 days for final review
 - Community can provide input
-- Council votes: **5/7 (supermajority)** required for ratification
+- Council votes: *5/7 (supermajority)* required for ratification
 
-**6. Implementation**
+*6. Implementation*
 
 If ratified:
 - Change merged into next version
@@ -2069,33 +2069,33 @@ If ratified:
 - Community notified
 - Transition period (if needed) begins
 
-**Version Types:**
+*Version Types:*
 
-- **Major Versions (v1.0, v2.0)**: Fundamental changes
+- *Major Versions (v1.0, v2.0)*: Fundamental changes
   - 90-day review period
   - 6/7 Council vote required
   - Extensive community consultation
 
-- **Minor Versions (v0.4, v0.5)**: Additions and clarifications
+- *Minor Versions (v0.4, v0.5)*: Additions and clarifications
   - 30-day review period
   - 5/7 Council vote required
   - Standard process
 
-- **Patch Versions (v0.4.1)**: Bug fixes, typos, non-substantive changes
+- *Patch Versions (v0.4.1)*: Bug fixes, typos, non-substantive changes
   - 7-day review period
   - 4/7 Council vote (or maintainer approval for trivial changes)
 
-### How to Get Involved
+=== How to Get Involved
 
-**Participate in Governance:**
+*Participate in Governance:*
 
-- **Vote in Council Elections**: When Creator Representative seats are up for election
-- **Propose Changes**: Submit proposals via GitHub Issues
-- **Join Discussions**: Participate in community discussion of proposals
-- **Provide Expertise**: Offer legal, technical, or cultural expertise
-- **Serve on Working Groups**: Help draft specific changes
+- *Vote in Council Elections*: When Creator Representative seats are up for election
+- *Propose Changes*: Submit proposals via GitHub Issues
+- *Join Discussions*: Participate in community discussion of proposals
+- *Provide Expertise*: Offer legal, technical, or cultural expertise
+- *Serve on Working Groups*: Help draft specific changes
 
-**Become a Maintainer:**
+*Become a Maintainer:*
 
 Maintainers handle day-to-day operations:
 - Reviewing pull requests
@@ -2113,7 +2113,7 @@ To become a maintainer:
 
 See `MAINTAINERS.md` for current maintainers.
 
-**Run for Stewardship Council:**
+*Run for Stewardship Council:*
 
 Creator Representatives are elected:
 - Nomination period announced annually
@@ -2122,7 +2122,7 @@ Creator Representatives are elected:
 - Community votes (mechanism TBD for v1.0)
 - Top 3 candidates elected to 2-year terms
 
-**Contribute to Documentation:**
+*Contribute to Documentation:*
 
 Governance isn't just voting:
 - Improve guides and documentation
@@ -2133,35 +2133,35 @@ Governance isn't just voting:
 
 See `CONTRIBUTING.md` for how to contribute.
 
-### TPCF Perimeter 3
+=== TPCF Perimeter 3
 
-The Palimpsest License project operates under **Tri-Perimeter Contribution Framework (TPCF) Perimeter 3: Community Sandbox**.
+The Palimpsest License project operates under *Tri-Perimeter Contribution Framework (TPCF) Perimeter 3: Community Sandbox*.
 
-**What is TPCF?**
+*What is TPCF?*
 
 TPCF is a framework for defining contribution and access policies based on risk and sensitivity:
 
-- **Perimeter 1 (Kernel)**: Core infrastructure, highest security, restricted access
-- **Perimeter 2 (Shell)**: Important but less critical, maintainer access
-- **Perimeter 3 (Community)**: Public, community-driven, open collaboration
+- *Perimeter 1 (Kernel)*: Core infrastructure, highest security, restricted access
+- *Perimeter 2 (Shell)*: Important but less critical, maintainer access
+- *Perimeter 3 (Community)*: Public, community-driven, open collaboration
 
-**Why Perimeter 3?**
+*Why Perimeter 3?*
 
 The Palimpsest License is:
-- **Public by design**: Open licensing framework
-- **Benefits from community**: Diverse perspectives improve the license
-- **Low security risk**: Legal text, not secret infrastructure
-- **High transparency value**: Open governance builds trust
+- *Public by design*: Open licensing framework
+- *Benefits from community*: Diverse perspectives improve the license
+- *Low security risk*: Legal text, not secret infrastructure
+- *High transparency value*: Open governance builds trust
 
-Therefore: **Perimeter 3 (Community Sandbox)**
+Therefore: *Perimeter 3 (Community Sandbox)*
 
-**Access Control:**
+*Access Control:*
 
-- **Read**: Public (anyone can view)
-- **Write**: Maintainers (approved contributors)
-- **Governance**: Stewardship Council (elected/appointed)
+- *Read*: Public (anyone can view)
+- *Write*: Maintainers (approved contributors)
+- *Governance*: Stewardship Council (elected/appointed)
 
-**Review Requirements:**
+*Review Requirements:*
 
 | Change Type | Review Needed | Timeline |
 |-------------|---------------|----------|
@@ -2172,98 +2172,98 @@ Therefore: **Perimeter 3 (Community Sandbox)**
 | New clauses | Council 5/7 | 30 days |
 | Major versions | Council 6/7 | 90 days |
 
-**Cultural Sensitivity Perimeter:**
+*Cultural Sensitivity Perimeter:*
 
 For changes affecting cultural content:
-- **Diaspora narratives**: Cultural Heritage Advocate must review
-- **Trauma examples**: Trauma-informed review required
-- **Indigenous content**: Community consultation mandatory
-- **Multilingual**: Native speaker review for translations
+- *Diaspora narratives*: Cultural Heritage Advocate must review
+- *Trauma examples*: Trauma-informed review required
+- *Indigenous content*: Community consultation mandatory
+- *Multilingual*: Native speaker review for translations
 
 See `TPCF.md` for full framework.
 
 ---
 
-## Contributing
+== Contributing
 
 We welcome contributions from creators, technologists, legal experts, and advocates.
 
-### How to Contribute
+=== How to Contribute
 
-**Types of Contributions:**
+*Types of Contributions:*
 
-**1. Propose Changes to the License**
+*1. Propose Changes to the License*
 - Submit via GitHub Issue with "Proposal" template
 - Explain what change you want and why
 - Community discussion follows governance process
 
-**2. Improve Documentation**
+*2. Improve Documentation*
 - Fix typos, broken links, unclear language
 - Add examples or vignettes
 - Improve accessibility
 - Translate to new languages
 
-**3. Build Tools**
+*3. Build Tools*
 - Validation tools
 - Metadata generators
 - Platform integrations
 - Compliance checkers
 
-**4. Share Examples**
+*4. Share Examples*
 - How you're using Palimpsest
 - Edge cases or challenges you've encountered
 - Creative applications of the license
 
-**5. Outreach and Advocacy**
+*5. Outreach and Advocacy*
 - Write about Palimpsest
 - Speak at conferences
 - Engage with potential adopters
 - Connect us with communities who might benefit
 
-**Contribution Process:**
+*Contribution Process:*
 
-1. **Fork the repository**
+1. *Fork the repository*
    ```bash
    git clone https://github.com/palimpsest-license/palimpsest-license
    cd palimpsest-license
    ```
 
-2. **Create a branch**
+2. *Create a branch*
    ```bash
    git checkout -b feature/your-contribution
    ```
 
-3. **Make your changes**
+3. *Make your changes*
    - Follow our style guides (`.prettierrc.json`, `.eslintrc.json`)
    - Write clear commit messages
    - Test your changes
 
-4. **Commit**
+4. *Commit*
    ```bash
    git add .
    git commit -m "Clear, descriptive message"
    ```
 
-5. **Push and open Pull Request**
+5. *Push and open Pull Request*
    ```bash
    git push origin feature/your-contribution
    ```
    Then open PR on GitHub against `main` branch
 
-6. **Review process**
+6. *Review process*
    - Maintainer(s) will review
    - May request changes
    - Discussion in PR comments
    - Once approved: merged!
 
-**Guidelines:**
+*Guidelines:*
 
-- **Be respectful**: Follow our Code of Practice
-- **Be clear**: Explain your reasoning
-- **Be patient**: Reviews take time, especially for complex changes
-- **Be collaborative**: Work with maintainers to refine contributions
+- *Be respectful*: Follow our Code of Practice
+- *Be clear*: Explain your reasoning
+- *Be patient*: Reviews take time, especially for complex changes
+- *Be collaborative*: Work with maintainers to refine contributions
 
-**Recognition:**
+*Recognition:*
 
 Contributors are recognised:
 - Listed in `.well-known/humans.txt`
@@ -2274,21 +2274,21 @@ Contributors are recognised:
 
 See `CONTRIBUTING.md` for detailed guidelines.
 
-### Code of Practice
+=== Code of Practice
 
-All contributors must follow our **Code of Practice** (equivalent to Code of Conduct):
+All contributors must follow our *Code of Practice* (equivalent to Code of Conduct):
 
-**Core Principles:**
+*Core Principles:*
 
-1. **Care**: Treat people and their work with care
-2. **Respect**: Respect diverse perspectives and lived experiences
-3. **Empathy**: Recognise that creative work is personal
-4. **Transparency**: Be open about intentions and conflicts of interest
-5. **Accessibility**: Make your contributions accessible to all
-6. **Cultural Sensitivity**: Respect cultural contexts and communities
-7. **Trauma-Informed**: Be mindful of trauma and avoid re-traumatisation
+1. *Care*: Treat people and their work with care
+2. *Respect*: Respect diverse perspectives and lived experiences
+3. *Empathy*: Recognise that creative work is personal
+4. *Transparency*: Be open about intentions and conflicts of interest
+5. *Accessibility*: Make your contributions accessible to all
+6. *Cultural Sensitivity*: Respect cultural contexts and communities
+7. *Trauma-Informed*: Be mindful of trauma and avoid re-traumatisation
 
-**Unacceptable Behaviour:**
+*Unacceptable Behaviour:*
 
 - Harassment or discrimination
 - Dismissing or minimising lived experiences
@@ -2297,7 +2297,7 @@ All contributors must follow our **Code of Practice** (equivalent to Code of Con
 - Bad faith participation
 - Violating confidentiality or privacy
 
-**Enforcement:**
+*Enforcement:*
 
 Violations can be reported to:
 - conduct@palimpsest-license.org
@@ -2316,13 +2316,13 @@ See `CODE_OF_PRACTICE.md` for full text.
 
 ---
 
-## RSR Compliance
+== RSR Compliance
 
-The Palimpsest License project adheres to the **Rhodium Standard Repository (RSR)** framework.
+The Palimpsest License project adheres to the *Rhodium Standard Repository (RSR)* framework.
 
-### Bronze Tier Achieved
+=== Bronze Tier Achieved
 
-**Current Compliance: Bronze ✅ (83%)**
+*Current Compliance: Bronze ✅ (83%)*
 
 We've achieved RSR Bronze tier compliance, meeting or exceeding standards in:
 - Documentation completeness (10/10)
@@ -2333,45 +2333,45 @@ We've achieved RSR Bronze tier compliance, meeting or exceeding standards in:
 
 See `RSR_COMPLIANCE.md` for detailed assessment.
 
-### What RSR Means
+=== What RSR Means
 
-**RSR (Rhodium Standard Repository)** is a framework for evaluating project quality across 11 categories:
+*RSR (Rhodium Standard Repository)* is a framework for evaluating project quality across 11 categories:
 
-1. **Documentation**: Comprehensive, accessible, up-to-date
-2. **.well-known/**: Standard metadata (security.txt, humans.txt, ai.txt)
-3. **Build System**: Reproducible, reliable builds
-4. **Testing**: Comprehensive test coverage
-5. **Type Safety**: Use of type-safe languages where applicable
-6. **Memory Safety**: Prevention of memory-related bugs
-7. **Offline-First**: Works without network access
-8. **TPCF**: Clear contribution and access policies
-9. **Dependency Audit**: Regular security audits
-10. **Reproducibility**: Builds are deterministic
-11. **Cultural Sensitivity**: Inclusive, trauma-informed, accessible
+1. *Documentation*: Comprehensive, accessible, up-to-date
+2. *.well-known/*: Standard metadata (security.txt, humans.txt, ai.txt)
+3. *Build System*: Reproducible, reliable builds
+4. *Testing*: Comprehensive test coverage
+5. *Type Safety*: Use of type-safe languages where applicable
+6. *Memory Safety*: Prevention of memory-related bugs
+7. *Offline-First*: Works without network access
+8. *TPCF*: Clear contribution and access policies
+9. *Dependency Audit*: Regular security audits
+10. *Reproducibility*: Builds are deterministic
+11. *Cultural Sensitivity*: Inclusive, trauma-informed, accessible
 
-**Tier Levels:**
-- **Bronze (70%+)**: Good practices, community ready
-- **Silver (85%+)**: Excellent practices, production ready
-- **Gold (95%+)**: Exemplary practices, security-critical ready
+*Tier Levels:*
+- *Bronze (70%+)*: Good practices, community ready
+- *Silver (85%+)*: Excellent practices, production ready
+- *Gold (95%+)*: Exemplary practices, security-critical ready
 
-### Compliance Details
+=== Compliance Details
 
-**Our Strengths:**
+*Our Strengths:*
 
-✅ **Documentation (10/10)**: All required files present, comprehensive, cross-referenced
-✅ **Cultural Sensitivity (10/10)**: Trauma-informed, multilingual, community-centric
-✅ **Type Safety (10/10)**: Haskell, ReScript, TypeScript for critical code
-✅ **Memory Safety (10/10)**: No unsafe code, GC languages only
-✅ **Offline-First (10/10)**: Zero network dependencies for core functionality
-✅ **TPCF (10/10)**: Clear Perimeter 3 classification with governance
+✅ *Documentation (10/10)*: All required files present, comprehensive, cross-referenced
+✅ *Cultural Sensitivity (10/10)*: Trauma-informed, multilingual, community-centric
+✅ *Type Safety (10/10)*: Haskell, ReScript, TypeScript for critical code
+✅ *Memory Safety (10/10)*: No unsafe code, GC languages only
+✅ *Offline-First (10/10)*: Zero network dependencies for core functionality
+✅ *TPCF (10/10)*: Clear Perimeter 3 classification with governance
 
-**Areas for Improvement:**
+*Areas for Improvement:*
 
-🔄 **Testing (6/10)**: Need higher test coverage (target: 80%+)
-🔄 **Build Hermiticity (9/10)**: Good reproducibility, not fully hermetic
-🔄 **Dependency Audit (8/10)**: Clean audits, but need automated SBOM generation
+🔄 *Testing (6/10)*: Need higher test coverage (target: 80%+)
+🔄 *Build Hermiticity (9/10)*: Good reproducibility, not fully hermetic
+🔄 *Dependency Audit (8/10)*: Clean audits, but need automated SBOM generation
 
-**Roadmap to Silver (85%+):**
+*Roadmap to Silver (85%+):*
 
 Planned for Q1-Q2 2026:
 - Comprehensive test suite (targeting 80%+ coverage)
@@ -2386,15 +2386,15 @@ See `RSR_COMPLIANCE.md` for full analysis and roadmap.
 
 ---
 
-## License
+== License
 
 The Palimpsest License project itself is dual-licensed.
 
-### Dual Licensing
+=== Dual Licensing
 
-**Code and Tools: MIT License**
+*Code and Tools: MIT License*
 
-All software, scripts, validation tools, and technical infrastructure are licensed under the **MIT License**:
+All software, scripts, validation tools, and technical infrastructure are licensed under the *MIT License*:
 - Use freely for any purpose
 - Modify and distribute
 - Commercial use allowed
@@ -2402,9 +2402,9 @@ All software, scripts, validation tools, and technical infrastructure are licens
 
 See `LICENSE.md` for full MIT License text.
 
-**Documentation and Examples: Palimpsest v0.4**
+*Documentation and Examples: Palimpsest v0.4*
 
-All documentation, guides, examples, and creative content are licensed under the **Palimpsest License v0.4**:
+All documentation, guides, examples, and creative content are licensed under the *Palimpsest License v0.4*:
 - Use, remix, and share with attribution
 - Preserve emotional and cultural context
 - AI training requires consent
@@ -2412,29 +2412,29 @@ All documentation, guides, examples, and creative content are licensed under the
 
 See `LICENSES/v0.4/palimpsest-v0.4.md` for full license text.
 
-**Why Dual License?**
+*Why Dual License?*
 
-- **Code**: MIT ensures maximum reusability for technical tools
-- **Docs**: Palimpsest demonstrates the license in practice ("dogfooding")
-- **Clarity**: Different materials have different needs and audiences
+- *Code*: MIT ensures maximum reusability for technical tools
+- *Docs*: Palimpsest demonstrates the license in practice ("dogfooding")
+- *Clarity*: Different materials have different needs and audiences
 
-**What This Means for You:**
+*What This Means for You:*
 
 If you want to:
-- **Use our validation tools in your platform**: MIT License applies, very permissive
-- **Adapt our documentation for your project**: Palimpsest License applies, preserve attribution and context
-- **Train an AI on our guides**: Palimpsest License applies, you need to ask permission (NI AI use)
-- **Write about Palimpsest**: Fair use, but please attribute and preserve context
+- *Use our validation tools in your platform*: MIT License applies, very permissive
+- *Adapt our documentation for your project*: Palimpsest License applies, preserve attribution and context
+- *Train an AI on our guides*: Palimpsest License applies, you need to ask permission (NI AI use)
+- *Write about Palimpsest*: Fair use, but please attribute and preserve context
 
-### Dogfooding Our Own License
+=== Dogfooding Our Own License
 
 We use Palimpsest for our own documentation because:
 
-**1. We Practice What We Preach**
+*1. We Practice What We Preach*
 
 If we're asking creators to use this license, we should use it too. We believe in it enough to put our own work under its terms.
 
-**2. Real-World Testing**
+*2. Real-World Testing*
 
 Using Palimpsest for our own work reveals:
 - Where the license is unclear
@@ -2444,7 +2444,7 @@ Using Palimpsest for our own work reveals:
 
 We learn from our own experience and improve the license accordingly.
 
-**3. Emotional Lineage Matters Here Too**
+*3. Emotional Lineage Matters Here Too*
 
 This documentation wasn't just written—it was crafted with care. Every guide represents:
 - Conversations with creators who've been exploited
@@ -2454,14 +2454,14 @@ This documentation wasn't just written—it was crafted with care. Every guide r
 
 That emotional lineage deserves protection, even for documentation.
 
-**4. AI Training Example**
+*4. AI Training Example*
 
 Our docs are valuable training data for AI systems learning about licensing and creator rights. By requiring consent for NI use, we:
 - Demonstrate how consent should work
 - Prevent our anti-AI-exploitation work from becoming unconsented training data
 - Create a real test case for enforcement
 
-**Attribution for This Project:**
+*Attribution for This Project:*
 
 When using Palimpsest documentation:
 
@@ -2490,21 +2490,21 @@ attribution:
 
 ---
 
-## Acknowledgements
+== Acknowledgements
 
 This project exists because of many people's work.
 
-### Contributors
+=== Contributors
 
-**Stewardship Council:**
+*Stewardship Council:*
 (To be formally established at v1.0 launch)
 
-**Core Contributors:**
+*Core Contributors:*
 (Growing list as project develops)
 
 See `.well-known/humans.txt` for full credits.
 
-**How to Become a Contributor:**
+*How to Become a Contributor:*
 
 Contribute to the project via:
 - Pull requests (code, docs, examples)
@@ -2514,49 +2514,49 @@ Contribute to the project via:
 
 Regular contributors may be invited to become maintainers.
 
-### Inspirations
+=== Inspirations
 
-**Legal and Licensing Predecessors:**
+*Legal and Licensing Predecessors:*
 
-- **Creative Commons**: Demonstrated that alternative licensing models can work at scale
-- **Free Software Foundation**: Principled approach to software freedom and copyleft
-- **Peer Production License**: Explored post-capitalist licensing models
-- **Anti-Capitalist Software License**: Challenged conventional licensing assumptions
-- **Hippocratic License**: Incorporated ethics into licensing terms
+- *Creative Commons*: Demonstrated that alternative licensing models can work at scale
+- *Free Software Foundation*: Principled approach to software freedom and copyleft
+- *Peer Production License*: Explored post-capitalist licensing models
+- *Anti-Capitalist Software License*: Challenged conventional licensing assumptions
+- *Hippocratic License*: Incorporated ethics into licensing terms
 
-**Cultural and Community Frameworks:**
+*Cultural and Community Frameworks:*
 
-- **Indigenous Data Sovereignty**: OCAP (Ownership, Control, Access, Possession) principles
-- **TK Labels (Traditional Knowledge)**: Local Contexts project for Indigenous cultural heritage
-- **Ubuntu Philosophy**: "I am because we are" - collective humanity
-- **Care Ethics**: Feminist ethics of care and responsibility
-- **Trauma-Informed Practice**: Psychology and social work methodologies
+- *Indigenous Data Sovereignty*: OCAP (Ownership, Control, Access, Possession) principles
+- *TK Labels (Traditional Knowledge)*: Local Contexts project for Indigenous cultural heritage
+- *Ubuntu Philosophy*: "I am because we are" - collective humanity
+- *Care Ethics*: Feminist ethics of care and responsibility
+- *Trauma-Informed Practice*: Psychology and social work methodologies
 
-**Technical and AI Ethics:**
+*Technical and AI Ethics:*
 
-- **Algorithmic Justice League**: Fighting bias in AI
-- **Data & Society**: Research on technology and society
-- **AI Now Institute**: Policy research on AI's social implications
-- **Partnership on AI**: Multi-stakeholder AI ethics
-- **Montreal Declaration for Responsible AI**: Ethical AI principles
+- *Algorithmic Justice League*: Fighting bias in AI
+- *Data & Society*: Research on technology and society
+- *AI Now Institute*: Policy research on AI's social implications
+- *Partnership on AI*: Multi-stakeholder AI ethics
+- *Montreal Declaration for Responsible AI*: Ethical AI principles
 
-**Movements and Communities:**
+*Movements and Communities:*
 
-- **Right to Repair**: Challenging corporate control over physical goods
-- **Copyleft Movement**: Using copyright to protect freedom
-- **Open Source**: Collaborative development models
-- **Digital Rights Advocacy**: EFF, digital rights organisations
-- **Creator Rights Activism**: Artists, writers, musicians fighting exploitation
+- *Right to Repair*: Challenging corporate control over physical goods
+- *Copyleft Movement*: Using copyright to protect freedom
+- *Open Source*: Collaborative development models
+- *Digital Rights Advocacy*: EFF, digital rights organisations
+- *Creator Rights Activism*: Artists, writers, musicians fighting exploitation
 
-**Academic Influences:**
+*Academic Influences:*
 
-- **Critical Race Theory**: Particularly on cultural appropriation and power
-- **Postcolonial Theory**: On knowledge extraction and cultural imperialism
-- **Science and Technology Studies (STS)**: On how technology embeds values
-- **Information Ethics**: On data rights and digital justice
-- **Copyright Scholarship**: Critical perspectives on IP law
+- *Critical Race Theory*: Particularly on cultural appropriation and power
+- *Postcolonial Theory*: On knowledge extraction and cultural imperialism
+- *Science and Technology Studies (STS)*: On how technology embeds values
+- *Information Ethics*: On data rights and digital justice
+- *Copyright Scholarship*: Critical perspectives on IP law
 
-**Personal Influences:**
+*Personal Influences:*
 
 Behind every license clause is a person who was hurt:
 - The musician whose protest song was used in corporate advertising
@@ -2566,23 +2566,23 @@ Behind every license clause is a person who was hurt:
 
 We built this for them. This license honours their struggles.
 
-### Learn More
+=== Learn More
 
-**Official Resources:**
+*Official Resources:*
 - Website: https://palimpsest-license.org
 - Repository: https://github.com/palimpsest-license/palimpsest-license
 - Documentation: https://palimpsest-license.org/docs/
 
-**Community:**
+*Community:*
 - Discussions: https://github.com/palimpsest-license/palimpsest-license/discussions
 - Issues: https://github.com/palimpsest-license/palimpsest-license/issues
 
-**Related Projects:**
+*Related Projects:*
 - Creative Commons: https://creativecommons.org
 - Traditional Knowledge Labels: https://localcontexts.org
 - OCAP Principles: https://fnigc.ca/ocap-training/
 
-**Academic Reading:**
+*Academic Reading:*
 
 On AI and creator rights:
 - Gebru et al., "Datasheets for Datasets"
@@ -2599,33 +2599,33 @@ On ethics and care:
 - Tronto, *Moral Boundaries: A Political Argument for an Ethic of Care*
 - hooks, *All About Love*
 
-**Further Reading:**
+*Further Reading:*
 
 See `.well-known/humans.txt` for comprehensive credits and inspirations.
 
 ---
 
-## Support & Community
+== Support & Community
 
 Get help, connect with others, and join the conversation.
 
-### Contact Information
+=== Contact Information
 
-**General Inquiries:**
+*General Inquiries:*
 - Email: contact@palimpsest-license.org
 - Website: https://palimpsest-license.org
 
-**Specific Contacts:**
+*Specific Contacts:*
 
-- **Security Issues**: security@palimpsest-license.org (see `SECURITY.md`)
-- **Legal Questions**: legal@palimpsest-license.org
-- **Press Inquiries**: press@palimpsest-license.org
-- **Governance**: governance@palimpsest-license.org
-- **AI Ethics**: ai-ethics@palimpsest-license.org
-- **Code of Practice Violations**: conduct@palimpsest-license.org
-- **Human Touch**: humans@palimpsest-license.org
+- *Security Issues*: security@palimpsest-license.org (see `SECURITY.md`)
+- *Legal Questions*: legal@palimpsest-license.org
+- *Press Inquiries*: press@palimpsest-license.org
+- *Governance*: governance@palimpsest-license.org
+- *AI Ethics*: ai-ethics@palimpsest-license.org
+- *Code of Practice Violations*: conduct@palimpsest-license.org
+- *Human Touch*: humans@palimpsest-license.org
 
-**Response Times:**
+*Response Times:*
 
 - Security issues: 48 hours
 - General inquiries: 7-14 days
@@ -2634,9 +2634,9 @@ Get help, connect with others, and join the conversation.
 
 We're a volunteer-driven project. Please be patient with response times.
 
-### Community Channels
+=== Community Channels
 
-**GitHub Discussions:**
+*GitHub Discussions:*
 https://github.com/palimpsest-license/palimpsest-license/discussions
 
 - General discussion
@@ -2644,33 +2644,33 @@ https://github.com/palimpsest-license/palimpsest-license/discussions
 - Show and tell (how you're using Palimpsest)
 - Feature requests and ideas
 
-**Matrix/Discord:**
+*Matrix/Discord:*
 (To be established - watch for announcements)
 
-**Mailing List:**
+*Mailing List:*
 (Planned for v1.0 - stay tuned)
 
-**Social Media:**
+*Social Media:*
 (Official accounts to be announced - beware of imposters)
 
 Follow GitHub repository for updates:
 https://github.com/palimpsest-license/palimpsest-license
 
-### GitHub Discussions
+=== GitHub Discussions
 
 We use GitHub Discussions for community conversation:
 
-**Categories:**
+*Categories:*
 
-- **General**: Broad discussion about Palimpsest
-- **Q&A**: Ask questions, get answers
-- **Ideas**: Propose new features or changes
-- **Show and Tell**: Share how you're using Palimpsest
-- **Legal**: Discuss legal implications and interpretations
-- **Technical**: Technical implementation questions
-- **Cultural Sensitivity**: Discuss cultural implications
+- *General*: Broad discussion about Palimpsest
+- *Q&A*: Ask questions, get answers
+- *Ideas*: Propose new features or changes
+- *Show and Tell*: Share how you're using Palimpsest
+- *Legal*: Discuss legal implications and interpretations
+- *Technical*: Technical implementation questions
+- *Cultural Sensitivity*: Discuss cultural implications
 
-**Guidelines:**
+*Guidelines:*
 
 - Be respectful (follow Code of Practice)
 - Search before posting (avoid duplicates)
@@ -2678,13 +2678,13 @@ We use GitHub Discussions for community conversation:
 - Provide context
 - Be patient with responses
 
-### Security Reports
+=== Security Reports
 
-**Reporting Security Issues:**
+*Reporting Security Issues:*
 
 If you discover a security vulnerability:
 
-1. **Do NOT** open a public issue
+1. *Do NOT* open a public issue
 2. Email: security@palimpsest-license.org
 3. Include:
    - Description of vulnerability
@@ -2692,20 +2692,20 @@ If you discover a security vulnerability:
    - Potential impact
    - Your contact information
 
-**What Qualifies as a Security Issue:**
+*What Qualifies as a Security Issue:*
 
 - Vulnerabilities in our validation tools
 - Ways to forge Palimpsest metadata
 - Exploits in our technical infrastructure
 - Privacy leaks in our systems
 
-**What Doesn't:**
+*What Doesn't:*
 
 - General licensing questions (use GitHub Discussions)
 - Feature requests (use GitHub Issues)
 - Documentation improvements (use Pull Requests)
 
-**Our Commitment:**
+*Our Commitment:*
 
 - Acknowledge within 48 hours
 - Provide updates every 7 days
@@ -2717,17 +2717,17 @@ See `SECURITY.md` and `.well-known/security.txt` for detailed policy.
 
 ---
 
-## Final Thoughts
+== Final Thoughts
 
-**The Palimpsest License is more than legal text. It's a commitment.**
+*The Palimpsest License is more than legal text. It's a commitment.*
 
 A commitment to:
-- **Care** for creators and their work
-- **Consent** as the foundation of ethical technology
-- **Context** preserved across transformations
-- **Community** ownership and governance
-- **Culture** respected and protected
-- **Change** towards a more just creative ecosystem
+- *Care* for creators and their work
+- *Consent* as the foundation of ethical technology
+- *Context* preserved across transformations
+- *Community* ownership and governance
+- *Culture* respected and protected
+- *Change* towards a more just creative ecosystem
 
 If you've read this far, thank you. Behind every license clause is a person who was hurt. Behind every protection is a story that was stolen. Behind every requirement is a creator who deserves better.
 
@@ -2735,19 +2735,19 @@ We built this with care. We hope you use it with care.
 
 ---
 
-**Made with care by the humans of the Palimpsest License Project**
+*Made with care by the humans of the Palimpsest License Project*
 
 palimpsest-license.org
 
 ---
 
-## Version Information
+== Version Information
 
-- **README Version**: 1.0
-- **License Version**: v0.4
-- **Last Updated**: 2025-11-23
-- **Next Review**: 2026-03-01
+- *README Version*: 1.0
+- *License Version*: v0.4
+- *Last Updated*: 2025-11-23
+- *Next Review*: 2026-03-01
 
 ---
 
-**[Back to Top](#palimpsest-license)**
+*[Back to Top](#palimpsest-license)*
