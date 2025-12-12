@@ -136,7 +136,7 @@ All HTML snippets include embedded CSS. You can:
 For better SEO and semantic web support, use Schema.org markup:
 
 ```html
-<div itemscope itemtype="http://schema.org/CreativeWork">
+<div itemscope itemtype="https://schema.org/CreativeWork">
   <span itemprop="name">Your Work Title</span>
   by <span itemprop="author">Your Name</span>
   is licensed under

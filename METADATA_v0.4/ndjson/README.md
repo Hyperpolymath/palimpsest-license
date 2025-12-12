@@ -511,7 +511,7 @@ These schemas and examples are licensed under the Palimpsest License v0.4.
 
 ## Further Reading
 
-- [NDJSON Specification](http://ndjson.org/)
+- [NDJSON Specification](https://ndjson.org/)
 - [JSON Schema](https://json-schema.org/)
 - [JSON Lines](https://jsonlines.org/)
 - [Streaming JSON Processing](https://en.wikipedia.org/wiki/JSON_streaming)

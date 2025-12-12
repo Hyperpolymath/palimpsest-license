@@ -510,7 +510,7 @@ De Palimpsest Stewardship Council is gemachtigd om:
 ## 📌 Voorbeeld: Synthetische Afstammingstag (XML voor machineleesbaarheid)
 
 ```xml
-<synthetische-afstamming xmlns="http://palimpsest.license/ns/synthetictag/v0.3">  
+<synthetische-afstamming xmlns="https://palimpsest.license/ns/synthetictag/v0.3">  
   <oorspronkelijk-werk 
     titel="[Titel van Oorspronkelijk Werk]" 
     maker="[Naam van Maker]" 

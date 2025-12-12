@@ -118,8 +118,8 @@ const metadata = require('./palimpsest-v0.4-dc.json');
 ### RDF Query (SPARQL)
 
 ```sparql
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dc: <https://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <https://purl.org/dc/terms/>
 PREFIX palimpsest: <https://palimpsest.license/vocab#>
 
 SELECT ?title ?version ?protection
@@ -134,7 +134,7 @@ WHERE {
 
 ### XML Validation
 ```bash
-xmllint --noout --schema http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd palimpsest-v0.4-dc.xml
+xmllint --noout --schema https://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd palimpsest-v0.4-dc.xml
 ```
 
 ### JSON-LD Validation

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://palimpsest.license/schemas/ndjson/v0.4",
   "title": "Palimpsest License NDJSON Schema",
   "description": "JSON Schema for Palimpsest License metadata in newline-delimited JSON format",

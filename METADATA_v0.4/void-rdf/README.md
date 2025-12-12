@@ -132,7 +132,7 @@ WHERE {
 
 #### Dataset statistics
 ```sparql
-PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX void: <https://rdfs.org/ns/void#>
 PREFIX palimpsest: <https://palimpsest.license/vocab#>
 
 SELECT ?partition ?class ?entities
@@ -213,10 +213,10 @@ fetcher.load('palimpsest-void.ttl').then(() => {
 }).then(() => {
     // Define namespaces
     const PALIMPSEST = $rdf.Namespace('https://palimpsest.license/vocab#');
-    const DCTERMS = $rdf.Namespace('http://purl.org/dc/terms/');
+    const DCTERMS = $rdf.Namespace('https://purl.org/dc/terms/');
 
     // Query works
-    const works = store.match(null, $rdf.sym('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), PALIMPSEST('Work'));
+    const works = store.match(null, $rdf.sym('https://www.w3.org/1999/02/22-rdf-syntax-ns#type'), PALIMPSEST('Work'));
 
     works.forEach(statement => {
         const work = statement.subject;
@@ -246,7 +246,7 @@ public class PalimpsestExample {
         // Query
         String queryString =
             "PREFIX palimpsest: <https://palimpsest.license/vocab#> " +
-            "PREFIX dcterms: <http://purl.org/dc/terms/> " +
+            "PREFIX dcterms: <https://purl.org/dc/terms/> " +
             "SELECT ?work ?title " +
             "WHERE { " +
             "  ?work a palimpsest:Work ; " +
@@ -389,7 +389,7 @@ ckan.action.package_create(**dataset)
 
 ### SHACL Validation
 ```turtle
-@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <https://www.w3.org/ns/shacl#> .
 @prefix palimpsest: <https://palimpsest.license/vocab#> .
 
 palimpsest:WorkShape
@@ -420,7 +420,7 @@ Enable OWL reasoning in triple store for:
 ```sql
 -- Virtuoso indexes
 CREATE INDEX works_creator ON DB.DBA.RDF_QUAD (P, O)
-WHERE P = 'http://purl.org/dc/terms/creator';
+WHERE P = 'https://purl.org/dc/terms/creator';
 
 CREATE INDEX works_ai_consent ON DB.DBA.RDF_QUAD (P, O)
 WHERE P = 'https://palimpsest.license/vocab#aiConsent';

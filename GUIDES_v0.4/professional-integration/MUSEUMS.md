@@ -267,7 +267,7 @@ For digital collections using IIIF:
 ```json
 {
   "@context": [
-    "http://iiif.io/api/presentation/3/context.json",
+    "https://iiif.io/api/presentation/3/context.json",
     "https://palimpsestlicense.org/iiif/context.json"
   ],
   "id": "https://museum.org/iiif/object123/manifest",

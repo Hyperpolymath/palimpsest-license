@@ -180,7 +180,7 @@ Create a logo meeting SVG Tiny PS specifications:
 **SVG Tiny PS Profile:**
 ```xml
 <svg version="1.2" baseProfile="tiny-ps"
-     xmlns="http://www.w3.org/2000/svg"
+     xmlns="https://www.w3.org/2000/svg"
      viewBox="0 0 512 512">
   <!-- Logo content here -->
 </svg>
@@ -200,7 +200,7 @@ For the Palimpsest License Project:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <svg version="1.2" baseProfile="tiny-ps"
-     xmlns="http://www.w3.org/2000/svg"
+     xmlns="https://www.w3.org/2000/svg"
      viewBox="0 0 512 512"
      width="512" height="512">
   <title>Palimpsest License Logo</title>

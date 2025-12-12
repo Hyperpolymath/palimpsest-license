@@ -302,7 +302,7 @@ riot --validate void-rdf/palimpsest-vocab.ttl
 
 ### Dublin Core
 ```bash
-xmllint --noout --schema http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd \
+xmllint --noout --schema https://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd \
         dublin-core/palimpsest-v0.4-dc.xml
 ```
 

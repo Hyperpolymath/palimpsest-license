@@ -449,7 +449,7 @@ For Semantic Web applications, consent declarations MAY be expressed in RDF/Turt
 ~~~turtle
 @prefix cwcf: <https://palimpsestlicense.org/cwcf/v1#> .
 @prefix schema: <https://schema.org/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcterms: <https://purl.org/dc/terms/> .
 
 <https://example.org/work> a schema:CreativeWork ;
     schema:name "Work Title" ;

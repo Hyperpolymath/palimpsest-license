@@ -654,10 +654,10 @@ CWCF **complements** IPTC:
 **Example**:
 ```json
 {
-  "@context": "http://www.w3.org/ns/odrl.jsonld",
+  "@context": "https://www.w3.org/ns/odrl.jsonld",
   "@type": "Offer",
   "permission": [{
-    "target": "http://example.com/work",
+    "target": "https://example.com/work",
     "action": "reproduce",
     "constraint": [{
       "leftOperand": "purpose",
@@ -692,14 +692,14 @@ ODRL is powerful but complex. Example for "Allow training with attribution":
 
 ```json
 {
-  "@context": "http://www.w3.org/ns/odrl.jsonld",
+  "@context": "https://www.w3.org/ns/odrl.jsonld",
   "@type": "Offer",
   "permission": [{
-    "target": "http://example.com/work",
+    "target": "https://example.com/work",
     "action": "derive",
     "duty": [{
       "action": "attribute",
-      "attributedParty": "http://example.com/creator"
+      "attributedParty": "https://example.com/creator"
     }]
   }]
 }

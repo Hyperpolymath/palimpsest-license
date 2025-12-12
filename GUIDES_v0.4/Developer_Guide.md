@@ -311,7 +311,7 @@ For standalone files (images, audio, documents):
 **Example: JPEG with EXIF/XMP metadata:**
 ```xml
 <!-- XMP metadata embedded in JPEG -->
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+<rdf:RDF xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:palimpsest="https://palimpsest.license/schema/v0.4#">
   <rdf:Description>
     <palimpsest:license>Palimpsest-0.4</palimpsest:license>

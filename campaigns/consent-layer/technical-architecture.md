@@ -78,7 +78,7 @@ This document provides the technical specification for implementing a Consent La
 ```xml
 <rdf:Description rdf:about=""
     xmlns:consent="https://consent-layer.org/ns/"
-    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    xmlns:dc="https://purl.org/dc/elements/1.1/">
   <dc:creator>Jane Doe</dc:creator>
   <dc:rights>Palimpsest License v0.4</dc:rights>
   <consent:required>ai-training</consent:required>
@@ -91,7 +91,7 @@ This document provides the technical specification for implementing a Consent La
 #### PDF (XMP Metadata)
 ```xml
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
-  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:RDF xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <rdf:Description rdf:about=""
         xmlns:consent="https://consent-layer.org/ns/">
       <consent:required>ai-training</consent:required>
@@ -852,7 +852,7 @@ LicenseInfoInFile: PALIMPSEST-0.4
 ### 8.3 With Dublin Core
 
 ```xml
-<rdf:Description rdf:about="http://example.com/work/123">
+<rdf:Description rdf:about="https://example.com/work/123">
   <dc:title>My Novel</dc:title>
   <dc:creator>Jane Doe</dc:creator>
   <dc:date>2025-11-22</dc:date>

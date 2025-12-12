@@ -1,8 +1,8 @@
 {
   "@context": {
-    "dc": "http://purl.org/dc/elements/1.1/",
-    "dcterms": "http://purl.org/dc/terms/",
-    "schema": "http://schema.org/"
+    "dc": "https://purl.org/dc/elements/1.1/",
+    "dcterms": "https://purl.org/dc/terms/",
+    "schema": "https://schema.org/"
   },
   "dc:title": [
     {

@@ -423,7 +423,7 @@ making it unclear which files are covered by the license.
 
 **Example**:
 ```
-Attribution reads: "Licensed under Palimpsest v0.4: http://old-domain.com/license"
+Attribution reads: "Licensed under Palimpsest v0.4: https://old-domain.com/license"
 but old-domain.com no longer exists.
 ```
 

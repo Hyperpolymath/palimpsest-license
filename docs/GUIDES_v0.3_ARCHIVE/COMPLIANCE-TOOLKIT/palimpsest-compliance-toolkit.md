@@ -276,7 +276,7 @@ For Images (XMP):
 XML
 
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
-  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:RDF xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <rdf:Description rdf:about="">
       <palimpsest:license>Palimpsest License v0.3</palimpsest:license>
       <palimpsest:emotional-lineage>Documentary photography of climate displacement</palimpsest:emotional-lineage>
@@ -290,7 +290,7 @@ Voor Afbeeldingen (XMP):
 XML
 
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
-  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:RDF xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <rdf:Description rdf:about="">
       <palimpsest:licentie>Palimpsest Licentie v0.3</palimpsest:licentie>
       <palimpsest:emotionele-afstamming>Documentaire fotografie van klimaatverplaatsing</palimpsest:emotionele-afstamming>
