@@ -1,70 +1,53 @@
-# SPDX-License-Identifier: PMPL-1.0-or-later
-name: GitHub Pages
-
+name: GitHub Pages (Ddraig SSG)
 on:
   push:
-    branches: [ main ]
-    paths:
-      - 'docs/**'
-      - '*.adoc'
-      - '.github/workflows/pages.yml'
+    branches: [main, master]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
 jobs:
   build:
-    name: Build docs for Pages
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    container:
+      image: ghcr.io/stefan-hoeck/idris2-pack@sha256:f0758996a931fb35d9ecb1de273c4d59dabe2a09b433afc7e357f65a08b7e1ff
     steps:
-    
-      - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-
-      - name: Install Asciidoctor
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y asciidoctor
-
+      - name: Checkout Site
+        uses: actions/checkout@v4
+      - name: Checkout Ddraig SSG
+        uses: actions/checkout@v4
+        with:
+          repository: hyperpolymath/ddraig-ssg
+          path: .ddraig-ssg
+      - name: Compile Ddraig
+        working-directory: .ddraig-ssg
+        run: idris2 Ddraig.idr -o ddraig
       - name: Build site
         run: |
-          mkdir -p _site
-          # Simple: build README + docs into _site
-          asciidoctor -D _site README.adoc
-          if [ -d docs ]; then
-            find docs -name '*.adoc' -print0 | xargs -0 -n1 asciidoctor -D _site
+          mkdir -p src
+          if [ ! -f src/index.md ] && [ -f README.md ]; then
+            cp README.md src/index.md
+          elif [ ! -f src/index.md ]; then
+            echo "# ${GITHUB_REPOSITORY}" > src/index.md
           fi
-          cp .nojekyll _site/.nojekyll || true
-
-      - name: Build tooling docs
-        run: |
-          asciidoctor -D _site docs/tooling.adoc
-
+          ./.ddraig-ssg/build/exec/ddraig build src _site https://hyperpolymath.github.io/${GITHUB_REPOSITORY#*/}
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
-
+          path: '_site'
   deploy:
-    name: Deploy to GitHub Pages
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      pages: write
-      id-token: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: build
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
+        uses: actions/deploy-pages@v4
