@@ -10,6 +10,7 @@ on:
     - cron: "0 3 * * 1" # weekly
 
 permissions:
+  actions: read
   contents: read
 
 jobs:
