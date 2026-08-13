@@ -16,6 +16,7 @@ on:
       - 'legal/**'
 
 permissions:
+  actions: read
   contents: read
 
 jobs:

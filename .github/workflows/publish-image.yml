@@ -19,6 +19,7 @@ on:
       - '.github/workflows/publish-image.yml'
   workflow_dispatch: {}
 permissions:
+  actions: read
   contents: read
 jobs:
   build-push:

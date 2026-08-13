@@ -6,6 +6,7 @@ on:
     types: [published]
 
 permissions:
+  actions: read
   contents: write
 
 jobs:
