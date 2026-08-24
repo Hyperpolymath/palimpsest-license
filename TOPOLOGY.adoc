@@ -1,0 +1,97 @@
+== Palimpsest-MPL License (PMPL) — Project Topology
+
+=== System Architecture
+
+....
+                        ┌─────────────────────────────────────────┐
+                        │              LICENSE USER               │
+                        │        (Developer, Artist, Researcher)  │
+                        └───────────────────┬─────────────────────┘
+                                            │ SPDX / Headers
+                                            ▼
+                        ┌─────────────────────────────────────────┐
+                        │           PALIMPSEST-MPL CORE           │
+                        │  ┌───────────┐  ┌───────────────────┐  │
+                        │  │  v1.0     │  │  Ethical Use      │  │
+                        │  │ (Stable)  │  │  (Exhibit A)      │  │
+                        │  └─────┬─────┘  └────────┬──────────┘  │
+                        │        │                 │              │
+                        │  ┌─────▼─────┐  ┌────────▼──────────┐  │
+                        │  │ Provenance│  │  Emotional        │  │
+                        │  │ (Exhibit B)│ │  Lineage          │  │
+                        │  └─────┬─────┘  └────────┬──────────┘  │
+                        └────────│─────────────────│──────────────┘
+                                 │                 │
+                                 ▼                 ▼
+                        ┌─────────────────────────────────────────┐
+                        │           STEWARDSHIP & TOOLS           │
+                        │  ┌───────────┐  ┌───────────────────┐  │
+                        │  │ Governance│  │ Rust Tooling      │  │
+                        │  │ Council   │  │ (pmpl-sign/audit) │  │
+                        │  └─────┬─────┘  └────────┬──────────┘  │
+                        └────────│─────────────────│──────────────┘
+                                 │                 │
+                                 ▼                 ▼
+                        ┌─────────────────────────────────────────┐
+                        │          LEGAL FRAMEWORKS               │
+                        │      (Dutch Law, UK, EU, US)            │
+                        └─────────────────────────────────────────┘
+
+                        ┌─────────────────────────────────────────┐
+                        │          REPO INFRASTRUCTURE            │
+                        │  Justfile Automation  .machine_readable/  │
+                        │  SPDX Specs           0-AI-MANIFEST.a2ml  │
+                        └─────────────────────────────────────────┘
+....
+
+=== Completion Dashboard
+
+....
+COMPONENT                          STATUS              NOTES
+─────────────────────────────────  ──────────────────  ─────────────────────────────────
+LICENSE STAGES
+  v1.0 Stable Release               ██████████ 100%    Production ready
+  Ethical Use (Exhibit A)           ██████████ 100%    Structured framework active
+  Quantum-Safe (Exhibit B)          ██████████ 100%    PQ signatures verified
+  Emotional Lineage Protection      ██████████ 100%    Recognition logic stable
+
+GOVERNANCE & LEGAL
+  Stewardship Council               ██████████ 100%    Governance model active
+  Jurisdictional Analysis           ████████░░  80%    NL/UK/EU/US frameworks verified
+  Translations                      ██████░░░░  60%    Multi-lang versions in progress
+
+TOOLING (RUST)
+  pmpl-sign / pmpl-verify           ██████████ 100%    Provenance chain active
+  pmpl-audit                        ████████░░  80%    Compliance logic verified
+  License Parser (Plasma)           ██████████ 100%    ReScript integration stable
+
+REPO INFRASTRUCTURE
+  Justfile Automation               ██████████ 100%    Standard build/lint tasks
+  .machine_readable/                ██████████ 100%    STATE tracking active
+  Documentation (Guides)            ██████████ 100%    Comprehensive v1.0 docs
+
+─────────────────────────────────────────────────────────────────────────────
+OVERALL:                            ██████████ 100%    v1.0 Fully Stable & Deployed
+....
+
+=== Key Dependencies
+
+....
+Manifesto ──────► PMPL Spec ────────► Exhibit A/B ────────► License Text
+     │               │                   │                    │
+     ▼               ▼                   ▼                    ▼
+SPDX Compliance ──► Rust Tooling ──────► Repository ──────► Legal Proof
+....
+
+=== Update Protocol
+
+This file is maintained by both humans and AI agents. When updating:
+
+[arabic]
+. *After completing a component*: Change its bar and percentage
+. *After adding a component*: Add a new row in the appropriate section
+. *After architectural changes*: Update the ASCII diagram
+. *Date*: Update the `+Last updated+` comment at the top of this file
+
+Progress bars use: `+█+` (filled) and `+░+` (empty), 10 characters wide.
+Percentages: 0%, 10%, 20%, … 100% (in 10% increments).

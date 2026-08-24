@@ -1,0 +1,37 @@
+== PROOF-NEEDS.md — palimpsest-license
+
+=== Current State
+
+* **src/abi/*.idr**: NO
+* *Dangerous patterns*: 1 `+unwrap()+` in Rust tools
+* *LOC*: ~11,800 (Rust tools + license text)
+* *ABI layer*: Missing
+
+=== What Needs Proving
+
+[width="100%",cols="51%,27%,22%",options="header",]
+|===
+|Component |What |Why
+|pmpl-verify |Signature verification is correct (no false positives or
+negatives) |False positive verification accepts tampered licenses
+
+|pmpl-sign |Signing produces valid, verifiable signatures |Invalid
+signatures break downstream verification
+
+|pmpl-audit |Audit correctly identifies all license violations |Missed
+violations create legal exposure
+
+|License text parsing |Parser correctly extracts SPDX identifiers |Wrong
+SPDX extraction causes compliance errors
+|===
+
+=== Recommended Prover
+
+*Idris2* — Create `+src/abi/+` with types for signature verification
+correctness. The sign/verify pair should be proven as inverses.
+
+=== Priority
+
+*LOW* — License tooling. While correctness matters, the blast radius of
+bugs is limited to incorrect license reports rather than security or
+data integrity failures.

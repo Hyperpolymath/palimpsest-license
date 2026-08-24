@@ -1,57 +1,207 @@
-// SPDX-License-Identifier: MPL-2.0
-// Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
-= Palimpsest‑MPL Documentation Hub
-:toc: macro
-:toclevels: 2
+== 🌀 Welkom bij Palimpsest Licentie v0.3 | Welcome to Palimpsest License v0.3
 
-Welcome to the documentation hub for the Palimpsest‑MPL ecosystem.  
-This site provides a structured, narrative‑driven overview of the system’s legal, governance, specification, and contributor layers.
+____
+"`Er zijn momenten dat we oversteken van wat was naar wat zou kunnen
+zijn. Deze licentie is gebouwd voor dat moment.`" _"`There are moments
+we cross from what was to what might be. This license is built for that
+moment.`"_ — _Palimpsest Kern, Clausule 0_
+____
 
-toc::[]
+Een symbolische, tweetalige licentie voor emotioneel complexe, cultureel
+gelaagde en synthetische creatieve werken.
 
-== About Palimpsest‑MPL
+'''''
 
-Palimpsest‑MPL is a provenance‑first, narrative‑aware licensing and governance ecosystem.  
-It integrates legal clarity, ethical‑use principles, and agent‑friendly design into a coherent, extensible framework.
+=== 🌱 Eenvoudige Samenvatting | Plain-Language Summary
 
-== Documentation Structure
+🔎 Click to view simplified summary | 🔎 Klik om een vereenvoudigde
+samenvatting te zien
 
-* **Onboarding** – Start here if you’re new  
-* **Journey Maps** – Conceptual and narrative overviews  
-* **Integration Guides** – How to use Palimpsest in your workflows  
-* **Provenance Diagrams** – Visual explanations of data lineage  
-* **Tooling** – Utilities and automation  
-* **Jurisdictional Notes** – Comparative legal insights  
+Palimpsest protects creative works that carry emotional meaning,
+cultural memory, and symbolic depth. +
+It encourages remixing with care, and asks users to honor the spirit
+behind a work—not just its surface.
 
-== Quick Links
+* You may remix, reuse, and share +
+* You must give credit in symbolic or thematic ways +
+* You must protect the emotional and cultural integrity of the work
 
-* xref:onboarding.adoc[Contributor Onboarding]  
-* xref:journey-map.adoc[Journey Map]  
-* xref:provenance-flow-diagram.adoc[Provenance Flow Diagram]  
-* xref:INTEGRATION.md[Integration Guide]  
-* xref:FAQ.md[FAQ]  
-* xref:tooling/tooling.adoc[Tooling Overview]  
+De Palimpsest Licentie beschermt creatieve werken met emotionele
+betekenis, culturele herinneringen en symbolische diepte. +
+Het moedigt hergebruik aan met zorg, en vraagt gebruikers om de geest
+achter een werk te eren — niet alleen het oppervlak.
 
-== Governance and Legal Layers
+* U mag hermengen, hergebruiken en delen +
+* U moet symbolisch of thematisch credit geven +
+* U moet de emotionele en culturele integriteit behouden
 
-* xref:../governance/GOVERNANCE.adoc[Governance Model]  
-* xref:../legal/[Legal Directory]  
-* xref:../spec/[Specifications]  
+'''''
 
-== Contributing
+=== 🗂️ Inhoudsopgave | Table of Contents
 
-See:
+* link:#wat-is-palimpsest[Wat is Palimpsest?]
+* link:#sleutelkenmerken[Sleutelkenmerken]
+* link:++#juridisch-bereik--talen++[Juridisch Bereik & Talen]
+* link:#repository-navigatie[Repository Navigatie]
+* link:#taal-schakelaar[Taal Schakelaar]
+* link:#bijdragen[Bijdragen]
+* link:#afsluitende-noot[Afsluitende Noot]
 
-* xref:../governance/CONTRIBUTOR_ONBOARDING.adoc[Contributor Onboarding]  
-* xref:../governance/MAINTAINER_REVIEW_CHECKLIST.adoc[Maintainer Review Checklist]  
+'''''
 
-== Community
+=== 🪶 Wat is Palimpsest? | What is Palimpsest?
 
-Use GitHub Discussions for:
+De Palimpsest Licentie beschermt narratieve werken geboren uit:
 
-* Q&A  
-* Ideas  
-* Governance inquiries  
-* Announcements  
+* 💔 Emotionele gewicht (trauma, verdriet, ontwrichting) +
+* 🧬 Culturele complexiteit en remix-afstamming +
+* 🧠 Synthetische realiteiten en atmosferische design +
+* 🧵 Symbolisch verhalenvertellen en samengestelde waarheden
 
-Welcome to the ecosystem.
+Het is speciaal geschikt voor:
+
+* Verhalenvertellers +
+* Journalisten +
+* Coders +
+* Ontwerpers +
+* Kunstenaars die werken over grenzen en geheugen heen
+
+'''''
+
+=== 🔑 Sleutelkenmerken | Key Features
+
+[width="100%",cols="25%,75%",options="header",]
+|===
+|Functie |Beschrijving
+|🎭 Symbolische Toeschrijving |Credit kan direct, indirect, thematisch,
+of omgevingsgericht zijn
+
+|🧠 AGI Compatibiliteit |Beschermt synthetische narratieven en emergente
+AI-outputs
+
+|♿ Toegankelijkheidsethos |Verplicht inclusief ontwerp en formaatkeuzes
+
+|⚖️ Juridische Structuur |Nederlands recht bepaalt interpretatie;
+Schotse rechtbanken handhaven uitvoering
+
+|🔄 Remix Respect |Hergebruik is toegestaan mits symbolische en
+emotionele integriteit behouden blijft
+|===
+
+Alle visuele assets bevatten beschrijvende `+alt+`-tekst voor
+schermlezers.
+
+'''''
+
+=== 🗺️ Juridisch Bereik & Talen | Legal Reach & Language
+
+* 🗣️ Engelse versie: Autoriteit +
+* 🇳🇱 Nederlandse versie: Bindend in Nederland +
+* 📑 Clausulevergelijking in
+link:bilingual-map.md[`+docs/tweetalige-kaart.md+`]
+
+Juridisch kader:
+
+* Toepasselijk Recht: Nederland +
+* Handhavingsforum: Schotland +
+* Arbitrage-ready via UNCITRAL +
+* Clausule 0 stelt symbolische en emotionele precedenten
+
+'''''
+
+=== 📁 Repository Navigatie | Repository Navigation
+
+[width="100%",cols="19%,81%",options="header",]
+|===
+|Map |Beschrijving
+|`+LICENSES/+` |Engelse & Nederlandse licentieteksten
+
+|`+docs/+` |Clausulekaart, ethiek-FAQ, changelog
+
+|`+metadata/+` |JSON-LD machineleesbare blokken
+
+|`+voorbeelden/+` |Vignetten die symbolische bescherming illustreren
+
+|`+voorstellen/+` |Contactbrieven voor licentie-adoptie
+
+|`+embed/+` |HTML, Markdown, en JS-snippets
+
+|`+pers-lobby-kit/+` |Persberichten, manifest, social media snippets, en
+mail-merge templates
+|===
+
+Toegankelijke formaten zijn vereist in alle outreach-materialen.
+
+'''''
+
+=== 🌍 Taal Schakelaar | Language Toggle
+
+🇬🇧 English Version
+
+* link:../LICENSES/Palimpsest-v0.2.en.txt[Full English license text] +
+* link:bilingual-map.md[Clause map] +
+* link:../explainme.md[Explainme primer]
+
+🇳🇱 Nederlandse Versie
+
+* link:../LICENSES/Palimpsest-v0.2.nl.txt[Volledige Nederlandse
+licentietekst] +
+* link:bilingual-map.md[Vergelijkende clausulekaart]
+
+'''''
+
+=== 💌 Bijdragen | Contributing
+
+Palimpsest nodigt uit tot uitbreiding. U kunt:
+
+* 🌍 Vertaal naar nieuwe talen of dialecten +
+* 🎨 Maak ambient attribution-systemen +
+* ✍️ Dien symbolische vignette in (juridisch of poëtisch) +
+* ⚖️ Analyseer symbolisch recht en remix-rechten +
+* ♿ Verbeter toegankelijkheidstaal of -formaten
+
+Open een GitHub issue, start een discussie, of fork de repo om te
+beginnen.
+
+'''''
+
+=== 🧵 Bijdragersrollen | Contributor Roles
+
+[width="100%",cols="24%,76%",options="header",]
+|===
+|Rol |Beschrijving
+|🌍 Vertaler |Lokaliseert licentie naar nieuwe talen
+
+|🎨 Ontwerper |Maakt ambient attribution-systemen
+
+|✍️ Verhalenverteller |Dient symbolische vignetten of remix-voorbeelden
+in
+
+|⚖️ Juridisch Analist |Onderzoekt symbolisch recht en remix-ethiek
+
+|♿ Toegankelijkheidsadvocate |Beoordeelt inclusieve taal en formaten
+|===
+
+'''''
+
+=== 🌀 Afsluitende Noot | Closing Note
+
+Palimpsest is meer dan een licentie. Het is een genaaid belofte: +
+Om onzichtbare erfenissen, hermengede afstammingen, en emotionele
+waarheden te beschermen.
+
+Als uw werk fluistert uit de mist, danst tussen culturen, of weerstand
+biedt aan vervlakking — deze licentie is voor u.
+
+'''''
+
+=== ♿ Toegankelijkheidsverplichting | Accessibility Commitment
+
+Deze site is geoptimaliseerd voor schermlezers, semantische
+duidelijkheid, en cognitieve gemak. +
+We verwelkomen feedback van gehandicapte scheppers, neurodivergente
+lezers, en hermengers van alle formaten.
+
+Palimpsest beschermt niet alleen auteursrecht — maar ook zorg.
+
+link:docs/explainme-accessible.md[image:assets/accessibility-badge.png[Toegankelijkheidsbadge]]
