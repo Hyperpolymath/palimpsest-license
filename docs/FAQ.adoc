@@ -1,0 +1,193 @@
+== Palimpsest-MPL Frequently Asked Questions
+
+=== General Questions
+
+==== What is the Palimpsest-MPL License?
+
+Palimpsest-MPL (PMPL-1.0) is an open source license built on Mozilla
+Public License 2.0, with added provisions for: - Ethical use guidelines
+(Exhibit A) - Post-quantum cryptographic provenance (Exhibit B)
+
+It’s designed for the age of AI and quantum computing while remaining
+compatible with the established open source ecosystem.
+
+==== Why "`Palimpsest`"?
+
+A palimpsest is a manuscript where earlier writing has been erased and
+overwritten, but traces of the original remain visible. This metaphor
+captures how creative works accumulate layers of contribution and
+meaning over time. The license honors this layered nature of
+collaborative creation.
+
+==== How is it different from PMPL-1.0-or-later?
+
+The base legal terms are identical to PMPL-1.0-or-later. PMPL-1.0 adds:
+1. *Ethical use guidelines* - Community norms around attribution,
+cultural sensitivity, and AI use 2. *Quantum-safe provenance* - Optional
+cryptographic signatures using post-quantum algorithms 3. *Emotional
+lineage* - Recognition of cultural and narrative meaning in creative
+works
+
+==== Is it legally enforceable?
+
+The PMPL-1.0-or-later base is fully enforceable. The ethical use
+guidelines (Exhibit A) are primarily community norms enforced through
+reputation and community standards rather than litigation.
+
+=== Using PMPL-Licensed Software
+
+==== Can I use PMPL-licensed code in my project?
+
+Yes. You can use PMPL-licensed code in: - Personal projects - Commercial
+products - Open source projects - Proprietary software (with conditions)
+
+==== Can I use it commercially?
+
+Yes. Commercial use is permitted. The ethical use exhibit asks
+commercial users to: - Acknowledge the ethical guidelines - Act in good
+faith - Support communities whose work enables their products
+
+==== Do I need to open source my entire project?
+
+No. PMPL-1.0 has file-level copyleft like PMPL-1.0-or-later: - Modified
+PMPL files must remain under PMPL - Your own files can be under any
+license - You can combine PMPL code with proprietary code in separate
+files
+
+==== Can I use it for AI training?
+
+Yes, with expectations: - Document the training use - Don’t claim AI
+outputs have the creative authority of the training data - Preserve
+attribution through your pipeline - Consider opt-out mechanisms
+
+=== Creating PMPL-Licensed Software
+
+==== How do I apply PMPL to my project?
+
+[arabic]
+. Add `+PALIMPSEST-MPL-1.0.txt+` as your LICENSE file
+. Add SPDX headers to source files:
+`+SPDX-License-Identifier: PMPL-1.0+`
+. Include copyright notices in headers
+. Optionally add provenance signatures
+
+==== Do I need to sign my commits?
+
+Quantum-safe signatures are optional but recommended. They: - Prove
+authorship cryptographically - Create an audit trail - Remain secure
+against quantum computers - Help with long-term attribution
+
+==== What about existing contributors?
+
+If relicensing an existing project: 1. Get explicit consent from all
+contributors 2. Document the license change 3. Keep attribution for all
+contributions 4. Consider a CLA for ongoing contributions
+
+=== Compatibility
+
+==== Is it compatible with GPL?
+
+PMPL-1.0 is compatible with GPL 2.0+ and LGPL 2.1+ as secondary licenses
+(per PMPL-1.0-or-later Section 3.3). This means: - GPL/LGPL code can be
+combined with PMPL code - The combined work follows GPL/LGPL terms - The
+original PMPL files remain available under PMPL
+
+==== Is it compatible with Apache 2.0?
+
+Yes. PMPL-1.0 and Apache 2.0 are compatible: - Can be combined in the
+same project - Apache 2.0 code remains under Apache 2.0 - PMPL code
+remains under PMPL
+
+==== Is it compatible with MIT/BSD?
+
+Yes. MIT and BSD code can be: - Combined with PMPL code - Kept under
+their original licenses - Used in the same project
+
+=== Ethical Use
+
+==== What is "`emotional lineage`"?
+
+Emotional lineage refers to the cultural, narrative, and symbolic
+meaning embedded in creative works. This includes: - Protest traditions
+and social movements - Cultural heritage and community stories - Trauma
+narratives and lived experiences - Spiritual and religious content
+
+The license asks users to respect this context, not just the code.
+
+==== Are the ethical guidelines legally binding?
+
+The guidelines in Exhibit A are primarily community norms: - They set
+expectations for ethical behavior - They’re enforced through community
+reputation - Serious violations could potentially be actionable under
+related laws - The Stewardship Council may issue public statements about
+violations
+
+==== What if I disagree with the ethical guidelines?
+
+The guidelines represent community consensus. If you disagree: 1. You
+can still use the software (guidelines are voluntary) 2. Submit feedback
+via the project repository 3. Propose alternative approaches through the
+governance process 4. Fork the project under PMPL-1.0-or-later if
+guidelines conflict with your needs
+
+=== Quantum-Safe Provenance
+
+==== Do I need to understand quantum computing?
+
+No. The cryptographic requirements are implemented in tools: - Use
+`+pmpl-sign+` to sign files - Use `+pmpl-verify+` to verify signatures -
+The tools handle the cryptography
+
+==== When will quantum computers break current signatures?
+
+Current estimates suggest: - 2030-2040 for cryptographically relevant
+quantum computers - Some recommend "`harvest now, decrypt later`"
+protection today - PMPL signatures are designed to remain valid for 50+
+years
+
+==== What if the algorithms are broken?
+
+The Stewardship Council maintains the approved algorithm list: - New
+algorithms can be added as needed - Deprecation follows a 2-year notice
+period - Signature format supports algorithm agility
+
+=== Governance
+
+==== Who maintains the license?
+
+The Palimpsest Stewardship Council: - 3 Creator Representatives - 2
+Legal Experts - 1 Technologist - 1 Cultural Heritage Advocate
+
+==== How can I participate?
+
+Ways to contribute: - Submit issues and feedback via GitHub - Join
+community discussions - Propose amendments through the governance
+process - Apply for Council membership when positions open
+
+==== Can the license change?
+
+Future versions may be published: - You can always use software under
+the version it was released under - Or any later version (your choice) -
+Major changes require Council supermajority and community review
+
+=== Getting Help
+
+==== Where can I ask questions?
+
+* *GitHub Issues*: Technical questions and bug reports
+* *GitHub Discussions*: Broader topics and community conversation
+* *Email*: Contact the Council for sensitive matters
+
+==== Where is the official license text?
+
+* *Repository*: https://github.com/hyperpolymath/palimpsest-license
+* *License*: `+legal/PALIMPSEST-MPL-1.0.txt+`
+* *Exhibits*: `+legal/exhibits/+`
+
+==== Who do I contact about violations?
+
+[arabic]
+. Try to resolve directly with the violator first
+. Contact the Stewardship Council for guidance
+. Seek legal counsel for serious violations
+. Document everything for potential enforcement

@@ -1,75 +1,32 @@
-// SPDX-License-Identifier: MPL-2.0
-// Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
-= Changelog
+== Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to `+palimpsest-license+` will be documented in this
+file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+This file is generated from conventional commits by the
+https://github.com/hyperpolymath/standards/blob/main/.github/workflows/changelog-reusable.yml[`+changelog-reusable.yml+`]
+workflow (`+hyperpolymath/standards#206+`). Adopt the workflow in this
+repo’s CI to keep this file in sync automatically — see
+https://github.com/hyperpolymath/standards/blob/main/templates/cliff.toml[`+templates/cliff.toml+`]
+for the canonical config.
 
-== [1.0.0] - 2026-06-25
+The format follows https://keepachangelog.com/en/1.1.0/[Keep a
+Changelog]; this project aims to follow
+https://semver.org/spec/v2.0.0.html[Semantic Versioning].
 
-=== Added
-- First stable release: Palimpsest-MPL License 1.0 (PMPL-1.0) declared canonical (MPL-2.0 base + ethical-use/provenance Exhibits A & B).
+=== [Unreleased]
 
-=== Note
-- 2.0 is in DRAFT (unreleased): revises toward OSD-compatibility (ethical use -> optional Community Covenant). See legal/PALIMPSEST-MPL-2.0.txt and legal/PALIMPSEST-MPL-2.0-DRAFT.txt.
-- Version metadata reconciled: STATE.a2ml/CHANGELOG/README now agree on 1.0 as current stable.
+==== CI
 
+* ci: redistribute concurrency-cancel guard to read-only check workflows
+(#99)
 
-== [0.4.0] - 2025-12-09
+=== Pre-history
 
-=== Added
-- **Professional Integration Guides** for archivists, museum curators, educators, translators, psychologists, and marginalised communities
-- **Research Documents** covering OCanren logic programming, neurosymbolic AI architecture, PKP integration, ambient computing, and trans-perceptual representation
-- **Philosophy Documentation** articulating the founding question ("history written by winners") and blockchain's role in immutable consent
-- **Platform Infrastructure**: Nix flake, Guix package definition, Wolfi container, Nickel configuration schema
-- **Document Review System** for tracking freshness and consistency across the repository
-- **Podcast Series Plan** ("Layers") for public outreach
-- **Funding Strategy** and target organisation research
+Prior commits to this file’s introduction are recorded in git history
+but not formally classified into Keep-a-Changelog sections. To backfill,
+run `+git cliff -o CHANGELOG.md+` locally using the canonical
+https://github.com/hyperpolymath/standards/blob/main/templates/cliff.toml[`+cliff.toml+`]
+— this is one-shot mechanical work.
 
-=== Changed
-- **Language Consolidation**: OCaml as primary implementation language (Melange for browser, OCanren for logic)
-- **CI/CD Overhaul**: Workflows made resilient with conditional execution and graceful degradation
-- **Repository Structure**: Major cleanup following APM-level project management framework
-- **Archived**: Elixir experiment moved to ARCHIVE/elixir-experiment/
-
-=== Fixed
-- Merge conflict resolution for PR #41
-- GitHub/GitLab repository reconciliation (GitHub now canonical)
-- CI workflow failures blocking PRs
-
-=== Removed
-- Elixir/Ecto schemas (archived, superseded by OCaml)
-- Redundant workflow files (release.yml, jekyll-gh-pages.yml)
-
-== [0.3.0] - 2025-04-05
-
-=== Added
-- **Full Dutch Translation** for all core legal texts and documentation.
-- **AI Governance Audits** clause to the AGI Training Consent Template.
-- **Collective Licensing & Cultural Heritage** safeguards and compliance protocols.
-- Explicit protections and definitions for **Autonomous, Agentic, Ambient, NI, and QAI systems**.
-- **AIBDP Compliance Clause**, making a Procedural Breach of AIBDP a direct breach of the license.
-- `GOVERNANCE.md` file outlining the project's decision-making process.
-
-=== Changed
-- **Restructured Repository** for better clarity and separation of concerns.
-- **AGI Consent Template** updated to be a comprehensive, standalone legal document.
-- Refined the legal language in the core license to improve enforceability under Dutch/Scottish law.
-
-== [0.2.0] - 2024-12-15
-
-=== Added
-- **Initial Dutch Translations** for key documents.
-- `explainme.md` and `jurisdiction-comparison.md`.
-- WCAG 2.3 compliance for all web-based assets.
-
-=== Changed
-- Formalized the Dutch Law + Scottish Courts legal framework.
-
-== [0.1.0] - 2024-08-01
-
-=== Added
-- Initial release of the Palimpsest License (v0.1).
-- Core principles of symbolic attribution and emotional integrity.
+'''''
